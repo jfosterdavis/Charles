@@ -11,7 +11,7 @@ import UIKit
 class DataViewController: UIViewController {
 
     @IBOutlet weak var dataLabel: UILabel!
-    var dataObject: String = ""
+    var dataObject: Character = Character(name: "Blank Character")
 
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class DataViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.dataLabel!.text = dataObject
+        self.dataLabel!.text = dataObject.name
     }
 
 

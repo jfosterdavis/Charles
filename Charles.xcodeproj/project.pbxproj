@@ -19,6 +19,11 @@
 		F607C8B11EBFC96500651FAD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = F607C8AF1EBFC96500651FAD /* README.md */; };
 		F607C8B21EBFC96500651FAD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F607C8B01EBFC96500651FAD /* LICENSE */; };
 		F607C8B41EBFC97500651FAD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F607C8B31EBFC97500651FAD /* .gitignore */; };
+		F607C8BA1EBFD41100651FAD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8B91EBFD41100651FAD /* Character.swift */; };
+		F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BB1EBFD65F00651FAD /* Phrase.swift */; };
+		F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BD1EBFD82700651FAD /* Subphrase.swift */; };
+		F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BF1EBFD8D800651FAD /* Slot.swift */; };
+		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,11 @@
 		F607C8AF1EBFC96500651FAD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F607C8B01EBFC96500651FAD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F607C8B31EBFC97500651FAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F607C8B91EBFD41100651FAD /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		F607C8BB1EBFD65F00651FAD /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
+		F607C8BD1EBFD82700651FAD /* Subphrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subphrase.swift; sourceTree = "<group>"; };
+		F607C8BF1EBFD8D800651FAD /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
+		F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +118,11 @@
 		F607C87C1EBFC6E600651FAD /* Charles */ = {
 			isa = PBXGroup;
 			children = (
+				F607C8B71EBFD3C900651FAD /* Model */,
+				F607C8B81EBFD3CE00651FAD /* View */,
 				F607C87D1EBFC6E600651FAD /* AppDelegate.swift */,
-				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
-				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
-				F607C8831EBFC6E600651FAD /* ModelController.swift */,
-				F607C8851EBFC6E600651FAD /* Main.storyboard */,
+				F607C8B61EBFD3BD00651FAD /* Controller */,
 				F607C8881EBFC6E600651FAD /* Assets.xcassets */,
-				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
 				F607C88D1EBFC6E600651FAD /* Info.plist */,
 			);
 			path = Charles;
@@ -146,6 +154,37 @@
 				F607C8B01EBFC96500651FAD /* LICENSE */,
 			);
 			name = Admin;
+			sourceTree = "<group>";
+		};
+		F607C8B61EBFD3BD00651FAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
+				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
+				F607C8831EBFC6E600651FAD /* ModelController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F607C8B71EBFD3C900651FAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */,
+				F607C8B91EBFD41100651FAD /* Character.swift */,
+				F607C8BB1EBFD65F00651FAD /* Phrase.swift */,
+				F607C8BD1EBFD82700651FAD /* Subphrase.swift */,
+				F607C8BF1EBFD8D800651FAD /* Slot.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F607C8B81EBFD3CE00651FAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F607C8851EBFC6E600651FAD /* Main.storyboard */,
+				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +327,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */,
+				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
+				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
+				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
+				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
+				F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
