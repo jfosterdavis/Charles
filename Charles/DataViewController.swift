@@ -25,11 +25,9 @@ class DataViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var textUtterance = AVSpeechUtterance(string: "")
     
-    
-    
     var dataObject: Character = Character(name: "Blank Character")
     var currentPhrase: Phrase!
-
+    var currentSubphraseIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,24 +46,28 @@ class DataViewController: UIViewController {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject.name
         
-        
-        
+        reloadButtons()
+    }
+    
+    func reloadButtons() {
         //1. get a random phrase from the character
-        guard let currentPhrase = dataObject.selectRandomPhrase() else {
+        currentPhrase = dataObject.selectRandomPhrase()
+        guard currentPhrase != nil  else {
             //TODO: handle nil returned for random phrase
-            print("Random phrase returned")
+            print("Nil phrase returned")
             return
         }
         
         //2. load the buttons
         removeAndReloadButtons(from: currentPhrase)
-        
     }
 
+    /// creates a new button with the color indicated by the given Slot
     func createButton(from slot: Slot) -> UIButton {
         let newButton = UIButton(type: .system)
         newButton.backgroundColor = slot.color
         newButton.setTitle("", for: .normal)
+        newButton.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
         return newButton
     }
     
@@ -130,38 +132,40 @@ class DataViewController: UIViewController {
     }
     
     @IBAction func buttonPress(_ sender: UIButton) {
-        //2.
+        //2. Play the current subphrase with the tone of the pressed button.
         
+        var sendingButton: UIButton?
         
-        if sender == button1 {
-            let toneToSpeak: Float = dataObject.phrases![0].slots![0].tone
-            let subphraseToSpeak: String = dataObject.phrases![0].subphrases![0].words
-            
-            textUtterance = AVSpeechUtterance(string: subphraseToSpeak)
-            textUtterance.rate = 0.3
-            textUtterance.pitchMultiplier = toneToSpeak
-            synth.speak(textUtterance)
+        //prepare the subphrase.  if it is gone too far, reset
+        if currentSubphraseIndex >= currentPhrase.subphrases!.count {
+            currentSubphraseIndex = 0
         }
         
-        if sender == button2 {
-            let toneToSpeak: Float = dataObject.phrases![0].slots![1].tone
-            let subphraseToSpeak: String = dataObject.phrases![0].subphrases![1].words
-            
-            textUtterance = AVSpeechUtterance(string: subphraseToSpeak)
-            textUtterance.rate = 0.3
-            textUtterance.pitchMultiplier = toneToSpeak
-            synth.speak(textUtterance)
+        //find the button that was pressed
+        for button in currentButtons {
+            if sender == button {
+                sendingButton = button
+            }
         }
         
-        if sender == button3 {
-            let toneToSpeak: Float = dataObject.phrases![0].slots![2].tone
-            let subphraseToSpeak: String = dataObject.phrases![1].subphrases![2].words
-            
-            textUtterance = AVSpeechUtterance(string: subphraseToSpeak)
-            textUtterance.rate = 0.3
-            textUtterance.pitchMultiplier = toneToSpeak
-            synth.speak(textUtterance)
+        guard sendingButton != nil else {
+            //TODO: handle nil
+            return
         }
+        
+        //prepare to speak
+        let toneToSpeak: Float = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+        let subphraseToSpeak: String = currentPhrase.subphrases![currentSubphraseIndex].words
+        textUtterance = AVSpeechUtterance(string: subphraseToSpeak)
+        textUtterance.rate = 0.3
+        textUtterance.pitchMultiplier = toneToSpeak
+        
+        //speak
+        synth.speak(textUtterance)
+        
+        //iterate the subphrase
+        
+        currentSubphraseIndex += 1
         
     }
 
