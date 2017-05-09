@@ -24,6 +24,7 @@
 		F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BD1EBFD82700651FAD /* Subphrase.swift */; };
 		F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BF1EBFD8D800651FAD /* Slot.swift */; };
 		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
+		F607C8C51EC13C5400651FAD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F607C8C41EC13C5400651FAD /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F607C8BD1EBFD82700651FAD /* Subphrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subphrase.swift; sourceTree = "<group>"; };
 		F607C8BF1EBFD8D800651FAD /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDictionary.swift; sourceTree = "<group>"; };
+		F607C8C41EC13C5400651FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F607C8C51EC13C5400651FAD /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,7 @@
 				F607C8951EBFC6E600651FAD /* CharlesTests */,
 				F607C8A01EBFC6E600651FAD /* CharlesUITests */,
 				F607C87B1EBFC6E600651FAD /* Products */,
+				F607C8C31EC13C5400651FAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +189,14 @@
 				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		F607C8C31EC13C5400651FAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F607C8C41EC13C5400651FAD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -588,6 +600,7 @@
 				F607C8A81EBFC6E600651FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F607C8A91EBFC6E600651FAD /* Build configuration list for PBXNativeTarget "CharlesTests" */ = {
 			isa = XCConfigurationList;
@@ -596,6 +609,7 @@
 				F607C8AB1EBFC6E600651FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F607C8AC1EBFC6E600651FAD /* Build configuration list for PBXNativeTarget "CharlesUITests" */ = {
 			isa = XCConfigurationList;
@@ -604,6 +618,7 @@
 				F607C8AE1EBFC6E600651FAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

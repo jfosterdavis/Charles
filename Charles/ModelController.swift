@@ -42,9 +42,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //add subprases to the phrase
         phrase1.subphrases = [subphrase1, subphrase2, subphrase3]
         //slots
-        var slot1 = Slot(tone: 2700, color: .blue)
-        var slot2 = Slot(tone: 2600, color: .black)
-        var slot3 = Slot(tone: 2500, color: .green)
+        var slot1 = Slot(tone: 1.0, color: .blue)
+        var slot2 = Slot(tone: 1.15, color: .black)
+        var slot3 = Slot(tone: 1.4, color: .green)
         //add slots to phrase
         phrase1.slots = [slot1, slot2, slot3]
         
@@ -52,7 +52,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //subphrase
         subphrase1 = Subphrase(words: "I'm", audio: nil)
         subphrase2 = Subphrase(words: "a", audio: nil)
-        subphrase3 = Subphrase(words: "playa", audio: nil)
+        subphrase3 = Subphrase(words: "playah", audio: nil)
         //add subprases to the phrase
         phrase2.subphrases = [subphrase1, subphrase2, subphrase3]
         //slots

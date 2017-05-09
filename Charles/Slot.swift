@@ -18,11 +18,11 @@ import UIKit
  */
 struct Slot {
     
-    var tone: Int! //the frequency the words should be spoken in
+    var tone: Float! //the frequency the words should be spoken in
     var color: UIColor //color of the region of the slot
     
     // MARK: Initializers
-    init(tone: Int, color: UIColor) {
+    init(tone: Float, color: UIColor) {
         self.tone = tone
         self.color = color
     }
