@@ -96,6 +96,7 @@
                         <outlet property="button1" destination="pmn-4x-XHC" id="JKj-oi-ZOy"/>
                         <outlet property="button2" destination="eOi-nQ-4dM" id="1jI-wi-TcA"/>
                         <outlet property="button3" destination="ufb-l7-FgI" id="uJf-Mc-eAT"/>
+                        <outlet property="buttonStackView" destination="W3d-oo-jUg" id="4fO-7f-NZF"/>
                         <outlet property="dataLabel" destination="cF2-Le-7mQ" id="3EH-BK-JV6"/>
                     </connections>
                 </viewController>

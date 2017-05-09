@@ -25,6 +25,7 @@
 		F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BF1EBFD8D800651FAD /* Slot.swift */; };
 		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
 		F607C8C51EC13C5400651FAD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F607C8C41EC13C5400651FAD /* AVFoundation.framework */; };
+		F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C61EC250BA00651FAD /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F607C8BF1EBFD8D800651FAD /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDictionary.swift; sourceTree = "<group>"; };
 		F607C8C41EC13C5400651FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F607C8C61EC250BA00651FAD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				F607C8B61EBFD3BD00651FAD /* Controller */,
 				F607C8881EBFC6E600651FAD /* Assets.xcassets */,
 				F607C88D1EBFC6E600651FAD /* Info.plist */,
+				F607C8C61EC250BA00651FAD /* Utilities.swift */,
 			);
 			path = Charles;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */,
 				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
+				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,

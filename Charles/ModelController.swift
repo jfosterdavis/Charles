@@ -56,14 +56,28 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //add subprases to the phrase
         phrase2.subphrases = [subphrase1, subphrase2, subphrase3]
         //slots
-        slot1 = Slot(tone: 2700, color: .blue)
-        slot2 = Slot(tone: 2600, color: .black)
-        slot3 = Slot(tone: 2500, color: .green)
+        slot1 = Slot(tone: 1.0, color: .red)
+        slot2 = Slot(tone: 1.15, color: .yellow)
+        slot3 = Slot(tone: 1.6, color: .brown)
         //add slots to phrase
         phrase2.slots = [slot1, slot2, slot3]
         
+        let phrase3 = Phrase(name: "I'm a playa and a pimp", likelihood: 10)
+        //subphrase
+        subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        subphrase3 = Subphrase(words: "playah and a pimp", audioFilePath: nil)
+        //add subprases to the phrase
+        phrase3.subphrases = [subphrase1, subphrase2, subphrase3]
+        //slots
+        slot1 = Slot(tone: 1.0, color: .orange)
+        slot2 = Slot(tone: 1.15, color: .yellow)
+        //slot3 = Slot(tone: 1.6, color: .green)
+        //add slots to phrase
+        phrase3.slots = [slot1, slot2]
+        
         //add phrases to character
-        charles.phrases = [phrase1, phrase2]
+        charles.phrases = [phrase1, phrase2, phrase3]
         
         //add character to pageData
         pageData = [charles]
