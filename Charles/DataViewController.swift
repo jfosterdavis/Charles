@@ -139,6 +139,7 @@ class DataViewController: UIViewController {
         //prepare the subphrase.  if it is gone too far, reset
         if currentSubphraseIndex >= currentPhrase.subphrases!.count {
             currentSubphraseIndex = 0
+            
         }
         
         //find the button that was pressed
@@ -166,6 +167,14 @@ class DataViewController: UIViewController {
         //iterate the subphrase
         
         currentSubphraseIndex += 1
+        
+        //reload another phrase if this was the last word
+        if currentSubphraseIndex >= currentPhrase.subphrases!.count {
+            currentSubphraseIndex = 0
+            
+            //reload a different phrase
+            reloadButtons()
+        }
         
     }
 
