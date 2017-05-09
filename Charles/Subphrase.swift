@@ -18,11 +18,11 @@ import Foundation
 struct Subphrase {
     
     var words: String! //the words of the subphrase
-    var audio: String? //an audio file.  If this is not present the words will be spoken by a computer.
+    var audioFilePath: String? //an audio file.  If this is not present the words will be spoken by a computer.
     
     // MARK: Initializers
-    init(words: String, audio: String?){
+    init(words: String, audioFilePath: String?){
         self.words = words
-        self.audio = audio
+        self.audioFilePath = audioFilePath
     }
 }

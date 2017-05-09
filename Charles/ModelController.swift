@@ -36,9 +36,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //create some test phrases
         let phrase1 = Phrase(name: "I'm a pimp", likelihood: 50)
         //subphrase
-        var subphrase1 = Subphrase(words: "I'm", audio: nil)
-        var subphrase2 = Subphrase(words: "a", audio: nil)
-        var subphrase3 = Subphrase(words: "pimp", audio: nil)
+        var subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        var subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        var subphrase3 = Subphrase(words: "pimp", audioFilePath: nil)
         //add subprases to the phrase
         phrase1.subphrases = [subphrase1, subphrase2, subphrase3]
         //slots
@@ -50,9 +50,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         
         let phrase2 = Phrase(name: "I'm a playa", likelihood: 50)
         //subphrase
-        subphrase1 = Subphrase(words: "I'm", audio: nil)
-        subphrase2 = Subphrase(words: "a", audio: nil)
-        subphrase3 = Subphrase(words: "playah", audio: nil)
+        subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        subphrase3 = Subphrase(words: "playah", audioFilePath: nil)
         //add subprases to the phrase
         phrase2.subphrases = [subphrase1, subphrase2, subphrase3]
         //slots
