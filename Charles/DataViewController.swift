@@ -12,11 +12,12 @@ import AVFoundation
 class DataViewController: UIViewController {
 
     @IBOutlet weak var dataLabel: UILabel!
-    
+
+    //page control
+    @IBOutlet weak var pageControl: UIPageControl!
     var currentPage = 0
     var numPages = 1
     
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -42,6 +43,7 @@ class DataViewController: UIViewController {
         //add placeholder buttons to the array of buttons
         currentButtons = [button1, button2, button3]
         
+        //set the page control
         self.pageControl.numberOfPages = numPages
         self.pageControl.currentPage = currentPage
     }
