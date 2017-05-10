@@ -13,6 +13,10 @@ class DataViewController: UIViewController {
 
     @IBOutlet weak var dataLabel: UILabel!
     
+    var currentPage = 0
+    var numPages = 1
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
@@ -33,8 +37,13 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //delegates
+        
         //add placeholder buttons to the array of buttons
         currentButtons = [button1, button2, button3]
+        
+        self.pageControl.numberOfPages = numPages
+        self.pageControl.currentPage = currentPage
     }
 
     override func didReceiveMemoryWarning() {

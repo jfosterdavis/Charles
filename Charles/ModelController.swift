@@ -34,7 +34,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         let charles = Character(name: "Charles")
         
         //create some test phrases
-        let phrase1 = Phrase(name: "I'm a pimp", likelihood: 50)
+        var phrase1 = Phrase(name: "I'm a pimp", likelihood: 50)
         //subphrase
         var subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
         var subphrase2 = Subphrase(words: "a", audioFilePath: nil)
@@ -48,7 +48,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //add slots to phrase
         phrase1.slots = [slot1, slot2, slot3]
         
-        let phrase2 = Phrase(name: "I'm a playa", likelihood: 50)
+        var phrase2 = Phrase(name: "I'm a playa", likelihood: 50)
         //subphrase
         subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
         subphrase2 = Subphrase(words: "a", audioFilePath: nil)
@@ -62,7 +62,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //add slots to phrase
         phrase2.slots = [slot1, slot2, slot3]
         
-        let phrase3 = Phrase(name: "I'm a playa and a pimp", likelihood: 10)
+        var phrase3 = Phrase(name: "I'm a playa and a pimp", likelihood: 10)
         //subphrase
         subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
         subphrase2 = Subphrase(words: "a", audioFilePath: nil)
@@ -79,8 +79,57 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         //add phrases to character
         charles.phrases = [phrase1, phrase2, phrase3]
         
+        //create another test character
+        let charles2 = Character(name: "Charles 2")
+        
+        //create some test phrases
+        phrase1 = Phrase(name: "I'm a pimp", likelihood: 50)
+        //subphrase
+        subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        subphrase3 = Subphrase(words: "pimp 2", audioFilePath: nil)
+        //add subprases to the phrase
+        phrase1.subphrases = [subphrase1, subphrase2, subphrase3]
+        //slots
+        slot1 = Slot(tone: 1.0, color: .blue)
+        slot2 = Slot(tone: 1.15, color: .black)
+        slot3 = Slot(tone: 1.4, color: .green)
+        //add slots to phrase
+        phrase1.slots = [slot1, slot2, slot3]
+        
+        phrase2 = Phrase(name: "I'm a playa", likelihood: 50)
+        //subphrase
+        subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        subphrase3 = Subphrase(words: "playah 2", audioFilePath: nil)
+        //add subprases to the phrase
+        phrase2.subphrases = [subphrase1, subphrase2, subphrase3]
+        //slots
+        slot1 = Slot(tone: 1.0, color: .red)
+        slot2 = Slot(tone: 1.15, color: .yellow)
+        slot3 = Slot(tone: 1.6, color: .brown)
+        //add slots to phrase
+        phrase2.slots = [slot1, slot2, slot3]
+        
+        phrase3 = Phrase(name: "I'm a playa and a pimp 2", likelihood: 50)
+        //subphrase
+        subphrase1 = Subphrase(words: "I'm", audioFilePath: nil)
+        subphrase2 = Subphrase(words: "a", audioFilePath: nil)
+        subphrase3 = Subphrase(words: "playah and a pimp 2", audioFilePath: nil)
+        //add subprases to the phrase
+        phrase3.subphrases = [subphrase1, subphrase2, subphrase3]
+        //slots
+        slot1 = Slot(tone: 1.0, color: .orange)
+        slot2 = Slot(tone: 1.15, color: .yellow)
+        //slot3 = Slot(tone: 1.6, color: .green)
+        //add slots to phrase
+        phrase3.slots = [slot1, slot2]
+        
+        //add phrases to character
+        charles2.phrases = [phrase1, phrase2, phrase3]
+        
         //add character to pageData
-        pageData = [charles]
+        pageData = [charles, charles2]
         
     }
 
@@ -93,6 +142,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         // Create a new view controller and pass suitable data.
         let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
         dataViewController.dataObject = self.pageData[index]
+        dataViewController.currentPage = index
+        dataViewController.numPages = self.pageData.count
+        
         return dataViewController
     }
 
@@ -109,8 +161,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         if (index == 0) || (index == NSNotFound) {
             return nil
         }
-        
+            
         index -= 1
+        
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
 
@@ -124,6 +177,8 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         if index == self.pageData.count {
             return nil
         }
+        
+        
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
 
