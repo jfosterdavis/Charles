@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
-class DataViewController: UIViewController {
+class DataViewController: CoreDataViewController {
 
     @IBOutlet weak var dataLabel: UILabel!
 
@@ -32,6 +33,14 @@ class DataViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
     var audioEngine: AVAudioEngine!
     
+    //CoreData
+    var keyCurrentScore = "CurrentScore"
+    
+    // MARK: Score
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    
     var dataObject: Character!
     var currentPhrase: Phrase!
     var currentSubphraseIndex = 0
@@ -43,7 +52,11 @@ class DataViewController: UIViewController {
         //audio
         audioEngine = AVAudioEngine()
         
+        //setup CoreData
+        _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
         
+        //setup the score
+        refreshScore()
         
         //delegates
         
@@ -230,11 +243,22 @@ class DataViewController: UIViewController {
         if currentSubphraseIndex >= currentPhrase.subphrases!.count {
             currentSubphraseIndex = 0
             
+            //give them some points for finishing a phrase
+            setCurrentScore(newScore: getCurretScore() + 1)
+            
+            //update the score
+            refreshScore()
+            
             //reload a different phrase
             reloadButtons()
         }
         
     }
+    
+    /******************************************************/
+    /*******************///MARK: Audio Functions
+    /******************************************************/
+
     
     func resetAudioEngineAndPlayer() {
         //audioPlayer.stop()
@@ -251,6 +275,76 @@ class DataViewController: UIViewController {
         
         //speak
         synth.speak(textUtterance)
+    }
+
+    /******************************************************/
+    /*******************///MARK: Scoring
+    /******************************************************/
+
+    func refreshScore() {
+        scoreLabel.text = String(describing: getCurretScore())
+    }
+    
+    
+    /******************************************************/
+    /*******************///MARK: Core Data functions
+    /******************************************************/
+    
+    /**
+     get the current score, if there is not a score record, make one at 0
+     */
+    func getCurretScore() -> Int {
+        guard let fc = frcDict[keyCurrentScore] else {
+            return -1
+        
+        }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+        
+            return -1
+        }
+        
+        if (fc.sections?.count)! == 0 {
+        
+            print("No CurrentScore exists.  Creating.")
+            let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            
+            return Int(newScore.value)
+        } else {
+            
+            let score = Int(currentScores[0].value)
+            
+            //if didn't find at end of loop, must not be an entry, so level 0
+            return score
+        }
+        
+        
+    }
+    
+    /// sets the current score, returns the newly set score
+    func setCurrentScore(newScore: Int) -> Int {
+        guard let fc = frcDict[keyCurrentScore] else {
+            return -1
+            
+        }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+            return -1
+        }
+        
+        if (fc.sections?.count)! == 0  {
+            print("No CurrentScore exists.  Creating.")
+            let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            currentScore.value = Int64(newScore)
+            
+            return Int(currentScore.value)
+        } else {
+            //set score for the first element
+            currentScores[0].value = Int64(newScore)
+            
+            return Int(currentScores[0].value)
+        }
+
     }
 
 }

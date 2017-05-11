@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F60327AB1EC4143300493DC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F607C8C41EC13C5400651FAD /* AVFoundation.framework */; };
 		F60327AD1EC4188200493DC3 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = F60327AC1EC4188200493DC3 /* Audio */; };
+		F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */; };
+		F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */; };
+		F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B31EC51F3200493DC3 /* CoreDataStack.swift */; };
 		F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87D1EBFC6E600651FAD /* AppDelegate.swift */; };
 		F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87F1EBFC6E600651FAD /* RootViewController.swift */; };
 		F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
@@ -49,8 +52,11 @@
 
 /* Begin PBXFileReference section */
 		F60327AC1EC4188200493DC3 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Audio; path = Charles/Audio; sourceTree = "<group>"; };
+		F60327AF1EC51DDB00493DC3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		F60327B31EC51F3200493DC3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F607C87A1EBFC6E600651FAD /* Charles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charles.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F607C87D1EBFC6E600651FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F607C87D1EBFC6E600651FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Charles/AppDelegate.swift; sourceTree = "<group>"; };
 		F607C87F1EBFC6E600651FAD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		F607C8811EBFC6E600651FAD /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		F607C8831EBFC6E600651FAD /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
@@ -103,9 +109,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F60327B51EC51F4100493DC3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F60327B31EC51F3200493DC3 /* CoreDataStack.swift */,
+				F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		F607C8711EBFC6E500651FAD = {
 			isa = PBXGroup;
 			children = (
+				F607C87D1EBFC6E600651FAD /* AppDelegate.swift */,
 				F60327AC1EC4188200493DC3 /* Audio */,
 				F607C87C1EBFC6E600651FAD /* Charles */,
 				F607C8B51EBFCA1100651FAD /* Admin */,
@@ -131,7 +147,6 @@
 			children = (
 				F607C8B71EBFD3C900651FAD /* Model */,
 				F607C8B81EBFD3CE00651FAD /* View */,
-				F607C87D1EBFC6E600651FAD /* AppDelegate.swift */,
 				F607C8B61EBFD3BD00651FAD /* Controller */,
 				F607C8881EBFC6E600651FAD /* Assets.xcassets */,
 				F607C88D1EBFC6E600651FAD /* Info.plist */,
@@ -171,6 +186,7 @@
 		F607C8B61EBFD3BD00651FAD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */,
 				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
 				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
 				F607C8831EBFC6E600651FAD /* ModelController.swift */,
@@ -181,6 +197,7 @@
 		F607C8B71EBFD3C900651FAD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F60327B51EC51F4100493DC3 /* CoreData */,
 				F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */,
 				F607C8B91EBFD41100651FAD /* Character.swift */,
 				F607C8BB1EBFD65F00651FAD /* Phrase.swift */,
@@ -348,9 +365,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */,
 				F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */,
 				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
 				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
+				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
@@ -359,6 +378,7 @@
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
+				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,
 				F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,6 +657,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F60327AF1EC51DDB00493DC3 /* Model.xcdatamodel */,
+			);
+			currentVersion = F60327AF1EC51DDB00493DC3 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F607C8721EBFC6E500651FAD /* Project object */;
 }
