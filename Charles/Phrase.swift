@@ -27,10 +27,12 @@ class Phrase: NSObject {
     var slots: [Slot]? //array of Slot objects
     
     // MARK: Initializers
-    init(name: String, likelihood: Int) {
+    init(name: String, likelihood: Int, subphrases: [Subphrase]?, slots: [Slot]?) {
         super.init()
         
         self.name = name
         self.likelihood = likelihood
+        self.subphrases = subphrases
+        self.slots = slots
     }
 }

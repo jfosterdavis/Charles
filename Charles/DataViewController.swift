@@ -29,14 +29,21 @@ class DataViewController: UIViewController {
     // MARK: AV Variables
     let synth = AVSpeechSynthesizer()
     var textUtterance = AVSpeechUtterance(string: "")
+    var audioPlayer: AVAudioPlayer!
+    var audioEngine: AVAudioEngine!
     
-    var dataObject: Character = Character(name: "Blank Character")
+    var dataObject: Character!
     var currentPhrase: Phrase!
     var currentSubphraseIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //audio
+        audioEngine = AVAudioEngine()
+        
+        
         
         //delegates
         
@@ -166,14 +173,54 @@ class DataViewController: UIViewController {
         }
         
         //prepare to speak
-        let toneToSpeak: Float = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
-        let subphraseToSpeak: String = currentPhrase.subphrases![currentSubphraseIndex].words
-        textUtterance = AVSpeechUtterance(string: subphraseToSpeak)
-        textUtterance.rate = 0.3
-        textUtterance.pitchMultiplier = toneToSpeak
         
-        //speak
-        synth.speak(textUtterance)
+        let subphraseToSound = currentPhrase.subphrases![currentSubphraseIndex]
+        
+        //determine if there is a valid .m4a file to play, otherwise speak the word
+        if subphraseToSound.audioFilePath != nil {
+            //try to find file
+            let url = URL(fileURLWithPath: subphraseToSound.audioFilePath!)
+            
+            
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: url)
+                audioPlayer.enableRate = true
+                
+                resetAudioEngineAndPlayer()
+                
+//                try audioPlayer = AVAudioPlayer(contentsOf: url)
+                let audioFile = try AVAudioFile(forReading: url)
+            
+                //setup node
+                let audioPlayerNode = AVAudioPlayerNode()
+                audioEngine.attach(audioPlayerNode)
+                
+                
+                //change pitch
+                let changePitchEffect = AVAudioUnitTimePitch()
+                //changePitchEffect.pitch = 1000
+                changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+                audioEngine.attach(changePitchEffect)
+                
+                audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+                audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+                
+                audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+                
+                try audioEngine.start()
+                audioPlayerNode.play()
+                
+                //audioPlayer.play()
+            } catch {
+                //there was an error, so speak it instead
+                speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
+            }
+            
+        } else {
+            speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
+        }
+        
+        
         
         //iterate the subphrase
         
@@ -187,6 +234,23 @@ class DataViewController: UIViewController {
             reloadButtons()
         }
         
+    }
+    
+    func resetAudioEngineAndPlayer() {
+        //audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+    }
+    
+    func speak(subphrase: Subphrase){
+        
+        
+        textUtterance = AVSpeechUtterance(string: subphrase.words)
+        textUtterance.rate = 0.3
+        //textUtterance.pitchMultiplier = toneToSpeak
+        
+        //speak
+        synth.speak(textUtterance)
     }
 
 }

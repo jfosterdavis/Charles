@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F60327AB1EC4143300493DC3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F607C8C41EC13C5400651FAD /* AVFoundation.framework */; };
+		F60327AD1EC4188200493DC3 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = F60327AC1EC4188200493DC3 /* Audio */; };
 		F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87D1EBFC6E600651FAD /* AppDelegate.swift */; };
 		F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87F1EBFC6E600651FAD /* RootViewController.swift */; };
 		F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
@@ -24,8 +26,8 @@
 		F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BD1EBFD82700651FAD /* Subphrase.swift */; };
 		F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8BF1EBFD8D800651FAD /* Slot.swift */; };
 		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
-		F607C8C51EC13C5400651FAD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F607C8C41EC13C5400651FAD /* AVFoundation.framework */; };
 		F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C61EC250BA00651FAD /* Utilities.swift */; };
+		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F60327AC1EC4188200493DC3 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Audio; path = Charles/Audio; sourceTree = "<group>"; };
 		F607C87A1EBFC6E600651FAD /* Charles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F607C87D1EBFC6E600651FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F607C87F1EBFC6E600651FAD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDictionary.swift; sourceTree = "<group>"; };
 		F607C8C41EC13C5400651FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F607C8C61EC250BA00651FAD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F607C8C51EC13C5400651FAD /* AVFoundation.framework in Frameworks */,
+				F60327AB1EC4143300493DC3 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +106,7 @@
 		F607C8711EBFC6E500651FAD = {
 			isa = PBXGroup;
 			children = (
+				F60327AC1EC4188200493DC3 /* Audio */,
 				F607C87C1EBFC6E600651FAD /* Charles */,
 				F607C8B51EBFCA1100651FAD /* Admin */,
 				F607C8951EBFC6E600651FAD /* CharlesTests */,
@@ -181,6 +186,7 @@
 				F607C8BB1EBFD65F00651FAD /* Phrase.swift */,
 				F607C8BD1EBFD82700651FAD /* Subphrase.swift */,
 				F607C8BF1EBFD8D800651FAD /* Slot.swift */,
+				F607C8C81EC3FA8800651FAD /* Characters.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				F607C8B41EBFC97500651FAD /* .gitignore in Resources */,
 				F607C88C1EBFC6E600651FAD /* LaunchScreen.storyboard in Resources */,
 				F607C8891EBFC6E600651FAD /* Assets.xcassets in Resources */,
+				F60327AD1EC4188200493DC3 /* Audio in Resources */,
 				F607C8B21EBFC96500651FAD /* LICENSE in Resources */,
 				F607C8871EBFC6E600651FAD /* Main.storyboard in Resources */,
 			);
@@ -348,6 +355,7 @@
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
+				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
@@ -505,11 +513,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 37R6UV3BWH;
 				INFOPLIST_FILE = Charles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeromuwebservices.Charles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -518,11 +528,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 37R6UV3BWH;
 				INFOPLIST_FILE = Charles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeromuwebservices.Charles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

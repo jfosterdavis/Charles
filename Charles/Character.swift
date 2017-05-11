@@ -23,17 +23,18 @@ class Character: NSObject {
     var phrases: [Phrase]? //an array of phrase objects
     
     // MARK: Initializers
-    init(name: String) {
+    init(name: String, phrases: [Phrase]?) {
         super.init()
         
         self.name = name
+        self.phrases = phrases
     }
     
     /// returns a phrase from the list of phrases based on the given liklihoods contined within the object
     func selectRandomPhrase() -> Phrase? {
         //1. Determine which phrase will be spoken and loaded
         var tickets = 0 //the number of tickets in the hat, from which we will pull one
-        var chosenPhrase: Phrase = Phrase(name: "Temporary Phrase", likelihood: 0)
+        var chosenPhrase: Phrase?
         
         if let phrases = self.phrases {
             for phrase in phrases {
@@ -55,8 +56,13 @@ class Character: NSObject {
                         }
                     }
                 } while drawnTicket >= drawCounter
-                return chosenPhrase
                 
+                if chosenPhrase != nil {
+                    return chosenPhrase
+                } else{
+                    return nil
+                }
+              
             } else {
                 //TODO: Handle case of no tickets
                 
