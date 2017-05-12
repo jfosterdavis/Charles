@@ -12,6 +12,9 @@
 		F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */; };
 		F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */; };
 		F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B31EC51F3200493DC3 /* CoreDataStack.swift */; };
+		F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */; };
+		F60327B91EC54BF600493DC3 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327B81EC54BF600493DC3 /* CoreDataCollectionViewController.swift */; };
+		F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327BB1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift */; };
 		F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87D1EBFC6E600651FAD /* AppDelegate.swift */; };
 		F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87F1EBFC6E600651FAD /* RootViewController.swift */; };
 		F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
@@ -55,6 +58,9 @@
 		F60327AF1EC51DDB00493DC3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		F60327B31EC51F3200493DC3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCollectionViewController.swift; sourceTree = "<group>"; };
+		F60327B81EC54BF600493DC3 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
+		F60327BB1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F607C87A1EBFC6E600651FAD /* Charles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F607C87D1EBFC6E600651FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Charles/AppDelegate.swift; sourceTree = "<group>"; };
 		F607C87F1EBFC6E600651FAD /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,23 @@
 				F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		F60327BA1EC54C0D00493DC3 /* Core Data Parents */ = {
+			isa = PBXGroup;
+			children = (
+				F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */,
+				F60327B81EC54BF600493DC3 /* CoreDataCollectionViewController.swift */,
+			);
+			name = "Core Data Parents";
+			sourceTree = "<group>";
+		};
+		F60327BD1EC54CEB00493DC3 /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F60327BB1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift */,
+			);
+			name = "Collection View Cells";
 			sourceTree = "<group>";
 		};
 		F607C8711EBFC6E500651FAD = {
@@ -186,10 +209,11 @@
 		F607C8B61EBFD3BD00651FAD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */,
+				F60327BA1EC54C0D00493DC3 /* Core Data Parents */,
 				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
 				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
 				F607C8831EBFC6E600651FAD /* ModelController.swift */,
+				F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -213,6 +237,7 @@
 			children = (
 				F607C8851EBFC6E600651FAD /* Main.storyboard */,
 				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
+				F60327BD1EC54CEB00493DC3 /* Collection View Cells */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -371,11 +396,14 @@
 				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
 				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
+				F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */,
+				F60327B91EC54BF600493DC3 /* CoreDataCollectionViewController.swift in Sources */,
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
+				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
 				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,

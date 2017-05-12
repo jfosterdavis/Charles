@@ -39,6 +39,10 @@ class DataViewController: CoreDataViewController {
     // MARK: Score
     var timer = Timer()
     
+    //Store
+    @IBOutlet weak var storeButton: UIButton!
+    
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     
@@ -58,11 +62,7 @@ class DataViewController: CoreDataViewController {
         
         //setup the score
         refreshScore()
-        
-        //start the timer
-        
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        
+      
         //delegates
         
         //add placeholder buttons to the array of buttons
@@ -83,6 +83,11 @@ class DataViewController: CoreDataViewController {
         self.dataLabel!.text = dataObject.name
         
         reloadButtons()
+   
+        //stop the timer to avoide stacking penalties
+        timer.invalidate()
+        //start the timer
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -151,11 +156,28 @@ class DataViewController: CoreDataViewController {
         }
         
         //buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+        var counter = 0
         //step through each slot and createa  button for it
         for slot in slots {
             //create a button
             let slotButton = createButton(from: slot)
+            
+            //TODO: make the top corners of the first button rounded
+            if counter == 0 {
+                //if it is the first slot, round the top corners
+                //round corners
+                slotButton.layer.masksToBounds = true
+                //slotButton.layer.cornerRadius = CGFloat(6.0)
+                
+                let maskPAth1 = UIBezierPath(roundedRect: slotButton.bounds,
+                                             byRoundingCorners: [.topLeft],
+                                             cornerRadii:CGSize(width: 8.0, height: 8.0))
+                let maskLayer1 = CAShapeLayer()
+                maskLayer1.frame = slotButton.bounds
+                maskLayer1.path = maskPAth1.cgPath
+                //slotButton.layer.mask = maskLayer1
+            }
+            
             
             
             //add the button to the array of buttons
@@ -169,7 +191,11 @@ class DataViewController: CoreDataViewController {
             widthConstraint.isActive = true
             buttonStackView.addConstraint(widthConstraint)
             
+            counter += 1
         }
+        
+        
+        
         
     }
     
@@ -300,9 +326,16 @@ class DataViewController: CoreDataViewController {
         //set the alpha of the label to be the equivalent of the score /1000
         if currentScore >= 1000 {
             scoreLabel.alpha = 1.0
+            storeButton.alpha = 1.0
         } else {
             let newAlpha: CGFloat = CGFloat(Float(currentScore) / 1000.0)
             scoreLabel.alpha = newAlpha
+            storeButton.alpha = newAlpha
+            if newAlpha == 0 {
+                storeButton.isEnabled = false
+            } else {
+                storeButton.isEnabled = true
+            }
         }
     }
     
