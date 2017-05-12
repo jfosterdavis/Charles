@@ -37,6 +37,7 @@ class DataViewController: CoreDataViewController {
     var keyCurrentScore = "CurrentScore"
     
     // MARK: Score
+    var timer = Timer()
     
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -57,6 +58,9 @@ class DataViewController: CoreDataViewController {
         
         //setup the score
         refreshScore()
+        
+        //start the timer
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         //delegates
         
@@ -244,7 +248,7 @@ class DataViewController: CoreDataViewController {
             currentSubphraseIndex = 0
             
             //give them some points for finishing a phrase
-            setCurrentScore(newScore: getCurretScore() + 1)
+            setCurrentScore(newScore: getCurretScore() + calculateBaseScore(phrase: currentPhrase))
             
             //update the score
             refreshScore()
@@ -282,7 +286,43 @@ class DataViewController: CoreDataViewController {
     /******************************************************/
 
     func refreshScore() {
-        scoreLabel.text = String(describing: getCurretScore())
+        let currentScore = getCurretScore()
+        
+        scoreLabel.text = String(describing: currentScore)
+        
+        //set the alpha of the label to be the equivalent of the score /1000
+        if currentScore >= 1000 {
+            scoreLabel.alpha = 1.0
+        } else {
+            let newAlpha: CGFloat = CGFloat(Float(currentScore) / 1000.0)
+            scoreLabel.alpha = newAlpha
+        }
+    }
+    
+    /// calculates the base score, which is 100 - the liklihood of the phrase just completed
+    func calculateBaseScore(phrase: Phrase) -> Int {
+        return 100 - phrase.likelihood
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Timer
+    /******************************************************/
+
+    func updateTimer() {
+        //reduce the score
+        let currentScore = getCurretScore()
+        
+        if currentScore >= 0 {
+            let penalty = 5
+            var newScore = currentScore - penalty
+            
+            if newScore < 0 {
+                newScore = 0
+            }
+            setCurrentScore(newScore: newScore)
+            refreshScore()
+        }
+        
     }
     
     

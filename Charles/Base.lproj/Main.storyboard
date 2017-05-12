@@ -63,10 +63,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W3d-oo-jUg" userLabel="Slots Stack View">
-                                <rect key="frame" x="16" y="45" width="343" height="596"/>
+                                <rect key="frame" x="16" y="70" width="343" height="571"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmn-4x-XHC" userLabel="Button1">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="198.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="190.5"/>
                                         <color key="backgroundColor" red="0.1666679382" green="1" blue="0.2210872918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOi-nQ-4dM" userLabel="Button2">
-                                        <rect key="frame" x="0.0" y="198.5" width="343" height="199"/>
+                                        <rect key="frame" x="0.0" y="190.5" width="343" height="190"/>
                                         <color key="backgroundColor" red="0.56396732230000002" green="0.065108012009999994" blue="0.0016013734960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -82,7 +82,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufb-l7-FgI" userLabel="Button3">
-                                        <rect key="frame" x="0.0" y="397.5" width="343" height="198.5"/>
+                                        <rect key="frame" x="0.0" y="380.5" width="343" height="190.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -99,7 +99,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97826086960000003" green="0.91848131079999995" blue="0.73914263440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="W3d-oo-jUg" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="25" id="4kD-rQ-Ayg"/>
+                            <constraint firstItem="W3d-oo-jUg" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="50" id="4kD-rQ-Ayg"/>
                             <constraint firstItem="EPS-s9-h4K" firstAttribute="top" secondItem="W3d-oo-jUg" secondAttribute="bottomMargin" constant="26" id="6Zl-mj-V7g"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="top" secondItem="ZwX-cT-FIQ" secondAttribute="topMargin" constant="19" id="Are-Aw-7oB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJ1-Y9-W5p" secondAttribute="trailing" id="HZz-bm-0dJ"/>
