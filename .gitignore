@@ -11,6 +11,7 @@ Charles/GoogleService-Info.plist
 
 ## Audio - its mine!
 Charles/Audio/
+*.m4a
 
 ## Build generated
 build/
