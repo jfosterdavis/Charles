@@ -60,7 +60,8 @@ class DataViewController: CoreDataViewController {
         refreshScore()
         
         //start the timer
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         //delegates
         
@@ -83,6 +84,12 @@ class DataViewController: CoreDataViewController {
         
         reloadButtons()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        //stop the timer to avoide stacking penalties
+        timer.invalidate()
+    }
+    
     
     func reloadButtons() {
         //1. get a random phrase from the character
@@ -248,7 +255,7 @@ class DataViewController: CoreDataViewController {
             currentSubphraseIndex = 0
             
             //give them some points for finishing a phrase
-            setCurrentScore(newScore: getCurretScore() + calculateBaseScore(phrase: currentPhrase))
+            setCurrentScore(newScore: getCurrentScore() + calculateBaseScore(phrase: currentPhrase))
             
             //update the score
             refreshScore()
@@ -286,7 +293,7 @@ class DataViewController: CoreDataViewController {
     /******************************************************/
 
     func refreshScore() {
-        let currentScore = getCurretScore()
+        let currentScore = getCurrentScore()
         
         scoreLabel.text = String(describing: currentScore)
         
@@ -310,10 +317,10 @@ class DataViewController: CoreDataViewController {
 
     func updateTimer() {
         //reduce the score
-        let currentScore = getCurretScore()
+        let currentScore = getCurrentScore()
         
         if currentScore >= 0 {
-            let penalty = 5
+            let penalty = 10
             var newScore = currentScore - penalty
             
             if newScore < 0 {
@@ -322,7 +329,6 @@ class DataViewController: CoreDataViewController {
             setCurrentScore(newScore: newScore)
             refreshScore()
         }
-        
     }
     
     
@@ -333,7 +339,7 @@ class DataViewController: CoreDataViewController {
     /**
      get the current score, if there is not a score record, make one at 0
      */
-    func getCurretScore() -> Int {
+    func getCurrentScore() -> Int {
         guard let fc = frcDict[keyCurrentScore] else {
             return -1
         

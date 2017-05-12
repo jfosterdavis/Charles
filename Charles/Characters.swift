@@ -20,15 +20,14 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Charles]
-    static let NewPlayerCharacterSet: [Character] = [Charles]
+    static let ValidCharacters: [Character] = [Charles, Dan]
+    static let NewPlayerCharacterSet: [Character] = [Charles, Dan]
     
     /******************************************************/
     /*******************///MARK: Characters
     /******************************************************/
 
     // MARK: Charles
-    //create a test character
     static let Charles = Character(name: "Charles",
                                    phrases: [Phrase(name: "I'm a pimp",
                                                     likelihood: 50,
@@ -61,6 +60,43 @@ struct Characters {
                                                 ])
                                     
                                     ])
+    
+    /// MARK: Dan
+    static let Dan = Character(name: "Dan",
+                                   phrases: [Phrase(name: "N00b!",
+                                                    likelihood: 40,
+                                                    subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                    ],
+                                                    slots: [Slot(tone: -400, color: .white),
+                                                            Slot(tone: -150, color: .black),
+                                                            Slot(tone: 400, color: .white),
+                                                            Slot(tone: 600, color: .black),
+                                                            Slot(tone: 800, color: .white),
+                                                            Slot(tone: 1000, color: .black),
+                                                            Slot(tone: 1200, color: .white)
+                                    ]),
+                                             Phrase(name: "Pawned his head",
+                                                    likelihood: 30,
+                                                    subphrases: [Subphrase(words: "Pawned", audioFilePath: Bundle.main.path(forResource: "Pawned", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                                 Subphrase(words: "his", audioFilePath: Bundle.main.path(forResource: "His", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                                 Subphrase(words: "Head", audioFilePath: Bundle.main.path(forResource: "Head", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                                ],
+                                                    slots: [Slot(tone: -300, color: .red),
+                                                            Slot(tone: 200, color: .white),
+                                                            Slot(tone: 600, color: .blue),
+                                                            Slot(tone: -750, color: .orange)
+                                                ]),
+                                             Phrase(name: "That's a pawn",
+                                                    likelihood: 10,
+                                                    subphrases: [Subphrase(words: "That's", audioFilePath: Bundle.main.path(forResource: "That's", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                                 Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A (pawn)", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                                 Subphrase(words: "pawn", audioFilePath: Bundle.main.path(forResource: "Pawn", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                                ], slots: [Slot(tone: 550, color: .orange),
+                                                           Slot(tone: 300, color: .yellow),
+                                                           Slot(tone: -250, color: .white)
+                                                ])
+                                    
+        ])
     
     
 }
