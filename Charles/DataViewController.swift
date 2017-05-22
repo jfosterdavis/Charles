@@ -383,7 +383,7 @@ class DataViewController: CoreDataViewController {
             return -1
         }
         
-        if (fc.sections?.count)! == 0 {
+        if (currentScores.count) == 0 {
         
             print("No CurrentScore exists.  Creating.")
             let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
