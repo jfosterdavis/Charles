@@ -87,7 +87,7 @@ class DataViewController: CoreDataViewController {
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.12, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -324,14 +324,15 @@ class DataViewController: CoreDataViewController {
         scoreLabel.text = String(describing: currentScore)
         
         //set the alpha of the label to be the equivalent of the score /1000
+        //alpha of the store icon will be such that 500 is the minimum score to start showing.  Lowest priced item will be 500.
         if currentScore >= 1000 {
             scoreLabel.alpha = 1.0
             storeButton.alpha = 1.0
         } else {
             let newAlpha: CGFloat = CGFloat(Float(currentScore) / 1000.0)
             scoreLabel.alpha = newAlpha
-            storeButton.alpha = newAlpha
-            if newAlpha == 0 {
+            storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
+            if storeButton.alpha == 0 {
                 storeButton.isEnabled = false
             } else {
                 storeButton.isEnabled = true
@@ -353,7 +354,7 @@ class DataViewController: CoreDataViewController {
         let currentScore = getCurrentScore()
         
         if currentScore >= 0 {
-            let penalty = 10
+            let penalty = 1
             var newScore = currentScore - penalty
             
             if newScore < 0 {
