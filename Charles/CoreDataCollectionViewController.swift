@@ -28,7 +28,10 @@ class CoreDataCollectionViewController: CoreDataViewController, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        // Get the stack
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        stack = delegate.stack
     }
     
     /******************************************************/

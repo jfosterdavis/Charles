@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CumulativeScore" representedClassName="CumulativeScore" syncable="YES" codeGenerationType="class">
         <attribute name="value" attributeType="Integer 64" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -9,9 +9,13 @@
     <entity name="HighScore" representedClassName="HighScore" syncable="YES" codeGenerationType="class">
         <attribute name="value" attributeType="Integer 64" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="UnlockedCharacters" representedClassName="UnlockedCharacters" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="DEFAULT" indexed="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CurrentScore" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="CumulativeScore" positionX="-54" positionY="0" width="128" height="60"/>
+        <element name="CurrentScore" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="HighScore" positionX="-36" positionY="18" width="128" height="60"/>
+        <element name="UnlockedCharacters" positionX="-45" positionY="9" width="128" height="60"/>
     </elements>
 </model>

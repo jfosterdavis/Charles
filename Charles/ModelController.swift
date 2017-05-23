@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -18,10 +19,11 @@ import UIKit
  */
 
 
-class ModelController: NSObject, UIPageViewControllerDataSource {
+class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
 
     var pageData: [Character] = []
 
+    let keyUnlockedCharacters = "keyUnlockedCharacters"
 
     override init() {
         super.init()
@@ -32,6 +34,25 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
                 
         //add character to pageData
         pageData = Characters.NewPlayerCharacterSet
+        
+        //setup CoreData
+        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacters, entityName: "UnlockedCharacters", sortDescriptors: [],  predicate: nil)
+        
+        //get any unlocked characters and add them to the model
+        guard let fc = frcDict[keyUnlockedCharacters] else {
+            return
+            
+        }
+        
+        guard let unlockedCharacters = fc.fetchedObjects as? [UnlockedCharacters] else {
+            return
+        }
+        
+        print("The currently unlocked characters are:")
+        for character in unlockedCharacters {
+            print("\(String(describing: character.name))")
+        }
+        
         
     }
 

@@ -189,21 +189,35 @@
                                     <action selector="dismissButtonPressed:" destination="YkZ-Z3-DkY" eventType="touchUpInside" id="NYK-Tg-OUc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-U1-y1f">
+                                <rect key="frame" x="108" y="4" width="133" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="133" id="E78-SL-o5F"/>
+                                    <constraint firstAttribute="height" constant="66" id="TMv-D1-tdA"/>
+                                </constraints>
+                                <state key="normal" title="Unlock Fred"/>
+                                <connections>
+                                    <action selector="unlockFredButtonPressed:" destination="YkZ-Z3-DkY" eventType="touchUpInside" id="LhY-Pq-szs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BEx-U1-y1f" secondAttribute="trailing" constant="118" id="1rh-a8-JgM"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="10" id="CFp-vs-kCc"/>
                             <constraint firstItem="3cr-nv-Ibi" firstAttribute="top" secondItem="YIL-Ji-aIm" secondAttribute="bottom" constant="20" id="DHQ-nZ-nHP"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="top" secondItem="XXC-sP-u8Y" secondAttribute="bottom" constant="22" id="LLR-u8-ulc"/>
+                            <constraint firstItem="BEx-U1-y1f" firstAttribute="top" secondItem="pm2-0S-Xmq" secondAttribute="topMargin" constant="4" id="Ucr-zv-Rv9"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" id="cNy-yv-N4t"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="9" id="hbI-8h-3sE"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="trailing" secondItem="pm2-0S-Xmq" secondAttribute="trailingMargin" id="mti-pH-kw9"/>
+                            <constraint firstItem="BEx-U1-y1f" firstAttribute="leading" secondItem="XXC-sP-u8Y" secondAttribute="trailing" constant="55" id="tHT-mc-7cz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="YIL-Ji-aIm" id="Tx3-3u-QXM"/>
                         <outlet property="dismissButton" destination="XXC-sP-u8Y" id="pm2-4k-JZy"/>
-                        <outlet property="storeCollectionView" destination="YIL-Ji-aIm" id="hSl-Qt-PBE"/>
+                        <outlet property="storeCollectionView" destination="YIL-Ji-aIm" id="LTo-7G-dXy"/>
+                        <outlet property="unlockFredButton" destination="BEx-U1-y1f" id="9X8-FS-thU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeo-cW-quq" userLabel="First Responder" sceneMemberID="firstResponder"/>

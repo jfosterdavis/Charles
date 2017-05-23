@@ -34,6 +34,7 @@
 		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
 		F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C61EC250BA00651FAD /* Utilities.swift */; };
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
+		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		F607C8C41EC13C5400651FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F607C8C61EC250BA00651FAD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				F60327B11EC51E5600493DC3 /* CoreDataViewController.swift */,
+				F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */,
 				F60327B81EC54BF600493DC3 /* CoreDataCollectionViewController.swift */,
 			);
 			name = "Core Data Parents";
@@ -398,6 +401,7 @@
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
 				F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */,
 				F60327B91EC54BF600493DC3 /* CoreDataCollectionViewController.swift in Sources */,
+				F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */,
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,

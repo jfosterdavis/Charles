@@ -16,12 +16,19 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
 
     @IBOutlet weak var storeCollectionView: UICollectionView!
     
+    @IBOutlet weak var unlockFredButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     
+    //CoreData FRC Keys
+    let keyUnlockedCharacters = "keyUnlockedCharacters"
+    
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         //set up this collection view with the CoreData parent
-        self.collectionView = storeCollectionView
+        //self.collectionView = storeCollectionView
+        
+        //setup CoreData
+        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacters, entityName: "UnlockedCharacters", sortDescriptors: [],  predicate: nil)
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -55,6 +62,36 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //        }
     }
 
+    @IBAction func unlockFredButtonPressed(_ sender: Any) {
+        
+        guard let fc = frcDict[keyUnlockedCharacters] else {
+            return
+            
+        }
+        
+        guard let characters = fc.fetchedObjects as? [UnlockedCharacters] else {
+            
+            return
+        }
+        
+        //if Fred is not in the arracy of Unlocked Characters, then add him
+        var wasFredFound = false
+        for character in characters {
+            if character.name == "Fred2" {
+                wasFredFound = true
+                break
+            }
+        }
+        
+        if !wasFredFound {
+            
+            let newCharacter = UnlockedCharacters(entity: NSEntityDescription.entity(forEntityName: "UnlockedCharacters", in: stack.context)!, insertInto: fc.managedObjectContext)
+            newCharacter.name = "Fred"
+            print("Unlockd a new character named \(String(describing: newCharacter.name))")
+        }
+
+        
+    }
     
     
 }

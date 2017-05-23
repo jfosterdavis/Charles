@@ -392,6 +392,7 @@ class DataViewController: CoreDataViewController {
             return Int(newScore.value)
         } else {
             
+            print(currentScores[0].value)
             let score = Int(currentScores[0].value)
             
             //if didn't find at end of loop, must not be an entry, so level 0
@@ -412,17 +413,28 @@ class DataViewController: CoreDataViewController {
             return -1
         }
         
-        if (fc.sections?.count)! == 0  {
+        if (currentScores.count) == 0  {
             print("No CurrentScore exists.  Creating.")
             let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
             currentScore.value = Int64(newScore)
             
             return Int(currentScore.value)
         } else {
-            //set score for the first element
-            currentScores[0].value = Int64(newScore)
             
-            return Int(currentScores[0].value)
+            switch newScore {
+            case 0:
+                return 0
+            case let x where x < 0:
+                currentScores[0].value = Int64(0)
+                return Int(currentScores[0].value)
+            default:
+                //set score for the first element
+                currentScores[0].value = Int64(newScore)
+                //print("There are \(currentScores.count) score entries in the database.")
+                return Int(currentScores[0].value)
+            }
+            
+            
         }
 
     }
