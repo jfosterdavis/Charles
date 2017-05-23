@@ -422,8 +422,7 @@ class DataViewController: CoreDataViewController {
         } else {
             
             switch newScore {
-            case 0:
-                return 0
+            //TODO: if the score is already 0 don't set it again.
             case let x where x < 0:
                 currentScores[0].value = Int64(0)
                 return Int(currentScores[0].value)

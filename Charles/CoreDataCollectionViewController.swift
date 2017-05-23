@@ -71,13 +71,13 @@ extension CoreDataCollectionViewController {
             case .insert:
                 //from apple documentation
                 stack.save()
-                self.collectionView.insertItems(at: [newIndexPath!])
+                //self.collectionView.insertItems(at: [newIndexPath!])
                 
                 //TODO: initiate download of terms?
                 print("case insert")
             case .delete:
                 //from apple documentation
-                self.collectionView.deleteItems(at: [indexPath!])
+                //self.collectionView.deleteItems(at: [indexPath!])
                 
                 print("case delete")
             case .update:

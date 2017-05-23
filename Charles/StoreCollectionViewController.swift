@@ -25,7 +25,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         //set up this collection view with the CoreData parent
-        //self.collectionView = storeCollectionView
+        self.collectionView = storeCollectionView
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacters, entityName: "UnlockedCharacters", sortDescriptors: [],  predicate: nil)

@@ -49,8 +49,15 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
         }
         
         print("The currently unlocked characters are:")
-        for character in unlockedCharacters {
-            print("\(String(describing: character.name))")
+        for unlockedCharacter in unlockedCharacters {
+            print("\(String(describing: unlockedCharacter.name))")
+            for character in Characters.UnlockableCharacters {
+                if character.name == unlockedCharacter.name {
+                    pageData.append(character)
+                    
+                }
+            }
+            
         }
         
         
