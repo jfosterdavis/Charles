@@ -45,7 +45,7 @@ class DataViewController: CoreDataViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
+    var parentVC: CoreDataNSObject!
     var dataObject: Character!
     var currentPhrase: Phrase!
     var currentSubphraseIndex = 0

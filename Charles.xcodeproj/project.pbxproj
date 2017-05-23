@@ -35,6 +35,7 @@
 		F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C61EC250BA00651FAD /* Utilities.swift */; };
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
+		F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50731ED4FDF70087F461 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		F607C8C61EC250BA00651FAD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
+		F6FD50731ED4FDF70087F461 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		F607C8B61EBFD3BD00651FAD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6FD50731ED4FDF70087F461 /* Protocols.swift */,
 				F60327BA1EC54C0D00493DC3 /* Core Data Parents */,
 				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
 				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
@@ -408,6 +411,7 @@
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
+				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
 				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,

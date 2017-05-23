@@ -22,8 +22,9 @@ import CoreData
 class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
 
     var pageData: [Character] = []
+    
 
-    let keyUnlockedCharacters = "keyUnlockedCharacters"
+    let keyUnlockedCharacter = "keyUnlockedCharacter"
 
     override init() {
         super.init()
@@ -36,15 +37,15 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
         pageData = Characters.NewPlayerCharacterSet
         
         //setup CoreData
-        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacters, entityName: "UnlockedCharacters", sortDescriptors: [],  predicate: nil)
+        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
         
         //get any unlocked characters and add them to the model
-        guard let fc = frcDict[keyUnlockedCharacters] else {
+        guard let fc = frcDict[keyUnlockedCharacter] else {
             return
             
         }
         
-        guard let unlockedCharacters = fc.fetchedObjects as? [UnlockedCharacters] else {
+        guard let unlockedCharacters = fc.fetchedObjects as? [UnlockedCharacter] else {
             return
         }
         
@@ -60,6 +61,9 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
             
         }
         
+        //TODO: Prevent duplicates from being entered.  Allow removal of unlocked characters.
+        
+        
         
     }
 
@@ -74,6 +78,9 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
         dataViewController.dataObject = self.pageData[index]
         dataViewController.currentPage = index
         dataViewController.numPages = self.pageData.count
+        
+        //link this VC
+        dataViewController.parentVC = self
         
         return dataViewController
     }
