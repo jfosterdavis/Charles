@@ -22,6 +22,7 @@ import CoreData
 class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreReactor {
 
     var pageData: [Character] = []
+    var currentVC: DataViewController!
     
 
     let keyUnlockedCharacter = "keyUnlockedCharacter"
@@ -84,6 +85,10 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
     func storeClosed() {
         //when the store closes, refresh the page data
         loadPageData()
+        
+        //update the pagecontroller dots
+        currentVC.numPages = self.pageData.count
+        currentVC.refreshPageControl()
     }
     
     /******************************************************/
@@ -105,6 +110,7 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         
         //link this VC
         dataViewController.parentVC = self
+        currentVC = dataViewController
         
         return dataViewController
     }

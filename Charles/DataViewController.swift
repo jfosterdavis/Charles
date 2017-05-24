@@ -218,8 +218,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /******************************************************/
 
     func storeClosed() {
-        //refreshPageControl()
-        
+                
         let pVC = self.parentVC as! ModelController
         pVC.storeClosed()
         
