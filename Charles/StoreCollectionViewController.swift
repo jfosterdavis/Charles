@@ -13,6 +13,7 @@ import UIKit
 class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource {
 
     var parentVC: UIViewController!
+    var collectionViewData: [Character]!
     
     @IBOutlet weak var storeCollectionView: UICollectionView!
     
@@ -32,9 +33,15 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         super.viewDidLoad()
         //set up this collection view with the CoreData parent
         self.collectionView = storeCollectionView
+        self.collectionView.dataSource = self
+        
+        
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+        
+        //initialize data for the collectionView
+        collectionViewData = getAllLockedCharacters()
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -49,18 +56,17 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //returns number of items in the collection
-        
-        return 0
+        return collectionViewData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //        switch segmentedControl.selectedSegmentIndex {
         //        case 0:
         //TODO: replace as! UITAbleViewCell witha  custom cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "statOverviewCell", for: indexPath as IndexPath) as! CustomStoreCollectionViewCell
-        //let stat = self.statsOverviewCollectionData[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath as IndexPath) as! CustomStoreCollectionViewCell
+        let character = self.collectionViewData[indexPath.row]
         
-        //cell.statDescription.text = stat.description
+        cell.characterNameLabel.text = character.name
         //cell.statNumber.text = String(stat.number)
         
         
@@ -69,6 +75,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //
         //        }
     }
+    
+    /******************************************************/
+    /*******************///MARK: Buttons
+    /******************************************************/
+
 
     @IBAction func unlockFredButtonPressed(_ sender: Any) {
         
@@ -82,6 +93,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             print("Fred is already unlocked!")
         }
     }
+    
+    /******************************************************/
+    /*******************///MARK: General Functions
+    /******************************************************/
+
     
     func checkForUnlockFeature(featureKey: String, featureId: String) throws -> Bool {
         guard let fc = frcDict[featureKey] else {
@@ -175,10 +191,26 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             //no character found
             return nil
         }
-        
-        
-        
     }
     
+    func getAllLockedCharacters() -> [Character] {
+        
+        let unlockableCharacters = Characters.UnlockableCharacters
+        var allLockedCharacters: [Character] = []
+        
+        //add the characters that have not been unlocked
+        for character in unlockableCharacters {
+            //if the character is already unlocked, remove from the array
+            
+            let isUnlocked = try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: character.name)
+           
+            if !isUnlocked {
+                allLockedCharacters.append(character)
+            }
+        }
+        
+        return allLockedCharacters
+        
+    }
     
 }

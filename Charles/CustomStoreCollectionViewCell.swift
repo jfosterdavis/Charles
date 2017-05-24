@@ -12,7 +12,7 @@ import UIKit
 class CustomStoreCollectionViewCell: UICollectionViewCell {
     
     //label
-    @IBOutlet weak var statNumber: UILabel!
+    @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var statDescription: UILabel!
     
 }

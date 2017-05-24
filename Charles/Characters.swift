@@ -22,7 +22,7 @@ struct Characters {
     /******************************************************/
     static let ValidCharacters: [Character] = [Charles, Dan]
     static let NewPlayerCharacterSet: [Character] = [Charles, Dan]
-    static let UnlockableCharacters: [Character] = [Fred]
+    static let UnlockableCharacters: [Character] = [Fred, Benton]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -136,6 +136,40 @@ struct Characters {
                                                        Slot(tone: -250, color: .white)
                                             ])
                                 
+        ])
+    
+    static let Benton = Character(name: "Benton",
+                                phrases: [Phrase(name: "N00b!",
+                                                 likelihood: 40,
+                                                 subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                    ],
+                                                 slots: [Slot(tone: -400, color: .yellow),
+                                                         Slot(tone: -150, color: .black),
+                                                         Slot(tone: 400, color: .yellow),
+                                                         Slot(tone: 600, color: .black),
+                                                         Slot(tone: 800, color: .yellow)
+                                    ]),
+                                          Phrase(name: "Pawned his head",
+                                                 likelihood: 30,
+                                                 subphrases: [Subphrase(words: "Pawned", audioFilePath: Bundle.main.path(forResource: "Pawned", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                              Subphrase(words: "his", audioFilePath: Bundle.main.path(forResource: "His", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                              Subphrase(words: "Head", audioFilePath: Bundle.main.path(forResource: "Head", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                            ],
+                                                 slots: [Slot(tone: -300, color: .red),
+                                                         Slot(tone: 200, color: .white),
+                                                         Slot(tone: 600, color: .blue),
+                                                         Slot(tone: -600, color: .orange)
+                                            ]),
+                                          Phrase(name: "That's a pawn",
+                                                 likelihood: 20,
+                                                 subphrases: [Subphrase(words: "That's", audioFilePath: Bundle.main.path(forResource: "That's", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                              Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A (pawn)", ofType: "m4a", inDirectory: "Audio/Dan")),
+                                                              Subphrase(words: "pawn", audioFilePath: Bundle.main.path(forResource: "Pawn", ofType: "m4a", inDirectory: "Audio/Dan"))
+                                            ], slots: [Slot(tone: 550, color: .orange),
+                                                       Slot(tone: 300, color: .yellow),
+                                                       Slot(tone: -250, color: .white)
+                                            ])
+                                    
         ])
     
 }

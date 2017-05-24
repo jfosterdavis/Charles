@@ -30,8 +30,8 @@ class CoreDataCollectionViewController: CoreDataViewController, UICollectionView
         super.viewDidLoad()
      
         // Get the stack
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        stack = delegate.stack
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//        stack = delegate.stack
     }
     
     /******************************************************/
