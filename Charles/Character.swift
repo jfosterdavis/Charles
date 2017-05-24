@@ -21,13 +21,17 @@ class Character: NSObject {
     var name: String! //the name of the character (will be displayed)
     
     var phrases: [Phrase]? //an array of phrase objects
+    var topRadius: Int! //radius of the corners on top
+    var bottomRadius: Int! //radius of the corners on bottom
     
     // MARK: Initializers
-    init(name: String, phrases: [Phrase]?) {
+    init(name: String, topRadius: Int, bottomRadius: Int, phrases: [Phrase]?) {
         super.init()
         
         self.name = name
         self.phrases = phrases
+        self.topRadius = topRadius
+        self.bottomRadius = bottomRadius
     }
     
     /// returns a phrase from the list of phrases based on the given liklihoods contined within the object

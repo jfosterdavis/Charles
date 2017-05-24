@@ -93,11 +93,25 @@ class DataViewController: CoreDataViewController, StoreReactor {
         self.dataLabel!.text = dataObject.name
         
         reloadButtons()
+        
    
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
         timer = Timer.scheduledTimer(timeInterval: 0.12, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //reloadButtons()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        roundButtonCorners(topRadius: dataObject.topRadius, bottomRadius: dataObject.bottomRadius)
+
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -152,6 +166,32 @@ class DataViewController: CoreDataViewController, StoreReactor {
         loadPhraseButtons(from: phrase)
     }
     
+    /// Round button corners.  Must be called in viewDidLayoutSubviews
+    private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
+        //round the corners of the top buttons
+        var button = currentButtons[0]
+        
+        button.layer.masksToBounds = true
+        var maskLayer = CAShapeLayer()
+        
+        //top left
+        
+        maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: topRadius, height: topRadius)).cgPath
+        button.layer.mask = maskLayer
+        
+        //round the corners of the bottom button
+        button = currentButtons[currentButtons.count - 1]
+        
+        //button.layer.masksToBounds = true
+        //slotButton.roundCorners(corners: [.topLeft,.topRight], radius: 3)
+        maskLayer = CAShapeLayer()
+        maskLayer.bounds = button.frame
+        maskLayer.position = button.center
+        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
+        
+        button.layer.mask = maskLayer
+    }
+    
     ///removes all buttons from the stackview
     func removeAllButtons() {
         for button in currentButtons {
@@ -188,20 +228,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
             let slotButton = createButton(from: slot)
             
             //TODO: make the top corners of the first button rounded
-            if counter == 0 {
-                //if it is the first slot, round the top corners
-                //round corners
-                slotButton.layer.masksToBounds = true
-                //slotButton.layer.cornerRadius = CGFloat(6.0)
-                
-                let maskPAth1 = UIBezierPath(roundedRect: slotButton.bounds,
-                                             byRoundingCorners: [.topLeft],
-                                             cornerRadii:CGSize(width: 8.0, height: 8.0))
-                let maskLayer1 = CAShapeLayer()
-                maskLayer1.frame = slotButton.bounds
-                maskLayer1.path = maskPAth1.cgPath
-                //slotButton.layer.mask = maskLayer1
-            }
+//            if counter == 0 {
+//                //if it is the first slot, round the top corners
+//                //round corners
+//                slotButton.layer.masksToBounds = true
+//                //slotButton.roundCorners(corners: [.topLeft,.topRight], radius: 3)
+//                let maskLayer = CAShapeLayer()
+//                maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10, height: 10)).cgPath
+//
+//                slotButton.layer.mask = maskLayer
+//            }
             
             
             
@@ -287,19 +323,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                 let audioFile = try AVAudioFile(forReading: url)
             
-                //setup node
-                //let audioPlayerNode = AVAudioPlayerNode()
-                //audioEngine.attach(audioPlayerNode)
-                
-                
-                //change pitch
-                //let changePitchEffect = AVAudioUnitTimePitch()
-                //changePitchEffect.pitch = 1000
                 changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
-                //audioEngine.attach(changePitchEffect)
-                
-                //audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-                //audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
                 
                 audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 

@@ -30,6 +30,8 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
+                                   topRadius: 30,
+                                   bottomRadius: 15,
                                    phrases: [Phrase(name: "I'm a pimp",
                                                     likelihood: 50,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
@@ -65,6 +67,8 @@ struct Characters {
     
     /// MARK: Dan
     static let Dan = Character(name: "Dan",
+                               topRadius: 130,
+                               bottomRadius: 10,
                                    phrases: [Phrase(name: "N00b!",
                                                     likelihood: 40,
                                                     subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
@@ -103,6 +107,8 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
+                                topRadius: 15,
+                                bottomRadius: 15,
                                phrases: [Phrase(name: "N00b!",
                                                 likelihood: 40,
                                                 subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
@@ -139,6 +145,8 @@ struct Characters {
         ])
     
     static let Benton = Character(name: "Benton",
+                                  topRadius: 20,
+                                  bottomRadius: 30,
                                 phrases: [Phrase(name: "N00b!",
                                                  likelihood: 40,
                                                  subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))

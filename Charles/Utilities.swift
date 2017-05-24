@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Utilities {
    
@@ -16,4 +17,18 @@ struct Utilities {
         return Int(UInt32(range.lowerBound) + arc4random_uniform(UInt32(range.upperBound) - UInt32(range.lowerBound) + UInt32(1)))
     }
 
+}
+
+/******************************************************/
+/*******************///MARK: Round Buttons
+/******************************************************/
+
+extension UIButton
+{
+    func roundCorners(corners:UIRectCorner, radius: CGFloat)
+    {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
+        self.layer.mask = maskLayer
+    }
 }
