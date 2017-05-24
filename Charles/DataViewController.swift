@@ -32,6 +32,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var textUtterance = AVSpeechUtterance(string: "")
     var audioPlayer: AVAudioPlayer!
     var audioEngine: AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var changePitchEffect: AVAudioUnitTimePitch!
     
     //CoreData
     var keyCurrentScore = "CurrentScore"
@@ -56,6 +58,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //audio
         audioEngine = AVAudioEngine()
+        //setup node
+        audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attach(audioPlayerNode)
+        changePitchEffect = AVAudioUnitTimePitch()
+        audioEngine.attach(changePitchEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
@@ -272,18 +282,18 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 let audioFile = try AVAudioFile(forReading: url)
             
                 //setup node
-                let audioPlayerNode = AVAudioPlayerNode()
-                audioEngine.attach(audioPlayerNode)
+                //let audioPlayerNode = AVAudioPlayerNode()
+                //audioEngine.attach(audioPlayerNode)
                 
                 
                 //change pitch
-                let changePitchEffect = AVAudioUnitTimePitch()
+                //let changePitchEffect = AVAudioUnitTimePitch()
                 //changePitchEffect.pitch = 1000
                 changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
-                audioEngine.attach(changePitchEffect)
+                //audioEngine.attach(changePitchEffect)
                 
-                audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-                audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+                //audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+                //audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
                 
                 audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 
@@ -346,7 +356,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func resetAudioEngineAndPlayer() {
         //audioPlayer.stop()
         audioEngine.stop()
-        audioEngine.reset()
+        audioPlayerNode.stop()
+        //audioEngine.reset()
     }
     
     func speak(subphrase: Subphrase){
