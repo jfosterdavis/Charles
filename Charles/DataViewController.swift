@@ -58,6 +58,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //audio
         audioEngine = AVAudioEngine()
+        audioPlayer = AVAudioPlayer()
         //setup node
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attach(audioPlayerNode)
@@ -242,6 +243,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBAction func buttonPress(_ sender: UIButton) {
         //2. Play the current subphrase with the tone of the pressed button.
         
+        //if the audio is already playing, don't do anything:
+//        guard audioPlayer.isPlaying == false else {
+//            return
+//        }
+        
         var sendingButton: UIButton?
         
         //prepare the subphrase.  if it is gone too far, reset
@@ -417,8 +423,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
             if newScore < 0 {
                 newScore = 0
             }
-            setCurrentScore(newScore: newScore)
-            refreshScore()
+            if !(newScore == 0 && currentScore == 0) {
+                setCurrentScore(newScore: newScore)
+                refreshScore()
+            }
         }
     }
     
@@ -449,7 +457,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             return Int(newScore.value)
         } else {
             
-            print(currentScores[0].value)
+            //print(currentScores[0].value)
             let score = Int(currentScores[0].value)
             
             //if didn't find at end of loop, must not be an entry, so level 0
