@@ -12,8 +12,8 @@ import UIKit
 
 class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource {
 
+    var parentVC: UIViewController!
     
-
     @IBOutlet weak var storeCollectionView: UICollectionView!
     
     @IBOutlet weak var unlockFredButton: UIButton!
@@ -38,6 +38,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
+        let pVC = self.parentVC as! DataViewController
+        pVC.storeClosed()
         self.dismiss(animated: true, completion: nil)
     }
     

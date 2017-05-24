@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol StoreReactor: class {
+   
+    /// To be called when the store is closed to allow proper refreshes and reactions
+    func storeClosed()
+}

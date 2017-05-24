@@ -19,7 +19,7 @@ import CoreData
  */
 
 
-class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
+class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreReactor {
 
     var pageData: [Character] = []
     
@@ -33,11 +33,23 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
         //pageData = dateFormatter.monthSymbols
         //pageData = ["1", "2", "3"]
                 
-        //add character to pageData
-        pageData = Characters.NewPlayerCharacterSet
+        
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+        
+        loadPageData()
+        
+        //TODO: Prevent duplicates from being entered.  Allow removal of unlocked characters.
+        
+        
+        
+    }
+    
+    /// considers  hard-coded and CoreData characters and loads them into the data source
+    func loadPageData() {
+        //add base characters to pageData
+        pageData = Characters.NewPlayerCharacterSet
         
         //get any unlocked characters and add them to the model
         guard let fc = frcDict[keyUnlockedCharacter] else {
@@ -60,12 +72,24 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource {
             }
             
         }
-        
-        //TODO: Prevent duplicates from being entered.  Allow removal of unlocked characters.
-        
-        
-        
     }
+    
+    /******************************************************/
+    /*******************///MARK: StoreReactor
+    /******************************************************/
+
+    /**
+     When the store closes, refreshes the pages and data source for the pages
+     */
+    func storeClosed() {
+        //when the store closes, refresh the page data
+        loadPageData()
+    }
+    
+    /******************************************************/
+    /*******************///MARK: PageView Controller
+    /******************************************************/
+
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
         // Return the data view controller for the given index.

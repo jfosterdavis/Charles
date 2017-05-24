@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreData
 
-class DataViewController: CoreDataViewController {
+class DataViewController: CoreDataViewController, StoreReactor {
 
     @IBOutlet weak var dataLabel: UILabel!
 
@@ -69,8 +69,7 @@ class DataViewController: CoreDataViewController {
         currentButtons = [button1, button2, button3]
         
         //set the page control
-        self.pageControl.numberOfPages = numPages
-        self.pageControl.currentPage = currentPage
+        refreshPageControl()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +93,21 @@ class DataViewController: CoreDataViewController {
         //stop the timer to avoide stacking penalties
         timer.invalidate()
     }
+    
+    /******************************************************/
+    /*******************///MARK: Page Control
+    /******************************************************/
+
+    func refreshPageControl(){
+        //set the page control
+        self.pageControl.numberOfPages = numPages
+        self.pageControl.currentPage = currentPage
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Creating main display/interface
+    /******************************************************/
+
     
     
     func reloadButtons() {
@@ -199,6 +213,23 @@ class DataViewController: CoreDataViewController {
         
     }
     
+    /******************************************************/
+    /*******************///MARK: Store Closer
+    /******************************************************/
+
+    func storeClosed() {
+        //refreshPageControl()
+        
+        let pVC = self.parentVC as! ModelController
+        pVC.storeClosed()
+        
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Buttons
+    /******************************************************/
+
+    
     @IBAction func buttonPress(_ sender: UIButton) {
         //2. Play the current subphrase with the tone of the pressed button.
         
@@ -291,6 +322,22 @@ class DataViewController: CoreDataViewController {
         }
         
     }
+    
+    /******************************************************/
+    /*******************///MARK: Button Actions
+    /******************************************************/
+
+    @IBAction func storeButtonPressed(_ sender: Any) {
+        // Create a new view controller and pass suitable data.
+        let storeViewController = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
+        
+        //link this VC
+        storeViewController.parentVC = self
+    
+        present(storeViewController, animated: true, completion: nil)
+    
+    }
+    
     
     /******************************************************/
     /*******************///MARK: Audio Functions
