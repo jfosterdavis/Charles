@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-Ji-aIm">
-                                <rect key="frame" x="16" y="74" width="343" height="573"/>
+                                <rect key="frame" x="16" y="80" width="343" height="567"/>
                                 <color key="backgroundColor" red="0.91360551118850708" green="0.88809335231781006" blue="0.84493863582611084" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
                                     <size key="itemSize" width="135" height="180"/>
@@ -221,7 +221,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-sP-u8Y">
-                                <rect key="frame" x="25" y="30" width="28" height="22"/>
+                                <rect key="frame" x="25" y="36" width="28" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="KWh-jB-E6V"/>
                                     <constraint firstAttribute="width" constant="28" id="Z9c-XR-PVP"/>
@@ -231,6 +231,15 @@
                                     <action selector="dismissButtonPressed:" destination="YkZ-Z3-DkY" eventType="touchUpInside" id="NYK-Tg-OUc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-A2-nRg">
+                                <rect key="frame" x="66" y="30" width="243" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3gh-fn-n8m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-U1-y1f">
                                 <rect key="frame" x="108" y="4" width="133" height="66"/>
                                 <constraints>
@@ -246,14 +255,17 @@
                         <color key="backgroundColor" red="0.91465736040000001" green="0.89108497649999996" blue="0.84462106280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="BEx-U1-y1f" secondAttribute="trailing" constant="118" id="1rh-a8-JgM"/>
-                            <constraint firstItem="XXC-sP-u8Y" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="10" id="CFp-vs-kCc"/>
+                            <constraint firstItem="8BW-A2-nRg" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="50" id="A33-qh-xTA"/>
+                            <constraint firstItem="XXC-sP-u8Y" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="16" id="CFp-vs-kCc"/>
                             <constraint firstItem="3cr-nv-Ibi" firstAttribute="top" secondItem="YIL-Ji-aIm" secondAttribute="bottom" constant="20" id="DHQ-nZ-nHP"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="top" secondItem="XXC-sP-u8Y" secondAttribute="bottom" constant="22" id="LLR-u8-ulc"/>
                             <constraint firstItem="BEx-U1-y1f" firstAttribute="top" secondItem="pm2-0S-Xmq" secondAttribute="topMargin" constant="4" id="Ucr-zv-Rv9"/>
+                            <constraint firstItem="8BW-A2-nRg" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="10" id="YDT-ee-A7C"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" id="cNy-yv-N4t"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="9" id="hbI-8h-3sE"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="trailing" secondItem="pm2-0S-Xmq" secondAttribute="trailingMargin" id="mti-pH-kw9"/>
                             <constraint firstItem="BEx-U1-y1f" firstAttribute="leading" secondItem="XXC-sP-u8Y" secondAttribute="trailing" constant="55" id="tHT-mc-7cz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8BW-A2-nRg" secondAttribute="trailing" constant="50" id="xiE-GG-eD5"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -263,6 +275,7 @@
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="XXC-sP-u8Y" id="pm2-4k-JZy"/>
+                        <outlet property="playerScoreLabel" destination="8BW-A2-nRg" id="ppX-9S-Ahs"/>
                         <outlet property="storeCollectionView" destination="YIL-Ji-aIm" id="LTo-7G-dXy"/>
                         <outlet property="unlockFredButton" destination="BEx-U1-y1f" id="9X8-FS-thU"/>
                     </connections>

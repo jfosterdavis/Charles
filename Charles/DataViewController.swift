@@ -349,11 +349,18 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /******************************************************/
 
     @IBAction func storeButtonPressed(_ sender: Any) {
+        //stop the timer
+        timer.invalidate()
+        
+        
         // Create a new view controller and pass suitable data.
         let storeViewController = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
         
         //link this VC
         storeViewController.parentVC = self
+        
+        //pass the score
+        storeViewController.score = getCurrentScore()
     
         present(storeViewController, animated: true, completion: nil)
     

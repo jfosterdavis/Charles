@@ -17,6 +17,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     @IBOutlet weak var storeCollectionView: UICollectionView!
     
+    @IBOutlet weak var playerScoreLabel: UILabel!
+    
+    var score: Int = 0
     @IBOutlet weak var unlockFredButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     
@@ -35,7 +38,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         self.collectionView = storeCollectionView
         self.collectionView.dataSource = self
         
-        
+        //set the score label
+        playerScoreLabel.text = String(describing: score)
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
@@ -67,6 +71,17 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         let character = self.collectionViewData[indexPath.row]
         
         cell.characterNameLabel.text = character.name
+        let price = character.price
+        var priceLabelText = ""
+        if price! <= 0 {
+            priceLabelText = "Free!"
+        } else {
+            priceLabelText = String(describing: price!)
+        }
+        
+        cell.priceLabel.text = priceLabelText
+
+        
         cell.loadAppearance(from: character.phrases![0])
         
         
@@ -213,10 +228,5 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
     }
     
-    /******************************************************/
-    /*******************///MARK: Character buttons appearance
-    /******************************************************/
-
-
     
 }
