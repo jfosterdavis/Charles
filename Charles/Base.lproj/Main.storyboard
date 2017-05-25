@@ -74,6 +74,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ufb-l7-FgI" firstAttribute="width" secondItem="W3d-oo-jUg" secondAttribute="width" id="f86-Hu-Wxs"/>
                                     <constraint firstItem="pmn-4x-XHC" firstAttribute="width" secondItem="W3d-oo-jUg" secondAttribute="width" id="lY2-wz-Lsg"/>
@@ -160,40 +161,61 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-Ji-aIm">
                                 <rect key="frame" x="16" y="74" width="343" height="573"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91360551118850708" green="0.88809335231781006" blue="0.84493863582611084" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
-                                    <size key="itemSize" width="135" height="135"/>
+                                    <size key="itemSize" width="135" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="IY4-mC-g1J" customClass="CustomStoreCollectionViewCell" customModule="Charles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-00-WTk">
-                                                    <rect key="frame" x="10" y="96" width="115" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-00-WTk">
+                                                    <rect key="frame" x="8" y="8" width="119" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="qfg-WO-PJz"/>
+                                                        <constraint firstAttribute="height" constant="20" id="qfg-WO-PJz"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="v4J-ln-O4Z">
+                                                    <rect key="frame" x="8" y="157" width="119" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="yBY-sj-F1J"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JC-GMq">
+                                                    <rect key="frame" x="8" y="33" width="119" height="119"/>
+                                                </stackView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.974598228931427" green="0.91639262437820435" blue="0.73575562238693237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" constant="2" id="Ewa-qh-GGI"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="Kb1-00-WTk" secondAttribute="bottom" constant="10" id="cHy-T8-U8k"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" constant="2" id="vOP-gu-F2n"/>
+                                            <constraint firstItem="VMi-JC-GMq" firstAttribute="top" secondItem="Kb1-00-WTk" secondAttribute="bottom" constant="5" id="9ZY-Ub-8dd"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" id="Kqg-xz-sZm"/>
+                                            <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="OHf-aq-kj6"/>
+                                            <constraint firstItem="Kb1-00-WTk" firstAttribute="top" secondItem="IY4-mC-g1J" secondAttribute="topMargin" id="QaQ-vy-gbD"/>
+                                            <constraint firstItem="v4J-ln-O4Z" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="dba-wr-HSd"/>
+                                            <constraint firstItem="v4J-ln-O4Z" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="bottom" constant="5" id="gre-Su-6R9"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="v4J-ln-O4Z" secondAttribute="trailing" id="hw2-o1-xfA"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="VMi-JC-GMq" secondAttribute="trailing" id="jAa-Vr-su0"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="v4J-ln-O4Z" secondAttribute="bottom" id="s2b-Hq-OwS"/>
+                                            <constraint firstItem="VMi-JC-GMq" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="uDA-ld-juI"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
+                                            <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
+                                            <outlet property="stackView" destination="VMi-JC-GMq" id="Ftr-BB-IOl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -221,7 +243,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91465736040000001" green="0.89108497649999996" blue="0.84462106280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="BEx-U1-y1f" secondAttribute="trailing" constant="118" id="1rh-a8-JgM"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="10" id="CFp-vs-kCc"/>

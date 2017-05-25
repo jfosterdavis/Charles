@@ -67,7 +67,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         let character = self.collectionViewData[indexPath.row]
         
         cell.characterNameLabel.text = character.name
-        //cell.statNumber.text = String(stat.number)
+        cell.loadAppearance(from: character.phrases![0])
         
         
         return cell
@@ -212,5 +212,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         return allLockedCharacters
         
     }
+    
+    /******************************************************/
+    /*******************///MARK: Character buttons appearance
+    /******************************************************/
+
+
     
 }

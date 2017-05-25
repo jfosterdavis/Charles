@@ -226,21 +226,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         for slot in slots {
             //create a button
             let slotButton = createButton(from: slot)
-            
-            //TODO: make the top corners of the first button rounded
-//            if counter == 0 {
-//                //if it is the first slot, round the top corners
-//                //round corners
-//                slotButton.layer.masksToBounds = true
-//                //slotButton.roundCorners(corners: [.topLeft,.topRight], radius: 3)
-//                let maskLayer = CAShapeLayer()
-//                maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10, height: 10)).cgPath
-//
-//                slotButton.layer.mask = maskLayer
-//            }
-            
-            
-            
             //add the button to the array of buttons
             currentButtons.append(slotButton)
             
@@ -254,9 +239,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             counter += 1
         }
-        
-        
-        
         
     }
     
