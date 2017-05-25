@@ -111,7 +111,7 @@ struct Characters {
     static let Fred = Character(name: "Fred",
                                 topRadius: 15,
                                 bottomRadius: 15,
-                                price: 6000,
+                                price: 100,
                                phrases: [Phrase(name: "N00b!",
                                                 likelihood: 40,
                                                 subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))

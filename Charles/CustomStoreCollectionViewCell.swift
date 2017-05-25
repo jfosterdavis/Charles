@@ -15,6 +15,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var buyButton: UIButton!
     
     
     /******************************************************/
@@ -64,6 +65,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         }
         
         roundCorners()
+        
+        
         
     }
     

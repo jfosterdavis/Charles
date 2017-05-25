@@ -37,9 +37,10 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //set up this collection view with the CoreData parent
         self.collectionView = storeCollectionView
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         
         //set the score label
-        playerScoreLabel.text = String(describing: score)
+        updateScoreLabel()
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
@@ -92,6 +93,39 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     }
     
     /******************************************************/
+    /*******************///MARK: UIcollectionViewDelegate
+    /******************************************************/
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
+    
+        let character = self.collectionViewData[indexPath.row]
+        
+        let price = character.price!
+        
+        guard price < score else {
+            print ("You cannot afford this item")
+            return
+        }
+        
+        let newCharacter = unlockCharacter(named: character.name)
+        
+        if newCharacter != nil {
+            //deduct the price
+            score = score - price
+            updateScoreLabel()
+            
+            //remove from the store
+            collectionViewData.remove(at: indexPath.row)
+            collectionView.reloadData()
+            
+            //TODO: deduct value from actual CoreData points
+            
+            print("Character \(newCharacter!.name) has been unlocked!")
+        }
+        
+    
+    }
+    
+    /******************************************************/
     /*******************///MARK: Buttons
     /******************************************************/
 
@@ -109,10 +143,51 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         }
     }
     
+    
+//    @IBAction func buyCharacter(_ sender: UIButton) {
+//        let cell = sender.superview as! CustomStoreCollectionViewCell
+//        
+//        let price = cell.priceLabel.text
+//        var priceInt = 0
+//        
+//        guard price != nil else {
+//            print("price was nil")
+//            return
+//        }
+//        
+//        if price != "Free!" {
+//            priceInt = Int(price!)!
+//        }
+//        
+//        guard priceInt < score else {
+//            print ("You cannot afford this item")
+//            return
+//        }
+//        
+//        
+//        if let characterName = cell.characterNameLabel.text {
+//            let newCharacter = unlockCharacter(named: characterName)
+//            
+//            if newCharacter != nil {
+//                //deduct the price
+//                score = score - priceInt
+//                updateScoreLabel()
+//                
+//                print("Character \(newCharacter!.name) has been unlocked!")
+//            }
+//        }
+//    }
+    
     /******************************************************/
     /*******************///MARK: General Functions
     /******************************************************/
 
+    func updateScoreLabel() {
+        let scoreTemp = String(describing: score)
+        
+        playerScoreLabel.text = scoreTemp
+    }
+    
     
     func checkForUnlockFeature(featureKey: String, featureId: String) throws -> Bool {
         guard let fc = frcDict[featureKey] else {

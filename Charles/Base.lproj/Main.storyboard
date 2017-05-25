@@ -150,7 +150,7 @@
         <!--Store Collection View Controller-->
         <scene sceneID="i25-MX-40E">
             <objects>
-                <viewController storyboardIdentifier="Store" modalTransitionStyle="partialCurl" id="YkZ-Z3-DkY" customClass="StoreCollectionViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Store" id="YkZ-Z3-DkY" customClass="StoreCollectionViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q7P-wq-mhj"/>
                         <viewControllerLayoutGuide type="bottom" id="3cr-nv-Ibi"/>
