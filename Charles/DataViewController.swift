@@ -103,13 +103,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject.name
         
-        //load the buttons
-        reloadButtons()
+        //set up the game
+        reloadGame()
         
-        //load the objective
-        setColorFeedbackObjectiveAndDraw(using: UIColor.red)
-        
-   
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
@@ -139,7 +135,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: The Color Feedback Thingy
     /******************************************************/
 
-    func setColorFeedbackObjectiveAndDraw(using color: UIColor) {
+    func resetColorFeedbackObjectiveAndDraw(using color: UIColor) {
+        
+        //remove rotation and reset orientation flag
+        objectiveFeedbackView.resetOrientation()
         
         self.objectiveFeedbackView.alpha = 0.0
         self.objectiveFeedbackView.objectiveRingColor = color
@@ -183,7 +182,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: Creating main display/interface
     /******************************************************/
 
-    
+    func reloadGame() {
+        //load the buttons
+        reloadButtons()
+        
+        //load the objective
+        resetColorFeedbackObjectiveAndDraw(using: UIColor.red)
+    }
     
     func reloadButtons() {
         //1. get a random phrase from the character
@@ -449,8 +454,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //animate the justScored feedback
             presentJustScoredFeedback(justScored: pointsJustScored)
-            //reload a different phrase
-            reloadButtons()
+            //reload next round of game
+            reloadGame()
         }
         
     }

@@ -81,6 +81,14 @@ class ColorMatchFeedbackView:UIView
         orientationUp = isUp
     }
     
+    
+    ///sets the orientation flag and removes all rotations
+    func resetOrientation() {
+        setOrientationUp(isUp: true)
+        self.transform = CGAffineTransform.identity
+        
+    }
+    
     func toggleOrientationAndAnimate() {
         
         //if an animation object has already been created, use that instead. pass the value and if it is nil it will handle
