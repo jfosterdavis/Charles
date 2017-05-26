@@ -43,6 +43,12 @@ class ColorMatchFeedbackView:UIView
     override func draw(_ rect: CGRect)
     {
         
+        if progressRingColor == UIColor.clear {
+            mainColor = UIColor.clear
+        } else {
+            mainColor = calculateColorDifference(color1: objectiveRingColor, color2: progressRingColor)
+        }
+        
         let dotPath = UIBezierPath(ovalIn: rect)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = dotPath.cgPath
@@ -52,11 +58,7 @@ class ColorMatchFeedbackView:UIView
         ringThickness = min( bounds.size.width/4.5, bounds.size.height/4.5)
         
         
-        if progressRingColor == UIColor.clear {
-            insideRingColor = UIColor.clear
-        } else {
-            insideRingColor = calculateColorDifference(color1: objectiveRingColor, color2: progressRingColor)
-        }
+        
         
         if (isSelected) { drawObjectiveRing(rect: rect) }
         if (isSelected) { drawProgressRing(rect: rect) }
