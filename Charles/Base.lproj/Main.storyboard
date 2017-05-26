@@ -101,6 +101,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-ak-3np">
+                                <rect key="frame" x="307" y="34" width="45" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="bSE-jR-0R5"/>
+                                    <constraint firstAttribute="height" constant="28" id="nIK-Oz-eG3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-2S-TQR">
                                 <rect key="frame" x="49.5" y="61" width="275" height="21"/>
                                 <constraints>
@@ -115,6 +125,7 @@
                         <constraints>
                             <constraint firstItem="EPS-s9-h4K" firstAttribute="top" secondItem="W3d-oo-jUg" secondAttribute="bottomMargin" constant="26" id="6Zl-mj-V7g"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="top" secondItem="cF2-Le-7mQ" secondAttribute="bottom" id="CeW-G5-i0x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y5U-ak-3np" secondAttribute="trailing" constant="7" id="Dck-xA-daS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJ1-Y9-W5p" secondAttribute="trailing" id="HZz-bm-0dJ"/>
                             <constraint firstItem="Shc-Pd-fue" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="10" id="L9a-A3-NJy"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leading" constant="50" id="PnF-O8-Bso"/>
@@ -126,6 +137,7 @@
                             <constraint firstAttribute="trailing" secondItem="cF2-Le-7mQ" secondAttribute="trailing" constant="50" id="cCk-mG-gz5"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="10" id="dUa-xh-y1N"/>
                             <constraint firstItem="W3d-oo-jUg" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="df2-y8-4o8"/>
+                            <constraint firstItem="Y5U-ak-3np" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="14" id="eDj-4p-aRr"/>
                             <constraint firstItem="Shc-Pd-fue" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="fJH-iG-HRd"/>
                             <constraint firstItem="yJ1-Y9-W5p" firstAttribute="top" secondItem="W3d-oo-jUg" secondAttribute="bottom" id="u1k-HA-9DJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3d-oo-jUg" secondAttribute="trailing" id="vP3-hB-wGb"/>
@@ -138,6 +150,7 @@
                         <outlet property="button3" destination="ufb-l7-FgI" id="uJf-Mc-eAT"/>
                         <outlet property="buttonStackView" destination="W3d-oo-jUg" id="4fO-7f-NZF"/>
                         <outlet property="dataLabel" destination="cF2-Le-7mQ" id="3EH-BK-JV6"/>
+                        <outlet property="justScoredLabel" destination="Y5U-ak-3np" id="XVZ-eE-epq"/>
                         <outlet property="pageControl" destination="yJ1-Y9-W5p" id="U6w-mg-qLG"/>
                         <outlet property="scoreLabel" destination="hg6-2S-TQR" id="wAc-Vp-ftY"/>
                         <outlet property="storeButton" destination="Shc-Pd-fue" id="MPG-41-NFh"/>

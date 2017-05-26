@@ -40,6 +40,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     // MARK: Score
     var timer = Timer()
+    @IBOutlet weak var justScoredLabel: UILabel!
+    
     
     //Store
     @IBOutlet weak var storeButton: UIButton!
@@ -392,15 +394,41 @@ class DataViewController: CoreDataViewController, StoreReactor {
             currentSubphraseIndex = 0
             
             //give them some points for finishing a phrase
-            setCurrentScore(newScore: getCurrentScore() + calculateBaseScore(phrase: currentPhrase))
+            let pointsJustScored = calculateBaseScore(phrase: currentPhrase)
+            setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
             
             //update the score
             refreshScore()
             
+            //animate the justScored feedback
+            presentJustScoredFeedback(justScored: pointsJustScored)
             //reload a different phrase
             reloadButtons()
         }
         
+    }
+    
+    
+    ///flashes the amount of points the user just scored to the screen
+    func presentJustScoredFeedback(justScored: Int) {
+        
+        //make invisible in case in the middle of a feedback
+        //justScoredLabel.alpha = 0
+        
+        justScoredLabel.text = "+\(String(describing: justScored))"
+        self.justScoredLabel.isHidden = false
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.justScoredLabel.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            
+            //now fade away again
+            UIView.animate(withDuration: 2.5, animations: {
+                self.justScoredLabel.alpha = 0.0
+            }, completion: { (finished:Bool) in
+                //self.justScoredLabel.isHidden = true
+            })
+        })
     }
     
     /******************************************************/
