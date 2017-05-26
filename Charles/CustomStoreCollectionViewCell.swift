@@ -105,7 +105,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
         statusLabel.text = "For Sale"
         
-        statusShade.alpha = 0.15
+        statusShade.alpha = 0.05
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         
         setStatusVisibility(label: true, shade: true)

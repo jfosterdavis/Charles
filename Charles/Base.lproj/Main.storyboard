@@ -161,7 +161,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-Ji-aIm">
                                 <rect key="frame" x="16" y="80" width="343" height="567"/>
-                                <color key="backgroundColor" red="0.91360551118850708" green="0.88809335231781006" blue="0.84493863582611084" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
                                     <size key="itemSize" width="135" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -259,8 +259,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3gh-fn-n8m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-U1-y1f">
@@ -275,7 +275,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.91465736040000001" green="0.89108497649999996" blue="0.84462106280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="BEx-U1-y1f" secondAttribute="trailing" constant="118" id="1rh-a8-JgM"/>
                             <constraint firstItem="8BW-A2-nRg" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="50" id="A33-qh-xTA"/>
