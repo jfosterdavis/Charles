@@ -109,8 +109,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        roundButtonCorners(topRadius: dataObject.topRadius, bottomRadius: dataObject.bottomRadius)
-
+        
+        //revealButtons()
+        self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
         
     }
     
@@ -185,15 +186,60 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //button.layer.masksToBounds = true
         //slotButton.roundCorners(corners: [.topLeft,.topRight], radius: 3)
         maskLayer = CAShapeLayer()
+        
+        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
         maskLayer.bounds = button.frame
         maskLayer.position = button.center
-        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
         
         button.layer.mask = maskLayer
     }
     
+    func revealButtons() {
+        
+        let intervals = currentPhrase.slots?.count
+        let frequency = 1.0/Float(intervals!)
+        let miliseconds = Int(frequency * 100)
+        
+        revealButtonsInSequence(buttons: currentButtons, delay: 200)
+    }
+    
+    func revealButtonsInSequence(buttons: [UIButton], delay: Int) {
+        
+        guard !buttons.isEmpty else {
+            
+            for currentButton in currentButtons {
+                currentButton.isEnabled = true
+            }
+            return
+        }
+        
+        var mutableButtons = buttons
+        
+        let button = mutableButtons.popLast()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
+            button!.isHidden = false
+            
+            self.revealButtonsInSequence(buttons: mutableButtons, delay: delay)
+            self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
+        })
+    }
+    
     ///removes all buttons from the stackview
     func removeAllButtons() {
+        //disable and fade out
+        
+        
+        //disable the buttons
+        for button in currentButtons {
+            button.isEnabled = false
+        }
+        
+        //fade out the stack
+//        UIView.animate(withDuration: 1.4, animations: {
+//            self.buttonStackView.alpha = 0.0
+//        })
+        
         for button in currentButtons {
             guard buttonStackView.arrangedSubviews.index(of: button) != nil else {
                 //TODO: Handle index not found
@@ -220,12 +266,17 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         }
         
+        //hide the stackview
+        buttonStackView.alpha = 0.0
+        
         //buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         var counter = 0
         //step through each slot and createa  button for it
         for slot in slots {
             //create a button
             let slotButton = createButton(from: slot)
+            //slotButton.isHidden = true
+            slotButton.isEnabled = false
             //add the button to the array of buttons
             currentButtons.append(slotButton)
             
@@ -239,6 +290,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             counter += 1
         }
+        
+        UIView.animate(withDuration: 0.8, animations: {
+            self.buttonStackView.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            for button in self.currentButtons {
+                button.isEnabled = true
+            }
+        })
         
     }
     

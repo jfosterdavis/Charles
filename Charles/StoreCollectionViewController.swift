@@ -199,7 +199,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             newScore = 0
         }
         if !(newScore == 0 && currentScore == 0) {
-            setCurrentScore(newScore: newScore)
+            _ = setCurrentScore(newScore: newScore)
         }
         
     }
@@ -312,7 +312,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
             }
             
-            guard let characters = fc.fetchedObjects as? [UnlockedCharacter] else {
+            guard (fc.fetchedObjects as? [UnlockedCharacter]) != nil else {
                 
                 fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacter.")
             }
