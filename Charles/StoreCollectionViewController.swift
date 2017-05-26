@@ -23,6 +23,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     @IBOutlet weak var unlockFredButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     
+    //Characters
+    var alwaysUnlockedCharacterNames = [String]()
+    
     //CoreData FRC Keys
     let keyUnlockedCharacter = "keyUnlockedCharacter"
     
@@ -42,11 +45,16 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //set the score label
         updateScoreLabel()
         
+        //setup unlocked character names
+        for character in Characters.AlwaysUnlockedSet {
+            alwaysUnlockedCharacterNames.append(character.name)
+        }
+        
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
         
         //initialize data for the collectionView
-        collectionViewData = getAllLockedCharacters()
+        collectionViewData = getAllCharactersDisplayableInStore()
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -85,6 +93,18 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         cell.loadAppearance(from: character.phrases![0])
         
+        //set the status of this character.  Is it unlocked or affordable?
+        
+        //if it is unlocked
+        if try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: character.name) {
+            //it is unlocked, so set the status to unlocked
+            cell.setStatusUnlocked()
+        } else if !isCharacterAffordable(character: character) {  //check if it is affordable
+            cell.setStatusUnaffordable()
+        } else {  //the character is not unlocked and is affordable
+            cell.setStatusAffordable()
+        }
+        
         
         return cell
         //        default: break
@@ -99,9 +119,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
         let character = self.collectionViewData[indexPath.row]
         
-        let price = character.price!
-        
-        guard price < score else {
+        guard !isCharacterAffordable(character: character) else {
             print ("You cannot afford this item")
             return
         }
@@ -110,11 +128,13 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         if newCharacter != nil {
             //deduct the price
-            score = score - price
+            score = score - character.price!
             updateScoreLabel()
             
             //remove from the store
-            collectionViewData.remove(at: indexPath.row)
+            //collectionViewData.remove(at: indexPath.row)
+            //don't remove, instead shade it differently
+            
             collectionView.reloadData()
             
             //TODO: deduct value from actual CoreData points
@@ -188,7 +208,20 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         playerScoreLabel.text = scoreTemp
     }
     
+    func isCharacterAffordable(character: Character) -> Bool {
+        
+        let price = character.price!
+        
+        if price > score {
+            print ("You cannot afford this item")
+            return false
+        } else {
+            return true
+        }
+    }
     
+    
+    ///Checks the given CoreData set for the given FRCKey, for the given id of the feature to see if that feature is unlocked in the store or not.
     func checkForUnlockFeature(featureKey: String, featureId: String) throws -> Bool {
         guard let fc = frcDict[featureKey] else {
             fatalError("Can't find a fc with the key named \(featureKey)")
@@ -196,13 +229,20 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         switch featureKey {
         case keyUnlockedCharacter:
+            
             //look for the given string in the name field
             guard let characters = fc.fetchedObjects as? [UnlockedCharacter] else {
                 fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacters.")
             }
             
+            //if the name is in the alwaysunlocked list then don't bother with the rest
+            guard !alwaysUnlockedCharacterNames.contains(featureId) else {
+                return true
+            }
+            
+            //if the character name is found in the set of unlocked characgters, or if the character object is found in the set of characters that are always unlocked
             for character in characters {
-                if character.name == featureId {
+                if character.name! == featureId{
                     //character was found, return true
                     return true
                 }
@@ -303,5 +343,10 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
     }
     
+    func getAllCharactersDisplayableInStore() -> [Character] {
+        
+        return Characters.ValidCharacters
+
+    }
     
 }

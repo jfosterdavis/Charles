@@ -17,6 +17,11 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var buyButton: UIButton!
     
+    //status
+    @IBOutlet weak var statusShade: UIView!
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    
     
     /******************************************************/
     /*******************///MARK: Appearance
@@ -80,4 +85,47 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         newButton.isEnabled = false
         return newButton
     }
+    
+    /******************************************************/
+    /*******************///MARK: Status
+    /******************************************************/
+
+    ///sets the status to unlocked
+    func setStatusUnlocked() {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "Unlocked"
+        
+        statusShade.alpha = 0.15
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        
+        setStatusVisibility(label: true, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+    }
+    
+    func setStatusVisibility(label: Bool, shade: Bool){
+        statusLabel.isHidden = !label
+        statusShade.isHidden = !shade
+    }
+    
+    ///sets the visual status to affordable and ready for purchase
+    func setStatusAffordable() {
+        setStatusVisibility(label: false, shade: false)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+    }
+    
+    func setStatusUnaffordable() {
+        statusShade.alpha = 0.45
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        setStatusVisibility(label: false, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 128/255, green: 0/255, blue: 0/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+    }
+
 }

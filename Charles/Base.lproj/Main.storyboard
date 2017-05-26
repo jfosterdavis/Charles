@@ -150,7 +150,7 @@
         <!--Store Collection View Controller-->
         <scene sceneID="i25-MX-40E">
             <objects>
-                <viewController storyboardIdentifier="Store" id="YkZ-Z3-DkY" customClass="StoreCollectionViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Store" modalTransitionStyle="crossDissolve" id="YkZ-Z3-DkY" customClass="StoreCollectionViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q7P-wq-mhj"/>
                         <viewControllerLayoutGuide type="bottom" id="3cr-nv-Ibi"/>
@@ -162,7 +162,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-Ji-aIm">
                                 <rect key="frame" x="16" y="80" width="343" height="567"/>
                                 <color key="backgroundColor" red="0.91360551118850708" green="0.88809335231781006" blue="0.84493863582611084" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
                                     <size key="itemSize" width="135" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -197,12 +197,33 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JC-GMq">
                                                     <rect key="frame" x="8" y="33" width="119" height="119"/>
                                                 </stackView>
+                                                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ap7-zq-s1c">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="135" height="180"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlocked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="26" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-5c-tTR">
+                                                    <rect key="frame" x="-0.5" y="72" width="135" height="35"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="5XJ-24-U9o"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="30"/>
+                                                    <color key="textColor" red="0.94646256350000002" green="0.92207050160000004" blue="0.87399090729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.974598228931427" green="0.91639262437820435" blue="0.73575562238693237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="12W-Ht-U2Y"/>
+                                            <constraint firstItem="mQn-5c-tTR" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="59S-pG-FOe"/>
+                                            <constraint firstItem="mQn-5c-tTR" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="5yW-Xm-N3g"/>
+                                            <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="7Kl-OT-aMs"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="top" secondItem="Kb1-00-WTk" secondAttribute="bottom" constant="5" id="9ZY-Ub-8dd"/>
+                                            <constraint firstItem="mQn-5c-tTR" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="BMb-uI-6SW"/>
+                                            <constraint firstItem="Ap7-zq-s1c" firstAttribute="height" secondItem="IY4-mC-g1J" secondAttribute="height" id="Clh-no-VDH"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" id="Kqg-xz-sZm"/>
+                                            <constraint firstItem="Ap7-zq-s1c" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="NBe-xN-5zh"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="OHf-aq-kj6"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="top" secondItem="IY4-mC-g1J" secondAttribute="topMargin" id="QaQ-vy-gbD"/>
                                             <constraint firstItem="v4J-ln-O4Z" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="dba-wr-HSd"/>
@@ -216,6 +237,8 @@
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
                                             <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
                                             <outlet property="stackView" destination="VMi-JC-GMq" id="Ftr-BB-IOl"/>
+                                            <outlet property="statusLabel" destination="mQn-5c-tTR" id="Lwr-3x-oTb"/>
+                                            <outlet property="statusShade" destination="Ap7-zq-s1c" id="kSm-fP-7RK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
