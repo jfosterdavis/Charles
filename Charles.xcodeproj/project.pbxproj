@@ -36,6 +36,7 @@
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
 		F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50731ED4FDF70087F461 /* Protocols.swift */; };
+		F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
 		F6FD50731ED4FDF70087F461 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMatchFeedbackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 				F607C8851EBFC6E600651FAD /* Main.storyboard */,
 				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
 				F60327BD1EC54CEB00493DC3 /* Collection View Cells */,
+				F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
+				F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */,
 				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,
 				F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */,
 			);

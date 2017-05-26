@@ -23,6 +23,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
+    @IBOutlet weak var missionFeedbackPlaceholder: UIView!
+    
+    
     @IBOutlet weak var buttonStackView: UIStackView!
     
     var currentButtons = [UIButton]()
