@@ -20,10 +20,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Benton, Dan, Charles, Fred]
-    static let NewPlayerCharacterSet: [Character] = [Charles, Dan]
+    static let ValidCharacters: [Character] = [Dan, Benton, Charles, Fred]
+    static let NewPlayerCharacterSet: [Character] = [Dan, Benton]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Fred, Benton]
+    static let UnlockableCharacters: [Character] = [Charles, Fred]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -112,7 +112,7 @@ struct Characters {
     static let Fred = Character(name: "Fred",
                                 topRadius: 15,
                                 bottomRadius: 15,
-                                price: 100,
+                                price: 6000,
                                phrases: [Phrase(name: "N00b!",
                                                 likelihood: 40,
                                                 subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
@@ -151,7 +151,7 @@ struct Characters {
     static let Benton = Character(name: "Benton",
                                   topRadius: 20,
                                   bottomRadius: 30,
-                                  price: 2500,
+                                  price: 0,
                                 phrases: [Phrase(name: "N00b!",
                                                  likelihood: 40,
                                                  subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))

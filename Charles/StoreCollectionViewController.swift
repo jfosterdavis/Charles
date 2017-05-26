@@ -28,6 +28,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     //CoreData FRC Keys
     let keyUnlockedCharacter = "keyUnlockedCharacter"
+    let keyCurrentScore = "CurrentScore"
     
     //Errors
     enum StoreError: Error {
@@ -52,6 +53,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+        _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
         
         //initialize data for the collectionView
         collectionViewData = getAllCharactersDisplayableInStore()
@@ -119,7 +121,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
         let character = self.collectionViewData[indexPath.row]
         
-        guard !isCharacterAffordable(character: character) else {
+        guard isCharacterAffordable(character: character) else {
             print ("You cannot afford this item")
             return
         }
@@ -131,15 +133,16 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             score = score - character.price!
             updateScoreLabel()
             
+            //adjust the core data score
+            reconcileScoreFromPurchase(purchasePrice: character.price!)
+            
             //remove from the store
             //collectionViewData.remove(at: indexPath.row)
             //don't remove, instead shade it differently
             
             collectionView.reloadData()
-            
-            //TODO: deduct value from actual CoreData points
-            
-            print("Character \(newCharacter!.name) has been unlocked!")
+
+            print("Character \(String(describing: newCharacter!.name)) has been unlocked!")
         }
         
     
@@ -150,53 +153,94 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /******************************************************/
 
 
-    @IBAction func unlockFredButtonPressed(_ sender: Any) {
-        
-        //unlock fred
-        let fred = unlockCharacter(named: "Fred")
-        if fred != nil {
-            //fred was unlocked, so go tell someone
-            print("Fred has been unlocked!")
-        } else {
-            //fred was not unlocked or was already unlocked
-            print("Fred is already unlocked!")
+    /******************************************************/
+    /*******************///MARK: Core Data
+    /******************************************************/
+    /**
+     get the current score, if there is not a score record, make one at 0
+     */
+    func getCurrentScore() -> Int {
+        guard let fc = frcDict[keyCurrentScore] else {
+            return -1
+            
         }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+            
+            return -1
+        }
+        
+        if (currentScores.count) == 0 {
+            
+            print("No CurrentScore exists.  Creating.")
+            let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            
+            return Int(newScore.value)
+        } else {
+            
+            //print(currentScores[0].value)
+            let score = Int(currentScores[0].value)
+            
+            //if didn't find at end of loop, must not be an entry, so level 0
+            return score
+        }
+        
+        
     }
     
+    ///Takes the given price and modifies the player's current score in core data to reflect the spending of the points
+    func reconcileScoreFromPurchase(purchasePrice: Int) {
+        let currentScore = getCurrentScore()
+        
+        let penalty = purchasePrice
+        var newScore = currentScore - penalty
+        
+        if newScore < 0 {
+            newScore = 0
+        }
+        if !(newScore == 0 && currentScore == 0) {
+            setCurrentScore(newScore: newScore)
+        }
+        
+    }
     
-//    @IBAction func buyCharacter(_ sender: UIButton) {
-//        let cell = sender.superview as! CustomStoreCollectionViewCell
-//        
-//        let price = cell.priceLabel.text
-//        var priceInt = 0
-//        
-//        guard price != nil else {
-//            print("price was nil")
-//            return
-//        }
-//        
-//        if price != "Free!" {
-//            priceInt = Int(price!)!
-//        }
-//        
-//        guard priceInt < score else {
-//            print ("You cannot afford this item")
-//            return
-//        }
-//        
-//        
-//        if let characterName = cell.characterNameLabel.text {
-//            let newCharacter = unlockCharacter(named: characterName)
-//            
-//            if newCharacter != nil {
-//                //deduct the price
-//                score = score - priceInt
-//                updateScoreLabel()
-//                
-//                print("Character \(newCharacter!.name) has been unlocked!")
-//            }
-//        }
-//    }
+    /// sets the current score, returns the newly set score
+    func setCurrentScore(newScore: Int) -> Int {
+        guard let fc = frcDict[keyCurrentScore] else {
+            return -1
+            
+        }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+            return -1
+        }
+        
+        if (currentScores.count) == 0  {
+            print("No CurrentScore exists.  Creating.")
+            let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            currentScore.value = Int64(newScore)
+            
+            return Int(currentScore.value)
+        } else {
+            
+            switch newScore {
+            //TODO: if the score is already 0 don't set it again.
+            case let x where x < 0:
+                currentScores[0].value = Int64(0)
+                return Int(currentScores[0].value)
+            default:
+                //set score for the first element
+                currentScores[0].value = Int64(newScore)
+                //print("There are \(currentScores.count) score entries in the database.")
+                return Int(currentScores[0].value)
+            }
+            
+            
+        }
+        
+    }
+    
+
     
     /******************************************************/
     /*******************///MARK: General Functions
@@ -213,7 +257,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         let price = character.price!
         
         if price > score {
-            print ("You cannot afford this item")
+            //print ("You cannot afford this item")
             return false
         } else {
             return true

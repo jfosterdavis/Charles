@@ -36,7 +36,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var changePitchEffect: AVAudioUnitTimePitch!
     
     //CoreData
-    var keyCurrentScore = "CurrentScore"
+    let keyCurrentScore = "CurrentScore"
     
     // MARK: Score
     var timer = Timer()
@@ -98,7 +98,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
-        timer = Timer.scheduledTimer(timeInterval: 0.12, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.24, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

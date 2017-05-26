@@ -49,6 +49,14 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
             
         }
         
+        //empty all buttons
+        for subView in stackView.subviews {
+            stackView.removeArrangedSubview(subView)
+            
+            //remove button from heirarchy
+            subView.removeFromSuperview()
+        }
+        
         //buttonStackView.translatesAutoresizingMaskIntoConstraints = false
         var counter = 0
         //step through each slot and createa  button for it
