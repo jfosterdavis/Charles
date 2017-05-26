@@ -31,9 +31,14 @@ class ColorMatchFeedbackView:UIView
         {
         didSet { print("ringThickness was set here") }
     }
+    @IBInspectable var orientationUp: Bool = true
+        {
+        didSet { print("ringThickness was set here") }
+    }
 
     
     @IBInspectable var isSelected: Bool = true
+    var rotateAnimation: CABasicAnimation?
     
     override func draw(_ rect: CGRect)
     {
@@ -55,6 +60,7 @@ class ColorMatchFeedbackView:UIView
         
         if (isSelected) { drawObjectiveRing(rect: rect) }
         if (isSelected) { drawProgressRing(rect: rect) }
+        
     }
     
     func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
@@ -69,6 +75,19 @@ class ColorMatchFeedbackView:UIView
         let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
         
         return newColor
+    }
+    
+    func setOrientationUp(isUp: Bool) {
+        orientationUp = isUp
+    }
+    
+    func toggleOrientationAndAnimate() {
+        
+        //if an animation object has already been created, use that instead. pass the value and if it is nil it will handle
+        //rotateAnimation = self.rotate(previousAnimation: rotateAnimation)
+        rotate180AndPersist()
+        setOrientationUp(isUp: !orientationUp)
+        
     }
     
     internal func drawObjectiveRing(rect: CGRect)->()

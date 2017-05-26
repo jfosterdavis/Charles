@@ -34,6 +34,7 @@
 		F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C11EBFDAEC00651FAD /* CharacterDictionary.swift */; };
 		F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C61EC250BA00651FAD /* Utilities.swift */; };
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
+		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
 		F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50731ED4FDF70087F461 /* Protocols.swift */; };
 		F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */; };
@@ -90,6 +91,7 @@
 		F607C8C41EC13C5400651FAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F607C8C61EC250BA00651FAD /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
 		F6FD50731ED4FDF70087F461 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMatchFeedbackView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				F607C8BD1EBFD82700651FAD /* Subphrase.swift */,
 				F607C8BF1EBFD8D800651FAD /* Slot.swift */,
 				F607C8C81EC3FA8800651FAD /* Characters.swift */,
+				F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
+				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
 				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,

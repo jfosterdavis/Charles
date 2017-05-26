@@ -81,6 +81,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //setup the score
         refreshScore()
+        
+        //setup the color feedback view to recieve touches
+        registerTouchRecognizerColorFeedback()
       
         //delegates
         
@@ -151,6 +154,19 @@ class DataViewController: CoreDataViewController, StoreReactor {
         }, completion: nil)
         
         
+    }
+    
+    
+    /// Allow the color feedback view to register when it is touched and call colorFeedbackTouched
+    func registerTouchRecognizerColorFeedback() {
+        // 3. add action to myView
+        let gesture = UITapGestureRecognizer(target: self, action: "colorFeedbackTouched:")
+
+        self.objectiveFeedbackView.addGestureRecognizer(gesture)
+    }
+    
+    func colorFeedbackTouched(_ sender:UITapGestureRecognizer) {
+        self.objectiveFeedbackView.toggleOrientationAndAnimate()
     }
     
     /******************************************************/

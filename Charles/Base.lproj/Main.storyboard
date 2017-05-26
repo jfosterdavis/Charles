@@ -118,7 +118,7 @@
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-Bq-aMo" customClass="ColorMatchFeedbackView" customModule="Charles" customModuleProvider="target">
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-Bq-aMo" customClass="ColorMatchFeedbackView" customModule="Charles" customModuleProvider="target">
                                 <rect key="frame" x="102.5" y="277.5" width="171.5" height="171.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>

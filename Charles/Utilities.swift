@@ -32,3 +32,43 @@ extension UIButton
         self.layer.mask = maskLayer
     }
 }
+
+
+/******************************************************/
+/*******************///MARK: UIViewExtensions
+/******************************************************/
+
+import UIKit
+
+extension UIView {
+    func rotate(degrees: Double = 180.0, duration: CFTimeInterval = 1.0, completionDelegate: CAAnimationDelegate? = nil, previousAnimation: CABasicAnimation? = nil) -> CABasicAnimation {
+        
+        let rads = ((degrees) / 180.0 * Double.pi);
+        var rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        
+        if let previousAnimation = previousAnimation {
+            rotateAnimation = previousAnimation
+        } else {
+            rotateAnimation.fromValue = 0.0
+            rotateAnimation.toValue = CGFloat(rads)
+            rotateAnimation.duration = duration
+        }
+
+        if let delegate: CAAnimationDelegate = completionDelegate {
+            rotateAnimation.delegate = delegate
+        }
+        
+        rotateAnimation.fillMode = kCAFillModeForwards;
+        rotateAnimation.isRemovedOnCompletion = false;
+        self.layer.add(rotateAnimation, forKey: nil)
+        
+        return rotateAnimation
+    }
+    
+    ///rotates the view 180 degrees and the view is still there (not an animation that isn't really there
+    func rotate180AndPersist() {
+        UIView.animate(withDuration: 0.5, animations: ({
+            self.transform = self.transform.rotated(by: CGFloat(Double.pi))
+        }))
+    }
+}
