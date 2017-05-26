@@ -99,11 +99,11 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     /******************************************************/
 
     ///sets the status to unlocked
-    func setStatusUnlocked() {
+    func setStatusAffordable() {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "Unlocked"
+        statusLabel.text = "For Sale"
         
         statusShade.alpha = 0.15
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
@@ -120,17 +120,23 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     }
     
     ///sets the visual status to affordable and ready for purchase
-    func setStatusAffordable() {
+    func setStatusUnlocked() {
         setStatusVisibility(label: false, shade: false)
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        priceLabel.text = "Unlocked!"
     }
     
     func setStatusUnaffordable() {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "For Sale"
+        
         statusShade.alpha = 0.45
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
-        setStatusVisibility(label: false, shade: true)
+        setStatusVisibility(label: true, shade: true)
         
         priceLabel.textColor = UIColor(red: 128/255, green: 0/255, blue: 0/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
