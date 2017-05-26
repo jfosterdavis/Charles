@@ -119,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-Bq-aMo" customClass="ColorMatchFeedbackView" customModule="Charles" customModuleProvider="target">
-                                <rect key="frame" x="102" y="277.5" width="171.5" height="171.5"/>
+                                <rect key="frame" x="102.5" y="277.5" width="171.5" height="171.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pGH-Bq-aMo" secondAttribute="height" multiplier="1:1" id="kIH-46-7Y0"/>
@@ -147,7 +147,6 @@
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="top" secondItem="cF2-Le-7mQ" secondAttribute="bottom" id="CeW-G5-i0x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJ1-Y9-W5p" secondAttribute="trailing" id="HZz-bm-0dJ"/>
                             <constraint firstItem="Shc-Pd-fue" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="10" id="L9a-A3-NJy"/>
-                            <constraint firstItem="pGH-Bq-aMo" firstAttribute="width" secondItem="W3d-oo-jUg" secondAttribute="width" multiplier="1:2" id="MFE-XC-1LY"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leading" constant="50" id="PnF-O8-Bso"/>
                             <constraint firstItem="W3d-oo-jUg" firstAttribute="top" secondItem="hg6-2S-TQR" secondAttribute="bottom" constant="3" id="R9R-Y2-oaO"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="centerY" secondItem="W3d-oo-jUg" secondAttribute="centerY" id="S1F-pA-haD"/>
@@ -158,6 +157,7 @@
                             <constraint firstAttribute="trailing" secondItem="cF2-Le-7mQ" secondAttribute="trailing" constant="50" id="cCk-mG-gz5"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" constant="10" id="dUa-xh-y1N"/>
                             <constraint firstItem="W3d-oo-jUg" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="df2-y8-4o8"/>
+                            <constraint firstItem="pGH-Bq-aMo" firstAttribute="width" secondItem="W3d-oo-jUg" secondAttribute="width" multiplier="1:2" id="e16-bZ-hIm"/>
                             <constraint firstItem="Shc-Pd-fue" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="fJH-iG-HRd"/>
                             <constraint firstItem="Y5U-ak-3np" firstAttribute="top" secondItem="hg6-2S-TQR" secondAttribute="top" id="iZ8-b7-Yk0"/>
                             <constraint firstItem="Y5U-ak-3np" firstAttribute="leading" secondItem="hg6-2S-TQR" secondAttribute="trailing" constant="3" id="syx-H5-acJ"/>
