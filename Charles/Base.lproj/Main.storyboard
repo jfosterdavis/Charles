@@ -174,7 +174,7 @@
                         <outlet property="buttonStackView" destination="W3d-oo-jUg" id="4fO-7f-NZF"/>
                         <outlet property="dataLabel" destination="cF2-Le-7mQ" id="3EH-BK-JV6"/>
                         <outlet property="justScoredLabel" destination="Y5U-ak-3np" id="XVZ-eE-epq"/>
-                        <outlet property="missionFeedbackPlaceholder" destination="pGH-Bq-aMo" id="nnD-BW-NrE"/>
+                        <outlet property="objectiveFeedbackView" destination="pGH-Bq-aMo" id="tsW-Su-oZL"/>
                         <outlet property="pageControl" destination="yJ1-Y9-W5p" id="U6w-mg-qLG"/>
                         <outlet property="scoreLabel" destination="hg6-2S-TQR" id="wAc-Vp-ftY"/>
                         <outlet property="storeButton" destination="Shc-Pd-fue" id="MPG-41-NFh"/>

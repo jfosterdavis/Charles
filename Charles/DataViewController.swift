@@ -23,7 +23,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
-    @IBOutlet weak var missionFeedbackPlaceholder: UIView!
+    
+    //color objective feedback
+    @IBOutlet weak var objectiveFeedbackView: ColorMatchFeedbackView!
+    
     
     
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -97,7 +100,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject.name
         
+        //load the buttons
         reloadButtons()
+        
+        //load the objective
+        setColorFeedbackObjectiveAndDraw(using: UIColor.red)
         
    
         //stop the timer to avoide stacking penalties
@@ -123,6 +130,27 @@ class DataViewController: CoreDataViewController, StoreReactor {
     override func viewDidDisappear(_ animated: Bool) {
         //stop the timer to avoide stacking penalties
         timer.invalidate()
+    }
+    
+    /******************************************************/
+    /*******************///MARK: The Color Feedback Thingy
+    /******************************************************/
+
+    func setColorFeedbackObjectiveAndDraw(using color: UIColor) {
+        
+        self.objectiveFeedbackView.alpha = 0.0
+        self.objectiveFeedbackView.objectiveRingColor = color
+        
+        
+        UIView.animate(withDuration: 1.2,
+                       delay: 0.8,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        
+                        self.objectiveFeedbackView.alpha = 1.0
+        }, completion: nil)
+        
+        
     }
     
     /******************************************************/
