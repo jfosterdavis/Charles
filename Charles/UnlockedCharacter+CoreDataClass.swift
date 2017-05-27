@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(UnlockedCharacter)
+//@objc(UnlockedCharacter)
 public class UnlockedCharacter: NSManagedObject {
 
     convenience init(name: String, datetimeUnlocked: NSDate? = nil, expiresHours: Int? = nil, expiresDays: Int? = nil, context: NSManagedObjectContext){

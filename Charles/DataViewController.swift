@@ -50,6 +50,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //CoreData
     let keyCurrentScore = "CurrentScore"
+    let keyXP = "keyXP"
     
     // MARK: Score
     var timer = Timer()
@@ -90,6 +91,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
+        _ = setupFetchedResultsController(frcKey: keyXP, entityName: "XP", sortDescriptors: [],  predicate: nil)
         
         //set opacity of elements
         storeButton.alpha = 0
@@ -227,10 +229,46 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //figure out what level the player is on
             levelProgressView.isHidden = false
 
-            levelProgressView.setProgress(0.7, animated: true)
+            if let progress = calculateProgressValue() {
+                levelProgressView.setProgress(progress, animated: true)
+            } else {
+                levelProgressView.setProgress(0.0, animated: true)
+            }
             
         }
         
+        
+    }
+    
+    //calculates the progress value for the progress meter based on the user's level and XP.  returns Float
+    func calculateProgressValue() -> Float? {
+        //get user's level
+        let currentLevel = getUserCurrentLevel()
+        
+        guard currentLevel != nil else {
+            //this may mean the user is too high of a level
+            return nil
+        }
+        //get user's XP for this level
+        guard let fc = frcDict[keyXP] else {
+            return nil
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            return nil
+        }
+        var xpThisLevel = 0
+        
+        for xp in xps {
+            if Int(xp.level) == currentLevel!.level {
+                xpThisLevel = xpThisLevel + Int(xp.value)
+            }
+        }
+        
+        let progress: Float = Float(xpThisLevel) / Float(currentLevel!.xPRequired)
+        
+        return progress
         
     }
     
@@ -652,7 +690,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
             setAllUserInteraction(enabled: false)
             
             
-            
+            //if the user is working on an objective, give xp points
+            if objectiveFeedbackView.alpha > 0 {
+                let level = getUserCurrentLevel()
+                if let level = level {
+                    giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                }
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
                 self.reloadGame()
@@ -966,6 +1010,68 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
         }
 
+    }
+    
+    /// sets the current score, returns the newly set score
+    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil) {
+        guard let fc = frcDict[keyXP] else {
+            return
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            return
+        }
+        
+        //create a new score object
+        let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
+        newXP.value = Int64(value)
+        newXP.earnedDatetime = earnedDatetime as NSDate
+        newXP.level = Int64(level)
+        newXP.score = Int64(score)
+        newXP.time = Int64(time)
+        newXP.toggles = Int64(toggles)
+        if let int1 = metaInt1 {
+            newXP.metaInt1 = Int64(int1)
+        }
+        if let int2 = metaInt1 {
+            newXP.metaInt2 = Int64(int2)
+        }
+        
+        newXP.metaString1 = metaString1
+        newXP.metaString2 = metaString2
+        
+    }
+    
+    ///returns the total amount of user XP
+    func calculateUserXP() -> Int {
+        guard let fc = frcDict[keyXP] else {
+            fatalError("Counldn't get frcDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            fatalError("Counldn't get XP")
+        }
+        
+        var sum = 0
+        for xp in xps {
+            sum = sum + Int(xp.value)
+        }
+        
+        return sum
+    }
+    
+    ///returns the user's current level determine programmatically.  returns nil if user's level is off the charts high
+    func getUserCurrentLevel() -> Level? {
+        let userXP = calculateUserXP()
+        let userLevel = Levels.getLevel(from: userXP)
+        
+        if let lvl = userLevel {
+            return lvl
+        } else {
+            return nil
+        }
     }
 
 }
