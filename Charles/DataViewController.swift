@@ -143,7 +143,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         self.objectiveFeedbackView.alpha = 0.0
         self.objectiveFeedbackView.objectiveRingColor = color
-        
+        objectiveFeedbackView.setNeedsDisplay()
         
         UIView.animate(withDuration: 1.2,
                        delay: 0.8,
@@ -438,6 +438,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         } else {
             speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
         }
+        
         var addThisColor: UIColor
         if let c = sendingButton!.backgroundColor {
             if c == UIColor.clear {

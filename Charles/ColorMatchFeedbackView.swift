@@ -137,6 +137,8 @@ class ColorMatchFeedbackView:UIView
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
+//        let newFillColor = calculateColorDeviation(color1: objectiveRingColor, color2: progressRingColor)
+//        shapeLayer.fillColor = newFillColor.withAlphaComponent(1.0).cgColor
         shapeLayer.fillColor = insideRingColor.cgColor
         shapeLayer.strokeColor = objectiveRingColor.cgColor
         shapeLayer.lineWidth = ringThickness
@@ -169,12 +171,12 @@ class ColorMatchFeedbackView:UIView
 
     ///adds the given color to the progressRingColor and redraws
     func addColorToProgress(color: UIColor) {
-        progressRingColor = progressRingColor + color
+        progressRingColor = progressRingColor.withAlphaComponent(1.0) + color.withAlphaComponent(1.0)
         self.setNeedsDisplay()
     }
     
     func subtractColorToProgress(color: UIColor) {
-        progressRingColor = progressRingColor - color
+        progressRingColor = (progressRingColor.withAlphaComponent(1.0) - color.withAlphaComponent(1.0)).withAlphaComponent(1.0)
         self.setNeedsDisplay()
     }
     

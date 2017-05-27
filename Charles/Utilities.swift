@@ -46,18 +46,18 @@ func + (left: UIColor, right: UIColor) -> UIColor {
     right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
     
     var newRed = (leftRGBA[0] + rightRGBA[0])
-    if newRed > 255 {
-        newRed = 255
+    if newRed > 1.0 {
+        newRed = 1.0
     }
     
     var newGreen = (leftRGBA[1] + rightRGBA[1])
-    if newGreen > 255 {
-        newGreen = 255
+    if newGreen > 1.0 {
+        newGreen = 1.0
     }
     
     var newBlue = (leftRGBA[2] + rightRGBA[2])
-    if newBlue > 255 {
-        newBlue = 255
+    if newBlue > 1.0 {
+        newBlue = 1.0
     }
     
     var newAlpha = (leftRGBA[3] + rightRGBA[3])
@@ -89,22 +89,22 @@ func - (left: UIColor, right: UIColor) -> UIColor {
     
     var newRed = (leftRGBA[0] - rightRGBA[0])
     if newRed < 0 {
-        newRed = 0
+        newRed = 0.0
     }
     
     var newGreen = (leftRGBA[1] - rightRGBA[1])
     if newGreen < 0 {
-        newGreen = 0
+        newGreen = 0.0
     }
     
     var newBlue = (leftRGBA[2] - rightRGBA[2])
     if newBlue < 0 {
-        newBlue = 0
+        newBlue = 0.0
     }
     
     var newAlpha = (leftRGBA[3] - rightRGBA[3])
     if newAlpha < 0 {
-        newAlpha = 0
+        newAlpha = 0.0
     }
     
 //    return UIColor(
