@@ -50,7 +50,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     // MARK: Score
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
-    let minimumScoreToUnlockObjective = 750
+    let minimumScoreToUnlockObjective = 1250
+    let minimumScoreToUnlockStore = 500
     
     
     //Store
@@ -154,8 +155,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
                         
                         self.objectiveFeedbackView.alpha = 0.0
         }, completion: { (finished:Bool) in
-            
-           self.loadAndFadeInFeedbackObjective(using: color)
+            if self.getCurrentScore() >= self.minimumScoreToUnlockObjective {
+                self.loadAndFadeInFeedbackObjective(using: color)
+            }
             
         })
         
@@ -225,7 +227,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //pick a random color to load
         let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
         let randomColor = ColorLibrary.Easy[randomIndex]
-        if getCurrentScore() >= minimumScoreToUnlockObjective {
+        if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             reloadObjective(using: randomColor)
         }
     }
@@ -338,7 +340,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func removeAndReloadButtons(from phrase: Phrase) {
         
         var delay = 1.5
-        if getCurrentScore() <= minimumScoreToUnlockObjective {
+        if getCurrentScore() <= minimumScoreToUnlockObjective && objectiveFeedbackView.alpha < 1.0 {
             delay = 0.1
         }
         
@@ -573,7 +575,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //if the user doesn't ahve enough points to go after objectives, make the transition quicker
             var delay = 1000
-            if getCurrentScore() <= minimumScoreToUnlockObjective {
+            if getCurrentScore() <= minimumScoreToUnlockObjective && objectiveFeedbackView.alpha < 1.0 {
                 delay = 300
             }
             
@@ -696,18 +698,26 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set the alpha of the label to be the equivalent of the score /1000
         //alpha of the store icon will be such that 500 is the minimum score to start showing.  Lowest priced item will be 500.
-        if currentScore >= 1000 {
+        if currentScore >= minimumScoreToUnlockStore + 500 {
             scoreLabel.alpha = 1.0
             storeButton.alpha = 1.0
         } else {
-            let newAlpha: CGFloat = CGFloat(Float(currentScore) / 1000.0)
-            scoreLabel.alpha = newAlpha
-            storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
-            if storeButton.alpha == 0 {
-                storeButton.isEnabled = false
-            } else {
-                storeButton.isEnabled = true
-            }
+            
+            let newAlpha: CGFloat = CGFloat(Float(currentScore) / Float(minimumScoreToUnlockStore + 500))
+            
+            self.scoreLabel.alpha = newAlpha
+            
+            //fade in the store
+            UIView.animate(withDuration: 0.3, animations: {
+                
+                self.storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
+                if self.storeButton.alpha == 0 {
+                    self.storeButton.isEnabled = false
+                } else {
+                    self.storeButton.isEnabled = true
+                }
+            }, completion: nil)
+            
         }
     }
     
