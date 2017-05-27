@@ -638,16 +638,17 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         let maxScore = magnitude * 3.0 * multiplier
         var pointMessage: String? = nil
+        let scorePercent = Int(scoreToAward/maxScore*100.0)
         
-        switch scoreToAward/maxScore*100.0 {
+        switch scorePercent {
         case 100:
-            pointMessage = "Perfect!"
+            pointMessage = "Perfect Match!"
         case let x where x > 90:
-            pointMessage = "Superb!"
+            pointMessage = "\(scorePercent)% Superb!"
         case let x where x > 80:
-            pointMessage = "Great!"
+            pointMessage = "\(scorePercent)% Great!"
         default:
-            pointMessage = nil
+            pointMessage = "\(scorePercent)% Match"
         }
         return (Int(scoreToAward), pointMessage)
     }
@@ -671,7 +672,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func presentJustScoredFeedback(justScored: Int) {
         
         //make invisible in case in the middle of a feedback
-        //justScoredLabel.alpha = 0
+        justScoredLabel.alpha = 0
         
         justScoredLabel.text = "+\(String(describing: justScored))"
         self.justScoredLabel.isHidden = false
@@ -693,17 +694,21 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func presentJustScoredMessageFeedback(message: String) {
         
         //make invisible in case in the middle of a feedback
-        //justScoredLabel.alpha = 0
+        justScoredMessageLabel.alpha = 0
         
         justScoredMessageLabel.text = "\(message)"
         self.justScoredMessageLabel.isHidden = false
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.2,
+                       delay: 0.3,
+                        animations: {
             
             self.justScoredMessageLabel.alpha = 1.0
         }, completion: { (finished:Bool) in
             
             //now fade away again
-            UIView.animate(withDuration: 2.7, animations: {
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.5,
+                           animations: {
                 self.justScoredMessageLabel.alpha = 0.0
             }, completion: { (finished:Bool) in
                 //self.justScoredLabel.isHidden = true
