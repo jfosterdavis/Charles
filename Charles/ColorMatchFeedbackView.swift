@@ -46,7 +46,8 @@ class ColorMatchFeedbackView:UIView
         //if progressRingColor == UIColor.clear {
         //    mainColor = UIColor.clear
         //} else {
-        mainColor = objectiveRingColor - progressRingColor
+        
+        mainColor = calculateColorDeviation(color1: objectiveRingColor, color2: progressRingColor)
         mainColor = mainColor.withAlphaComponent(1.0)
         //mainColor = UIColor.purple
         //}
@@ -67,28 +68,34 @@ class ColorMatchFeedbackView:UIView
         
     }
     
-//    func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
-////        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0]) + color1.cgColor.components![0]
-////        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1]) + color1.cgColor.components![1]
-////        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2]) + color1.cgColor.components![2]
-//        
-//        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0])
-//        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1])
-//        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2])
-//        
-//        let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
-//        
-//        return newColor
-//    }
+    func calculateColorDeviation(color1: UIColor, color2: UIColor) -> UIColor {
+//        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0]) + color1.cgColor.components![0]
+//        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1]) + color1.cgColor.components![1]
+//        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2]) + color1.cgColor.components![2]
+        var color1RGBA = [CGFloat](repeating: 0.0, count: 4)
+        var color2RGBA = [CGFloat](repeating: 0.0, count: 4)
+        
+        color1.getRed(&color1RGBA[0], green: &color1RGBA[1], blue: &color1RGBA[2], alpha: &color1RGBA[3])
+        color2.getRed(&color2RGBA[0], green: &color2RGBA[1], blue: &color2RGBA[2], alpha: &color2RGBA[3])
+        
+        
+        let newColorR = abs(color1RGBA[0] - color2RGBA[0])
+        let newColorG = abs(color1RGBA[1] - color2RGBA[1])
+        let newColorB = abs(color1RGBA[2] - color2RGBA[2])
+        
+        let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
+        
+        return newColor
+    }
     
-        func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
-    //
-    
-            let newColor = color1 - color2
-            //∫newColor.alpha
-    
-            return newColor
-        }
+//        func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
+//    //
+//    
+//            let newColor = color1 - color2
+//            //∫newColor.alpha
+//    
+//            return newColor
+//        }
     
     
     /******************************************************/
@@ -163,6 +170,11 @@ class ColorMatchFeedbackView:UIView
     ///adds the given color to the progressRingColor and redraws
     func addColorToProgress(color: UIColor) {
         progressRingColor = progressRingColor + color
+        self.setNeedsDisplay()
+    }
+    
+    func subtractColorToProgress(color: UIColor) {
+        progressRingColor = progressRingColor - color
         self.setNeedsDisplay()
     }
     

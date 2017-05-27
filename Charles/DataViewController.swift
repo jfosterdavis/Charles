@@ -449,8 +449,17 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             addThisColor = UIColor.black
         }
-        //add the color of the button pressed to the color indicator
-        objectiveFeedbackView.addColorToProgress(color: addThisColor)
+        
+        //check the orientation of the objectiveFeedbackView.  If it is normal, add, if not, subtract the color
+        if objectiveFeedbackView.orientationUp {
+            //add the color of the button pressed to the color indicator
+            objectiveFeedbackView.addColorToProgress(color: addThisColor)
+        } else {
+            //subtract the color of the button pressed to the color indicator
+            objectiveFeedbackView.subtractColorToProgress(color: addThisColor)
+        }
+        
+        
         
         
         

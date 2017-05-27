@@ -45,12 +45,39 @@ func + (left: UIColor, right: UIColor) -> UIColor {
     left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
     right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
     
-    return UIColor(
-        red: (leftRGBA[0] + rightRGBA[0]) / 2,
-        green: (leftRGBA[1] + rightRGBA[1]) / 2,
-        blue: (leftRGBA[2] + rightRGBA[2]) / 2,
-        alpha: (leftRGBA[3] + rightRGBA[3]) / 2
-    )
+    var newRed = (leftRGBA[0] + rightRGBA[0])
+    if newRed > 255 {
+        newRed = 255
+    }
+    
+    var newGreen = (leftRGBA[1] + rightRGBA[1])
+    if newGreen > 255 {
+        newGreen = 255
+    }
+    
+    var newBlue = (leftRGBA[2] + rightRGBA[2])
+    if newBlue > 255 {
+        newBlue = 255
+    }
+    
+    var newAlpha = (leftRGBA[3] + rightRGBA[3])
+    if newAlpha > 1.0 {
+        newAlpha = 1.0
+    }
+    
+//    return UIColor(
+//        red: (leftRGBA[0] + rightRGBA[0]) / 2,
+//        green: (leftRGBA[1] + rightRGBA[1]) / 2,
+//        blue: (leftRGBA[2] + rightRGBA[2]) / 2,
+//        alpha: (leftRGBA[3] + rightRGBA[3]) / 2
+//    )
+    
+        return UIColor(
+            red: newRed,
+            green: newGreen,
+            blue: newBlue,
+            alpha: newAlpha
+        )
 }
 
 func - (left: UIColor, right: UIColor) -> UIColor {
@@ -60,15 +87,37 @@ func - (left: UIColor, right: UIColor) -> UIColor {
     left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
     right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
     
+    var newRed = (leftRGBA[0] - rightRGBA[0])
+    if newRed < 0 {
+        newRed = 0
+    }
+    
+    var newGreen = (leftRGBA[1] - rightRGBA[1])
+    if newGreen < 0 {
+        newGreen = 0
+    }
+    
+    var newBlue = (leftRGBA[2] - rightRGBA[2])
+    if newBlue < 0 {
+        newBlue = 0
+    }
+    
     var newAlpha = (leftRGBA[3] - rightRGBA[3])
     if newAlpha < 0 {
         newAlpha = 0
     }
     
+//    return UIColor(
+//        red: abs(leftRGBA[0] - rightRGBA[0]),
+//        green: abs(leftRGBA[1] - rightRGBA[1]),
+//        blue: abs(leftRGBA[2] - rightRGBA[2]),
+//        alpha: newAlpha
+//    )
+    
     return UIColor(
-        red: abs(leftRGBA[0] - rightRGBA[0]),
-        green: abs(leftRGBA[1] - rightRGBA[1]),
-        blue: abs(leftRGBA[2] - rightRGBA[2]),
+        red: newRed,
+        green: newGreen,
+        blue: newBlue,
         alpha: newAlpha
     )
 }
