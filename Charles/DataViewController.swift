@@ -50,6 +50,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     // MARK: Score
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
+    @IBOutlet weak var justScoredMessageLabel: UILabel!
+    
+    
     let minimumScoreToUnlockObjective = 1250
     let minimumScoreToUnlockStore = 500
     
@@ -580,7 +583,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
             }
             
             //give them some points for finishing a phrase
-            let pointsJustScored = calculateBaseScore(phrase: currentPhrase)
+            var pointsJustScored = 0
+            let scoreResults = calculateColorMatchPointsEarned()
+            if objectiveFeedbackView.alpha > 0.0 {
+                pointsJustScored = calculateBaseScore(phrase: currentPhrase) + scoreResults.0
+            } else {
+                pointsJustScored = calculateBaseScore(phrase: currentPhrase)
+            }
             setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
             
             //update the score
@@ -588,6 +597,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //animate the justScored feedback
             presentJustScoredFeedback(justScored: pointsJustScored)
+            
+            if let scoreMessage = scoreResults.1 {
+                presentJustScoredMessageFeedback(message: scoreMessage)
+            }
             
             //don't let the user do anything while we show them feedback and reload
             setAllUserInteraction(enabled: false)
@@ -602,6 +615,41 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
         }
         
+    }
+    
+    ///calculates the points earned from a given color, a color which represents the deviation between the goal and the progress
+    func calculateColorMatchPointsEarned() -> (Int, String?) {
+        
+        //really this is just the main color, but just in case that changes this way is more solid
+        let deviationColor = objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor)
+        let magnitude: CGFloat = 10.0
+        var deviationRGBA = [CGFloat](repeating: 0.0, count: 4)
+        
+        deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
+        let redRaw = Int(magnitude - deviationRGBA[0] * magnitude)
+        let greenRaw = Int(magnitude - deviationRGBA[1] * magnitude)
+        let blueRaw = Int(magnitude - deviationRGBA[2] * magnitude)
+        
+        let unadjustedScore =  redRaw + greenRaw + blueRaw
+        let multiplier: CGFloat = 4.0
+        let scoreToAward = CGFloat(unadjustedScore) * multiplier
+        print("Awarding \(scoreToAward) points for matching")
+        
+        
+        let maxScore = magnitude * 3.0 * multiplier
+        var pointMessage: String? = nil
+        
+        switch scoreToAward/maxScore*100.0 {
+        case 100:
+            pointMessage = "Perfect!"
+        case let x where x > 90:
+            pointMessage = "Superb!"
+        case let x where x > 80:
+            pointMessage = "Great!"
+        default:
+            pointMessage = nil
+        }
+        return (Int(scoreToAward), pointMessage)
     }
     
     
@@ -635,6 +683,28 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //now fade away again
             UIView.animate(withDuration: 2.7, animations: {
                 self.justScoredLabel.alpha = 0.0
+            }, completion: { (finished:Bool) in
+                //self.justScoredLabel.isHidden = true
+            })
+        })
+    }
+    
+    ///flashes the a message about the score the screen
+    func presentJustScoredMessageFeedback(message: String) {
+        
+        //make invisible in case in the middle of a feedback
+        //justScoredLabel.alpha = 0
+        
+        justScoredMessageLabel.text = "\(message)"
+        self.justScoredMessageLabel.isHidden = false
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.justScoredMessageLabel.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            
+            //now fade away again
+            UIView.animate(withDuration: 2.7, animations: {
+                self.justScoredMessageLabel.alpha = 0.0
             }, completion: { (finished:Bool) in
                 //self.justScoredLabel.isHidden = true
             })
