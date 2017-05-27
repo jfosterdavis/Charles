@@ -65,6 +65,8 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         print("The currently unlocked characters are:")
         for unlockedCharacter in unlockedCharacters {
             print("\(String(describing: unlockedCharacter.name))")
+            //var reverseOrderUnlockableCharacters
+            
             for character in Characters.UnlockableCharacters {
                 if character.name == unlockedCharacter.name {
                     pageData.append(character)

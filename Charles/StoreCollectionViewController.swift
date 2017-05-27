@@ -552,8 +552,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             let now = Date()
             
             let totalHours = endDate.hours(from: startDate)
-            let hoursUntilExpiry = endDate.hours(from: now) + 1 //add one to include the present hour
-            let minutesUntilExpiry = endDate.minutes(from: now) + 1
+            let hoursUntilExpiry = endDate.hours(from: now)
+            let minutesUntilExpiry = endDate.minutes(from: now) + 1  //add one to include the present minute
             
             //let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHours)
             return (hoursUntilExpiry, minutesUntilExpiry, totalHours )

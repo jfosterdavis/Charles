@@ -23,6 +23,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     
+    //level progress
+    @IBOutlet weak var levelProgressView: UIProgressView!
+    
+    
     
     //color objective and feedback
     @IBOutlet weak var objectiveFeedbackView: ColorMatchFeedbackView!
@@ -128,6 +132,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
             setPageControl(visible: false)
         }
         
+        refreshLevelProgress()
+        
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
@@ -209,6 +215,26 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     /******************************************************/
+    /*******************///MARK: Level Progress
+    /******************************************************/
+
+    func refreshLevelProgress() {
+        
+        //if the player isn't working on objectives, hide this progress bar
+        if getCurrentScore() < minimumScoreToUnlockObjective {
+            levelProgressView.isHidden = true
+        } else {
+            //figure out what level the player is on
+            levelProgressView.isHidden = false
+
+            levelProgressView.setProgress(0.7, animated: true)
+            
+        }
+        
+        
+    }
+    
+    /******************************************************/
     /*******************///MARK: Page Control
     /******************************************************/
 
@@ -235,6 +261,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
             loadObjective()
+            
+            refreshLevelProgress()
         }
     }
     
@@ -248,6 +276,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         let randomColor = ColorLibrary.Easy[randomIndex]
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             reloadObjective(using: randomColor)
+            
+            refreshLevelProgress()
         }
     }
     
