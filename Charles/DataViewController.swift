@@ -87,6 +87,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
         
+        //set opacity of elements
+        storeButton.alpha = 0
+        
         //setup the score
         refreshScore()
         
@@ -111,6 +114,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject.name
         
+        //set opacity of elements
+        storeButton.alpha = 0
         
         
         //set up the game
@@ -609,7 +614,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //animate the justScored feedback
             presentJustScoredFeedback(justScored: pointsJustScored)
             
-            if let scoreMessage = scoreResults.1 {
+            if let scoreMessage = scoreResults.1, objectiveFeedbackView.alpha > 0.0 {
                 presentJustScoredMessageFeedback(message: scoreMessage)
             }
             
@@ -725,6 +730,32 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 //self.justScoredLabel.isHidden = true
             })
         })
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Checking for expired characters
+    /******************************************************/
+
+    ///checks the store for expired characters and return true if there are expired characters
+    func isExpiredCharacters() -> Bool {
+        
+        //create a store object to use its functions for checking if characters have expired
+        let storeVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
+        let expiredCharacters: [UnlockedCharacter] = storeVC.getExpiredCharacters()
+        
+        if expiredCharacters.count > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
+    ///if there are expired characters, this will launch the store so the store can use already written functions to remove them
+    func checkForAndRemoveExpiredCharactersByLaunchingStore() {
+        if isExpiredCharacters() {
+            storeButtonPressed(self)
+        }
     }
     
     /******************************************************/
