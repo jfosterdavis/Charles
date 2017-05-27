@@ -260,6 +260,22 @@
                                                     <color key="textColor" red="0.94646256350000002" green="0.92207050160000004" blue="0.87399090729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCl-FR-QLN" customClass="PieTimerView" customModule="Charles" customModuleProvider="target">
+                                                    <rect key="frame" x="47" y="43" width="40" height="39.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="dCl-FR-QLN" secondAttribute="height" id="PPN-fr-nIL"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                                            <integer key="value" value="0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="dontUseRingThickness" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.974598228931427" green="0.91639262437820435" blue="0.73575562238693237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -275,15 +291,19 @@
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="NBe-xN-5zh"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="OHf-aq-kj6"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="top" secondItem="IY4-mC-g1J" secondAttribute="topMargin" id="QaQ-vy-gbD"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="aLf-BV-hS8"/>
                                             <constraint firstItem="v4J-ln-O4Z" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="dba-wr-HSd"/>
                                             <constraint firstItem="v4J-ln-O4Z" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="bottom" constant="5" id="gre-Su-6R9"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="v4J-ln-O4Z" secondAttribute="trailing" id="hw2-o1-xfA"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="VMi-JC-GMq" secondAttribute="trailing" id="jAa-Vr-su0"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" multiplier="1:3" id="jth-fe-0dq"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="v4J-ln-O4Z" secondAttribute="bottom" id="s2b-Hq-OwS"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="top" constant="10" id="t7d-go-vC8"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="uDA-ld-juI"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
+                                            <outlet property="expirationStatusView" destination="dCl-FR-QLN" id="h8P-C8-iN4"/>
                                             <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
                                             <outlet property="stackView" destination="VMi-JC-GMq" id="Ftr-BB-IOl"/>
                                             <outlet property="statusLabel" destination="mQn-5c-tTR" id="Lwr-3x-oTb"/>

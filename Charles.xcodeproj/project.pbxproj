@@ -37,6 +37,7 @@
 		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */; };
 		F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */; };
+		F64E74951ED9E43B000E99E1 /* PieTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E74941ED9E43B000E99E1 /* PieTimerView.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
 		F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50731ED4FDF70087F461 /* Protocols.swift */; };
 		F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */; };
@@ -96,6 +97,7 @@
 		F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F64E74941ED9E43B000E99E1 /* PieTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieTimerView.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
 		F6FD50731ED4FDF70087F461 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMatchFeedbackView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				F607C88A1EBFC6E600651FAD /* LaunchScreen.storyboard */,
 				F60327BD1EC54CEB00493DC3 /* Collection View Cells */,
 				F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */,
+				F64E74941ED9E43B000E99E1 /* PieTimerView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8B11EBFC96500651FAD /* README.md in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
+				F64E74951ED9E43B000E99E1 /* PieTimerView.swift in Sources */,
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,

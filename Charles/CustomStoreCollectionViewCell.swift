@@ -21,6 +21,10 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var statusShade: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     
+    //expiration timer
+    @IBOutlet weak var expirationStatusView: UIView!
+    
+    
     
     
     /******************************************************/

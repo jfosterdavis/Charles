@@ -101,15 +101,41 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         //set the status of this character.  Is it unlocked or affordable?
         
+        //start the progress pie as hidden
+        let expiryPie = cell.expirationStatusView as! PieTimerView
+        expiryPie.isHidden = true
+        
         //if it is unlocked
         if try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: character.name) {
             //it is unlocked, so set the status to unlocked
             cell.setStatusUnlocked()
+            
+            //if this character is unlockable and if we can get it
+            if let unlockedChar = getUnlockedCharacter(named: character.name) {
+                
+                //calculate number of hours remaining and number of hours total
+                let hours = getHoursOfExpiry(forCharacter: unlockedChar)
+                
+                if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.1 {
+                    let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                    
+                    //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                    expiryPie.setProgress(percent: percentOfPieToFill)
+                    
+                    //able to populate the pie, so show it
+                    cell.expirationStatusView.isHidden = false
+                }
+            
+            }
+            
+           
         } else if !isCharacterAffordable(character: character) {  //check if it is affordable
             cell.setStatusUnaffordable()
         } else {  //the character is not unlocked and is affordable
             cell.setStatusAffordable()
         }
+        
+        
         
         
         return cell
@@ -469,6 +495,29 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         return Characters.ValidCharacters
 
+    }
+    
+    
+    ///determines the number of hours until the character expires and the number of total hours the character is scheduled to be unlocked.  returns nil both value if the character is not unlocked
+    func getHoursOfExpiry(forCharacter unlockedCharater: UnlockedCharacter) -> (Int?, Int?) {
+        
+        //validate the character is unlocked
+        let isUnlocked = try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: unlockedCharater.name)
+        
+        if isUnlocked {
+            let startDate = unlockedCharater.datetimeUnlocked as Date
+            let endDate = unlockedCharater.datetimeExpires as Date
+            let now = Date()
+            
+            let totalHours = endDate.hours(from: startDate)
+            let hoursUntilExpiry = now.hours(from: endDate) + 1 //add one to include the present hour
+            
+            //let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHours)
+            return (hoursUntilExpiry, totalHours)
+            
+        } else {
+            return (nil, nil)
+        }
     }
     
 }
