@@ -57,6 +57,10 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         //initialize data for the collectionView
         collectionViewData = getAllCharactersDisplayableInStore()
+        
+        //lock all expired characters
+        lockAllExpiredCharacters()
+        
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -286,7 +290,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             
             //if the character name is found in the set of unlocked characgters, or if the character object is found in the set of characters that are always unlocked
             for character in characters {
-                if character.name! == featureId{
+                if character.name == featureId{
                     //character was found, return true
                     return true
                 }
@@ -308,22 +312,23 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         if let isUnlocked = try? checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: characterName) {
             
-            guard let fc = frcDict[keyUnlockedCharacter] else {
-                fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
-            }
-            
-            guard (fc.fetchedObjects as? [UnlockedCharacter]) != nil else {
-                
-                fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacter.")
-            }
+//            guard let fc = frcDict[keyUnlockedCharacter] else {
+//                fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
+//            }
+//            
+//            guard (fc.fetchedObjects as? [UnlockedCharacter]) != nil else {
+//                
+//                fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacter.")
+//            }
             
             if isUnlocked {
                 //it is already unlocked, so return nil
                 return nil
             } else {
                 //it is not unlocked, so unlock it and return the character
-                let newCharacter = UnlockedCharacter(entity: NSEntityDescription.entity(forEntityName: "UnlockedCharacter", in: stack.context)!, insertInto: fc.managedObjectContext)
-                newCharacter.name = characterName
+//                let newCharacter = UnlockedCharacter(entity: NSEntityDescription.entity(forEntityName: "UnlockedCharacter", in: stack.context)!, insertInto: fc.managedObjectContext)
+                let newCharacter = UnlockedCharacter(name: characterName, expiresHours: 1, context: stack.context)
+                //newCharacter.name = characterName
                 print("Unlocked a new character named \(String(describing: newCharacter.name))")
                 return newCharacter
                 
@@ -333,6 +338,78 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //got an error when checking for the feature, return nil
         return nil
         
+        
+    }
+    
+    ///locks all characters that are unlockable and have exceeded the expiration date
+    func lockAllExpiredCharacters() {
+        let expiredCharacters = getExpiredCharacters()
+        
+        for character in expiredCharacters {
+            lockCharacter(unlockedCharacter: character)
+        }
+    }
+    
+    ///returns an array of all characters that are expired
+    func getExpiredCharacters() -> [UnlockedCharacter] {
+        
+        let unlockedCharacters = getAllUnlockedCharacters()
+        var expiredCharacters = [UnlockedCharacter]()
+        
+        for character in unlockedCharacters {
+            //check each character's date.  If it is in the past, add it to the array of expired characters
+            let now = Date()
+            let expiryDate = character.datetimeExpires as Date
+            
+            if expiryDate < now {
+                expiredCharacters.append(character)
+            }
+        }
+        print("\(expiredCharacters.count) characters have expired")
+        return expiredCharacters
+    }
+    
+    func getAllUnlockedCharacters() -> [UnlockedCharacter] {
+        guard let fc = frcDict[keyUnlockedCharacter] else {
+            fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
+        }
+        
+        guard (fc.fetchedObjects as? [UnlockedCharacter]) != nil else {
+            
+            fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacter.")
+        }
+        
+        let unlockedCharacters = fc.fetchedObjects as! [UnlockedCharacter]
+        
+        return unlockedCharacters
+    }
+    
+    
+    //locks character by deleting the entity in the unlocked characters model
+    func lockCharacter(unlockedCharacter: UnlockedCharacter) {
+        
+        //check to see if this character is unlocked
+        if let isUnlocked = try? checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: unlockedCharacter.name) {
+  
+            if isUnlocked {
+                //it is unlocked, so lock it by deleting
+                let characterToDelete = getUnlockedCharacter(named: unlockedCharacter.name)
+                
+                if characterToDelete != nil {
+                    // Get the stack
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    self.stack = delegate.stack
+                    
+                    if let context = self.frcDict[keyUnlockedCharacter]?.managedObjectContext {
+                        
+                        context.delete(characterToDelete!)
+                        //self.stack.save()
+                        
+                    }
+                }
+                
+            }
+        }
         
     }
     
@@ -367,6 +444,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         }
     }
     
+    ///returns array of all valid characters that are not unlocked
     func getAllLockedCharacters() -> [Character] {
         
         let unlockableCharacters = Characters.UnlockableCharacters

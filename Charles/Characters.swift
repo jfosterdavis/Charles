@@ -21,9 +21,9 @@ struct Characters {
     /*******************///MARK: Groups of Characters
     /******************************************************/
     static let ValidCharacters: [Character] = [Dan, Benton, Charles, Fred]
-    static let NewPlayerCharacterSet: [Character] = [Dan, Benton]
+    static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Charles, Fred]
+    static let UnlockableCharacters: [Character] = [Benton, Charles, Fred]
     
     /******************************************************/
     /*******************///MARK: Characters

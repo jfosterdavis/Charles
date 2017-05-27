@@ -116,6 +116,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //set up the game
         initialLoadGame()
         
+        //if there is only one character, hide the page control, otherwise show
+        if numPages > 1 {
+            setPageControl(visible: true)
+        } else {
+            setPageControl(visible: false)
+        }
+        
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
@@ -204,6 +211,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //set the page control
         self.pageControl.numberOfPages = numPages
         self.pageControl.currentPage = currentPage
+    }
+    
+    func setPageControl(visible: Bool) {
+        self.pageControl.isHidden = !visible
     }
     
     /******************************************************/
