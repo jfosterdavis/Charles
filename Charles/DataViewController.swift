@@ -24,9 +24,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var button3: UIButton!
     
     
-    //color objective feedback
+    //color objective and feedback
     @IBOutlet weak var objectiveFeedbackView: ColorMatchFeedbackView!
-    
+    var objectiveColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
     
     
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -135,6 +135,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: The Color Feedback Thingy
     /******************************************************/
 
+    /// removes all orientation, resets the orientation flag, and gives the color indicator the given color as the objective, and animates its presentation
     func resetColorFeedbackObjectiveAndDraw(using color: UIColor) {
         
         //remove rotation and reset orientation flag
@@ -182,12 +183,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: Creating main display/interface
     /******************************************************/
 
+    /// reloads all UI elements neccessary to play the game after a phrase has been completed.  Reloads the buttons and the color feedback
     func reloadGame() {
         //load the buttons
         reloadButtons()
         
         //load the objective
-        resetColorFeedbackObjectiveAndDraw(using: UIColor.red)
+        let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
+        let randomColor = ColorLibrary.Easy[randomIndex]
+        resetColorFeedbackObjectiveAndDraw(using: randomColor)
     }
     
     func reloadButtons() {
@@ -434,6 +438,19 @@ class DataViewController: CoreDataViewController, StoreReactor {
         } else {
             speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
         }
+        var addThisColor: UIColor
+        if let c = sendingButton!.backgroundColor {
+            if c == UIColor.clear {
+                addThisColor = UIColor.black
+            } else {
+                addThisColor = c
+            }
+        } else {
+            
+            addThisColor = UIColor.black
+        }
+        //add the color of the button pressed to the color indicator
+        objectiveFeedbackView.addColorToProgress(color: addThisColor)
         
         
         

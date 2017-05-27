@@ -33,6 +33,46 @@ extension UIButton
     }
 }
 
+/******************************************************/
+/*******************///MARK: UIColor Overloading Operators
+/******************************************************/
+
+
+func + (left: UIColor, right: UIColor) -> UIColor {
+    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
+    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+    
+    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
+    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    
+    return UIColor(
+        red: (leftRGBA[0] + rightRGBA[0]) / 2,
+        green: (leftRGBA[1] + rightRGBA[1]) / 2,
+        blue: (leftRGBA[2] + rightRGBA[2]) / 2,
+        alpha: (leftRGBA[3] + rightRGBA[3]) / 2
+    )
+}
+
+func - (left: UIColor, right: UIColor) -> UIColor {
+    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
+    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+    
+    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
+    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    
+    var newAlpha = (leftRGBA[3] - rightRGBA[3])
+    if newAlpha < 0 {
+        newAlpha = 0
+    }
+    
+    return UIColor(
+        red: abs(leftRGBA[0] - rightRGBA[0]),
+        green: abs(leftRGBA[1] - rightRGBA[1]),
+        blue: abs(leftRGBA[2] - rightRGBA[2]),
+        alpha: newAlpha
+    )
+}
+
 
 /******************************************************/
 /*******************///MARK: UIViewExtensions

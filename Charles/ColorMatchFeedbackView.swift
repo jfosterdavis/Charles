@@ -15,11 +15,11 @@ class ColorMatchFeedbackView:UIView
         {
         didSet { print("mainColor was set here") }
     }
-    @IBInspectable var objectiveRingColor: UIColor = UIColor.clear
+    @IBInspectable var objectiveRingColor: UIColor = UIColor.black
         {
         didSet { print("bColor was set here") }
     }
-    @IBInspectable var progressRingColor: UIColor = UIColor.clear
+    @IBInspectable var progressRingColor: UIColor = UIColor.black
         {
         didSet { print("bColor was set here") }
     }
@@ -43,11 +43,13 @@ class ColorMatchFeedbackView:UIView
     override func draw(_ rect: CGRect)
     {
         
-        if progressRingColor == UIColor.clear {
-            mainColor = UIColor.clear
-        } else {
-            mainColor = calculateColorDifference(color1: objectiveRingColor, color2: progressRingColor)
-        }
+        //if progressRingColor == UIColor.clear {
+        //    mainColor = UIColor.clear
+        //} else {
+        mainColor = objectiveRingColor - progressRingColor
+        mainColor = mainColor.withAlphaComponent(1.0)
+        //mainColor = UIColor.purple
+        //}
         
         let dotPath = UIBezierPath(ovalIn: rect)
         let shapeLayer = CAShapeLayer()
@@ -65,20 +67,34 @@ class ColorMatchFeedbackView:UIView
         
     }
     
-    func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
-//        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0]) + color1.cgColor.components![0]
-//        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1]) + color1.cgColor.components![1]
-//        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2]) + color1.cgColor.components![2]
-        
-        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0])
-        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1])
-        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2])
-        
-        let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
-        
-        return newColor
-    }
+//    func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
+////        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0]) + color1.cgColor.components![0]
+////        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1]) + color1.cgColor.components![1]
+////        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2]) + color1.cgColor.components![2]
+//        
+//        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0])
+//        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1])
+//        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2])
+//        
+//        let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
+//        
+//        return newColor
+//    }
     
+        func calculateColorDifference(color1: UIColor, color2: UIColor) -> UIColor {
+    //
+    
+            let newColor = color1 - color2
+            //∫newColor.alpha
+    
+            return newColor
+        }
+    
+    
+    /******************************************************/
+    /*******************///MARK: Drawing and Animation
+    /******************************************************/
+
     func setOrientationUp(isUp: Bool) {
         orientationUp = isUp
     }
@@ -139,4 +155,15 @@ class ColorMatchFeedbackView:UIView
         shapeLayer.lineWidth = ringThickness
         layer.addSublayer(shapeLayer)
     }
+    
+    /******************************************************/
+    /*******************///MARK: Adding and subracting colors
+    /******************************************************/
+
+    ///adds the given color to the progressRingColor and redraws
+    func addColorToProgress(color: UIColor) {
+        progressRingColor = progressRingColor + color
+        self.setNeedsDisplay()
+    }
+    
 }
