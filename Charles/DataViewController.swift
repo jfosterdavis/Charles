@@ -33,6 +33,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     var currentButtons = [UIButton]()
     
+    //is current interaction with the character enabled
+    var characterInteractionEnabled = true
+    
     // MARK: AV Variables
     let synth = AVSpeechSynthesizer()
     var textUtterance = AVSpeechUtterance(string: "")
@@ -103,8 +106,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
         super.viewWillAppear(animated)
         self.dataLabel!.text = dataObject.name
         
+        
+        
         //set up the game
-        reloadGame()
+        initialLoadGame()
         
         //stop the timer to avoide stacking penalties
         timer.invalidate()
@@ -136,24 +141,40 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /******************************************************/
 
     /// removes all orientation, resets the orientation flag, and gives the color indicator the given color as the objective, and animates its presentation
-    func resetColorFeedbackObjectiveAndDraw(using color: UIColor) {
+    func reloadObjective(using color: UIColor) {
         
+        if !self.objectiveFeedbackView.orientationUp {
+            self.objectiveFeedbackView.toggleOrientationAndAnimate()
+        }
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.6,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        
+                        self.objectiveFeedbackView.alpha = 0.0
+        }, completion: { (finished:Bool) in
+            
+           self.loadAndFadeInFeedbackObjective(using: color)
+            
+        })
+        
+    }
+    
+    func loadAndFadeInFeedbackObjective(using color: UIColor) {
         //remove rotation and reset orientation flag
-        objectiveFeedbackView.resetOrientation()
+        self.objectiveFeedbackView.resetOrientation()
         
-        self.objectiveFeedbackView.alpha = 0.0
+        
         self.objectiveFeedbackView.objectiveRingColor = color
-        objectiveFeedbackView.setNeedsDisplay()
+        self.objectiveFeedbackView.setNeedsDisplay()
         
-        UIView.animate(withDuration: 1.2,
-                       delay: 0.8,
+        UIView.animate(withDuration: 0.5,
+                       delay: 1.3,
                        options: [.curveEaseInOut],
                        animations: {
                         
                         self.objectiveFeedbackView.alpha = 1.0
         }, completion: nil)
-        
-        
     }
     
     
@@ -183,18 +204,40 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: Creating main display/interface
     /******************************************************/
 
+    //loads the game for the first time since the user turned or looked at this page
+    func initialLoadGame() {
+        loadRandomPhrase()
+        
+        initialButtonLoad(from: currentPhrase)
+        
+        objectiveFeedbackView.alpha = 0.0
+        
+        loadObjective()
+    }
+    
     /// reloads all UI elements neccessary to play the game after a phrase has been completed.  Reloads the buttons and the color feedback
     func reloadGame() {
         //load the buttons
         reloadButtons()
         
+        //pick a random color to load
+        let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
+        let randomColor = ColorLibrary.Easy[randomIndex]
+        
+        reloadObjective(using: randomColor)
+    }
+    
+    ///Loads the objective user visual
+    func loadObjective(){
         //load the objective
         let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
         let randomColor = ColorLibrary.Easy[randomIndex]
-        resetColorFeedbackObjectiveAndDraw(using: randomColor)
+        loadAndFadeInFeedbackObjective(using: randomColor)
+        
+        setAllUserInteraction(enabled: true)
     }
     
-    func reloadButtons() {
+    func loadRandomPhrase() {
         //1. get a random phrase from the character
         currentPhrase = dataObject.selectRandomPhrase()
         guard currentPhrase != nil  else {
@@ -202,6 +245,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
             print("Nil phrase returned")
             return
         }
+    }
+    
+    func reloadButtons() {
+        loadRandomPhrase()
         
         //2. load the buttons
         removeAndReloadButtons(from: currentPhrase)
@@ -216,14 +263,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
         return newButton
     }
     
-    ///removes all buttons, the loads up new buttons from the given Phrase.
-    func removeAndReloadButtons(from phrase: Phrase) {
-        //first, remove all current buttons from the stackview
-        removeAllButtons()
-        
-        //there should be no buttons, so now create some buttons
-        loadPhraseButtons(from: phrase)
-    }
+//    ///removes all buttons, the loads up new buttons from the given Phrase.
+//    func removeAndReloadButtons(from phrase: Phrase) {
+//        
+//        
+//        //there should be no buttons, so now create some buttons
+//        loadPhraseButtons(from: phrase)
+//    }
     
     /// Round button corners.  Must be called in viewDidLayoutSubviews
     private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
@@ -283,10 +329,93 @@ class DataViewController: CoreDataViewController, StoreReactor {
         })
     }
     
+
+    
+    /// fades the stackview out, removes old buttons, then Adds buttons from the given phrase to the stackview
+    func removeAndReloadButtons(from phrase: Phrase) {
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 1.5,
+                       options: [.curveEaseInOut],
+                       animations: {
+            //hide the stackview
+            self.buttonStackView.alpha = 0.0
+            
+            
+            
+        }, completion: { (finished:Bool) in
+            
+            //first, remove all current buttons from the stackview
+            self.removeAllButtons()
+            
+            //now add a new set of buttons
+            self.addNewButtons(from: phrase)
+            
+            self.fadeInCharacter()
+           
+        })
+
+    }
+    
+    
+    //loads the character without animation
+    func initialButtonLoad(from phrase: Phrase){
+        removeAllButtons()
+        
+        addNewButtons(from: phrase)
+        
+        buttonStackView.alpha = 1.0
+        
+        setAllUserInteraction(enabled: true)
+    }
+    
+    //fades in the stackView.  Assumes buttons are already loaded
+    func fadeInCharacter() {
+        UIView.animate(withDuration: 0.8,
+                       delay: 0.0,
+                       options: [.curveEaseInOut],
+                       animations: {
+            self.buttonStackView.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            self.setAllUserInteraction(enabled: true)
+        })
+    }
+    
+    //adds buttons to the stackView from the given phrase
+    func addNewButtons(from phrase: Phrase) {
+        
+        guard let slots = phrase.slots else {
+            //TODO: handle phrase with nil slots
+            return
+            
+        }
+        
+        var counter = 0
+        //step through each slot and createa  button for it
+        for slot in slots {
+            //create a button
+            let slotButton = self.createButton(from: slot)
+            //slotButton.isHidden = true
+            slotButton.isEnabled = false
+            //add the button to the array of buttons
+            self.currentButtons.append(slotButton)
+            
+            //add the button to the stackview
+            self.buttonStackView.addArrangedSubview(slotButton)
+            
+            //create layout constraints for the button
+            let widthConstraint = NSLayoutConstraint(item: slotButton, attribute: .width, relatedBy: .equal, toItem: self.buttonStackView, attribute: .width, multiplier: 1, constant: 0)
+            widthConstraint.isActive = true
+            self.buttonStackView.addConstraint(widthConstraint)
+            
+            counter += 1
+        }
+    }
+    
     ///removes all buttons from the stackview
     func removeAllButtons() {
         //disable and fade out
-        
+        setAllUserInteraction(enabled: false)
         
         //disable the buttons
         for button in currentButtons {
@@ -294,9 +423,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         }
         
         //fade out the stack
-//        UIView.animate(withDuration: 1.4, animations: {
-//            self.buttonStackView.alpha = 0.0
-//        })
+        //        UIView.animate(withDuration: 1.4, animations: {
+        //            self.buttonStackView.alpha = 0.0
+        //        })
         
         for button in currentButtons {
             guard buttonStackView.arrangedSubviews.index(of: button) != nil else {
@@ -315,49 +444,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         currentButtons.removeAll()
     }
     
-    /// Adds buttons from the given phrase to the stackview
-    func loadPhraseButtons(from phrase: Phrase) {
-     
-        guard let slots = phrase.slots else {
-        //TODO: handle phrase with nil slots
-            return
-        
-        }
-        
-        //hide the stackview
-        buttonStackView.alpha = 0.0
-        
-        //buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        var counter = 0
-        //step through each slot and createa  button for it
-        for slot in slots {
-            //create a button
-            let slotButton = createButton(from: slot)
-            //slotButton.isHidden = true
-            slotButton.isEnabled = false
-            //add the button to the array of buttons
-            currentButtons.append(slotButton)
-            
-            //add the button to the stackview
-            buttonStackView.addArrangedSubview(slotButton)
-            
-            //create layout constraints for the button
-            let widthConstraint = NSLayoutConstraint(item: slotButton, attribute: .width, relatedBy: .equal, toItem: buttonStackView, attribute: .width, multiplier: 1, constant: 0)
-            widthConstraint.isActive = true
-            buttonStackView.addConstraint(widthConstraint)
-            
-            counter += 1
-        }
-        
-        UIView.animate(withDuration: 0.8, animations: {
-            self.buttonStackView.alpha = 1.0
-        }, completion: { (finished:Bool) in
-            for button in self.currentButtons {
-                button.isEnabled = true
-            }
-        })
-        
-    }
     
     /******************************************************/
     /*******************///MARK: Store Closer
@@ -382,6 +468,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
 //        guard audioPlayer.isPlaying == false else {
 //            return
 //        }
+        
+        //don't do anything if character is not enabled
+        guard characterInteractionEnabled else {
+            return
+        }
         
         var sendingButton: UIButton?
         
@@ -481,9 +572,30 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //animate the justScored feedback
             presentJustScoredFeedback(justScored: pointsJustScored)
-            //reload next round of game
-            reloadGame()
+            
+            //don't let the user do anything while we show them feedback and reload
+            setAllUserInteraction(enabled: false)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                self.reloadGame()
+            })
+            
+            
         }
+        
+    }
+    
+    
+    ///sets all buttons, except store button, to disabled or enabled
+    func setAllUserInteraction(enabled: Bool) {
+
+        characterInteractionEnabled = enabled
+        
+        for button in currentButtons {
+            button.isEnabled = enabled
+        }
+        
+        objectiveFeedbackView.isUserInteractionEnabled = enabled
         
     }
     
@@ -502,7 +614,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         }, completion: { (finished:Bool) in
             
             //now fade away again
-            UIView.animate(withDuration: 2.5, animations: {
+            UIView.animate(withDuration: 2.7, animations: {
                 self.justScoredLabel.alpha = 0.0
             }, completion: { (finished:Bool) in
                 //self.justScoredLabel.isHidden = true
