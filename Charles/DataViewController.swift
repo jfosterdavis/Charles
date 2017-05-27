@@ -690,10 +690,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
             setAllUserInteraction(enabled: false)
             
             
-            //if the user is working on an objective, give xp points
+            //if the user is working on an objective, give xp points if they met minimum score threshold for that level
             if objectiveFeedbackView.alpha > 0 {
                 let level = getUserCurrentLevel()
-                if let level = level {
+                //compare to match performance
+                if let level = level, scoreResults.2 >= level.successThreshold {
                     giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                 }
             }
@@ -708,7 +709,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     ///calculates the points earned from a given color, a color which represents the deviation between the goal and the progress
-    func calculateColorMatchPointsEarned() -> (Int, String?) {
+    func calculateColorMatchPointsEarned() -> (Int, String?, Float) {
         
         //really this is just the main color, but just in case that changes this way is more solid
         let deviationColor = objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor)
@@ -740,7 +741,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         default:
             pointMessage = "\(scorePercent)% Match"
         }
-        return (Int(scoreToAward), pointMessage)
+        return (Int(scoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
     }
     
     

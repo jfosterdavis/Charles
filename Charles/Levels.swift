@@ -15,16 +15,16 @@ struct Levels {
     
     //static let valid: [Level] = []
     ///All levels in the order for the game
-    static let Game: [Int:Level] = [1 : Level(level: 1, levelDescription: "one", xPRequired: 3, canBeLost: false),
-                                    2 : Level(level: 2, levelDescription: "two", xPRequired: 4, canBeLost: false),
-                                    3 : Level(level: 3, levelDescription: "three", xPRequired: 5, canBeLost: false),
-                                    4 : Level(level: 4, levelDescription: "four", xPRequired: 6, canBeLost: true),
-                                    5 : Level(level: 5, levelDescription: "five", xPRequired: 7, canBeLost: true),
-                                    6 : Level(level: 6, levelDescription: "six", xPRequired: 8, canBeLost: true),
-                                    7 : Level(level: 7, levelDescription: "seven", xPRequired: 9, canBeLost: true),
-                                    8 : Level(level: 8, levelDescription: "eight", xPRequired: 10, canBeLost: true),
-                                    9 : Level(level: 9, levelDescription: "nine", xPRequired: 10, canBeLost: true),
-                                    10 : Level(level: 10, levelDescription: "ten", xPRequired: 10, canBeLost: true)]
+    static let Game: [Int:Level] = [1 : Level(level: 1, levelDescription: "one", xPRequired: 3, successThreshold: 0.5, canBeLost: false),
+                                    2 : Level(level: 2, levelDescription: "two", xPRequired: 4, successThreshold: 0.55,canBeLost: false),
+                                    3 : Level(level: 3, levelDescription: "three", xPRequired: 5, successThreshold: 0.6,canBeLost: false),
+                                    4 : Level(level: 4, levelDescription: "four", xPRequired: 6, successThreshold: 0.65,canBeLost: true),
+                                    5 : Level(level: 5, levelDescription: "five", xPRequired: 7, successThreshold: 0.75,canBeLost: true),
+                                    6 : Level(level: 6, levelDescription: "six", xPRequired: 8, successThreshold: 0.75,canBeLost: true),
+                                    7 : Level(level: 7, levelDescription: "seven", xPRequired: 9, successThreshold: 0.75,canBeLost: true),
+                                    8 : Level(level: 8, levelDescription: "eight", xPRequired: 10, successThreshold: 0.85,canBeLost: true),
+                                    9 : Level(level: 9, levelDescription: "nine", xPRequired: 10, successThreshold: 0.90,canBeLost: true),
+                                    10 : Level(level: 10, levelDescription: "ten", xPRequired: 10, successThreshold: 0.95,canBeLost: true)]
     
     //given an amount of XP the player has, return the level the player is on.  Returns nil if the player's level is off the charts
     static func getLevel(from xp: Int) -> Level? {
