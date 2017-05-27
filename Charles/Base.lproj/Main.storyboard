@@ -260,50 +260,72 @@
                                                     <color key="textColor" red="0.94646256350000002" green="0.92207050160000004" blue="0.87399090729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCl-FR-QLN" customClass="PieTimerView" customModule="Charles" customModuleProvider="target">
-                                                    <rect key="frame" x="47" y="43" width="40" height="39.5"/>
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCl-FR-QLN" customClass="PieTimerView" customModule="Charles" customModuleProvider="target">
+                                                    <rect key="frame" x="43" y="69" width="48" height="47.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dCl-FR-QLN" secondAttribute="height" id="PPN-fr-nIL"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
-                                                            <real key="value" value="8"/>
+                                                            <real key="value" value="29"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
                                                             <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="dontUseRingThickness" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                                            <integer key="value" value="270"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="percentCrustVisible">
+                                                            <real key="value" value="70"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="fullPie" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                                            <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                            <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlocked" translatesAutoresizingMaskIntoConstraints="NO" id="AuP-bE-VU4">
+                                                    <rect key="frame" x="55" y="81" width="24" height="23.5"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.974598228931427" green="0.91639262437820435" blue="0.73575562238693237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="12W-Ht-U2Y"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="centerX" secondItem="VMi-JC-GMq" secondAttribute="centerX" id="1cC-6L-5c9"/>
+                                            <constraint firstItem="AuP-bE-VU4" firstAttribute="centerY" secondItem="dCl-FR-QLN" secondAttribute="centerY" id="1ed-kH-eUJ"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="59S-pG-FOe"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="5yW-Xm-N3g"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="7Kl-OT-aMs"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="top" secondItem="Kb1-00-WTk" secondAttribute="bottom" constant="5" id="9ZY-Ub-8dd"/>
+                                            <constraint firstItem="AuP-bE-VU4" firstAttribute="centerX" secondItem="dCl-FR-QLN" secondAttribute="centerX" id="AsO-zD-vHa"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="BMb-uI-6SW"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="height" secondItem="IY4-mC-g1J" secondAttribute="height" id="Clh-no-VDH"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" id="Kqg-xz-sZm"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="NBe-xN-5zh"/>
+                                            <constraint firstItem="AuP-bE-VU4" firstAttribute="height" secondItem="dCl-FR-QLN" secondAttribute="height" multiplier="1:2" id="NDf-h7-5e0"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="OHf-aq-kj6"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="top" secondItem="IY4-mC-g1J" secondAttribute="topMargin" id="QaQ-vy-gbD"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="centerY" secondItem="VMi-JC-GMq" secondAttribute="centerY" id="Wy1-A6-Kfn"/>
+                                            <constraint firstItem="AuP-bE-VU4" firstAttribute="width" secondItem="dCl-FR-QLN" secondAttribute="width" multiplier="1:2" id="Yg6-tP-Pns"/>
                                             <constraint firstItem="dCl-FR-QLN" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="aLf-BV-hS8"/>
                                             <constraint firstItem="v4J-ln-O4Z" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="dba-wr-HSd"/>
                                             <constraint firstItem="v4J-ln-O4Z" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="bottom" constant="5" id="gre-Su-6R9"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="v4J-ln-O4Z" secondAttribute="trailing" id="hw2-o1-xfA"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="VMi-JC-GMq" secondAttribute="trailing" id="jAa-Vr-su0"/>
-                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" multiplier="1:3" id="jth-fe-0dq"/>
+                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" multiplier="2:5" id="jth-fe-0dq"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="v4J-ln-O4Z" secondAttribute="bottom" id="s2b-Hq-OwS"/>
-                                            <constraint firstItem="dCl-FR-QLN" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="top" constant="10" id="t7d-go-vC8"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="uDA-ld-juI"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
                                             <outlet property="expirationStatusView" destination="dCl-FR-QLN" id="h8P-C8-iN4"/>
+                                            <outlet property="pieLockImageView" destination="AuP-bE-VU4" id="Zxq-Wb-zdL"/>
                                             <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
                                             <outlet property="stackView" destination="VMi-JC-GMq" id="Ftr-BB-IOl"/>
                                             <outlet property="statusLabel" destination="mQn-5c-tTR" id="Lwr-3x-oTb"/>
@@ -332,44 +354,24 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-U1-y1f">
-                                <rect key="frame" x="108" y="4" width="133" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="133" id="E78-SL-o5F"/>
-                                    <constraint firstAttribute="height" constant="66" id="TMv-D1-tdA"/>
-                                </constraints>
-                                <state key="normal" title="Unlock Fred"/>
-                                <connections>
-                                    <action selector="unlockFredButtonPressed:" destination="YkZ-Z3-DkY" eventType="touchUpInside" id="LhY-Pq-szs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="BEx-U1-y1f" secondAttribute="trailing" constant="118" id="1rh-a8-JgM"/>
                             <constraint firstItem="8BW-A2-nRg" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="50" id="A33-qh-xTA"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="16" id="CFp-vs-kCc"/>
                             <constraint firstItem="3cr-nv-Ibi" firstAttribute="top" secondItem="YIL-Ji-aIm" secondAttribute="bottom" constant="20" id="DHQ-nZ-nHP"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="top" secondItem="XXC-sP-u8Y" secondAttribute="bottom" constant="22" id="LLR-u8-ulc"/>
-                            <constraint firstItem="BEx-U1-y1f" firstAttribute="top" secondItem="pm2-0S-Xmq" secondAttribute="topMargin" constant="4" id="Ucr-zv-Rv9"/>
                             <constraint firstItem="8BW-A2-nRg" firstAttribute="top" secondItem="q7P-wq-mhj" secondAttribute="bottom" constant="10" id="YDT-ee-A7C"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" id="cNy-yv-N4t"/>
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="leading" secondItem="pm2-0S-Xmq" secondAttribute="leadingMargin" constant="9" id="hbI-8h-3sE"/>
                             <constraint firstItem="YIL-Ji-aIm" firstAttribute="trailing" secondItem="pm2-0S-Xmq" secondAttribute="trailingMargin" id="mti-pH-kw9"/>
-                            <constraint firstItem="BEx-U1-y1f" firstAttribute="leading" secondItem="XXC-sP-u8Y" secondAttribute="trailing" constant="55" id="tHT-mc-7cz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8BW-A2-nRg" secondAttribute="trailing" constant="50" id="xiE-GG-eD5"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="BEx-U1-y1f"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="dismissButton" destination="XXC-sP-u8Y" id="pm2-4k-JZy"/>
+                        <outlet property="dismissButton" destination="XXC-sP-u8Y" id="H0Q-1X-LrO"/>
                         <outlet property="playerScoreLabel" destination="8BW-A2-nRg" id="ppX-9S-Ahs"/>
                         <outlet property="storeCollectionView" destination="YIL-Ji-aIm" id="LTo-7G-dXy"/>
-                        <outlet property="unlockFredButton" destination="BEx-U1-y1f" id="9X8-FS-thU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeo-cW-quq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,6 +381,7 @@
     </scenes>
     <resources>
         <image name="storeIcon" width="30" height="26"/>
+        <image name="unlocked" width="32" height="28"/>
         <image name="x" width="18" height="18"/>
     </resources>
 </document>

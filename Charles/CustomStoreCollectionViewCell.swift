@@ -20,6 +20,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     //status
     @IBOutlet weak var statusShade: UIView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var pieLockImageView: UIImageView!
     
     //expiration timer
     @IBOutlet weak var expirationStatusView: UIView!
@@ -107,7 +108,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Sale"
+        statusLabel.text = "For Rent"
         
         statusShade.alpha = 0.05
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
@@ -136,7 +137,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Sale"
+        statusLabel.text = "For Rent"
         
         statusShade.alpha = 0.45
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)

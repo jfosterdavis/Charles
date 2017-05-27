@@ -19,9 +19,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     @IBOutlet weak var playerScoreLabel: UILabel!
     
-    var score: Int = 0
-    @IBOutlet weak var unlockFredButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
+    
+    
+    
+    var score: Int = 0
     
     //Characters
     var alwaysUnlockedCharacterNames = [String]()
@@ -104,6 +106,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //start the progress pie as hidden
         let expiryPie = cell.expirationStatusView as! PieTimerView
         expiryPie.isHidden = true
+        cell.pieLockImageView.isHidden = true
         
         //if it is unlocked
         if try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: character.name) {
@@ -116,14 +119,31 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 //calculate number of hours remaining and number of hours total
                 let hours = getHoursOfExpiry(forCharacter: unlockedChar)
                 
-                if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.1 {
-                    let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.2, let minutesUntilExpiry = hours.1 {
+                    //if there is only one hour left, show red in minutes
+                    if hoursUntilExpiry <= 1 {
+                        
+                        let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
+                        print("Expiry in \(minutesUntilExpiry) minutes.  Percentage left is \(percentOfPieToFill)")
+                        //less than one minute, set color to red
+                        expiryPie.setProgressColor(color: UIColor.red)
+                        
+                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                        expiryPie.setProgress(percent: percentOfPieToFill)
+                        
+                    } else {
                     
-                    //since it is unlocked, show the expiration status so the user will know if it is close to expiry
-                    expiryPie.setProgress(percent: percentOfPieToFill)
-                    
+                        
+                        let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                        
+                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                        expiryPie.setProgress(percent: percentOfPieToFill)
+                        
+                        
+                    }
                     //able to populate the pie, so show it
-                    cell.expirationStatusView.isHidden = false
+                    expiryPie.isHidden = false
+                    cell.pieLockImageView.isHidden = false
                 }
             
             }
@@ -353,7 +373,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             } else {
                 //it is not unlocked, so unlock it and return the character
 //                let newCharacter = UnlockedCharacter(entity: NSEntityDescription.entity(forEntityName: "UnlockedCharacter", in: stack.context)!, insertInto: fc.managedObjectContext)
-                let newCharacter = UnlockedCharacter(name: characterName, expiresHours: 1, context: stack.context)
+                let newCharacter = UnlockedCharacter(name: characterName, expiresHours: 3, context: stack.context)
                 //newCharacter.name = characterName
                 print("Unlocked a new character named \(String(describing: newCharacter.name))")
                 return newCharacter
@@ -498,8 +518,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     }
     
     
-    ///determines the number of hours until the character expires and the number of total hours the character is scheduled to be unlocked.  returns nil both value if the character is not unlocked
-    func getHoursOfExpiry(forCharacter unlockedCharater: UnlockedCharacter) -> (Int?, Int?) {
+    ///determines the number of hours until the character expires and the number of total hours the character is scheduled to be unlocked.  returns nil both value if the character is not unlocked (hoursUntilExpiry, minutesUntilExpiry, totalHours)
+    func getHoursOfExpiry(forCharacter unlockedCharater: UnlockedCharacter) -> (Int?, Int?, Int?) {
         
         //validate the character is unlocked
         let isUnlocked = try! checkForUnlockFeature(featureKey: keyUnlockedCharacter, featureId: unlockedCharater.name)
@@ -510,13 +530,14 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             let now = Date()
             
             let totalHours = endDate.hours(from: startDate)
-            let hoursUntilExpiry = now.hours(from: endDate) + 1 //add one to include the present hour
+            let hoursUntilExpiry = endDate.hours(from: now) + 1 //add one to include the present hour
+            let minutesUntilExpiry = endDate.minutes(from: now) + 1
             
             //let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHours)
-            return (hoursUntilExpiry, totalHours)
+            return (hoursUntilExpiry, minutesUntilExpiry, totalHours )
             
         } else {
-            return (nil, nil)
+            return (nil, nil, nil)
         }
     }
     

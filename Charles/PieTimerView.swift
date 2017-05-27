@@ -37,6 +37,11 @@ class PieTimerView:UIView
         {
         didSet { print("startAngle was set here") }
     }
+    @IBInspectable var percentCrustVisible: CGFloat = 20
+        {
+        didSet { print("percentCrustVisible was set here") }
+    }
+ 
     
     override func draw(_ rect: CGRect)
     {
@@ -47,11 +52,16 @@ class PieTimerView:UIView
         shapeLayer.fillColor = circleColor.cgColor
         layer.addSublayer(shapeLayer)
         
+        if percentCrustVisible > 100 {
+            percentCrustVisible = 100
+        } else if percentCrustVisible < 0 {
+            percentCrustVisible = 0
+        }
+        
         if fullPie {
             ringThickness = min(bounds.size.width/2, bounds.size.height/2)
         }
         
-  
         drawProgressRing(rect: rect)
         
     }
@@ -60,14 +70,14 @@ class PieTimerView:UIView
     internal func drawProgressRing(rect: CGRect)->()
     {
         let halfSize:CGFloat = max( bounds.size.width/2, bounds.size.height/2)
-        let desiredLineWidth:CGFloat = ringThickness   // your desired value
+        let desiredLineWidth:CGFloat = ringThickness * (1 - (percentCrustVisible/100))  // your desired value
         
         let startAngleRads = CGFloat(Double(startAngle - 90) / 180.0 * Double.pi)
         let endAngleRads = CGFloat(Double(endAngle - 90) / 180.0 * Double.pi)
         
         let circlePath = UIBezierPath(
             arcCenter: CGPoint(x: halfSize, y: halfSize),
-            radius: CGFloat( halfSize - (desiredLineWidth/2) ),
+            radius: CGFloat( (halfSize - (desiredLineWidth/2))) , //make the slice 80% size of crust
             startAngle: startAngleRads,
             endAngle: endAngleRads,
             clockwise: true)
@@ -78,7 +88,7 @@ class PieTimerView:UIView
         //        shapeLayer.fillColor = newFillColor.withAlphaComponent(1.0).cgColor
         shapeLayer.fillColor = circleColor.cgColor
         shapeLayer.strokeColor = progressColor.cgColor
-        shapeLayer.lineWidth = ringThickness
+        shapeLayer.lineWidth = desiredLineWidth
         layer.addSublayer(shapeLayer)
     }
     
