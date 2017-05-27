@@ -21,6 +21,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     @IBOutlet weak var dismissButton: UIButton!
     
+    var timer = Timer()
+    
     
     
     var score: Int = 0
@@ -63,6 +65,18 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //lock all expired characters
         lockAllExpiredCharacters()
         
+        //stop the timer to avoide stacking penalties
+        timer.invalidate()
+        //Every minute refresh the collectionView
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        //stop the timer to avoide stacking penalties
+        timer.invalidate()
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -162,6 +176,14 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //        default: break
         //
         //        }
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Timer
+    /******************************************************/
+
+    func updateTimer() {
+        collectionView.reloadData()
     }
     
     /******************************************************/
