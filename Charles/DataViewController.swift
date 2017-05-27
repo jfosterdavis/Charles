@@ -50,6 +50,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     // MARK: Score
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
+    let minimumScoreToUnlockObjective = 750
     
     
     //Store
@@ -114,7 +115,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
-        timer = Timer.scheduledTimer(timeInterval: 0.24, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -169,7 +170,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         self.objectiveFeedbackView.setNeedsDisplay()
         
         UIView.animate(withDuration: 0.5,
-                       delay: 1.3,
+                       delay: 2.3,
                        options: [.curveEaseInOut],
                        animations: {
                         
@@ -211,8 +212,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         initialButtonLoad(from: currentPhrase)
         
         objectiveFeedbackView.alpha = 0.0
-        
-        loadObjective()
+        if getCurrentScore() >= minimumScoreToUnlockObjective {
+            loadObjective()
+        }
     }
     
     /// reloads all UI elements neccessary to play the game after a phrase has been completed.  Reloads the buttons and the color feedback
@@ -223,8 +225,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //pick a random color to load
         let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
         let randomColor = ColorLibrary.Easy[randomIndex]
-        
-        reloadObjective(using: randomColor)
+        if getCurrentScore() >= minimumScoreToUnlockObjective {
+            reloadObjective(using: randomColor)
+        }
     }
     
     ///Loads the objective user visual
@@ -298,44 +301,49 @@ class DataViewController: CoreDataViewController, StoreReactor {
         button.layer.mask = maskLayer
     }
     
-    func revealButtons() {
-        
-        let intervals = currentPhrase.slots?.count
-        let frequency = 1.0/Float(intervals!)
-        let miliseconds = Int(frequency * 100)
-        
-        revealButtonsInSequence(buttons: currentButtons, delay: 200)
-    }
+//    func revealButtons() {
+//        
+//        let intervals = currentPhrase.slots?.count
+//        let frequency = 1.0/Float(intervals!)
+//        let miliseconds = Int(frequency * 100)
+//        
+//        revealButtonsInSequence(buttons: currentButtons, delay: 200)
+//    }
     
-    func revealButtonsInSequence(buttons: [UIButton], delay: Int) {
-        
-        guard !buttons.isEmpty else {
-            
-            for currentButton in currentButtons {
-                currentButton.isEnabled = true
-            }
-            return
-        }
-        
-        var mutableButtons = buttons
-        
-        let button = mutableButtons.popLast()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
-            button!.isHidden = false
-            
-            self.revealButtonsInSequence(buttons: mutableButtons, delay: delay)
-            self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
-        })
-    }
+//    func revealButtonsInSequence(buttons: [UIButton], delay: Int) {
+//        
+//        guard !buttons.isEmpty else {
+//            
+//            for currentButton in currentButtons {
+//                currentButton.isEnabled = true
+//            }
+//            return
+//        }
+//        
+//        var mutableButtons = buttons
+//        
+//        let button = mutableButtons.popLast()
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
+//            button!.isHidden = false
+//            
+//            self.revealButtonsInSequence(buttons: mutableButtons, delay: delay)
+//            self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
+//        })
+//    }
     
 
     
     /// fades the stackview out, removes old buttons, then Adds buttons from the given phrase to the stackview
     func removeAndReloadButtons(from phrase: Phrase) {
         
+        var delay = 1.5
+        if getCurrentScore() <= minimumScoreToUnlockObjective {
+            delay = 0.1
+        }
+        
         UIView.animate(withDuration: 0.5,
-                       delay: 1.5,
+                       delay: delay,
                        options: [.curveEaseInOut],
                        animations: {
             //hide the stackview
@@ -563,6 +571,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
         if currentSubphraseIndex >= currentPhrase.subphrases!.count {
             currentSubphraseIndex = 0
             
+            //if the user doesn't ahve enough points to go after objectives, make the transition quicker
+            var delay = 1000
+            if getCurrentScore() <= minimumScoreToUnlockObjective {
+                delay = 300
+            }
+            
             //give them some points for finishing a phrase
             let pointsJustScored = calculateBaseScore(phrase: currentPhrase)
             setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
@@ -576,7 +590,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //don't let the user do anything while we show them feedback and reload
             setAllUserInteraction(enabled: false)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
                 self.reloadGame()
             })
             
