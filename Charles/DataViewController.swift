@@ -60,6 +60,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
     @IBOutlet weak var justScoredMessageLabel: UILabel!
+    let pointsToLoseEachCycle = 5
     
     
     let minimumScoreToUnlockObjective = 1000
@@ -101,6 +102,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         storeButton.alpha = 0
         thisLevelLabel.alpha = 0.0
         nextLevelLabel.alpha = 0
+        scoreLabel.alpha = 0
         
         
         
@@ -142,12 +144,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
             setPageControl(visible: false)
         }
         
-        refreshLevelProgress()
+        //refreshLevelProgress()
         
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
-        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -159,7 +161,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         super.viewDidLayoutSubviews()
         
         
-        //revealButtons()
+        //round the button corners
         self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
         
     }
@@ -235,6 +237,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             levelProgressView.isHidden = true
             thisLevelLabel.alpha = 0.0
             nextLevelLabel.alpha = 0
+            levelDescriptionLabel.alpha = 0
         } else {
             //figure out what level the player is on
             let currentLevel = getUserCurrentLevel()
@@ -280,6 +283,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
                                     self.nextLevelLabel.textColor = nextLevelColor
                                     
                                     //level label
+                                    self.levelDescriptionLabel.alpha = 1
                                     self.levelDescriptionLabel.text = currentLevel.levelDescription
                                 }
                                 
@@ -433,8 +437,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //round the corners of the bottom button
         button = currentButtons[currentButtons.count - 1]
         
-        //button.layer.masksToBounds = true
-        //slotButton.roundCorners(corners: [.topLeft,.topRight], radius: 3)
         maskLayer = CAShapeLayer()
         
         maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
@@ -469,6 +471,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //now add a new set of buttons
             self.addNewButtons(from: phrase)
             
+            
+            
             self.fadeInCharacter()
            
         })
@@ -489,14 +493,22 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //fades in the stackView.  Assumes buttons are already loaded
     func fadeInCharacter() {
+        
+        
         UIView.animate(withDuration: 0.8,
                        delay: 0.0,
                        options: [.curveEaseInOut],
                        animations: {
-            self.buttonStackView.alpha = 1.0
+            self.buttonStackView.alpha = 1
         }, completion: { (finished:Bool) in
             self.setAllUserInteraction(enabled: true)
+            
+            //refresh the view
+            self.viewDidLayoutSubviews()
+            
         })
+        
+        
     }
     
     //adds buttons to the stackView from the given phrase
@@ -736,9 +748,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
             } else { //when not working on an objective, everyone is a winner!
                 setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                 
-                if let scoreMessage = scoreResults.1 {
-                    presentJustScoredMessageFeedback(message: scoreMessage)
-                }
+//                if let scoreMessage = scoreResults.1 {
+//                    presentJustScoredMessageFeedback(message: scoreMessage)
+//                }
             }
             
             //animate the justScored feedback
@@ -783,7 +795,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         switch scorePercent {
         case 100:
-            pointMessage = "perfect match!"
+            pointMessage = "perfect!"
         case let x where x > 90:
             pointMessage = "\(scorePercent)% superb!"
         case let x where x > 80:
@@ -944,21 +956,25 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: Scoring
     /******************************************************/
 
+    ///updates the UI with the current score
     func refreshScore() {
         let currentScore = getCurrentScore()
         
-        scoreLabel.text = String(describing: currentScore)
+        
+        var scoreAlpha: CGFloat
         
         //set the alpha of the label to be the equivalent of the score /1000
         //alpha of the store icon will be such that 500 is the minimum score to start showing.  Lowest priced item will be 500.
         if currentScore >= minimumScoreToUnlockStore + 500 {
-            scoreLabel.alpha = 1.0
+            scoreAlpha = 1.0
+            //scoreLabel.alpha = scoreAlpha
             storeButton.alpha = 1.0
+            
         } else {
             
             let newAlpha: CGFloat = CGFloat(Float(currentScore) / Float(minimumScoreToUnlockStore + 500))
-            
-            self.scoreLabel.alpha = newAlpha
+            scoreAlpha = newAlpha
+            //self.scoreLabel.alpha = scoreAlpha
             
             //fade in the store
             UIView.animate(withDuration: 0.3, animations: {
@@ -972,6 +988,29 @@ class DataViewController: CoreDataViewController, StoreReactor {
             }, completion: nil)
             
         }
+        
+        //fade out and in the score
+        UIView.animate(withDuration: 0.2,
+                       animations: {
+            self.scoreLabel.alpha = 0
+            
+            
+        }, completion: { (finished:Bool) in
+            
+            //set score
+            self.scoreLabel.text = String(describing: currentScore)
+            
+            //fade the score back in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.scoreLabel.alpha = 0
+                //fade score back in to appropriate value
+                self.scoreLabel.alpha = scoreAlpha
+                
+            }, completion: nil )
+            
+            
+        })
+        
     }
     
     /// calculates the base score, which is 100 - the liklihood of the phrase just completed
@@ -988,7 +1027,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         let currentScore = getCurrentScore()
         
         if currentScore >= 0 {
-            let penalty = 1
+            let penalty = pointsToLoseEachCycle
             var newScore = currentScore - penalty
             
             if newScore < 0 {
@@ -1039,14 +1078,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     /// sets the current score, returns the newly set score
-    func setCurrentScore(newScore: Int) -> Int {
+    func setCurrentScore(newScore: Int) {
         guard let fc = frcDict[keyCurrentScore] else {
-            return -1
+            fatalError("Could not get frcDict")
             
         }
         
         guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
-            return -1
+            fatalError("Could not get array of currentScores")
         }
         
         if (currentScores.count) == 0  {
@@ -1054,19 +1093,19 @@ class DataViewController: CoreDataViewController, StoreReactor {
             let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
             currentScore.value = Int64(newScore)
             
-            return Int(currentScore.value)
+            return
         } else {
             
             switch newScore {
             //TODO: if the score is already 0 don't set it again.
             case let x where x < 0:
                 currentScores[0].value = Int64(0)
-                return Int(currentScores[0].value)
+                return
             default:
                 //set score for the first element
                 currentScores[0].value = Int64(newScore)
                 //print("There are \(currentScores.count) score entries in the database.")
-                return Int(currentScores[0].value)
+                return
             }
             
             
