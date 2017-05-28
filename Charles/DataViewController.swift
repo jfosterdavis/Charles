@@ -384,22 +384,85 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         refreshLevelProgress()
         
-        //pick a random color to load
-        let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
-        let randomColor = ColorLibrary.Easy[randomIndex]
+        
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
-            reloadObjective(using: randomColor)
             
+            //pick a random color to load
+            guard let userLevel = getUserCurrentLevel() else {
+                //users level may be too high and this is where advanced levels can be loaded
+                //TODO: Load advanced levels
+                fatalError("User may be at adanvced level but this hasn't been programmed yet!!!!")
+            }
             
+            let gameColor = getGameColor(usingLevel: userLevel)
+            
+            reloadObjective(using: gameColor)
         }
     }
+    
+    ///Consider's the player's level and returns a color for the objective
+    func getGameColor(usingLevel playerLevel: Level) -> UIColor {
+        
+        //The level describes if predetermined sets are eligible, if a random color is elibigle, or both
+        let predeterminedColors = playerLevel.eligiblePredefinedObjectives!
+        let randomColorPrecision = playerLevel.eligibleRandomColorPrecision
+        
+        //if for some reason both are nil or empty, just return a random color of default precision
+        if randomColorPrecision == nil && predeterminedColors.isEmpty {
+            return ColorLibrary.totallyRandomColor()
+        }
+        
+        if randomColorPrecision == nil {  //if we won't be generating a random color
+            //pick a random set and then a random color from that set
+            var randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors.count)))
+            let randomSet = predeterminedColors[randomIndex]
+            
+            //now from that set pick a color
+            randomIndex = Int(arc4random_uniform(UInt32(randomSet.count)))
+            let randomColorFromSet = randomSet[randomIndex]
+            
+            return randomColorFromSet
+            
+        } else if predeterminedColors.isEmpty {  //if there are no predetermined colors then just return a random one
+            return ColorLibrary.totallyRandomColor(precision: randomColorPrecision!)
+        } else { //color precision is defined, and there are also colors in the predetermined sets
+            //randomly pick to go with a predetermined set or with a random color
+            
+            //pick a random set and then a random color from that set
+            var randomIndex = Int(arc4random_uniform(UInt32(2)))
+            
+            if randomIndex == 1 {  //1 means that a color from the set was chosen, so randomly pick one and return
+                //pick a random set and then a random color from that set
+                randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors.count)))
+                let randomSet = predeterminedColors[randomIndex]
+                
+                //now from that set pick a color
+                randomIndex = Int(arc4random_uniform(UInt32(randomSet.count)))
+                let randomColorFromSet = randomSet[randomIndex]
+                
+                return randomColorFromSet
+                
+            } else {  //randomly decided to pick a random color so pick one and return
+                return ColorLibrary.totallyRandomColor(precision: randomColorPrecision!)
+            }
+        }
+        
+    }
+    
+    
     
     ///Loads the objective user visual
     func loadObjective(){
         //load the objective
-        let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
-        let randomColor = ColorLibrary.Easy[randomIndex]
-        loadAndFadeInFeedbackObjective(using: randomColor)
+        
+        //pick a random color to load
+        guard let userLevel = getUserCurrentLevel() else {
+            //users level may be too high and this is where advanced levels can be loaded
+            //TODO: Load advanced levels
+            fatalError("User may be at adanvced level but this hasn't been programmed yet!!!!")
+        }
+        let gameColor = getGameColor(usingLevel: userLevel)
+        loadAndFadeInFeedbackObjective(using: gameColor)
         
         setAllUserInteraction(enabled: true)
     }
