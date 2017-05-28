@@ -50,19 +50,19 @@
                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-2S-TQR">
-                                <rect key="frame" x="142" y="59" width="91.5" height="18"/>
+                                <rect key="frame" x="142" y="63" width="91.5" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="FFU-Yn-cnM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="21"/>
                                 <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="W3d-oo-jUg" userLabel="Slots Stack View">
-                                <rect key="frame" x="16" y="100" width="343" height="541"/>
+                                <rect key="frame" x="16" y="104" width="343" height="537"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmn-4x-XHC" userLabel="Button1">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="180.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="179"/>
                                         <color key="backgroundColor" red="0.1666679382" green="1" blue="0.2210872918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOi-nQ-4dM" userLabel="Button2">
-                                        <rect key="frame" x="0.0" y="180.5" width="343" height="180"/>
+                                        <rect key="frame" x="0.0" y="179" width="343" height="179"/>
                                         <color key="backgroundColor" red="0.56396732230000002" green="0.065108012009999994" blue="0.0016013734960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -78,7 +78,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufb-l7-FgI" userLabel="Button3">
-                                        <rect key="frame" x="0.0" y="360.5" width="343" height="180.5"/>
+                                        <rect key="frame" x="0.0" y="358" width="343" height="179"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -94,7 +94,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-Pd-fue">
-                                <rect key="frame" x="16" y="27.5" width="32" height="28"/>
+                                <rect key="frame" x="16" y="31.5" width="32" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="AD0-SX-ake"/>
                                     <constraint firstAttribute="height" constant="28" id="ljd-J5-SEn"/>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Charles" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-Le-7mQ">
-                                <rect key="frame" x="50" y="26" width="275" height="31"/>
+                                <rect key="frame" x="50" y="30" width="275" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="0vB-CI-66Y"/>
                                 </constraints>
@@ -114,19 +114,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-ak-3np">
-                                <rect key="frame" x="165" y="79" width="45.5" height="18"/>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="16"/>
+                                <rect key="frame" x="165" y="83" width="45.5" height="18"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Perfect!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Ma-Wn-fWR">
-                                <rect key="frame" x="212.5" y="79" width="146.5" height="18"/>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="16"/>
+                                <rect key="frame" x="212.5" y="83" width="146.5" height="18"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-Bq-aMo" customClass="ColorMatchFeedbackView" customModule="Charles" customModuleProvider="target">
-                                <rect key="frame" x="102.5" y="285" width="171.5" height="171.5"/>
+                                <rect key="frame" x="102.5" y="287" width="171.5" height="171.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pGH-Bq-aMo" secondAttribute="height" multiplier="1:1" id="kIH-46-7Y0"/>
@@ -147,23 +147,29 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="lO8-fJ-aIM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="GL2-Gk-IcE"/>
+                                    <constraint firstAttribute="height" constant="20" id="GL2-Gk-IcE"/>
                                 </constraints>
                                 <color key="progressTintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="trackTintColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.5" colorSpace="calibratedRGB"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-G9-RyR">
-                                <rect key="frame" x="3" y="0.0" width="37.5" height="16"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                                <rect key="frame" x="3" y="0.0" width="37.5" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                 <color key="textColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAI-RJ-YQy">
-                                <rect key="frame" x="337.5" y="0.0" width="37.5" height="16"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                                <rect key="frame" x="337.5" y="0.0" width="37.5" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="63P-5a-7ti">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="21"/>
+                                <color key="textColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -181,13 +187,17 @@
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="top" secondItem="lO8-fJ-aIM" secondAttribute="top" id="Jvg-mX-1FI"/>
                             <constraint firstItem="Y5U-ak-3np" firstAttribute="centerX" secondItem="hg6-2S-TQR" secondAttribute="centerX" id="P1I-HK-acP"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leading" constant="50" id="PnF-O8-Bso"/>
+                            <constraint firstItem="63P-5a-7ti" firstAttribute="centerY" secondItem="lO8-fJ-aIM" secondAttribute="centerY" id="QKv-fh-mtu"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="centerY" secondItem="W3d-oo-jUg" secondAttribute="centerY" id="S1F-pA-haD"/>
                             <constraint firstItem="4Ma-Wn-fWR" firstAttribute="height" secondItem="Y5U-ak-3np" secondAttribute="height" id="S5q-Rx-zb8"/>
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="width" secondItem="lO8-fJ-aIM" secondAttribute="width" multiplier="1:10" id="VdX-QG-1iA"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="width" secondItem="cF2-Le-7mQ" secondAttribute="width" multiplier="1:3" id="Vov-Re-Fq6"/>
                             <constraint firstItem="yJ1-Y9-W5p" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="Wrs-Cn-FLU"/>
+                            <constraint firstItem="63P-5a-7ti" firstAttribute="height" secondItem="lO8-fJ-aIM" secondAttribute="height" id="a7h-Uk-mN6"/>
+                            <constraint firstItem="63P-5a-7ti" firstAttribute="width" secondItem="lO8-fJ-aIM" secondAttribute="width" id="aWd-dL-ZVI"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="centerX" secondItem="ZwX-cT-FIQ" secondAttribute="centerX" id="bKh-pQ-AgQ"/>
                             <constraint firstItem="EPS-s9-h4K" firstAttribute="top" secondItem="yJ1-Y9-W5p" secondAttribute="bottom" id="bNb-6D-Qmq"/>
+                            <constraint firstItem="63P-5a-7ti" firstAttribute="centerX" secondItem="lO8-fJ-aIM" secondAttribute="centerX" id="bVE-90-xYv"/>
                             <constraint firstAttribute="trailing" secondItem="cF2-Le-7mQ" secondAttribute="trailing" constant="50" id="cCk-mG-gz5"/>
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="height" secondItem="lO8-fJ-aIM" secondAttribute="height" id="cg0-QP-Im6"/>
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="trailing" secondItem="lO8-fJ-aIM" secondAttribute="trailing" id="cpV-tG-jNq"/>
@@ -219,6 +229,7 @@
                         <outlet property="dataLabel" destination="cF2-Le-7mQ" id="3EH-BK-JV6"/>
                         <outlet property="justScoredLabel" destination="Y5U-ak-3np" id="XVZ-eE-epq"/>
                         <outlet property="justScoredMessageLabel" destination="4Ma-Wn-fWR" id="bXv-T6-k2H"/>
+                        <outlet property="levelDescriptionLabel" destination="63P-5a-7ti" id="byF-vk-wek"/>
                         <outlet property="levelProgressView" destination="lO8-fJ-aIM" id="lV8-02-kZG"/>
                         <outlet property="nextLevelLabel" destination="dAI-RJ-YQy" id="Vrr-YG-co6"/>
                         <outlet property="objectiveFeedbackView" destination="pGH-Bq-aMo" id="tsW-Su-oZL"/>

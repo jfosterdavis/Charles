@@ -27,6 +27,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var levelProgressView: UIProgressView!
     @IBOutlet weak var thisLevelLabel: UILabel!
     @IBOutlet weak var nextLevelLabel: UILabel!
+    @IBOutlet weak var levelDescriptionLabel: UILabel!
     
     
     
@@ -237,6 +238,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //figure out what level the player is on
             let currentLevel = getUserCurrentLevel()
             
+            
             //show the level progress
             levelProgressView.isHidden = false
 
@@ -259,6 +261,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 }
                 
                 
+                
+                
                 UIView.animate(withDuration: 0.8,
                                delay: 0.8,
                                options: [.curveEaseInOut],
@@ -273,10 +277,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
                                     self.nextLevelLabel.alpha = 1
                                     self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
                                     self.nextLevelLabel.textColor = nextLevelColor
+                                    
+                                    //level label
+                                    self.levelDescriptionLabel.text = currentLevel.levelDescription
                                 }
                                 
                                 
                 }, completion: { (finished:Bool) in
+                    
+                    //if progress is going to 1, then animate to 1 then continue
+                    
                     self.levelProgressView.setProgress(progress, animated: true)
                 })
                 
@@ -704,8 +714,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
             if objectiveFeedbackView.alpha > 0 {
                 let level = getUserCurrentLevel()
                 //compare to match performance
-                if let level = level, scoreResults.2 >= level.successThreshold {
-                    giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                if let level = level {
+                    if scoreResults.2 >= level.successThreshold {
+                        giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    } else if scoreResults.2 <= level.punishThreshold {  //if the score was so low that use must lose XP
+                        giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    }
                 }
             }
             
