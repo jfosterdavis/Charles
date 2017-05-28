@@ -33,17 +33,17 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     /******************************************************/
 
 
-    func roundCorners() {
-        
-        self.layer.masksToBounds = true
-        var maskLayer = CAShapeLayer()
-        
-        //top left
-        
-        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 10, height: 10)).cgPath
-        self.layer.mask = maskLayer
-
-    }
+//    func roundCorners() {
+//        
+//        self.layer.masksToBounds = true
+//        var maskLayer = CAShapeLayer()
+//        
+//        //top left
+//        
+//        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 10, height: 10)).cgPath
+//        self.layer.mask = maskLayer
+//
+//    }
     
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from phrase: Phrase) {

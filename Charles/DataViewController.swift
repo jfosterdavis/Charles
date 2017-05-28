@@ -100,8 +100,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         thisLevelLabel.alpha = 0.0
         nextLevelLabel.alpha = 0
         
-        //setup the score
-        refreshScore()
+        
         
         //setup the color feedback view to recieve touches
         registerTouchRecognizerColorFeedback()
@@ -130,6 +129,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set up the game
         initialLoadGame()
+        
+        //setup the score
+        refreshScore()
         
         //if there is only one character, hide the page control, otherwise show
         if numPages > 1 {
@@ -258,7 +260,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 
                 
                 UIView.animate(withDuration: 0.8,
-                               delay: 0.2,
+                               delay: 0.8,
                                options: [.curveEaseInOut],
                                animations: {
                                 

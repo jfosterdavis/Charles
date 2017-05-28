@@ -65,6 +65,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //lock all expired characters
         lockAllExpiredCharacters()
         
+        //round corners of the dismiss button
+        dismissButton.roundCorners()
+        
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //Every minute refresh the collectionView
@@ -552,7 +555,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             let now = Date()
             
             let totalHours = endDate.hours(from: startDate)
-            let hoursUntilExpiry = endDate.hours(from: now)
+            let hoursUntilExpiry = endDate.hours(from: now) + 1
             let minutesUntilExpiry = endDate.minutes(from: now) + 1  //add one to include the present minute
             
             //let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHours)
@@ -562,5 +565,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             return (nil, nil, nil)
         }
     }
+    
+    
     
 }
