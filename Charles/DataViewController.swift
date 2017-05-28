@@ -37,6 +37,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var objectiveColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
     
     
+    @IBOutlet weak var buttonStackViewMaskView: UIView!
     @IBOutlet weak var buttonStackView: UIStackView!
     
     var currentButtons = [UIButton]()
@@ -60,7 +61,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
     @IBOutlet weak var justScoredMessageLabel: UILabel!
-    let pointsToLoseEachCycle = 5
+    let pointsToLoseEachCycle = 10
     
     
     let minimumScoreToUnlockObjective = 1000
@@ -116,6 +117,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set the page control
         refreshPageControl()
+        
+        //mask the stackview
+        roundStackViewMask()
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,7 +132,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         self.characterNameLabel!.text = dataObject.name
         
         //set opacity of elements
-        storeButton.alpha = 0
+        //storeButton.alpha = 0
         
         
         //set up the game
@@ -163,6 +167,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //round the button corners
         self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
+        
+        roundStackViewMask()
         
     }
     
@@ -361,11 +367,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         initialButtonLoad(from: currentPhrase)
         
+        refreshLevelProgress()
+        
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
             loadObjective()
             
-            refreshLevelProgress()
+            
         }
     }
     
@@ -374,13 +382,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //load the buttons
         reloadButtons()
         
+        refreshLevelProgress()
+        
         //pick a random color to load
         let randomIndex = Int(arc4random_uniform(UInt32(ColorLibrary.Easy.count)))
         let randomColor = ColorLibrary.Easy[randomIndex]
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             reloadObjective(using: randomColor)
             
-            refreshLevelProgress()
+            
         }
     }
     
@@ -420,30 +430,39 @@ class DataViewController: CoreDataViewController, StoreReactor {
         return newButton
     }
     
+    func roundStackViewMask() {
+        
+        
+        buttonStackViewMaskView.layer.masksToBounds = true
+        let maskLayer = CAShapeLayer()
+        
+        maskLayer.path = UIBezierPath(roundedRect: buttonStackViewMaskView.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 15, height: 15)).cgPath
+        
+        buttonStackViewMaskView.layer.mask = maskLayer
+        
+    }
     
     /// Round button corners.  Must be called in viewDidLayoutSubviews
     private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
-        //round the corners of the top buttons
-        var button = currentButtons[0]
         
+        var button = currentButtons[0]
+        //round the corners of the top buttons
         button.layer.masksToBounds = true
         var maskLayer = CAShapeLayer()
-        
-        //top left
         
         maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: topRadius, height: topRadius)).cgPath
         button.layer.mask = maskLayer
         
         //round the corners of the bottom button
-        button = currentButtons[currentButtons.count - 1]
-        
-        maskLayer = CAShapeLayer()
-        
-        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
-        maskLayer.bounds = button.frame
-        maskLayer.position = button.center
-        
-        button.layer.mask = maskLayer
+//        button = currentButtons[currentButtons.count - 1]
+//        
+//        maskLayer = CAShapeLayer()
+//        
+//        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
+//        //maskLayer.frame = button.bounds
+//        //maskLayer.position = button.center
+//        
+//        button.layer.mask = maskLayer
     }
     
     /// fades the stackview out, removes old buttons, then Adds buttons from the given phrase to the stackview
@@ -471,8 +490,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //now add a new set of buttons
             self.addNewButtons(from: phrase)
             
-            
-            
             self.fadeInCharacter()
            
         })
@@ -494,7 +511,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //fades in the stackView.  Assumes buttons are already loaded
     func fadeInCharacter() {
         
-        
         UIView.animate(withDuration: 0.8,
                        delay: 0.0,
                        options: [.curveEaseInOut],
@@ -504,7 +520,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             self.setAllUserInteraction(enabled: true)
             
             //refresh the view
-            self.viewDidLayoutSubviews()
+            //self.viewDidLayoutSubviews()
             
         })
         
