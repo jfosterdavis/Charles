@@ -65,7 +65,7 @@ struct Levels {
         //count up each level until xp number is exceeded
         while level <= Levels.Game.count {
             let xpRequired = Levels.Game[level]?.xPRequired
-            if xPRemaining < xpRequired! {
+            if xPRemaining <= xpRequired! {
                 return Levels.Game[level]
             }
             

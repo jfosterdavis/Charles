@@ -12,7 +12,7 @@ import CoreData
 
 class DataViewController: CoreDataViewController, StoreReactor {
 
-    @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var characterNameLabel: UILabel!
 
     //page control
     @IBOutlet weak var pageControl: UIPageControl!
@@ -28,6 +28,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var thisLevelLabel: UILabel!
     @IBOutlet weak var nextLevelLabel: UILabel!
     @IBOutlet weak var levelDescriptionLabel: UILabel!
+    @IBOutlet weak var feedbackColorMoss: UILabel! //a hidden view only used to copy its text color
     
     
     
@@ -122,7 +123,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.dataLabel!.text = dataObject.name
+        self.characterNameLabel!.text = dataObject.name
         
         //set opacity of elements
         storeButton.alpha = 0
@@ -694,17 +695,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
             } else {
                 pointsJustScored = calculateBaseScore(phrase: currentPhrase)
             }
-            setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
-            
-            //update the score
-            refreshScore()
-            
-            //animate the justScored feedback
-            presentJustScoredFeedback(justScored: pointsJustScored)
-            
-            if let scoreMessage = scoreResults.1, objectiveFeedbackView.alpha > 0.0 {
-                presentJustScoredMessageFeedback(message: scoreMessage)
-            }
             
             //don't let the user do anything while we show them feedback and reload
             setAllUserInteraction(enabled: false)
@@ -717,11 +707,47 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 if let level = level {
                     if scoreResults.2 >= level.successThreshold {
                         giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        
+                        //award points
+                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                        
+                        if let scoreMessage = scoreResults.1{
+                            presentJustScoredMessageFeedback(message: scoreMessage)
+                        }
+                        
                     } else if scoreResults.2 <= level.punishThreshold {  //if the score was so low that use must lose XP
                         giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        
+                        //penalty points!
+                        //penalty is negative the amount you would have scored
+                        pointsJustScored = -1 * pointsJustScored
+                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                    } else {
+                        //no XP given here, but points still given
+                        
+                        //award points
+                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                        
+                        if let scoreMessage = scoreResults.1{
+                            presentJustScoredMessageFeedback(message: scoreMessage)
+                        }
                     }
                 }
+            } else { //when not working on an objective, everyone is a winner!
+                setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                
+                if let scoreMessage = scoreResults.1 {
+                    presentJustScoredMessageFeedback(message: scoreMessage)
+                }
             }
+            
+            //animate the justScored feedback
+            presentJustScoredFeedback(justScored: pointsJustScored)
+            
+            
+            
+            //update the score
+            refreshScore()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
                 self.reloadGame()
@@ -757,13 +783,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         switch scorePercent {
         case 100:
-            pointMessage = "Perfect Match!"
+            pointMessage = "perfect match!"
         case let x where x > 90:
-            pointMessage = "\(scorePercent)% Superb!"
+            pointMessage = "\(scorePercent)% superb!"
         case let x where x > 80:
-            pointMessage = "\(scorePercent)% Great!"
+            pointMessage = "\(scorePercent)% great!"
         default:
-            pointMessage = "\(scorePercent)% Match"
+            pointMessage = "\(scorePercent)% match"
         }
         return (Int(scoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
     }
@@ -788,8 +814,19 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //make invisible in case in the middle of a feedback
         justScoredLabel.alpha = 0
+        var scoreModifier = "+"
+        var presentableScoreValue = justScored
         
-        justScoredLabel.text = "+\(String(describing: justScored))"
+        //check if the score is negative to appropriate color
+        if justScored < 0 {
+            scoreModifier = "-"
+            justScoredLabel.textColor = UIColor.red
+            presentableScoreValue = presentableScoreValue * -1
+        } else {
+            justScoredLabel.textColor = feedbackColorMoss.textColor
+        }
+        
+        justScoredLabel.text = "\(scoreModifier) \(String(describing: presentableScoreValue))"
         self.justScoredLabel.isHidden = false
         UIView.animate(withDuration: 0.2, animations: {
             
@@ -814,7 +851,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         justScoredMessageLabel.text = "\(message)"
         self.justScoredMessageLabel.isHidden = false
         UIView.animate(withDuration: 0.2,
-                       delay: 0.3,
+                       delay: 0.2,
                         animations: {
             
             self.justScoredMessageLabel.alpha = 1.0
