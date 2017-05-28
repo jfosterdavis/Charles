@@ -25,6 +25,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //level progress
     @IBOutlet weak var levelProgressView: UIProgressView!
+    @IBOutlet weak var thisLevelLabel: UILabel!
+    @IBOutlet weak var nextLevelLabel: UILabel!
     
     
     
@@ -58,7 +60,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var justScoredMessageLabel: UILabel!
     
     
-    let minimumScoreToUnlockObjective = 1250
+    let minimumScoreToUnlockObjective = 1000
     let minimumScoreToUnlockStore = 500
     
     
@@ -95,6 +97,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set opacity of elements
         storeButton.alpha = 0
+        thisLevelLabel.alpha = 0.0
+        nextLevelLabel.alpha = 0
         
         //setup the score
         refreshScore()
@@ -225,12 +229,56 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //if the player isn't working on objectives, hide this progress bar
         if getCurrentScore() < minimumScoreToUnlockObjective {
             levelProgressView.isHidden = true
+            thisLevelLabel.alpha = 0.0
+            nextLevelLabel.alpha = 0
         } else {
             //figure out what level the player is on
+            let currentLevel = getUserCurrentLevel()
+            
+            //show the level progress
             levelProgressView.isHidden = false
 
             if let progress = calculateProgressValue() {
-                levelProgressView.setProgress(progress, animated: true)
+                
+                var thisLevelColor: UIColor
+                var nextLevelColor: UIColor
+                
+                //there are 10 sections of the progress bar and the width of each label is 1/10 of the progress bar
+                switch progress {
+                case let x where x < 0.1:
+                    thisLevelColor = UIColor.darkGray
+                    nextLevelColor = UIColor.darkGray
+                case let x where x >= 0.9:
+                    thisLevelColor = UIColor.white
+                    nextLevelColor = UIColor.white
+                default:
+                    thisLevelColor = UIColor.white
+                    nextLevelColor = UIColor.darkGray
+                }
+                
+                
+                UIView.animate(withDuration: 0.8,
+                               delay: 0.2,
+                               options: [.curveEaseInOut],
+                               animations: {
+                                
+                                if let currentLevel = currentLevel {
+                                    self.thisLevelLabel.alpha = 1
+                                    self.thisLevelLabel.text = String(describing: currentLevel.level!)
+                                    self.thisLevelLabel.textColor = thisLevelColor
+                                    //print(" text of this level label: \(self.thisLevelLabel.text)")
+                                    
+                                    self.nextLevelLabel.alpha = 1
+                                    self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
+                                    self.nextLevelLabel.textColor = nextLevelColor
+                                }
+                                
+                                
+                }, completion: { (finished:Bool) in
+                    self.levelProgressView.setProgress(progress, animated: true)
+                })
+                
+                
             } else {
                 levelProgressView.setProgress(0.0, animated: true)
             }
@@ -355,13 +403,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         return newButton
     }
     
-//    ///removes all buttons, the loads up new buttons from the given Phrase.
-//    func removeAndReloadButtons(from phrase: Phrase) {
-//        
-//        
-//        //there should be no buttons, so now create some buttons
-//        loadPhraseButtons(from: phrase)
-//    }
     
     /// Round button corners.  Must be called in viewDidLayoutSubviews
     private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
@@ -389,39 +430,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         button.layer.mask = maskLayer
     }
-    
-//    func revealButtons() {
-//        
-//        let intervals = currentPhrase.slots?.count
-//        let frequency = 1.0/Float(intervals!)
-//        let miliseconds = Int(frequency * 100)
-//        
-//        revealButtonsInSequence(buttons: currentButtons, delay: 200)
-//    }
-    
-//    func revealButtonsInSequence(buttons: [UIButton], delay: Int) {
-//        
-//        guard !buttons.isEmpty else {
-//            
-//            for currentButton in currentButtons {
-//                currentButton.isEnabled = true
-//            }
-//            return
-//        }
-//        
-//        var mutableButtons = buttons
-//        
-//        let button = mutableButtons.popLast()
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
-//            button!.isHidden = false
-//            
-//            self.revealButtonsInSequence(buttons: mutableButtons, delay: delay)
-//            self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
-//        })
-//    }
-    
-
     
     /// fades the stackview out, removes old buttons, then Adds buttons from the given phrase to the stackview
     func removeAndReloadButtons(from phrase: Phrase) {
