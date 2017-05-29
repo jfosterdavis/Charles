@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, Charles, Fred, Laura]
+    static let ValidCharacters: [Character] = [Dan, LittleJimmy, Benton, Charles, Fred, Laura]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, Charles, Fred, Laura]
+    static let UnlockableCharacters: [Character] = [LittleJimmy, Benton, Charles, Fred, Laura]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -70,7 +70,7 @@ struct Characters {
     
     /// MARK: Dan
     static let Dan = Character(name: "Dan",
-                               topRadius: 130,
+                               topRadius: 20,
                                bottomRadius: 10,
                                price: 0,
                                phrases: [Phrase(name: "Pawned his head",
@@ -299,6 +299,91 @@ struct Characters {
                                                            Slot(tone: 250, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
                                                            Slot(tone: -250, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
                                                            Slot(tone: -600, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1))
+                                                ])
+                                    
+        ])
+    
+    
+    static let LittleJimmy = Character(name: "Little Jimmy",
+                                  topRadius: 111,
+                                  bottomRadius: 5,
+                                  price: 250,
+                                  phrases: [Phrase(name: "Gee Golly Mister",
+                                                   likelihood: 87,
+                                                   subphrases: [Subphrase(words: "Gee", audioFilePath: Bundle.main.path(forResource: "Gee", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Golly", audioFilePath: Bundle.main.path(forResource: "Golly!", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Mister", audioFilePath: Bundle.main.path(forResource: "Mister", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
+                                    ],
+                                                   slots: [Slot(tone: 150, color: .black),
+                                                           Slot(tone: 150, color: .red),
+                                                           Slot(tone: 150, color: .red),
+                                                           Slot(tone: 200, color: .blue),
+                                                           Slot(tone: 200, color: .blue),
+                                                           Slot(tone: 300, color: .red),
+                                                           Slot(tone: 300, color: .red),
+                                                           Slot(tone: 175, color: .blue),
+                                                           Slot(tone: 175, color: .blue)
+                                    ]),
+                                            Phrase(name: "Bang Bang You're Dead",
+                                                   likelihood: 83,
+                                                   subphrases: [Subphrase(words: "Bang", audioFilePath: Bundle.main.path(forResource: "Bang1", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Bang!", audioFilePath: Bundle.main.path(forResource: "Bang2", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Dead", audioFilePath: Bundle.main.path(forResource: "Dead", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
+                                                ],
+                                                   slots: [Slot(tone: 237, color: .black),
+                                                           Slot(tone: 200, color: .green),
+                                                           Slot(tone: 200, color: .green),
+                                                           Slot(tone: 225, color: .red),
+                                                           Slot(tone: 225, color: .red),
+                                                           Slot(tone: 215, color: .blue),
+                                                           Slot(tone: 215, color: .blue)
+                                                    
+                                                ]),
+                                            Phrase(name: "Ouch that really hurt",
+                                                   likelihood: 95,
+                                                   subphrases: [Subphrase(words: "Ouch!", audioFilePath: Bundle.main.path(forResource: "Ouch", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Really", audioFilePath: Bundle.main.path(forResource: "Really", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Hurt", audioFilePath: Bundle.main.path(forResource: "Hurt", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
+                                                ],
+                                                   slots: [Slot(tone: 200, color: .black),
+                                                           Slot(tone: 210, color: .green),
+                                                           Slot(tone: 210, color: .green),
+                                                           Slot(tone: 300, color: .white),
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue)
+                                                ]),
+                                            Phrase(name: "Can I have some ice cream?",
+                                                   likelihood: 90,
+                                                   subphrases: [Subphrase(words: "Can", audioFilePath: Bundle.main.path(forResource: "Can", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "I", audioFilePath: Bundle.main.path(forResource: "I", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Have", audioFilePath: Bundle.main.path(forResource: "Have", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Some", audioFilePath: Bundle.main.path(forResource: "Some", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
+                                                                Subphrase(words: "Ice Cream?", audioFilePath: Bundle.main.path(forResource: "IceCream?", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
+                                                ],
+                                                   slots: [Slot(tone: 230, color: .black),
+                                                           Slot(tone: 350, color: .cyan),
+                                                           Slot(tone: 280, color: .red),
+                                                           Slot(tone: 275, color: .white),
+                                                           Slot(tone: 375, color: .white),
+                                                           Slot(tone: 295, color: .green),
+                                                           Slot(tone: 285, color: .yellow),
+                                                           Slot(tone: 725, color: .blue)
+                                                ]),
+                                            Phrase(name: "Wooo hooo",
+                                                   likelihood: 80,
+                                                   subphrases: [Subphrase(words: "Wooooo   Hoooooooo!", audioFilePath: Bundle.main.path(forResource: "Whoohoo", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
+                                                ],
+                                                   slots: [Slot(tone: 430, color: .black),
+                                                           Slot(tone: 350, color: .red),
+                                                           Slot(tone: 380, color: .red),
+                                                           Slot(tone: 275, color: .red),
+                                                           Slot(tone: 275, color: .red),
+                                                           Slot(tone: 395, color: .red),
+                                                           Slot(tone: 285, color: .red),
+                                                           Slot(tone: 275, color: .red)
                                                 ])
                                     
         ])

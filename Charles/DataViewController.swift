@@ -854,7 +854,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //really this is just the main color, but just in case that changes this way is more solid
         let deviationColor = objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor)
-        let magnitude: CGFloat = 100.0
+        let magnitude: CGFloat = 22.0
         var deviationRGBA = [CGFloat](repeating: 0.0, count: 4)
         
         deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
@@ -1094,7 +1094,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     /// calculates the base score, which is 100 - the liklihood of the phrase just completed
     func calculateBaseScore(phrase: Phrase) -> Int {
-        return (100 - phrase.likelihood) * 3
+        return (100 - phrase.likelihood) * 8
     }
     
     /******************************************************/
