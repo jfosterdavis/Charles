@@ -16,7 +16,7 @@
     </entity>
     <entity name="XP" representedClassName=".XP" syncable="YES" codeGenerationType="class">
         <attribute name="earnedDatetime" attributeType="Date" minDateTimeInterval="517619520" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
-        <attribute name="level" attributeType="Integer 64" minValueString="1" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="level" attributeType="Integer 64" minValueString="1" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="metaInt1" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="metaInt2" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="metaString1" optional="YES" attributeType="String" syncable="YES"/>
