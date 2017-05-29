@@ -13,33 +13,33 @@ class PieTimerView:UIView
 {
     @IBInspectable var progressColor: UIColor = UIColor.darkGray
         {
-        didSet { print("progressColor was set here") }
+        didSet {}
     }
     @IBInspectable var circleColor: UIColor = UIColor.gray
         {
-        didSet { print("circleColor was set here") }
+        didSet { }
     }
     
     @IBInspectable var ringThickness: CGFloat = 1.0
         {
-        didSet { print("ringThickness was set here") }
+        didSet { }
     }
     @IBInspectable var fullPie: Bool = true
         {
-        didSet { print("ringThickness was set here") }
+        didSet {  }
     }
     
     @IBInspectable var startAngle: Int = 0
         {
-        didSet { print("startAngle was set here") }
+        didSet { }
     }
     @IBInspectable var endAngle: Int = 90
         {
-        didSet { print("startAngle was set here") }
+        didSet {  }
     }
     @IBInspectable var percentCrustVisible: CGFloat = 20
         {
-        didSet { print("percentCrustVisible was set here") }
+        didSet {  }
     }
  
     

@@ -74,20 +74,21 @@ extension CoreDataCollectionViewController {
                 //self.collectionView.insertItems(at: [newIndexPath!])
                 
                 //TODO: initiate download of terms?
-                print("case insert")
+                //print("case insert")
             case .delete:
                 //from apple documentation
                 //self.collectionView.deleteItems(at: [indexPath!])
                 stack.save()
-                print("case delete")
+                //print("case delete")
             case .update:
                 //from apple documentation
                 stack.save()
                 //nothing is needed here because when data is updated the collectionView displays datas current state
-                print("case update")
+                //print("case update")
             case .move:
                 //TODO: move a cell... this may not be needed
-                print("case move")
+                //print("case move")
+                break
             }
             
             //save

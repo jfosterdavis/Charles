@@ -13,27 +13,27 @@ class ColorMatchFeedbackView:UIView
 {
     @IBInspectable var mainColor: UIColor = UIColor.clear
         {
-        didSet { print("mainColor was set here") }
+        didSet {  }
     }
     @IBInspectable var objectiveRingColor: UIColor = UIColor.black
         {
-        didSet { print("bColor was set here") }
+        didSet { }
     }
     @IBInspectable var progressRingColor: UIColor = UIColor.black
         {
-        didSet { print("bColor was set here") }
+        didSet {  }
     }
     @IBInspectable var ringThickness: CGFloat = 8
         {
-        didSet { print("ringThickness was set here") }
+        didSet {  }
     }
     @IBInspectable var insideRingColor: UIColor = UIColor.clear
         {
-        didSet { print("ringThickness was set here") }
+        didSet {  }
     }
     @IBInspectable var orientationUp: Bool = true
         {
-        didSet { print("ringThickness was set here") }
+        didSet {  }
     }
 
     

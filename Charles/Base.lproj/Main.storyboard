@@ -146,9 +146,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="ringThickness">
                                         <real key="value" value="9"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="ringColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="objectiveRingColor">
                                         <color key="value" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                     </userDefinedRuntimeAttribute>
