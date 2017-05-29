@@ -118,8 +118,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         cell.loadAppearance(from: character.phrases![0])
         
-        //check that none of them have expired since this view has been open:
-        lockAllExpiredCharacters()
+ 
         
         //set the status of this character.  Is it unlocked or affordable?
         
@@ -144,7 +143,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                     if hoursUntilExpiry <= 1 {
                         
                         let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
-                        print("Expiry in \(minutesUntilExpiry) minutes.  Percentage left is \(percentOfPieToFill)")
+                        print("Expiry in \(minutesUntilExpiry) for \(character.name) in minutes.  Percentage left is \(percentOfPieToFill)")
                         //less than one minute, set color to red
                         expiryPie.setProgressColor(color: UIColor.red)
                         
@@ -155,6 +154,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                     
                         
                         let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                        
+                        //set the progress color to blue
+                        expiryPie.setProgressColor(color: UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1))
                         
                         //since it is unlocked, show the expiration status so the user will know if it is close to expiry
                         expiryPie.setProgress(percent: percentOfPieToFill)
@@ -189,6 +191,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /******************************************************/
 
     func updateTimer() {
+        //check that none of them have expired since this view has been open:
+        lockAllExpiredCharacters()
+        
         collectionView.reloadData()
     }
     

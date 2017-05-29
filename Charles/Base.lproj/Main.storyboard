@@ -336,7 +336,6 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
                                                             <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="dontUseRingThickness" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
                                                             <integer key="value" value="270"/>
                                                         </userDefinedRuntimeAttribute>

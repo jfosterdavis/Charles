@@ -61,7 +61,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var timer = Timer()
     @IBOutlet weak var justScoredLabel: UILabel!
     @IBOutlet weak var justScoredMessageLabel: UILabel!
-    let pointsToLoseEachCycle = 30
+    var pointsToLoseEachCycle = 20
     
     
     let minimumScoreToUnlockObjective = 1000
@@ -778,14 +778,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
                 delay = 300
             }
             
-            //give them some points for finishing a phrase
+            
             var pointsJustScored = 0
-            let scoreResults = calculateColorMatchPointsEarned()
-            if objectiveFeedbackView.alpha > 0.0 {
-                pointsJustScored = calculateBaseScore(phrase: currentPhrase) + scoreResults.0
-            } else {
-                pointsJustScored = calculateBaseScore(phrase: currentPhrase)
-            }
             
             //don't let the user do anything while we show them feedback and reload
             setAllUserInteraction(enabled: false)
@@ -793,6 +787,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //if the user is working on an objective, give xp points if they met minimum score threshold for that level
             if objectiveFeedbackView.alpha > 0 {
+                let scoreResults = calculateColorMatchPointsEarned()
+                pointsJustScored = calculateBaseScore(phrase: currentPhrase) + scoreResults.0
+                
                 let level = getUserCurrentLevel()
                 //compare to match performance
                 if let level = level {
@@ -825,6 +822,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
                     }
                 }
             } else { //when not working on an objective, everyone is a winner!
+                //give them some points for finishing a phrase
+                
+                pointsJustScored = calculateBaseScore(phrase: currentPhrase)
+                
                 setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                 
 //                if let scoreMessage = scoreResults.1 {
@@ -1089,6 +1090,22 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             
         })
+        
+        
+        //score housekeeping.
+        //if the score is below the thresholds where the user would see an objective, make sure the timer penalty is low enough to allow them to recover.  But once it is high enough, increase the penalty to make it more challenging once objectives are in play.
+        //if the score is below the objective
+        if getCurrentScore() < minimumScoreToUnlockObjective / 2 {
+            //set the penalty lower
+            pointsToLoseEachCycle = 10
+        } else if getCurrentScore() < minimumScoreToUnlockObjective {
+            pointsToLoseEachCycle = 20
+        } else if getCurrentScore() < minimumScoreToUnlockObjective + 1000 {
+            pointsToLoseEachCycle = 50
+        } else {
+            //the player has found stride, and has good opportunities to earn points, so penalize taking too much time
+            pointsToLoseEachCycle = 100
+        }
         
     }
     
