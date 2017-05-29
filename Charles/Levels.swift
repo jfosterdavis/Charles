@@ -77,7 +77,8 @@ struct Levels {
         }
         
         //no level found by now, player either has max xp or xp above the standard levels
-        return (nil, nil)
+        //for now, return level 39 with highest progress
+        return (Levels.Game[39], 11)
     }
     
 }
