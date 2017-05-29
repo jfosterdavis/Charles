@@ -337,7 +337,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             }
         }
         
-        let progress: Float = Float(xpThisLevel) / Float(currentLevel!.xPRequired)
+        let progress: Float = Float(xpThisLevel) / (Float(currentLevel!.xPRequired) - 1)
         
         return progress
         
@@ -1100,11 +1100,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
             pointsToLoseEachCycle = 10
         } else if getCurrentScore() < minimumScoreToUnlockObjective {
             pointsToLoseEachCycle = 20
-        } else if getCurrentScore() < minimumScoreToUnlockObjective + 1000 {
-            pointsToLoseEachCycle = 50
+        } else if getCurrentScore() < minimumScoreToUnlockObjective * 2 {
+            pointsToLoseEachCycle = 30
+        } else if getCurrentScore() < minimumScoreToUnlockObjective * 6 {
+            pointsToLoseEachCycle = 35
         } else {
             //the player has found stride, and has good opportunities to earn points, so penalize taking too much time
-            pointsToLoseEachCycle = 100
+            pointsToLoseEachCycle = 50
         }
         
     }
