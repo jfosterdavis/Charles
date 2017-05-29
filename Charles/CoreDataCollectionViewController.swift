@@ -65,7 +65,7 @@ extension CoreDataCollectionViewController {
         
         //stack.save()
         
-        if anObject is AnyObject {
+        //if anObject is AnyObject {
             
             switch(type) {
             case .insert:
@@ -93,7 +93,7 @@ extension CoreDataCollectionViewController {
             
             //save
             
-        }
+        //}
 
     }
     

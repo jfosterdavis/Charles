@@ -48,7 +48,7 @@ public class UnlockedCharacter: NSManagedObject {
             let date: Date = Date()
             let expirationDate = Calendar.current.date(byAdding: exComponents, to: date)
             
-            self.datetimeExpires = expirationDate as! NSDate
+            self.datetimeExpires = expirationDate! as NSDate
 
         } else {
             fatalError("Unable to find Entity name! (UnlockedCharacter)")

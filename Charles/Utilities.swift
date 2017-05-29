@@ -219,7 +219,7 @@ extension UIView {
     
         func roundCorners(with radius: Int = 10) {
             self.layer.masksToBounds = true
-            var maskLayer = CAShapeLayer()
+            let maskLayer = CAShapeLayer()
             
             maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: radius, height: radius)).cgPath
             self.layer.mask = maskLayer

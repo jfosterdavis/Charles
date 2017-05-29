@@ -223,7 +223,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /// Allow the color feedback view to register when it is touched and call colorFeedbackTouched
     func registerTouchRecognizerColorFeedback() {
         // 3. add action to myView
-        let gesture = UITapGestureRecognizer(target: self, action: "colorFeedbackTouched:")
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(DataViewController.colorFeedbackTouched(_:)))
 
         self.objectiveFeedbackView.addGestureRecognizer(gesture)
     }
@@ -508,10 +508,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /// Round button corners.  Must be called in viewDidLayoutSubviews
     private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
         
-        var button = currentButtons[0]
+        let button = currentButtons[0]
         //round the corners of the top buttons
         button.layer.masksToBounds = true
-        var maskLayer = CAShapeLayer()
+        let maskLayer = CAShapeLayer()
         
         maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: topRadius, height: topRadius)).cgPath
         button.layer.mask = maskLayer
@@ -1199,7 +1199,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
         }
         
-        guard let xps = fc.fetchedObjects as? [XP] else {
+        guard (fc.fetchedObjects as? [XP]) != nil else {
             return
         }
         

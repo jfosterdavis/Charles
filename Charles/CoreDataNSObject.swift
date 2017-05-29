@@ -89,7 +89,7 @@ extension CoreDataNSObject: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        if anObject is AnyObject {
+        //if anObject is AnyObject {
             
             switch(type) {
             case .insert:
@@ -121,28 +121,7 @@ extension CoreDataNSObject: NSFetchedResultsControllerDelegate {
             //save
             stack.save()
             
-        } else
-        {
-            
-            var doWhat = ""
-            switch(type) {
-            case .insert:
-                
-                doWhat = "case insert"
-            case .delete:
-                
-                doWhat = "case delete"
-            case .update:
-                
-                doWhat = "case update"
-            case .move:
-                //TODO: move a cell... this may not be needed
-                doWhat = "case move"
-            }
-            
-            fatalError("Unexpected coreData object attempted to change: \(anObject).  Attempted to \(doWhat)")
-        }
-    }
+        } 
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         //finished with updates, allow table view to animate and reload
