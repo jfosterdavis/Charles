@@ -270,31 +270,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     
     
-    func loadRandomPhrase() {
-        //1. get a random phrase from the character
-        currentPhrase = dataObject.selectRandomPhrase()
-        guard currentPhrase != nil  else {
-            //TODO: handle nil returned for random phrase
-            print("Nil phrase returned")
-            return
-        }
-    }
     
-    func reloadButtons() {
-        loadRandomPhrase()
-        
-        //2. load the buttons
-        removeAndReloadButtons(from: currentPhrase)
-    }
-
-    /// creates a new button with the color indicated by the given Slot
-    func createButton(from slot: Slot) -> UIButton {
-        let newButton = UIButton(type: .system)
-        newButton.backgroundColor = slot.color
-        newButton.setTitle("", for: .normal)
-        newButton.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
-        return newButton
-    }
+    
+    
     
     func roundStackViewMask() {
         
@@ -308,153 +286,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
     }
     
-    /// Round button corners.  Must be called in viewDidLayoutSubviews
-    private func roundButtonCorners(topRadius: Int, bottomRadius: Int) {
-        
-        let button = currentButtons[0]
-        //round the corners of the top buttons
-        button.layer.masksToBounds = true
-        let maskLayer = CAShapeLayer()
-        
-        maskLayer.path = UIBezierPath(roundedRect: buttonStackView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: topRadius, height: topRadius)).cgPath
-        button.layer.mask = maskLayer
-        
-        //round the corners of the bottom button
-//        button = currentButtons[currentButtons.count - 1]
-//        
-//        maskLayer = CAShapeLayer()
-//        
-//        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
-//        //maskLayer.frame = button.bounds
-//        //maskLayer.position = button.center
-//        
-//        button.layer.mask = maskLayer
-    }
-    
-    /// fades the stackview out, removes old buttons, then Adds buttons from the given phrase to the stackview
-    func removeAndReloadButtons(from phrase: Phrase) {
-        
-        var delay = 1.5
-        if getCurrentScore() <= minimumScoreToUnlockObjective && objectiveFeedbackView.alpha < 1.0 {
-            delay = 0.1
-        }
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: delay,
-                       options: [.curveEaseInOut],
-                       animations: {
-            //hide the stackview
-            self.buttonStackView.alpha = 0.0
-            
-            
-            
-        }, completion: { (finished:Bool) in
-            
-            //first, remove all current buttons from the stackview
-            self.removeAllButtons()
-            
-            //now add a new set of buttons
-            self.addNewButtons(from: phrase)
-            
-            self.fadeInCharacter()
-           
-        })
-
-    }
     
     
-    //loads the character without animation
-    func initialButtonLoad(from phrase: Phrase){
-        removeAllButtons()
-        
-        addNewButtons(from: phrase)
-        
-        buttonStackView.alpha = 1.0
-        
-        setAllUserInteraction(enabled: true)
-    }
     
-    //fades in the stackView.  Assumes buttons are already loaded
-    func fadeInCharacter() {
-        
-        UIView.animate(withDuration: 0.8,
-                       delay: 0.0,
-                       options: [.curveEaseInOut],
-                       animations: {
-            self.buttonStackView.alpha = 1
-        }, completion: { (finished:Bool) in
-            self.setAllUserInteraction(enabled: true)
-            
-            //refresh the view
-            //self.viewDidLayoutSubviews()
-            
-        })
-        
-        
-    }
     
-    //adds buttons to the stackView from the given phrase
-    func addNewButtons(from phrase: Phrase) {
-        
-        guard let slots = phrase.slots else {
-            //TODO: handle phrase with nil slots
-            return
-            
-        }
-        
-        var counter = 0
-        //step through each slot and createa  button for it
-        for slot in slots {
-            //create a button
-            let slotButton = self.createButton(from: slot)
-            //slotButton.isHidden = true
-            slotButton.isEnabled = false
-            //add the button to the array of buttons
-            self.currentButtons.append(slotButton)
-            
-            //add the button to the stackview
-            self.buttonStackView.addArrangedSubview(slotButton)
-            
-            //create layout constraints for the button
-            let widthConstraint = NSLayoutConstraint(item: slotButton, attribute: .width, relatedBy: .equal, toItem: self.buttonStackView, attribute: .width, multiplier: 1, constant: 0)
-            widthConstraint.isActive = true
-            self.buttonStackView.addConstraint(widthConstraint)
-            
-            counter += 1
-        }
-    }
-    
-    ///removes all buttons from the stackview
-    func removeAllButtons() {
-        //disable and fade out
-        setAllUserInteraction(enabled: false)
-        
-        //disable the buttons
-        for button in currentButtons {
-            button.isEnabled = false
-        }
-        
-        //fade out the stack
-        //        UIView.animate(withDuration: 1.4, animations: {
-        //            self.buttonStackView.alpha = 0.0
-        //        })
-        
-        for button in currentButtons {
-            guard buttonStackView.arrangedSubviews.index(of: button) != nil else {
-                //TODO: Handle index not found
-                return
-            }
-            
-            buttonStackView.removeArrangedSubview(button)
-            
-            //remove button from heirarchy
-            button.removeFromSuperview()
-        }
-        
-        
-        //remove all buttons from the local list
-        currentButtons.removeAll()
-    }
     
     
     /******************************************************/
@@ -551,34 +386,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         })
     }
     
-    /******************************************************/
-    /*******************///MARK: Checking for expired characters
-    /******************************************************/
-
-    ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
-    func checkForAndRemoveExpiredCharacters() {
-        
-        //create a store object to use its functions for checking if characters have expired
-        let storeVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
-        let expiredCharacters: [UnlockedCharacter] = storeVC.getExpiredCharacters()
-        
-        if !expiredCharacters.isEmpty {
-            //there are expired characters.  lock them and reload the modelController
-            storeVC.lockAllExpiredCharacters()
-            
-            //invoke the function to mimic functionality as though the store had just closed
-            self.storeClosed()
-            
-//            loadPageData()
-//            
-//            //update the pagecontroller dots.
-//            //I realize this is not the right way to manipulate the page control
-//            //TODO: Impliment proper ways to manipulate the page control
-//            currentVC.numPages = self.pageData.count
-//            currentVC.refreshPageControl()
-            
-        }
-    }
+   
     
     
     /******************************************************/
@@ -604,28 +412,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     
-    /******************************************************/
-    /*******************///MARK: Audio Functions
-    /******************************************************/
-
     
-    func resetAudioEngineAndPlayer() {
-        //audioPlayer.stop()
-        audioEngine.stop()
-        audioPlayerNode.stop()
-        //audioEngine.reset()
-    }
-    
-    func speak(subphrase: Subphrase){
-        
-        
-        textUtterance = AVSpeechUtterance(string: subphrase.words)
-        textUtterance.rate = 0.3
-        //textUtterance.pitchMultiplier = toneToSpeak
-        
-        //speak
-        synth.speak(textUtterance)
-    }
 
     
     /******************************************************/
@@ -651,77 +438,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     
-    /******************************************************/
-    /*******************///MARK: Core Data functions
-    /******************************************************/
-    
-    /**
-     get the current score, if there is not a score record, make one at 0
-     */
-    func getCurrentScore() -> Int {
-        guard let fc = frcDict[keyCurrentScore] else {
-            return -1
-        
-        }
-        
-        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
-        
-            return -1
-        }
-        
-        if (currentScores.count) == 0 {
-        
-            print("No CurrentScore exists.  Creating.")
-            let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
-            
-            return Int(newScore.value)
-        } else {
-            
-            //print(currentScores[0].value)
-            let score = Int(currentScores[0].value)
-            
-            //if didn't find at end of loop, must not be an entry, so level 0
-            return score
-        }
-        
-        
-    }
-    
-    /// sets the current score, returns the newly set score
-    func setCurrentScore(newScore: Int) {
-        guard let fc = frcDict[keyCurrentScore] else {
-            fatalError("Could not get frcDict")
-            
-        }
-        
-        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
-            fatalError("Could not get array of currentScores")
-        }
-        
-        if (currentScores.count) == 0  {
-            print("No CurrentScore exists.  Creating.")
-            let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
-            currentScore.value = Int64(newScore)
-            
-            return
-        } else {
-            
-            switch newScore {
-            //TODO: if the score is already 0 don't set it again.
-            case let x where x < 0:
-                currentScores[0].value = Int64(0)
-                return
-            default:
-                //set score for the first element
-                currentScores[0].value = Int64(newScore)
-                //print("There are \(currentScores.count) score entries in the database.")
-                return
-            }
-            
-            
-        }
-
-    }
     
     
 }

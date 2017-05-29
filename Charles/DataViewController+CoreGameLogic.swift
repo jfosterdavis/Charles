@@ -400,6 +400,101 @@ extension DataViewController {
             return nil
         }
     }
+    
+    /******************************************************/
+    /*******************///MARK: Core Data functions
+    /******************************************************/
+    
+    /**
+     get the current score, if there is not a score record, make one at 0
+     */
+    func getCurrentScore() -> Int {
+        guard let fc = frcDict[keyCurrentScore] else {
+            return -1
+            
+        }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+            
+            return -1
+        }
+        
+        if (currentScores.count) == 0 {
+            
+            print("No CurrentScore exists.  Creating.")
+            let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            
+            return Int(newScore.value)
+        } else {
+            
+            //print(currentScores[0].value)
+            let score = Int(currentScores[0].value)
+            
+            //if didn't find at end of loop, must not be an entry, so level 0
+            return score
+        }
+        
+        
+    }
+    
+    /// sets the current score, returns the newly set score
+    func setCurrentScore(newScore: Int) {
+        guard let fc = frcDict[keyCurrentScore] else {
+            fatalError("Could not get frcDict")
+            
+        }
+        
+        guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
+            fatalError("Could not get array of currentScores")
+        }
+        
+        if (currentScores.count) == 0  {
+            print("No CurrentScore exists.  Creating.")
+            let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
+            currentScore.value = Int64(newScore)
+            
+            return
+        } else {
+            
+            switch newScore {
+            //TODO: if the score is already 0 don't set it again.
+            case let x where x < 0:
+                currentScores[0].value = Int64(0)
+                return
+            default:
+                //set score for the first element
+                currentScores[0].value = Int64(newScore)
+                //print("There are \(currentScores.count) score entries in the database.")
+                return
+            }
+            
+            
+        }
+        
+    }
+
+    /******************************************************/
+    /*******************///MARK: Audio Functions
+    /******************************************************/
+    
+    
+    func resetAudioEngineAndPlayer() {
+        //audioPlayer.stop()
+        audioEngine.stop()
+        audioPlayerNode.stop()
+        //audioEngine.reset()
+    }
+    
+    func speak(subphrase: Subphrase){
+        
+        
+        textUtterance = AVSpeechUtterance(string: subphrase.words)
+        textUtterance.rate = 0.3
+        //textUtterance.pitchMultiplier = toneToSpeak
+        
+        //speak
+        synth.speak(textUtterance)
+    }
 
     
 }

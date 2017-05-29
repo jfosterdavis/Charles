@@ -40,6 +40,8 @@
 		F61553611EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553601EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift */; };
 		F61553641EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */; };
 		F61553661EDCC05D004BBCB6 /* DataViewController+GameObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */; };
+		F61553681EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553671EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift */; };
+		F615536A1EDCC232004BBCB6 /* DataViewController+HighGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553691EDCC232004BBCB6 /* DataViewController+HighGameLogic.swift */; };
 		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */; };
 		F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */; };
@@ -106,6 +108,8 @@
 		F61553601EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+LevelProgress.swift"; sourceTree = "<group>"; };
 		F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+CoreGameLogic.swift"; sourceTree = "<group>"; };
 		F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+GameObjective.swift"; sourceTree = "<group>"; };
+		F61553671EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+CharacterPhrasesButtons.swift"; sourceTree = "<group>"; };
+		F61553691EDCC232004BBCB6 /* DataViewController+HighGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+HighGameLogic.swift"; sourceTree = "<group>"; };
 		F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				F61553551EDC9E87004BBCB6 /* DataViewController+GameSounds.swift */,
 				F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */,
 				F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */,
+				F61553671EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift */,
+				F61553691EDCC232004BBCB6 /* DataViewController+HighGameLogic.swift */,
 			);
 			name = "DVC Extensions";
 			sourceTree = "<group>";
@@ -451,12 +457,14 @@
 				F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */,
 				F60327B91EC54BF600493DC3 /* CoreDataCollectionViewController.swift in Sources */,
 				F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */,
+				F615536A1EDCC232004BBCB6 /* DataViewController+HighGameLogic.swift in Sources */,
 				F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */,
 				F61553661EDCC05D004BBCB6 /* DataViewController+GameObjective.swift in Sources */,
 				F607C8C21EBFDAEC00651FAD /* CharacterDictionary.swift in Sources */,
 				F607C8BA1EBFD41100651FAD /* Character.swift in Sources */,
 				F64E74951ED9E43B000E99E1 /* PieTimerView.swift in Sources */,
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
+				F61553681EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift in Sources */,
 				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
