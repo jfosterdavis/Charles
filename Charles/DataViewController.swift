@@ -365,13 +365,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         initialButtonLoad(from: currentPhrase)
         
+        setUserLevelAndProgressBaselines()
+        
         refreshLevelProgress()
         
         checkForAndRemoveExpiredCharacters()
         
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
-            setUserLevelAndProgressBaselines()
+            
             
             loadObjective()
             
