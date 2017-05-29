@@ -226,3 +226,13 @@ extension UIView {
         }
     
 }
+
+/******************************************************/
+/*******************///MARK: Comparison enum
+/******************************************************/
+
+enum MagnitudeComparison {
+    case increase
+    case decrease
+    case noChange
+}

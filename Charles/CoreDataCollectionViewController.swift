@@ -100,6 +100,10 @@ extension CoreDataCollectionViewController {
     override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         //finished with updates, allow table view to animate and reload
         //self.collectionView.endUpdates()
-        self.collectionView!.reloadData()
+        if let cV = self.collectionView {
+            cV.reloadData()
+        }
+        
+        //self.collectionView!.reloadData()
     }
 }

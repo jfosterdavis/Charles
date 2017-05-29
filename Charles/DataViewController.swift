@@ -29,7 +29,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var nextLevelLabel: UILabel!
     @IBOutlet weak var levelDescriptionLabel: UILabel!
     @IBOutlet weak var feedbackColorMoss: UILabel! //a hidden view only used to copy its text color
-    
+    var playerLevelBaseline = 0 //tracks the player level when they start an objective to compare if they made progress or not
+    var playerProgressBaseline = 0 //tracks the player progress within the playerLevelBaseline level when they start an objective to compare if they made progress or not
+    //and way to refer to which of the baselines in functions that do the same thing
+    enum Baseline {
+        case level
+        case progress
+    }
     
     
     //color objective and feedback
@@ -148,8 +154,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
             setPageControl(visible: false)
         }
         
-        //refreshLevelProgress()
-        
         //stop the timer to avoide stacking penalties
         timer.invalidate()
         //start the timer
@@ -246,12 +250,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
             levelDescriptionLabel.alpha = 0
         } else {
             //figure out what level the player is on
-            let currentLevel = getUserCurrentLevel()
-            
+            let userXP = calculateUserXP()
+            let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
             
             //show the level progress
             levelProgressView.isHidden = false
-
+            
+            //play sounds if needed
+            compareLevelAndProgressAndPlaySounds(given: currentLevelAndProgress)
+            
             if let progress = calculateProgressValue() {
                 
                 var thisLevelColor: UIColor
@@ -278,7 +285,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
                                options: [.curveEaseInOut],
                                animations: {
                                 
-                                if let currentLevel = currentLevel {
+                                if let currentLevel = currentLevelAndProgress.0 {
                                     self.thisLevelLabel.alpha = 1
                                     self.thisLevelLabel.text = String(describing: currentLevel.level!)
                                     self.thisLevelLabel.textColor = thisLevelColor
@@ -364,6 +371,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
+            setUserLevelAndProgressBaselines()
+            
             loadObjective()
             
             
@@ -390,9 +399,67 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             let gameColor = getGameColor(usingLevel: userLevel)
             
+            //set the baselines, then reload the objective
+            setUserLevelAndProgressBaselines()
+            
             reloadObjective(using: gameColor)
+            
         }
     }
+    
+    
+    ///sets the playerLevelBaseline and playerProgerssBaseline for comparisonlater.  should be called before the player starts an objective
+    func setUserLevelAndProgressBaselines() {
+        
+        let userXP = calculateUserXP()
+        
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        
+        //record the current level for comparison at score time
+        if let userLevel = userLevelAndProgress.0 {
+            playerLevelBaseline = userLevel.level
+        } else {
+            playerLevelBaseline = 0
+        }
+        
+        if let userProgress = userLevelAndProgress.1 {
+            playerProgressBaseline = userProgress
+        } else {
+            playerProgressBaseline = 0
+        }
+    }
+    
+
+    //a test to see if the user progressed, degressed, or remained same in a Baseline compared to the given level
+    func didPlayer(magnitudeDirection: MagnitudeComparison, in baseline: Baseline, byAchieving newValue: Int) -> Bool {
+        
+        //figure out what type of comparison to make
+        var comparisonOperator: (Int, Int) -> Bool
+        switch magnitudeDirection {
+        case .increase:
+            comparisonOperator = (>)
+        case .decrease:
+            comparisonOperator = (<)
+        default:
+            comparisonOperator = (==)
+        }
+        
+        if baseline == .level {
+        
+            if comparisonOperator(newValue, playerLevelBaseline) {
+                return true
+            } else {
+                return false
+            }
+        } else {  //must be referring to a progress not a level
+            if comparisonOperator(newValue, playerProgressBaseline) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
     
     ///Consider's the player's level and returns a color for the objective
     func getGameColor(usingLevel playerLevel: Level) -> UIColor {
@@ -753,11 +820,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //subtract the color of the button pressed to the color indicator
             objectiveFeedbackView.subtractColorToProgress(color: addThisColor)
         }
-        
-        
-        
-        
-        
+    
         //iterate the subphrase
         
         currentSubphraseIndex += 1
@@ -831,6 +894,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
                         }
                     }
                 }
+                
+                
             } else { //when not working on an objective, everyone is a winner!
                 //give them some points for finishing a phrase
                 
@@ -845,8 +910,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //animate the justScored feedback
             presentJustScoredFeedback(justScored: pointsJustScored)
-            
-            
             
             //update the score
             refreshScore()
@@ -994,6 +1057,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             //invoke the function to mimic functionality as though the store had just closed
             self.storeClosed()
+            
+//            loadPageData()
+//            
+//            //update the pagecontroller dots.
+//            //I realize this is not the right way to manipulate the page control
+//            //TODO: Impliment proper ways to manipulate the page control
+//            currentVC.numPages = self.pageData.count
+//            currentVC.refreshPageControl()
             
         }
     }
