@@ -35,6 +35,11 @@ extension DataViewController {
         //audioEngine.reset()
     }
     
+    func resetAudioEngineAndPlayerGameSounds() {
+        audioEngineGameSounds.stop()
+        audioPlayerNodeGameSounds.stop()
+    }
+    
     func speak(subphrase: Subphrase){
         
         
@@ -74,20 +79,20 @@ extension DataViewController {
         
             do{
                 let url = URL(fileURLWithPath: audioFilePath)
-                try audioPlayer = AVAudioPlayer(contentsOf: url)
-                //audioPlayer.enableRate = true
+                try audioPlayerGameSounds = AVAudioPlayer(contentsOf: url)
+                audioPlayerGameSounds.enableRate = true
                 
-                resetAudioEngineAndPlayer()
+                resetAudioEngineAndPlayerGameSounds()
                 
                 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                 let audioFile = try AVAudioFile(forReading: url)
                 
-                //changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+                changePitchEffectGameSounds.pitch = 100
                 
-                audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+                audioPlayerNodeGameSounds.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 
-                try audioEngine.start()
-                audioPlayerNode.play()
+                try audioEngineGameSounds.start()
+                audioPlayerNodeGameSounds.play()
             } catch {
                 print("Error when attempting to play audio file.")
             }

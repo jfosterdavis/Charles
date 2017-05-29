@@ -58,6 +58,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var changePitchEffect: AVAudioUnitTimePitch!
+    //AV for Game Sounds (not character sounds_
+    var audioPlayerGameSounds: AVAudioPlayer!
+    var audioEngineGameSounds: AVAudioEngine!
+    var audioPlayerNodeGameSounds: AVAudioPlayerNode!
+    var changePitchEffectGameSounds: AVAudioUnitTimePitch!
     
     //CoreData
     let keyCurrentScore = "CurrentScore"
@@ -100,6 +105,18 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        
+        //setup the same for the game sounds
+        audioEngineGameSounds = AVAudioEngine()
+        audioPlayerGameSounds = AVAudioPlayer()
+        //setup node
+        audioPlayerNodeGameSounds = AVAudioPlayerNode()
+        audioEngineGameSounds.attach(audioPlayerNodeGameSounds)
+        changePitchEffectGameSounds = AVAudioUnitTimePitch()
+        audioEngineGameSounds.attach(changePitchEffectGameSounds)
+        
+        audioEngineGameSounds.connect(audioPlayerNodeGameSounds, to: changePitchEffectGameSounds, format: nil)
+        audioEngineGameSounds.connect(changePitchEffectGameSounds, to: audioEngineGameSounds.outputNode, format: nil)
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
