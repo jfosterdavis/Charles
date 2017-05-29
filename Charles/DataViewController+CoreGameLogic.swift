@@ -473,29 +473,7 @@ extension DataViewController {
         
     }
 
-    /******************************************************/
-    /*******************///MARK: Audio Functions
-    /******************************************************/
-    
-    
-    func resetAudioEngineAndPlayer() {
-        //audioPlayer.stop()
-        audioEngine.stop()
-        audioPlayerNode.stop()
-        //audioEngine.reset()
-    }
-    
-    func speak(subphrase: Subphrase){
-        
-        
-        textUtterance = AVSpeechUtterance(string: subphrase.words)
-        textUtterance.rate = 0.3
-        //textUtterance.pitchMultiplier = toneToSpeak
-        
-        //speak
-        synth.speak(textUtterance)
-    }
-    
+   
     /******************************************************/
     /*******************///MARK: Timer
     /******************************************************/
