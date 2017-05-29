@@ -790,6 +790,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
                     if scoreResults.2 >= level.successThreshold {
                         giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                         
+                        //if they got a perfect score, double the points earned
+                        if scoreResults.2 == 1 {
+                            pointsJustScored = pointsJustScored * 2
+                        }
+                        
                         //award points
                         setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                         
@@ -803,6 +808,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
                         //penalty points!
                         //penalty is negative the amount you would have scored
                         pointsJustScored = -1 * pointsJustScored
+                        
+                        //if they got a 0% score, triple the points lost
+                        if scoreResults.2 == 0 {
+                            pointsJustScored = pointsJustScored * 3
+                        }
+                        
                         setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                         
                         //give them a message so they know how bad they did
