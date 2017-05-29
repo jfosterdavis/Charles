@@ -22,17 +22,21 @@ extension DataViewController {
     
     func refreshLevelProgress() {
         
+        //figure out what level the player is on
+        let userXP = calculateUserXP()
+        let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        
         //if the player isn't working on objectives, hide this progress bar
         if getCurrentScore() < minimumScoreToUnlockObjective {
             levelProgressView.isHidden = true
             thisLevelLabel.alpha = 0.0
             nextLevelLabel.alpha = 0
             levelDescriptionLabel.alpha = 0
-        } else {
-            //figure out what level the player is on
-            let userXP = calculateUserXP()
-            let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
             
+            //play sounds if needed
+            compareLevelAndProgressAndPlaySounds(given: currentLevelAndProgress)
+        } else {
+           
             //show the level progress
             levelProgressView.isHidden = false
             
