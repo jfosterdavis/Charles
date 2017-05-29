@@ -268,7 +268,7 @@ struct Characters {
                                             Phrase(name: "Thomas",
                                                    likelihood: 20,
                                                    subphrases: [Subphrase(words: "Thomas!", audioFilePath: Bundle.main.path(forResource: "Thomas", ofType: "m4a", inDirectory: "Audio/Laura"))
-                                                ], slots: [Slot(tone: 500, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
+                                                ], slots: [Slot(tone: 900, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
                                                            Slot(tone: 450, color: .white),
                                                            Slot(tone: 400, color: UIColor(red: 43/255, green: 145/255, blue: 29/255, alpha: 1)),
                                                            Slot(tone: 350, color: .white),
@@ -282,8 +282,8 @@ struct Characters {
                                                            Slot(tone: 450, color: .white),
                                                            Slot(tone: 700, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
                                                            Slot(tone: -200, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: -600, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: -700, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
+                                                           Slot(tone: -250, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                           Slot(tone: -300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "I'm Not Even Tired Zzzz",
                                                    likelihood: 20,
@@ -293,12 +293,13 @@ struct Characters {
                                                                 Subphrase(words: "Tired", audioFilePath: Bundle.main.path(forResource: "Tired", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Zzzzzzzzz  z z zzzzz z", audioFilePath: Bundle.main.path(forResource: "Zzzz", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
-                                                   slots: [Slot(tone: 300, color: UIColor(red: 250/255, green: 100/255, blue: 175/255, alpha: 1)),
-                                                           Slot(tone: 350, color: .white),
+                                                   slots: [Slot(tone: 350, color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)),
+                                                           Slot(tone: 300, color: UIColor(red: 250/255, green: 100/255, blue: 175/255, alpha: 1)),
+                                                           
                                                            Slot(tone: 400, color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)),
                                                            Slot(tone: 250, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
-                                                           Slot(tone: -250, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
-                                                           Slot(tone: -600, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1))
+                                                           Slot(tone: -150, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
+                                                           Slot(tone: -400, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1))
                                                 ])
                                     
         ])
