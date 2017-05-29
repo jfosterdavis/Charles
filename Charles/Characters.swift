@@ -208,8 +208,8 @@ struct Characters {
                                             ],
                                                  slots: [Slot(tone: -400, color: .white),
                                                          Slot(tone: -300, color: .red),
-                                                         Slot(tone: -500, color: .white),
-                                                         Slot(tone: -700, color: .white)
+                                                         Slot(tone: -250, color: .white),
+                                                         Slot(tone: -350, color: .white)
                                             ]),
                                           Phrase(name: "You Know You're Not As Dumb As You Look",
                                                  likelihood: 95,
@@ -226,7 +226,7 @@ struct Characters {
                                                        Slot(tone: -300, color: .orange),
                                                        Slot(tone: -250, color: .orange),
                                                        Slot(tone: -150, color: .white),
-                                                       Slot(tone: -750, color: .white)
+                                                       Slot(tone: -550, color: .white)
                                                 
                                             ]),
                                           Phrase(name: "Laugh", //this is funny because it awards no base points.  Cuts you deep!
@@ -234,7 +234,7 @@ struct Characters {
                                                  subphrases: [Subphrase(words: "Ha Ha Ha Ha", audioFilePath: Bundle.main.path(forResource: "Laugh", ofType: "m4a", inDirectory: "Audio/Benton"))
                                             ], slots: [Slot(tone: -250, color: .blue),
                                                        Slot(tone: -600, color: .white),
-                                                       Slot(tone: -250, color: .white)
+                                                       Slot(tone: -350, color: .white)
                                             ]),
                                           Phrase(name: "You're So Cute",
                                                  likelihood: 95,
@@ -244,8 +244,8 @@ struct Characters {
                                             ],
                                                  slots: [Slot(tone: -100, color: .white),
                                                          Slot(tone: -200, color: .white),
-                                                         Slot(tone: -800, color: .white),
-                                                         Slot(tone: -500, color: .white)
+                                                         Slot(tone: -300, color: .white),
+                                                         Slot(tone: -350, color: .white)
                                             ])
                                     
         ])

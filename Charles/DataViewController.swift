@@ -804,6 +804,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
                         //penalty is negative the amount you would have scored
                         pointsJustScored = -1 * pointsJustScored
                         setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                        
+                        //give them a message so they know how bad they did
+                        if let scoreMessage = scoreResults.1{
+                            presentJustScoredMessageFeedback(message: scoreMessage, isGoodMessage: false)
+                        }
                     } else {
                         //no XP given here, but points still given
                         
@@ -929,10 +934,17 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     ///flashes the a message about the score the screen
-    func presentJustScoredMessageFeedback(message: String) {
+    func presentJustScoredMessageFeedback(message: String, isGoodMessage: Bool = true) {
         
         //make invisible in case in the middle of a feedback
         justScoredMessageLabel.alpha = 0
+        
+        //color the message based on good or bad
+        if isGoodMessage {
+            justScoredMessageLabel.textColor = feedbackColorMoss.textColor
+        } else { //color if the message is bad!
+            justScoredMessageLabel.textColor = UIColor.red
+        }
         
         justScoredMessageLabel.text = "\(message)"
         self.justScoredMessageLabel.isHidden = false
