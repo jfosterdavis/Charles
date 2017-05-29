@@ -23,6 +23,7 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
 
     var pageData: [Character] = []
     var currentVC: DataViewController!
+    var rootVC: RootViewController!
     
 
     let keyUnlockedCharacter = "keyUnlockedCharacter"
@@ -33,22 +34,19 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         //let dateFormatter = DateFormatter()
         //pageData = dateFormatter.monthSymbols
         //pageData = ["1", "2", "3"]
-                
-        
-        
-        //setup CoreData
-        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
         
         loadPageData()
         
         //TODO: Prevent duplicates from being entered.  Allow removal of unlocked characters.
         
         
-        
     }
     
     /// considers  hard-coded and CoreData characters and loads them into the data source
     func loadPageData() {
+        //setup CoreData.  This will also reorder the characters properly
+        _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+        
         //add base characters to pageData
         pageData = Characters.NewPlayerCharacterSet
         
@@ -88,9 +86,12 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         //when the store closes, refresh the page data
         loadPageData()
         
-        //update the pagecontroller dots
+        //update the pagecontroller dots.
+        //I realize this is not the right way to manipulate the page control
+        //TODO: Impliment proper ways to manipulate the page control
         currentVC.numPages = self.pageData.count
         currentVC.refreshPageControl()
+        
     }
     
     /******************************************************/

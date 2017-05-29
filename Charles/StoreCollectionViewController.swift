@@ -420,7 +420,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
     }
     
-    ///locks all characters that are unlockable and have exceeded the expiration date
+    ///locks all characters that are unlockable and have exceeded the expiration date.
     func lockAllExpiredCharacters() {
         let expiredCharacters = getExpiredCharacters()
         
@@ -449,16 +449,28 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     }
     
     func getAllUnlockedCharacters() -> [UnlockedCharacter] {
-        guard let fc = frcDict[keyUnlockedCharacter] else {
-            fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
+        
+        var fc = frcDict[keyUnlockedCharacter]
+        
+        if fc == nil {
+            //try to load it again since this can be called by outside
+            _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+            
+            fc = frcDict[keyUnlockedCharacter]
+            
+            //but if still not loaded
+            guard fc != nil else {
+                fatalError("Can't find a fc with the key named \(keyUnlockedCharacter)")
+            }
+            
         }
         
-        guard (fc.fetchedObjects as? [UnlockedCharacter]) != nil else {
+        guard (fc!.fetchedObjects as? [UnlockedCharacter]) != nil else {
             
             fatalError("fc.fetchedObjects array didn't return an array of UnlockedCharacter.")
         }
         
-        let unlockedCharacters = fc.fetchedObjects as! [UnlockedCharacter]
+        let unlockedCharacters = fc!.fetchedObjects as! [UnlockedCharacter]
         
         return unlockedCharacters
     }

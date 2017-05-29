@@ -352,11 +352,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
     //loads the game for the first time since the user turned or looked at this page
     func initialLoadGame() {
+        
+        
         loadRandomPhrase()
         
         initialButtonLoad(from: currentPhrase)
         
         refreshLevelProgress()
+        
+        checkForAndRemoveExpiredCharacters()
         
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
@@ -373,6 +377,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         refreshLevelProgress()
         
+        checkForAndRemoveExpiredCharacters()
         
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             
@@ -953,27 +958,23 @@ class DataViewController: CoreDataViewController, StoreReactor {
     /*******************///MARK: Checking for expired characters
     /******************************************************/
 
-    ///checks the store for expired characters and return true if there are expired characters
-    func isExpiredCharacters() -> Bool {
+    ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
+    func checkForAndRemoveExpiredCharacters() {
         
         //create a store object to use its functions for checking if characters have expired
         let storeVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
         let expiredCharacters: [UnlockedCharacter] = storeVC.getExpiredCharacters()
         
-        if expiredCharacters.count > 0 {
-            return true
-        } else {
-            return false
+        if !expiredCharacters.isEmpty {
+            //there are expired characters.  lock them and reload the modelController
+            storeVC.lockAllExpiredCharacters()
+            
+            //invoke the function to mimic functionality as though the store had just closed
+            self.storeClosed()
+            
         }
     }
     
-    
-    ///if there are expired characters, this will launch the store so the store can use already written functions to remove them
-    func checkForAndRemoveExpiredCharactersByLaunchingStore() {
-        if isExpiredCharacters() {
-            storeButtonPressed(self)
-        }
-    }
     
     /******************************************************/
     /*******************///MARK: Button Actions

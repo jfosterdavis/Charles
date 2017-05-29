@@ -39,6 +39,7 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
         self.pageViewController!.view.frame = pageViewRect
 
         self.pageViewController!.didMove(toParentViewController: self)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +53,10 @@ class RootViewController: UIViewController, UIPageViewControllerDelegate {
         if _modelController == nil {
             _modelController = ModelController()
         }
+        
+        //link these two VCs
+        _modelController?.rootVC = self
+        
         return _modelController!
     }
 
