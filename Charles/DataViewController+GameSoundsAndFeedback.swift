@@ -61,16 +61,21 @@ extension DataViewController {
     func playGameSound(forProgressSituation : ProgressSituation) {
         
         var audioFilePath: String?
+        var gameSoundPitchModifier: Float
         
         switch forProgressSituation {
         case .increaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
+            gameSoundPitchModifier = 300
         case .decreaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
+            gameSoundPitchModifier = -100
         case .increaseProgress:
             audioFilePath = Bundle.main.path(forResource: "ProgressUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
+            gameSoundPitchModifier = 180
         case .decreaseProgress:
             audioFilePath = Bundle.main.path(forResource: "ProgressDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
+            gameSoundPitchModifier = -300
 //        default:
 //            audioFilePath = nil
         }
@@ -87,7 +92,7 @@ extension DataViewController {
                 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                 let audioFile = try AVAudioFile(forReading: url)
                 
-                changePitchEffectGameSounds.pitch = 100
+                changePitchEffectGameSounds.pitch = gameSoundPitchModifier
                 
                 audioPlayerNodeGameSounds.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 
