@@ -222,11 +222,11 @@ struct Characters {
                                                               Subphrase(words: "As", audioFilePath: Bundle.main.path(forResource: "As2", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You2", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "Look", audioFilePath: Bundle.main.path(forResource: "Look", ofType: "m4a", inDirectory: "Audio/Benton"))
-                                            ], slots: [Slot(tone: -550, color: .white),
-                                                       Slot(tone: -300, color: .orange),
-                                                       Slot(tone: -250, color: .orange),
+                                            ], slots: [Slot(tone: -350, color: .white),
+                                                       Slot(tone: -200, color: .orange),
+                                                       Slot(tone: -150, color: .orange),
                                                        Slot(tone: -150, color: .white),
-                                                       Slot(tone: -550, color: .white)
+                                                       Slot(tone: -250, color: .white)
                                                 
                                             ]),
                                           Phrase(name: "Laugh", //this is funny because it awards no base points.  Cuts you deep!
