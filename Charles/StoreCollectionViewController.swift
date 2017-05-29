@@ -118,6 +118,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         cell.loadAppearance(from: character.phrases![0])
         
+        //check that none of them have expired since this view has been open:
+        lockAllExpiredCharacters()
+        
         //set the status of this character.  Is it unlocked or affordable?
         
         //start the progress pie as hidden
