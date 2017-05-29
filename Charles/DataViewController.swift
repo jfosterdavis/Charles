@@ -277,6 +277,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
                     nextLevelColor = UIColor.darkGray
                 }
                 
+                //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
+                var shouldAnimate = true
+                if let currentLevel = currentLevelAndProgress.0 {
+                    shouldAnimate = !didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
+                }
+                
                 
                 
                 
@@ -305,7 +311,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
                     
                     //if progress is going to 1, then animate to 1 then continue
                     
-                    self.levelProgressView.setProgress(progress, animated: true)
+                    self.levelProgressView.setProgress(progress, animated: shouldAnimate)
                 })
                 
                 
@@ -361,12 +367,17 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func initialLoadGame() {
         
         
+        
         loadRandomPhrase()
         
         initialButtonLoad(from: currentPhrase)
         
         setUserLevelAndProgressBaselines()
         
+        //initialize status of the progressbar.  initializing it will prevent animation
+        if let progress = calculateProgressValue() {
+            self.levelProgressView.setProgress(progress, animated: false)
+        }
         refreshLevelProgress()
         
         checkForAndRemoveExpiredCharacters()

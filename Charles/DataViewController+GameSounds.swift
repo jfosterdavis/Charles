@@ -36,8 +36,8 @@ extension DataViewController {
             audioFilePath = Bundle.main.path(forResource: "ProgressUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
         case .decreaseProgress:
             audioFilePath = Bundle.main.path(forResource: "ProgressDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
-        default:
-            audioFilePath = nil
+//        default:
+//            audioFilePath = nil
         }
         
         if let audioFilePath = audioFilePath {
