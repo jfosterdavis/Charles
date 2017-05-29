@@ -59,8 +59,8 @@ struct Levels {
                                     39 : Level(level: 39, levelDescription: "enlightened producer", xPRequired: 11, successThreshold: 1, punishThreshold: 1, canBeLost: true, eligiblePredefinedObjectives: [[]], eligibleRandomColorPrecision: 5),
                                     40 : Level(level: 40, levelDescription: "human.", xPRequired: 10, successThreshold: 1, punishThreshold: 1, canBeLost: false, eligiblePredefinedObjectives: [[]], eligibleRandomColorPrecision: 6)]  //can't fall back once you get to 40!
     
-    //given an amount of XP the player has, return the level the player is on.  Returns nil if the player's level is off the charts
-    static func getLevel(from xp: Int) -> Level? {
+    //given an amount of XP the player has, return the level the player is on. (currentLevel, xp towards this level) Returns nil if the player's level is off the charts
+    static func getLevelAndProgress(from xp: Int) -> (Level?, Int?) {
         
         var level = 1
         var xPRemaining = xp
@@ -69,7 +69,7 @@ struct Levels {
         while level <= Levels.Game.count {
             let xpRequired = Levels.Game[level]?.xPRequired
             if xPRemaining < xpRequired! {
-                return Levels.Game[level]
+                return (Levels.Game[level], xPRemaining)
             }
             
             xPRemaining = xPRemaining - (Levels.Game[level]?.xPRequired)!
@@ -77,7 +77,7 @@ struct Levels {
         }
         
         //no level found by now, player either has max xp or xp above the standard levels
-        return nil
+        return (nil, nil)
     }
     
 }

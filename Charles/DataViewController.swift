@@ -313,31 +313,19 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //calculates the progress value for the progress meter based on the user's level and XP.  returns Float
     func calculateProgressValue() -> Float? {
-        //get user's level
-        let currentLevel = getUserCurrentLevel()
+        //get user's level and progress
+        let userXP = calculateUserXP()
+        let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
         
-        guard currentLevel != nil else {
+        guard currentLevelAndProgress.0 != nil && currentLevelAndProgress.1 != nil else {
             //this may mean the user is too high of a level
             return nil
         }
-        //get user's XP for this level
-        guard let fc = frcDict[keyXP] else {
-            return nil
-            
-        }
+
+        let usersProgressOnCurrentLevel = currentLevelAndProgress.1!
+        let usersCurrentLevel = currentLevelAndProgress.0!
         
-        guard let xps = fc.fetchedObjects as? [XP] else {
-            return nil
-        }
-        var xpThisLevel = 0
-        
-        for xp in xps {
-            if Int(xp.level) == currentLevel!.level {
-                xpThisLevel = xpThisLevel + Int(xp.value)
-            }
-        }
-        
-        let progress: Float = Float(xpThisLevel) / (Float(currentLevel!.xPRequired) - 1)
+        let progress: Float = Float(usersProgressOnCurrentLevel) / (Float(usersCurrentLevel.xPRequired) - 1)
         
         return progress
         
@@ -1264,9 +1252,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
     ///returns the user's current level determine programmatically.  returns nil if user's level is off the charts high
     func getUserCurrentLevel() -> Level? {
         let userXP = calculateUserXP()
-        let userLevel = Levels.getLevel(from: userXP)
+        let userLevel = Levels.getLevelAndProgress(from: userXP)
         
-        if let lvl = userLevel {
+        //userLevel is a tuple (player level, xp towards that level)
+        
+        if let lvl = userLevel.0 {
             return lvl
         } else {
             return nil
