@@ -495,6 +495,28 @@ extension DataViewController {
         //speak
         synth.speak(textUtterance)
     }
+    
+    /******************************************************/
+    /*******************///MARK: Timer
+    /******************************************************/
+    
+    func updateTimer() {
+        //reduce the score
+        let currentScore = getCurrentScore()
+        
+        if currentScore >= 0 {
+            let penalty = pointsToLoseEachCycle
+            var newScore = currentScore - penalty
+            
+            if newScore < 0 {
+                newScore = 0
+            }
+            if !(newScore == 0 && currentScore == 0) {
+                setCurrentScore(newScore: newScore)
+                refreshScore()
+            }
+        }
+    }
 
     
 }

@@ -36,7 +36,7 @@
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
 		F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C8CE91EDA0FE900F15EF9 /* Levels.swift */; };
 		F60C8CEC1EDA0FF200F15EF9 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C8CEB1EDA0FF200F15EF9 /* Level.swift */; };
-		F61553561EDC9E88004BBCB6 /* DataViewController+GameSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553551EDC9E87004BBCB6 /* DataViewController+GameSounds.swift */; };
+		F61553561EDC9E88004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553551EDC9E87004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift */; };
 		F61553611EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553601EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift */; };
 		F61553641EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */; };
 		F61553661EDCC05D004BBCB6 /* DataViewController+GameObjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */; };
@@ -104,7 +104,7 @@
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		F60C8CE91EDA0FE900F15EF9 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		F60C8CEB1EDA0FF200F15EF9 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		F61553551EDC9E87004BBCB6 /* DataViewController+GameSounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+GameSounds.swift"; sourceTree = "<group>"; };
+		F61553551EDC9E87004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+GameSoundsAndFeedback.swift"; sourceTree = "<group>"; };
 		F61553601EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+LevelProgress.swift"; sourceTree = "<group>"; };
 		F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+CoreGameLogic.swift"; sourceTree = "<group>"; };
 		F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+GameObjective.swift"; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				F61553601EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift */,
-				F61553551EDC9E87004BBCB6 /* DataViewController+GameSounds.swift */,
+				F61553551EDC9E87004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift */,
 				F61553631EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift */,
 				F61553651EDCC05D004BBCB6 /* DataViewController+GameObjective.swift */,
 				F61553671EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift */,
@@ -449,7 +449,7 @@
 				F61553611EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift in Sources */,
 				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
 				F60C8CEC1EDA0FF200F15EF9 /* Level.swift in Sources */,
-				F61553561EDC9E88004BBCB6 /* DataViewController+GameSounds.swift in Sources */,
+				F61553561EDC9E88004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift in Sources */,
 				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
 				F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */,
 				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,

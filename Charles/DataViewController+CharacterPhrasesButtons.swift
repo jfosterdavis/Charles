@@ -82,7 +82,27 @@ extension DataViewController {
         
         //round the corners of the bottom button
         //        button = currentButtons[currentButtons.count - 1]
-        //
+        // /******************************************************/
+        /*******************///MARK: Timer
+        /******************************************************/
+        
+        func updateTimer() {
+            //reduce the score
+            let currentScore = getCurrentScore()
+            
+            if currentScore >= 0 {
+                let penalty = pointsToLoseEachCycle
+                var newScore = currentScore - penalty
+                
+                if newScore < 0 {
+                    newScore = 0
+                }
+                if !(newScore == 0 && currentScore == 0) {
+                    setCurrentScore(newScore: newScore)
+                    refreshScore()
+                }
+            }
+        }
         //        maskLayer = CAShapeLayer()
         //
         //        maskLayer.path = UIBezierPath(roundedRect: button.bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: bottomRadius, height: bottomRadius)).cgPath
@@ -212,6 +232,19 @@ extension DataViewController {
         newButton.setTitle("", for: .normal)
         newButton.addTarget(self, action: #selector(buttonPress), for: .touchUpInside)
         return newButton
+    }
+    
+    ///sets all buttons, except store button, to disabled or enabled
+    func setAllUserInteraction(enabled: Bool) {
+        
+        characterInteractionEnabled = enabled
+        
+        for button in currentButtons {
+            button.isEnabled = enabled
+        }
+        
+        objectiveFeedbackView.isUserInteractionEnabled = enabled
+        
     }
     
     /******************************************************/

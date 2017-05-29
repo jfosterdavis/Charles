@@ -1,5 +1,5 @@
 //
-//  DataViewController+GameSounds.swift
+//  DataViewController+GameSoundsAndFeedback.swift
 //  Charles
 //
 //  Created by Jacob Foster Davis on 5/29/17.
@@ -8,8 +8,9 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 /******************************************************/
-/*******************///MARK: Extension for non-character game sounds
+/*******************///MARK: Extension for non-character game sounds and other feedback to user
 /******************************************************/
 
 
@@ -21,6 +22,11 @@ extension DataViewController {
         case increaseProgress
         case decreaseProgress
     }
+    
+    /******************************************************/
+    /*******************///MARK: Sounds
+    /******************************************************/
+
     
     ///plays appropriate game sound for the given situation
     func playGameSound(forProgressSituation : ProgressSituation) {
@@ -106,5 +112,75 @@ extension DataViewController {
                 
             }
         }
+    }
+    
+    /******************************************************/
+    /*******************///MARK: User Feedback
+    /******************************************************/
+
+    ///flashes the amount of points the user just scored to the screen
+    func presentJustScoredFeedback(justScored: Int) {
+        
+        //make invisible in case in the middle of a feedback
+        justScoredLabel.alpha = 0
+        var scoreModifier = "+"
+        var presentableScoreValue = justScored
+        
+        //check if the score is negative to appropriate color
+        if justScored < 0 {
+            scoreModifier = "-"
+            justScoredLabel.textColor = UIColor.red
+            presentableScoreValue = presentableScoreValue * -1
+        } else {
+            justScoredLabel.textColor = feedbackColorMoss.textColor
+        }
+        
+        justScoredLabel.text = "\(scoreModifier) \(String(describing: presentableScoreValue))"
+        self.justScoredLabel.isHidden = false
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.justScoredLabel.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            
+            //now fade away again
+            UIView.animate(withDuration: 2.7, animations: {
+                self.justScoredLabel.alpha = 0.0
+            }, completion: { (finished:Bool) in
+                //self.justScoredLabel.isHidden = true
+            })
+        })
+    }
+    
+    ///flashes the a message about the score the screen
+    func presentJustScoredMessageFeedback(message: String, isGoodMessage: Bool = true) {
+        
+        //make invisible in case in the middle of a feedback
+        justScoredMessageLabel.alpha = 0
+        
+        //color the message based on good or bad
+        if isGoodMessage {
+            justScoredMessageLabel.textColor = feedbackColorMoss.textColor
+        } else { //color if the message is bad!
+            justScoredMessageLabel.textColor = UIColor.red
+        }
+        
+        justScoredMessageLabel.text = "\(message)"
+        self.justScoredMessageLabel.isHidden = false
+        UIView.animate(withDuration: 0.2,
+                       delay: 0.2,
+                       animations: {
+                        
+                        self.justScoredMessageLabel.alpha = 1.0
+        }, completion: { (finished:Bool) in
+            
+            //now fade away again
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.5,
+                           animations: {
+                            self.justScoredMessageLabel.alpha = 0.0
+            }, completion: { (finished:Bool) in
+                //self.justScoredLabel.isHidden = true
+            })
+        })
     }
 }

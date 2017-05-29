@@ -111,8 +111,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
         nextLevelLabel.alpha = 0
         scoreLabel.alpha = 0
         
-        
-        
         //setup the color feedback view to recieve touches
         registerTouchRecognizerColorFeedback()
       
@@ -182,12 +180,6 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     
-    
-    
-    
-    
-    
-    
     /******************************************************/
     /*******************///MARK: Page Control
     /******************************************************/
@@ -203,75 +195,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         self.pageControl.isHidden = !visible
     }
     
+    
     /******************************************************/
-    /*******************///MARK: Creating main display/interface
+    /*******************///MARK: Storyboard and Interface
     /******************************************************/
 
-    //loads the game for the first time since the user turned or looked at this page
-    func initialLoadGame() {
-        
-        
-        
-        loadRandomPhrase()
-        
-        initialButtonLoad(from: currentPhrase)
-        
-        setUserLevelAndProgressBaselines()
-        
-        //initialize status of the progressbar.  initializing it will prevent animation
-        if let progress = calculateProgressValue() {
-            self.levelProgressView.setProgress(progress, animated: false)
-        }
-        refreshLevelProgress()
-        
-        checkForAndRemoveExpiredCharacters()
-        
-        objectiveFeedbackView.alpha = 0.0
-        if getCurrentScore() >= minimumScoreToUnlockObjective {
-            
-            
-            loadObjective()
-            
-            
-        }
-    }
-    
-    /// reloads all UI elements neccessary to play the game after a phrase has been completed.  Reloads the buttons and the color feedback
-    func reloadGame() {
-        //load the buttons
-        reloadButtons()
-        
-        refreshLevelProgress()
-        
-        checkForAndRemoveExpiredCharacters()
-        
-        if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
-            
-            //pick a random color to load
-            guard let userLevel = getUserCurrentLevel() else {
-                //users level may be too high and this is where advanced levels can be loaded
-                //TODO: Load advanced levels
-                fatalError("User may be at adanvced level but this hasn't been programmed yet!!!!")
-            }
-            
-            let gameColor = getGameColor(usingLevel: userLevel)
-            
-            //set the baselines, then reload the objective
-            setUserLevelAndProgressBaselines()
-            
-            reloadObjective(using: gameColor)
-            
-        }
-    }
-    
-    
-   
-    
-    
-    
-    
-    
-    
     
     
     func roundStackViewMask() {
@@ -287,13 +215,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     
-    
-    
-    
-    
-    
     /******************************************************/
-    /*******************///MARK: Store Closer
+    /*******************///MARK: Misc
     /******************************************************/
 
     func storeClosed() {
@@ -304,93 +227,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     }
     
     
-    
-    
-    ///sets all buttons, except store button, to disabled or enabled
-    func setAllUserInteraction(enabled: Bool) {
-
-        characterInteractionEnabled = enabled
-        
-        for button in currentButtons {
-            button.isEnabled = enabled
-        }
-        
-        objectiveFeedbackView.isUserInteractionEnabled = enabled
-        
-    }
-    
-    
-    ///flashes the amount of points the user just scored to the screen
-    func presentJustScoredFeedback(justScored: Int) {
-        
-        //make invisible in case in the middle of a feedback
-        justScoredLabel.alpha = 0
-        var scoreModifier = "+"
-        var presentableScoreValue = justScored
-        
-        //check if the score is negative to appropriate color
-        if justScored < 0 {
-            scoreModifier = "-"
-            justScoredLabel.textColor = UIColor.red
-            presentableScoreValue = presentableScoreValue * -1
-        } else {
-            justScoredLabel.textColor = feedbackColorMoss.textColor
-        }
-        
-        justScoredLabel.text = "\(scoreModifier) \(String(describing: presentableScoreValue))"
-        self.justScoredLabel.isHidden = false
-        UIView.animate(withDuration: 0.2, animations: {
-            
-            self.justScoredLabel.alpha = 1.0
-        }, completion: { (finished:Bool) in
-            
-            //now fade away again
-            UIView.animate(withDuration: 2.7, animations: {
-                self.justScoredLabel.alpha = 0.0
-            }, completion: { (finished:Bool) in
-                //self.justScoredLabel.isHidden = true
-            })
-        })
-    }
-    
-    ///flashes the a message about the score the screen
-    func presentJustScoredMessageFeedback(message: String, isGoodMessage: Bool = true) {
-        
-        //make invisible in case in the middle of a feedback
-        justScoredMessageLabel.alpha = 0
-        
-        //color the message based on good or bad
-        if isGoodMessage {
-            justScoredMessageLabel.textColor = feedbackColorMoss.textColor
-        } else { //color if the message is bad!
-            justScoredMessageLabel.textColor = UIColor.red
-        }
-        
-        justScoredMessageLabel.text = "\(message)"
-        self.justScoredMessageLabel.isHidden = false
-        UIView.animate(withDuration: 0.2,
-                       delay: 0.2,
-                        animations: {
-            
-            self.justScoredMessageLabel.alpha = 1.0
-        }, completion: { (finished:Bool) in
-            
-            //now fade away again
-            UIView.animate(withDuration: 2.0,
-                           delay: 0.5,
-                           animations: {
-                self.justScoredMessageLabel.alpha = 0.0
-            }, completion: { (finished:Bool) in
-                //self.justScoredLabel.isHidden = true
-            })
-        })
-    }
-    
-   
-    
-    
     /******************************************************/
-    /*******************///MARK: Button Actions
+    /*******************///MARK: UI Button Actions
     /******************************************************/
 
     @IBAction func storeButtonPressed(_ sender: Any) {
@@ -410,35 +248,4 @@ class DataViewController: CoreDataViewController, StoreReactor {
         present(storeViewController, animated: true, completion: nil)
     
     }
-    
-    
-    
-
-    
-    /******************************************************/
-    /*******************///MARK: Timer
-    /******************************************************/
-
-    func updateTimer() {
-        //reduce the score
-        let currentScore = getCurrentScore()
-        
-        if currentScore >= 0 {
-            let penalty = pointsToLoseEachCycle
-            var newScore = currentScore - penalty
-            
-            if newScore < 0 {
-                newScore = 0
-            }
-            if !(newScore == 0 && currentScore == 0) {
-                setCurrentScore(newScore: newScore)
-                refreshScore()
-            }
-        }
-    }
-    
-    
-    
-    
 }
-
