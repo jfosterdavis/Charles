@@ -305,7 +305,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
             
         }
         
-        guard (fc!.fetchedObjects as? [Perk]) != nil else {
+        guard (fc!.fetchedObjects as? [UnlockedPerk]) != nil else {
             
             fatalError("fc.fetchedObjects array didn't return an array of UnlockedPerk.")
         }
@@ -352,6 +352,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     /*******************///MARK: NEED THIS OVERRIDE
     /******************************************************/
 
+    //TODO: Change all of this returning a string crap into passing actual objects
     func getUnlockedPerk(named perkName:String) -> UnlockedPerk? {
         
         let perkExists = try? checkForUnlockFeature(featureKey: keyUnlockedPerk, featureId: perkName)

@@ -66,7 +66,7 @@ extension DataViewController {
         switch forProgressSituation {
         case .increaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
-            gameSoundPitchModifier = 500
+            gameSoundPitchModifier = 300
         case .decreaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
             gameSoundPitchModifier = -350

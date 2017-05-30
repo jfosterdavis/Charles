@@ -139,7 +139,52 @@ extension DataViewController {
                 //compare to match performance
                 if let level = level {
                     if scoreResults.2 >= level.successThreshold {
-                        giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        
+                        //check to see if an xp-related perk is active. ask the perk store
+                        let perkStore = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+                        let unlockedPerks = perkStore.getAllUnlockedPerks()
+                        print("The following perks are unlocked: \(unlockedPerks)")
+                        //go through all unlockable perks and get an array of all xp related ones
+                        
+                        let applicablePerkObjects: [Perk] = Perks.ValidPerks.filter{$0.type == PerkType.increasedXP}
+                        
+                        var foundUnlockedApplicablePerks = [Perk]()
+                        
+                        for perk in unlockedPerks {
+                            //check to see if this perk.name is also in the applicable perks
+                            for applicablePerk in applicablePerkObjects {
+                                if perk.name == applicablePerk.name {
+                                    foundUnlockedApplicablePerks.append(applicablePerk)
+                                }
+                            }
+                        }
+                        
+                        //now should have an array of perks that apply to this situation.
+                        //for now assume that if there are any just take the first one and apply it
+                        
+                        if foundUnlockedApplicablePerks.isEmpty {
+                            //its empty so there are no applicable perks.  Give the normal amount of XP.
+                            giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        } else {
+                            //there is a modifier.  This is located in meta1
+                            let thePerk = foundUnlockedApplicablePerks[0]
+                            var mult = 1
+                            
+                            if let multiplier = thePerk.meta1 as! Int? {
+                                mult = multiplier
+                                giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                                
+                            } else {
+                                //something went wrong so just do the normal thing.
+                                giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
                         
                         //if they got a perfect score, double the points earned
                         if scoreResults.2 == 1 {
@@ -215,7 +260,7 @@ extension DataViewController {
     /*******************///MARK: Scoring
     /******************************************************/
     
-    ///updates the UI with the current score
+    ///updates the UI with the current score.  Also controls alphas of the store buttons
     func refreshScore() {
         let currentScore = getCurrentScore()
         
