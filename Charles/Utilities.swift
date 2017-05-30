@@ -244,47 +244,51 @@ extension UIView {
             }
         
         
-        //check to disable or not
-        switch self {
-        case is UIButton:
-            let myself = self as! UIButton
-            if let disable = disable {
-                if disable {
-                    myself.isEnabled = false
-                } else {
-                    myself.isEnabled  = true
-                }
-            } else if endAlpha == 0 { //if this will be going to zero, will be disabled
-                myself.isEnabled = false
-            } else { //for any alpha value
-                //set to true
-                myself.isEnabled = true
-            }
-        case is UILabel:
-            let myself = self as! UILabel
-            if let disable = disable {
-                if disable {
-                    myself.isEnabled = false
-                } else {
-                    myself.isEnabled  = true
-                }
-            } else if endAlpha == 0 { //if this will be going to zero, will be disabled
-                myself.isEnabled = false
-            } else { //for any alpha value
-                //set to true
-                myself.isEnabled = true
-            }
-        default:
-            break
-        }
-        
-        
-        
         UIView.animate(withDuration: withDuration,
                        delay: delay,
                        animations: {
                         self.alpha = endAlpha
-        }, completion: completion)
+        }, completion: {(finished:Bool) in
+        
+            //check to disable or not
+            switch self {
+            case is UIButton:
+                let myself = self as! UIButton
+                if let disable = disable {
+                    if disable {
+                        myself.isEnabled = false
+                    } else {
+                        myself.isEnabled  = true
+                    }
+                } else if endAlpha == 0 { //if this will be going to zero, will be disabled
+                    myself.isEnabled = false
+                } else { //for any alpha value
+                    //set to true
+                    myself.isEnabled = true
+                }
+            case is UILabel:
+                let myself = self as! UILabel
+                if let disable = disable {
+                    if disable {
+                        myself.isEnabled = false
+                    } else {
+                        myself.isEnabled  = true
+                    }
+                } else if endAlpha == 0 { //if this will be going to zero, will be disabled
+                    myself.isEnabled = false
+                } else { //for any alpha value
+                    //set to true
+                    myself.isEnabled = true
+                }
+            default:
+                break
+            }
+            
+            if let completion = completion {
+                completion(finished)
+            }
+            
+        })
     }
     
 }

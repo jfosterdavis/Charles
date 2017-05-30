@@ -260,12 +260,14 @@ extension DataViewController {
     /*******************///MARK: Scoring
     /******************************************************/
     
+    
+    
     ///updates the UI with the current score.  Also controls alphas of the store buttons
     func refreshScore() {
         let currentScore = getCurrentScore()
         
-        
-        var scoreAlpha: CGFloat
+        let newAlpha: CGFloat = CGFloat(Float(currentScore) / Float(minimumScoreToUnlockStore + 500))
+        var scoreAlpha = newAlpha
         
         //set the alpha of the label to be the equivalent of the score /1000
         //alpha of the store icon will be such that 500 is the minimum score to start showing.  Lowest priced item will be 500.
@@ -275,10 +277,9 @@ extension DataViewController {
             storeButton.alpha = 1.0
             self.storeButton.isEnabled = true
             
-        } else {
+        } else if currentScore <= minimumScoreToUnlockObjective {
+            //before the player can use objectives, the alpha of the store button is controled by the player's score
             
-            let newAlpha: CGFloat = CGFloat(Float(currentScore) / Float(minimumScoreToUnlockStore + 500))
-            scoreAlpha = newAlpha
             let storeAlpha = 2*newAlpha - 1  //this makes store button visible at 500 and solid at 1000. y=mx+b
             
             //fade in or out the store
@@ -319,12 +320,9 @@ extension DataViewController {
         //fading in and out the perk store. based on user's level
         if let userLevel = getUserCurrentLevel() {
             //store will fade in over 5 levels
-            if userLevel.level >= minimumLevelToUnlockPerkStore + 5 {
+            if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 5) {
+                //slowly introduce the perk store over 5 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
                 
-                perkStoreButton.alpha = 1.0
-                self.perkStoreButton.isEnabled = true
-                
-            } else if userLevel.level >= minimumLevelToUnlockPerkStore {
                 
                 let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
                 
@@ -352,12 +350,11 @@ extension DataViewController {
 //                                }
 //                }, completion: nil)
                 
-            } else {
+            } else  if currentScore <= minimumScoreToUnlockObjective {
                 //fade to zero
                 //fade in the perk store
                 
                 self.perkStoreButton.fade(.out,
-                                          disable: true,
                                           withDuration: 0.3,
                                           delay: 0.6)
                 
@@ -438,73 +435,7 @@ extension DataViewController {
         return (Int(scoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
     }
     
-    /******************************************************/
-    /*******************///MARK: XP and Levels
-    /******************************************************/
 
-    /// sets the current score, returns the newly set score
-    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil) {
-        guard let fc = frcDict[keyXP] else {
-            return
-            
-        }
-        
-        guard (fc.fetchedObjects as? [XP]) != nil else {
-            return
-        }
-        
-        //create a new score object
-        let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
-        newXP.value = Int64(value)
-        newXP.earnedDatetime = earnedDatetime as NSDate
-        newXP.level = Int64(level)
-        newXP.score = Int64(score)
-        newXP.time = Int64(time)
-        newXP.toggles = Int64(toggles)
-        if let int1 = metaInt1 {
-            newXP.metaInt1 = Int64(int1)
-        }
-        if let int2 = metaInt1 {
-            newXP.metaInt2 = Int64(int2)
-        }
-        
-        newXP.metaString1 = metaString1
-        newXP.metaString2 = metaString2
-        
-    }
-    
-    ///returns the total amount of user XP
-    func calculateUserXP() -> Int {
-        guard let fc = frcDict[keyXP] else {
-            fatalError("Counldn't get frcDict")
-            
-        }
-        
-        guard let xps = fc.fetchedObjects as? [XP] else {
-            fatalError("Counldn't get XP")
-        }
-        
-        var sum = 0
-        for xp in xps {
-            sum = sum + Int(xp.value)
-        }
-        
-        return sum
-    }
-    
-    ///returns the user's current level determine programmatically.  returns nil if user's level is off the charts high
-    func getUserCurrentLevel() -> Level? {
-        let userXP = calculateUserXP()
-        let userLevel = Levels.getLevelAndProgress(from: userXP)
-        
-        //userLevel is a tuple (player level, xp towards that level)
-        
-        if let lvl = userLevel.0 {
-            return lvl
-        } else {
-            return nil
-        }
-    }
     
     /******************************************************/
     /*******************///MARK: Core Data functions

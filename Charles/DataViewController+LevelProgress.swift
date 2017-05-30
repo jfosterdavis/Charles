@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 /******************************************************/
 /*******************///MARK: Extension for all level progress logic and presentation
@@ -177,6 +178,74 @@ extension DataViewController {
             } else {
                 return false
             }
+        }
+    }
+    
+    /******************************************************/
+    /*******************///MARK: XP and Levels
+    /******************************************************/
+    
+    /// sets the current score, returns the newly set score
+    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil) {
+        guard let fc = frcDict[keyXP] else {
+            return
+            
+        }
+        
+        guard (fc.fetchedObjects as? [XP]) != nil else {
+            return
+        }
+        
+        //create a new score object
+        let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
+        newXP.value = Int64(value)
+        newXP.earnedDatetime = earnedDatetime as NSDate
+        newXP.level = Int64(level)
+        newXP.score = Int64(score)
+        newXP.time = Int64(time)
+        newXP.toggles = Int64(toggles)
+        if let int1 = metaInt1 {
+            newXP.metaInt1 = Int64(int1)
+        }
+        if let int2 = metaInt1 {
+            newXP.metaInt2 = Int64(int2)
+        }
+        
+        newXP.metaString1 = metaString1
+        newXP.metaString2 = metaString2
+        
+    }
+    
+    ///returns the total amount of user XP
+    func calculateUserXP() -> Int {
+        guard let fc = frcDict[keyXP] else {
+            fatalError("Counldn't get frcDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            fatalError("Counldn't get XP")
+        }
+        
+        var sum = 0
+        for xp in xps {
+            sum = sum + Int(xp.value)
+        }
+        
+        return sum
+    }
+    
+    ///returns the user's current level determine programmatically.  returns nil if user's level is off the charts high
+    func getUserCurrentLevel() -> Level? {
+        let userXP = calculateUserXP()
+        let userLevel = Levels.getLevelAndProgress(from: userXP)
+        
+        //userLevel is a tuple (player level, xp towards that level)
+        
+        if let lvl = userLevel.0 {
+            return lvl
+        } else {
+            return nil
         }
     }
     
