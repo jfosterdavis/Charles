@@ -16,9 +16,10 @@ import UIKit
 
 struct Perks {
     
+    static let ValidPerks:[Perk] = [Insight]
+    static let UnlockablePerks:[Perk] = [Insight]
     
-    
-    static let XPDouble = Perk(     name: "Insight",
+    static let Insight = Perk(     name: "Insight",
                                     gameDescription: "Earn twice as much XP each engagement.",
                                     type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 9000,
