@@ -38,6 +38,8 @@ extension DataViewController {
         
         checkForAndRemoveExpiredCharacters()
         
+        checkForAndRemoveExpiredPerks()
+        
         objectiveFeedbackView.alpha = 0.0
         if getCurrentScore() >= minimumScoreToUnlockObjective {
             
@@ -56,6 +58,8 @@ extension DataViewController {
         refreshLevelProgress()
         
         checkForAndRemoveExpiredCharacters()
+        
+        checkForAndRemoveExpiredPerks()
         
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             

@@ -76,9 +76,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var justScoredMessageLabel: UILabel!
     var pointsToLoseEachCycle = 20
     
-    
+    //constants
     let minimumScoreToUnlockObjective = 1000
     let minimumScoreToUnlockStore = 500
+    let minimumLevelToUnlockPerkStore = 5
     
     
     //Store
@@ -127,9 +128,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set opacity of elements
         storeButton.alpha = 0
+        storeButton.isEnabled = false
         thisLevelLabel.alpha = 0.0
         nextLevelLabel.alpha = 0
         scoreLabel.alpha = 0
+        perkStoreButton.alpha = 0
+        perkStoreButton.isEnabled = false
         
         //setup the color feedback view to recieve touches
         registerTouchRecognizerColorFeedback()
@@ -244,6 +248,24 @@ class DataViewController: CoreDataViewController, StoreReactor {
         let pVC = self.parentVC as! ModelController
         pVC.storeClosed()
         
+    }
+    
+    
+    ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
+    func checkForAndRemoveExpiredPerks() {
+        
+        //create a store object to use its functions for checking if perks have expired
+        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+        let expiredPerks: [UnlockedPerk] = perkStoreVC.getExpiredPerks()
+        
+        if !expiredPerks.isEmpty {
+            //there are expired perks.  lock them and reload the modelController
+            perkStoreVC.lockAllExpiredPerks()
+            
+            //invoke the function to mimic functionality as though the store had just closed
+            self.storeClosed()
+            
+        }
     }
     
     

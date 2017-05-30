@@ -273,6 +273,7 @@ extension DataViewController {
             scoreAlpha = 1.0
             //scoreLabel.alpha = scoreAlpha
             storeButton.alpha = 1.0
+            self.storeButton.isEnabled = true
             
         } else {
             
@@ -318,6 +319,47 @@ extension DataViewController {
         })
         
         
+        //fading in and out the perk store. based on user's level
+        if let userLevel = getUserCurrentLevel() {
+            //store will fade in over 5 levels
+            if userLevel.level >= minimumLevelToUnlockPerkStore + 5 {
+                
+                perkStoreButton.alpha = 1.0
+                self.perkStoreButton.isEnabled = true
+                
+            } else if userLevel.level >= minimumLevelToUnlockPerkStore {
+                
+                let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
+                
+                //fade in the perk store
+                UIView.animate(withDuration: 0.3,
+                               delay: 0.6,
+                               animations: {
+                                
+                                self.perkStoreButton.alpha = newAlpha
+                                if self.perkStoreButton.alpha == 0 {
+                                    self.perkStoreButton.isEnabled = false
+                                } else {
+                                    self.perkStoreButton.isEnabled = true
+                                }
+                }, completion: nil)
+                
+            } else {
+                //fade to zero
+                //fade in the perk store
+                UIView.animate(withDuration: 0.3,
+                               delay: 0.6,
+                               animations: {
+                                
+                                self.perkStoreButton.alpha = 0
+                                    self.perkStoreButton.isEnabled = false
+                }, completion: nil)
+            }
+        } else {
+            //something is not right
+            fatalError("Can't get the user's level")
+        }
+    
         //score housekeeping.
         //if the score is below the thresholds where the user would see an objective, make sure the timer penalty is low enough to allow them to recover.  But once it is high enough, increase the penalty to make it more challenging once objectives are in play.
         //if the score is below the objective
