@@ -209,6 +209,85 @@ extension Date {
     }
 }
 
+/******************************************************/
+/*******************///MARK: Fading in or out
+/******************************************************/
+
+enum FadeDirection {
+    case `in`
+    case out
+    case inOrOut
+}
+
+extension UIView {
+    
+    /**
+     fades out the UIView.  If a disable flag is supplied, if the view is a UIButton or UITextLabel it will set to enabled or disabled as indicated. resultAlpha is only checked if direction is set to .inOrOut.  If fading .out or to 0 alpha, will be disabled unless otherwise specified.
+     */
+    func fade(_ direction: FadeDirection, resultAlpha: CGFloat? = nil, disable: Bool? = nil, withDuration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil ) {
+        
+        let endAlpha: CGFloat
+        
+        
+            switch direction {
+            case .in:
+                endAlpha = 1.0
+            case .out:
+                endAlpha = 0.0
+            case .inOrOut:
+                if let resultAlpha = resultAlpha {
+                    endAlpha = resultAlpha
+                } else {
+                    //they didn't specify, so won't change
+                    endAlpha = self.alpha
+                }
+            }
+        
+        
+        //check to disable or not
+        switch self {
+        case is UIButton:
+            let myself = self as! UIButton
+            if let disable = disable {
+                if disable {
+                    myself.isEnabled = false
+                } else {
+                    myself.isEnabled  = true
+                }
+            } else if endAlpha == 0 { //if this will be going to zero, will be disabled
+                myself.isEnabled = false
+            } else { //for any alpha value
+                //set to true
+                myself.isEnabled = true
+            }
+        case is UILabel:
+            let myself = self as! UILabel
+            if let disable = disable {
+                if disable {
+                    myself.isEnabled = false
+                } else {
+                    myself.isEnabled  = true
+                }
+            } else if endAlpha == 0 { //if this will be going to zero, will be disabled
+                myself.isEnabled = false
+            } else { //for any alpha value
+                //set to true
+                myself.isEnabled = true
+            }
+        default:
+            break
+        }
+        
+        
+        
+        UIView.animate(withDuration: withDuration,
+                       delay: delay,
+                       animations: {
+                        self.alpha = endAlpha
+        }, completion: completion)
+    }
+    
+}
 
 
 /******************************************************/

@@ -279,44 +279,41 @@ extension DataViewController {
             
             let newAlpha: CGFloat = CGFloat(Float(currentScore) / Float(minimumScoreToUnlockStore + 500))
             scoreAlpha = newAlpha
-            //self.scoreLabel.alpha = scoreAlpha
+            let storeAlpha = 2*newAlpha - 1  //this makes store button visible at 500 and solid at 1000. y=mx+b
             
-            //fade in the store
-            UIView.animate(withDuration: 0.3,
-                           delay: 0.6,
-                animations: {
-                
-                self.storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
-                if self.storeButton.alpha == 0 {
-                    self.storeButton.isEnabled = false
-                } else {
-                    self.storeButton.isEnabled = true
-                }
-            }, completion: nil)
+            //fade in or out the store
+            //this should auto disable if it goes to 0, and vice versa
+            self.storeButton.fade(.inOrOut,
+                                  resultAlpha: storeAlpha,
+                                 withDuration: 0.3,
+                                 delay: 0.6)
+            
+//            
+//            UIView.animate(withDuration: 0.3,
+//                           delay: 0.6,
+//                animations: {
+//                
+//                self.storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
+//                if self.storeButton.alpha == 0 {
+//                    self.storeButton.isEnabled = false
+//                } else {
+//                    self.storeButton.isEnabled = true
+//                }
+//            }, completion: nil)
             
         }
         
         //fade out and in the score
-        UIView.animate(withDuration: 0.2,
-                       animations: {
-                        self.scoreLabel.alpha = 0
-                        
-                        
-        }, completion: { (finished:Bool) in
-            
-            //set score
-            self.scoreLabel.text = String(describing: currentScore)
-            
-            //fade the score back in
-            UIView.animate(withDuration: 0.2, animations: {
-                self.scoreLabel.alpha = 0
-                //fade score back in to appropriate value
-                self.scoreLabel.alpha = scoreAlpha
-                
-            }, completion: nil )
-            
-            
+        self.scoreLabel.fade(.out,
+                             withDuration: 0.2,
+                             completion: { (finished:Bool) in
+                                //set score
+                                self.scoreLabel.text = String(describing: currentScore)
+                                self.scoreLabel.fade(.inOrOut,
+                                                     resultAlpha: scoreAlpha,
+                                                     withDuration: 0.3)
         })
+        
         
         
         //fading in and out the perk store. based on user's level
@@ -332,28 +329,45 @@ extension DataViewController {
                 let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
                 
                 //fade in the perk store
-                UIView.animate(withDuration: 0.3,
-                               delay: 0.6,
-                               animations: {
-                                
-                                self.perkStoreButton.alpha = newAlpha
-                                if self.perkStoreButton.alpha == 0 {
-                                    self.perkStoreButton.isEnabled = false
-                                } else {
-                                    self.perkStoreButton.isEnabled = true
-                                }
-                }, completion: nil)
+                //this should automatically disable if it fades to 0 or enable if it is > 0
+                self.perkStoreButton.fade(.inOrOut,
+                                          resultAlpha: newAlpha,
+                                          withDuration: 0.3,
+                                          delay: 0.6)
+                //only disable if it is invisible
+//                if self.perkStoreButton.alpha == 0 {
+//                    self.perkStoreButton.isEnabled = false
+//                } else {
+//                    self.perkStoreButton.isEnabled = true
+//                }
+//                UIView.animate(withDuration: 0.3,
+//                               delay: 0.6,
+//                               animations: {
+//                                
+//                                self.perkStoreButton.alpha = newAlpha
+//                                if self.perkStoreButton.alpha == 0 {
+//                                    self.perkStoreButton.isEnabled = false
+//                                } else {
+//                                    self.perkStoreButton.isEnabled = true
+//                                }
+//                }, completion: nil)
                 
             } else {
                 //fade to zero
                 //fade in the perk store
-                UIView.animate(withDuration: 0.3,
-                               delay: 0.6,
-                               animations: {
-                                
-                                self.perkStoreButton.alpha = 0
-                                    self.perkStoreButton.isEnabled = false
-                }, completion: nil)
+                
+                self.perkStoreButton.fade(.out,
+                                          disable: true,
+                                          withDuration: 0.3,
+                                          delay: 0.6)
+                
+//                UIView.animate(withDuration: 0.3,
+//                               delay: 0.6,
+//                               animations: {
+//                                
+//                                self.perkStoreButton.alpha = 0
+//                                    self.perkStoreButton.isEnabled = false
+//                }, completion: nil)
             }
         } else {
             //something is not right
@@ -378,6 +392,8 @@ extension DataViewController {
         }
         
     }
+    
+    ///a fader for 
     
     /// calculates the base score, which is 100 - the liklihood of the phrase just completed
     func calculateBaseScore(phrase: Phrase) -> Int {
