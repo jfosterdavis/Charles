@@ -108,7 +108,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Rent"
+        statusLabel.text = "For Hire"
         
         statusShade.alpha = 0.05
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
@@ -137,7 +137,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Rent"
+        statusLabel.text = "For Hire"
         
         statusShade.alpha = 0.45
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)

@@ -83,6 +83,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //Store
     @IBOutlet weak var storeButton: UIButton!
+    @IBOutlet weak var perkStoreButton: UIButton!
     
     
     @IBOutlet weak var scoreLabel: UILabel!
