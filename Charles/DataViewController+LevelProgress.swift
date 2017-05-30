@@ -54,10 +54,10 @@ extension DataViewController {
                     thisLevelColor = UIColor.darkGray
                     nextLevelColor = UIColor.darkGray
                 case let x where x >= 0.9:
-                    thisLevelColor = UIColor.white
-                    nextLevelColor = UIColor.white
+                    thisLevelColor = progressViewLightTextColor.textColor
+                    nextLevelColor = progressViewLightTextColor.textColor
                 default:
-                    thisLevelColor = UIColor.white
+                    thisLevelColor = progressViewLightTextColor.textColor
                     nextLevelColor = UIColor.darkGray
                 }
                 

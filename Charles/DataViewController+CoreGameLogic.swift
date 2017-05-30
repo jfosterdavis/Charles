@@ -236,7 +236,9 @@ extension DataViewController {
             //self.scoreLabel.alpha = scoreAlpha
             
             //fade in the store
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.3,
+                           delay: 0.6,
+                animations: {
                 
                 self.storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
                 if self.storeButton.alpha == 0 {

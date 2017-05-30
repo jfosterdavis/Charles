@@ -66,10 +66,10 @@ extension DataViewController {
         switch forProgressSituation {
         case .increaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
-            gameSoundPitchModifier = 300
+            gameSoundPitchModifier = 500
         case .decreaseLevel:
             audioFilePath = Bundle.main.path(forResource: "LevelDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
-            gameSoundPitchModifier = -100
+            gameSoundPitchModifier = -350
         case .increaseProgress:
             audioFilePath = Bundle.main.path(forResource: "ProgressUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
             gameSoundPitchModifier = 180
@@ -200,8 +200,8 @@ extension DataViewController {
         
         justScoredMessageLabel.text = "\(message)"
         self.justScoredMessageLabel.isHidden = false
-        UIView.animate(withDuration: 0.2,
-                       delay: 0.2,
+        UIView.animate(withDuration: 0.4,
+                       delay: 0.0,
                        animations: {
                         
                         self.justScoredMessageLabel.alpha = 1.0

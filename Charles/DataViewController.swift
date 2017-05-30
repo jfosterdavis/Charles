@@ -29,6 +29,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var nextLevelLabel: UILabel!
     @IBOutlet weak var levelDescriptionLabel: UILabel!
     @IBOutlet weak var feedbackColorMoss: UILabel! //a hidden view only used to copy its text color
+    @IBOutlet weak var progressViewLightTextColor: UILabel! //another hidden view
+    
     var playerLevelBaseline = 0 //tracks the player level when they start an objective to compare if they made progress or not
     var playerProgressBaseline = 0 //tracks the player progress within the playerLevelBaseline level when they start an objective to compare if they made progress or not
     //and way to refer to which of the baselines in functions that do the same thing
