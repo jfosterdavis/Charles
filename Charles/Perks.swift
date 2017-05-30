@@ -22,7 +22,7 @@ struct Perks {
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "Earn twice as much XP each engagement.",
                                     type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 9000,
+                                    price: 1,
                                     meta1: 2,
                                     meta2: nil,
                                     meta3: nil,

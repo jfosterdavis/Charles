@@ -6,13 +6,18 @@
     <entity name="CurrentScore" representedClassName=".CurrentScore" syncable="YES" codeGenerationType="class">
         <attribute name="value" attributeType="Integer 64" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="HighScore" representedClassName=".HighScore" syncable="YES" codeGenerationType="class">
+    <entity name="HighScore" representedClassName="HighScore" syncable="YES" codeGenerationType="class">
         <attribute name="value" attributeType="Integer 64" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="UnlockedCharacter" representedClassName=".UnlockedCharacter" syncable="YES">
         <attribute name="datetimeExpires" attributeType="Date" minDateTimeInterval="517590720" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
         <attribute name="datetimeUnlocked" attributeType="Date" minDateTimeInterval="517590720" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" defaultValueString="DEFAULT" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="UnlockedPerk" representedClassName=".UnlockedPerk" syncable="YES">
+        <attribute name="datetimeExpires" attributeType="Date" minDateTimeInterval="517802760" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="datetimeUnlocked" attributeType="Date" minDateTimeInterval="517802820" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="XP" representedClassName=".XP" syncable="YES" codeGenerationType="class">
         <attribute name="earnedDatetime" attributeType="Date" minDateTimeInterval="517619520" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
@@ -29,8 +34,9 @@
     <elements>
         <element name="CumulativeScore" positionX="-54" positionY="0" width="128" height="60"/>
         <element name="CurrentScore" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="HighScore" positionX="-36" positionY="18" width="128" height="60"/>
+        <element name="HighScore" positionX="-45" positionY="72" width="128" height="60"/>
         <element name="UnlockedCharacter" positionX="-45" positionY="9" width="128" height="90"/>
         <element name="XP" positionX="-45" positionY="18" width="128" height="195"/>
+        <element name="UnlockedPerk" positionX="-54" positionY="72" width="128" height="90"/>
     </elements>
 </model>

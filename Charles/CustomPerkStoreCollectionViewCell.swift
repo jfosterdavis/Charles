@@ -13,9 +13,21 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
     
     
     /// Adds buttons from the given phrase to the stackview
-    override func loadAppearance(from perk: Perk) {
+    func loadAppearance(fromPerk perk: Perk) {
         
+        //empty all
+        for subView in stackView.subviews {
+            stackView.removeArrangedSubview(subView)
+            
+            //remove button from heirarchy
+            subView.removeFromSuperview()
+        }
         
+        //create the ImageView
+        var imageView = UIImageView()
+        imageView.image = perk.icon
+        
+        stackView.addArrangedSubview(imageView)
                 
         roundCorners()
         

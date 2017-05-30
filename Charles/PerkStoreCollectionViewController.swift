@@ -54,7 +54,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
         let perk = self.perkCollectionViewData[indexPath.row]
         
         cell.characterNameLabel.text = perk.name
@@ -69,7 +69,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         cell.priceLabel.text = priceLabelText
         
         
-        cell.loadAppearance(from: perk)
+        cell.loadAppearance(fromPerk: perk)
         
         
         //set the status of this perk.  Is it unlocked or affordable?
@@ -186,7 +186,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         case keyUnlockedPerk:
             
             //look for the given string in the name field
-            guard let perks = fc.fetchedObjects as? [Perk] else {
+            guard let perks = fc.fetchedObjects as? [UnlockedPerk] else {
                 fatalError("fc.fetchedObjects array didn't return an array of UnlockedPerks.")
             }
             
@@ -270,7 +270,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     }
     
     ///returns an array of all characters that are expired
-    func getExpiredPerks() -> [Perk] {
+    func getExpiredPerks() -> [UnlockedPerk] {
         
         let unlockedPerks = getAllUnlockedPerks()
         var expiredPerks = [UnlockedPerk]()
