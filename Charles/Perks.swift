@@ -28,7 +28,7 @@ struct Perks {
                                     meta3: nil,
                                     minutesUnlocked: 60,
                                     icon: #imageLiteral(resourceName: "PerkInsight"),
-                                    displayColor: .cyan,
+                                    displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: 5,
                                     requiredPartyMembers: []
     )

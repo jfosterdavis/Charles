@@ -241,8 +241,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
                 return nil
             } else {
                 //it is not unlocked, so unlock it and return the character
+                //get the actual perk object to find amount of time to unlock
+                var thePerk: Perk? = nil
+                for perk in Perks.UnlockablePerks {
+                    if perk.name == perkName {
+                        thePerk = perk
+                    }
+                }
                 
-                let newPerk = UnlockedPerk(name: perkName, expiresHours: 3, context: stack.context)
+                var minutesToUnlock = 30
+                if let thePerk = thePerk {
+                    minutesToUnlock = thePerk.minutesUnlocked
+                }
+                
+                let newPerk = UnlockedPerk(name: perkName, expiresMinutes: minutesToUnlock, context: stack.context)
                 
                 print("Unlocked a new Perk named \(String(describing: newPerk.name))")
                 return newPerk

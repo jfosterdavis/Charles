@@ -12,7 +12,7 @@ import CoreData
 
 public class UnlockedPerk: NSManagedObject {
 
-    convenience init(name: String, datetimeUnlocked: NSDate? = nil, expiresHours: Int? = nil, expiresDays: Int? = nil, context: NSManagedObjectContext){
+    convenience init(name: String, datetimeUnlocked: NSDate? = nil, expiresMinutes: Int? = nil, expiresDays: Int? = nil, context: NSManagedObjectContext){
         
         if let ent = NSEntityDescription.entity(forEntityName: "UnlockedPerk", in: context) {
             self.init(entity: ent, insertInto: context)
@@ -31,8 +31,8 @@ public class UnlockedPerk: NSManagedObject {
             var exComponents = DateComponents()
             
             //if they specified a number of hours to expire, set
-            if let exHours = expiresHours {
-                exComponents.setValue(exHours, for: .hour)
+            if let expiresMinutes = expiresMinutes {
+                exComponents.setValue(expiresMinutes, for: .minute)
             }
             
             //if they set days
@@ -41,8 +41,8 @@ public class UnlockedPerk: NSManagedObject {
             }
             
             //if they set neither, give default of 2 days
-            if expiresHours == nil && expiresDays == nil {
-                exComponents.setValue(2, for: .day)
+            if expiresMinutes == nil && expiresDays == nil {
+                exComponents.setValue(2, for: .hour)
             }
             
             let date: Date = Date()
