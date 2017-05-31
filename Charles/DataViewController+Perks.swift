@@ -37,10 +37,11 @@ extension DataViewController {
             } else {
                 //for each UnlockedPerk in the array, check for the given PerkType
                 var returnablePerkSet = [(Perk, UnlockedPerk?)]()
+                let applicablePerkObjects: [Perk] = Perks.UnlockablePerks.filter{$0.type == type}
                 for unlockedPerk in unlockedPerks {
-                    for perk in Perks.UnlockablePerks {
+                    for perk in applicablePerkObjects {
                         
-                        if perk.name == unlockedPerk.name && perk.type == type {
+                        if perk.name == unlockedPerk.name {
                             returnablePerkSet.append((perk, unlockedPerk))
                         }
                         
