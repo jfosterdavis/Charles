@@ -274,8 +274,8 @@ extension DataViewController {
         if currentScore >= minimumScoreToUnlockStore + 500 {
             scoreAlpha = 1.0
             //scoreLabel.alpha = scoreAlpha
-            storeButton.alpha = 1.0
-            self.storeButton.isEnabled = true
+            //storeButton.alpha = 1.0
+            //self.storeButton.isEnabled = true
             
         } else if currentScore <= minimumScoreToUnlockObjective {
             //before the player can use objectives, the alpha of the store button is controled by the player's score

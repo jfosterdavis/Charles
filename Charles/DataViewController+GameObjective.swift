@@ -26,6 +26,16 @@ extension DataViewController {
             self.objectiveFeedbackView.toggleOrientationAndAnimate()
         }
         
+        //allow user to access the stores for a few seconds
+        self.storeButton.fade(.in, delay: 0)
+        
+        //only control the perk store if the player level is above minimum + 5
+        if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 5) {
+            self.perkStoreButton.fade(.in, delay: 0,
+                                      completion: nil)
+        }
+        
+        //fade out the objective
         objectiveFeedbackView.fade(.out,
                                    withDuration: 0.5,
                                    delay: 0.6,
@@ -37,19 +47,6 @@ extension DataViewController {
                                     }
         })
         
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0.6,
-//                       options: [.curveEaseInOut],
-//                       animations: {
-//                        
-//                        self.objectiveFeedbackView.alpha = 0.0
-//        }, completion: { (finished:Bool) in
-//            if self.getCurrentScore() >= self.minimumScoreToUnlockObjective {
-//                self.loadAndFadeInFeedbackObjective(using: color)
-//            }
-//            
-//        })
-        
     }
     
     func loadAndFadeInFeedbackObjective(using color: UIColor) {
@@ -60,24 +57,21 @@ extension DataViewController {
         self.objectiveFeedbackView.objectiveRingColor = color
         self.objectiveFeedbackView.setNeedsDisplay()
         
+        let objectiveBackDelay = 2.3
+        
         self.objectiveFeedbackView.fade(.in,
                                         withDuration: 0.5,
-                                        delay: 2.3,
-                                        completion: { (finished:Bool) in
-                                            //after the objective fades in, fade in the stores then wait 5 seconds then fade out the store buttons! To keep it all clean
-                                            self.storeButton.fade(.in, delay: 0,
-                                                                  completion: {(finished:Bool) in
-                                                                    self.storeButton.fade(.out, delay: 5)
-                                            })
-                                            
-                                            //only control the perk store if the player level is above minimum + 5
-                                            if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 5) {
-                                                self.perkStoreButton.fade(.in, delay: 0,
-                                                                      completion: {(finished:Bool) in
-                                                                        self.perkStoreButton.fade(.out, delay: 5)
-                                                })
-                                            }
+                                        delay: objectiveBackDelay)
         
+    
+        //use a dispatch queue because otherwise the .isEnabled flags will be set to disable before it actually finishes
+        let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+            self.storeButton.fade(.out, delay: 0)
+            //only control the perk store if the player level is above minimum + 5
+            if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 5) {
+                self.perkStoreButton.fade(.out, delay: 0)
+            }
         })
         
 
