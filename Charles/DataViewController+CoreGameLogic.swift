@@ -532,5 +532,24 @@ extension DataViewController {
         }
     }
 
+    /******************************************************/
+    /*******************///MARK: Store Buttons
+    /******************************************************/
+
+    //simple and quick way to fade someting in then back out after a given time in secods
+    func fadeViewInThenOut(view: UIView, fadeInAfterSeconds: TimeInterval) {
+        
+        //fade in
+        view.fade(.in)
+        
+        let seconds = Int(fadeInAfterSeconds)
+        let milliseconds = Int((fadeInAfterSeconds - Double(seconds)) * 1000)
+        
+        //fade out
+        let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(seconds) + DispatchTimeInterval.milliseconds(milliseconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+            view.fade(.out, delay: 0)
+        })
+    }
     
 }
