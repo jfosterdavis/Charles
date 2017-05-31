@@ -12,6 +12,9 @@ import UIKit
 class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
     
     
+    @IBOutlet weak var perkIconImageView: UIImageView!
+    @IBOutlet weak var perkColorFrame: UIView!
+    
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(fromPerk perk: Perk) {
         
@@ -24,10 +27,14 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         }
         
         //create the ImageView
-        var imageView = UIImageView()
-        imageView.image = perk.icon
+        perkIconImageView.image = perk.icon
+        //perkIconImageView.backgroundColor = perk.displayColor
         
-        stackView.addArrangedSubview(imageView)
+        //color the border
+        perkColorFrame.layer.borderWidth = 4
+        perkColorFrame.layer.borderColor = perk.displayColor.cgColor
+        
+        //stackView.addArrangedSubview(imageView)
                 
         roundCorners()
         
