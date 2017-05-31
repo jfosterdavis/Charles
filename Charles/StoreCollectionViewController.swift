@@ -411,9 +411,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 //it is already unlocked, so return nil
                 return nil
             } else {
-                //it is not unlocked, so unlock it and return the character
-//                let newCharacter = UnlockedCharacter(entity: NSEntityDescription.entity(forEntityName: "UnlockedCharacter", in: stack.context)!, insertInto: fc.managedObjectContext)
-                let newCharacter = UnlockedCharacter(name: characterName, expiresHours: 3, context: stack.context)
+                //get the amount of time this character will be hired for.
+                let character = Characters.UnlockableCharacters.filter { $0.name == characterName }[0]
+                
+                
+                let newCharacter = UnlockedCharacter(name: characterName, expiresHours: character.hoursUnlocked, context: stack.context)
                 //newCharacter.name = characterName
                 print("Unlocked a new character named \(String(describing: newCharacter.name))")
                 return newCharacter

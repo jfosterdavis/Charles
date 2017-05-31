@@ -492,8 +492,8 @@ struct Characters {
                                    topRadius: 10,
                                    bottomRadius: 10,
                                    price: 10000,
-                                   hoursUnlocked: 1,
-                                   levelEligibleAt: 18,
+                                   hoursUnlocked: 2,
+                                   levelEligibleAt: 12,
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off", //he will have his shirt off in the store!
                                                     likelihood: 55,
                                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: Bundle.main.path(forResource: "Maybe", ofType: "m4a", inDirectory: "Audio/Matthew")),
