@@ -17,6 +17,7 @@ enum PerkType {
     case increasedXP
     case increasedScore
     case visualizeColorValues
+    case musicalVoices
 }
 
 class Perk: NSObject {

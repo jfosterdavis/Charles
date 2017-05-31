@@ -40,6 +40,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
                 
         roundCorners()
         
+        perkGotFromCharacterIndicator.roundCorners(with: 6)
+        
         
         
     }

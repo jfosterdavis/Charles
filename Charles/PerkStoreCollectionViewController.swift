@@ -167,6 +167,11 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
             return
         }
         
+        guard isPerkRequiredCharacterPresent(perk: perk) else {
+            print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
+            return
+        }
+        
         let newPerk = unlockPerk(named: perk.name)
         
         if newPerk != nil {
