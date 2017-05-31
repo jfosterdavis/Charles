@@ -28,6 +28,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     @IBOutlet weak var thisLevelLabel: UILabel!
     @IBOutlet weak var nextLevelLabel: UILabel!
     @IBOutlet weak var levelDescriptionLabel: UILabel!
+    let progressViewProgressTintColorDefault = UIColor(red: 0.0/255.0, green: 64.0/255.0, blue: 128.0/255.0, alpha: 1)
+    let progressViewProgressTintColorXPPerkActive = UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1)
     @IBOutlet weak var feedbackColorMoss: UILabel! //a hidden view only used to copy its text color
     @IBOutlet weak var progressViewLightTextColor: UILabel! //another hidden view
     

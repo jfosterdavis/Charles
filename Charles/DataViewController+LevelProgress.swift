@@ -68,12 +68,21 @@ extension DataViewController {
                     shouldAnimate = !didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
                 }
                 
-                
+                //if an increased XP perk is active, change the color of the progressview
+                let xpPerks = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
+                if xpPerks.isEmpty {
+                    //no perks are active, set to normal color
+                    levelProgressView.progressTintColor = progressViewProgressTintColorDefault
+                    
+                } else { //a perk is active so put the special color on
+                    //TODO: flash the bar to the perk color then back
+                    self.levelProgressView.progressTintColor = self.progressViewProgressTintColorXPPerkActive
+                    
+                }
                 
                 
                 UIView.animate(withDuration: 0.8,
                                delay: 0.8,
-                               options: [.curveEaseInOut],
                                animations: {
                                 
                                 if let currentLevel = currentLevelAndProgress.0 {

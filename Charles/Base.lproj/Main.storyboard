@@ -168,8 +168,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lO8-fJ-aIM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
+                            <progressView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="lO8-fJ-aIM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="GL2-Gk-IcE"/>
                                 </constraints>
