@@ -71,6 +71,13 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         cell.loadAppearance(fromPerk: perk)
         
+        //check if this perk requires a party member
+        if perk.requiredPartyMembers.isEmpty {
+            cell.setGotPerkFromCharacterIndicator(visible: false)
+        } else {
+            cell.setGotPerkFromCharacterIndicator(visible: true)
+        }
+        
         
         //set the status of this perk.  Is it unlocked or affordable?
         
@@ -122,6 +129,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
             }
             
             
+        } else if !isPerkRequiredCharacterPresent(perk: perk) {
+            //they are missing a party member to unlock this perk
+            cell.setStatusRequiredCharacterNotPresent()
         } else if !isPerkAffordable(perk: perk) {  //check if it is affordable
             cell.setStatusUnaffordable()
         } else {  //the character is not unlocked and is affordable
@@ -221,6 +231,29 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         } else {
             return true
         }
+    }
+    
+    func isPerkRequiredCharacterPresent(perk: Perk) -> Bool {
+        
+        if perk.requiredPartyMembers.isEmpty {
+            return true
+        } else {
+            //ask the store if they are unlocked
+            let store = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
+            let unlockedCharacters = store.getAllUnlockedCharacters()
+            
+            for unlockedCharacter in unlockedCharacters {
+                //check for any of the required party members
+                for perkPartyMember in perk.requiredPartyMembers {
+                    if unlockedCharacter.name == perkPartyMember.name {
+                        return true
+                    }
+                }
+            }
+            //nobody required was found
+            return false
+        }
+        
     }
     
     

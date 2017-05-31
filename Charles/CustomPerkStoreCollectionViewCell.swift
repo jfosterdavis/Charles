@@ -14,6 +14,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
     
     @IBOutlet weak var perkIconImageView: UIImageView!
     @IBOutlet weak var perkColorFrame: UIView!
+    @IBOutlet weak var perkGotFromCharacterIndicator: UIImageView!
     
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(fromPerk perk: Perk) {
@@ -31,8 +32,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //perkIconImageView.backgroundColor = perk.displayColor
         
         //color the border
-        perkColorFrame.layer.borderWidth = 4
+        perkColorFrame.layer.borderWidth = 5
         perkColorFrame.layer.borderColor = perk.displayColor.cgColor
+        perkColorFrame.roundCorners(with: 6)
         
         //stackView.addArrangedSubview(imageView)
                 
@@ -41,6 +43,61 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         
     }
+    
+    func setGotPerkFromCharacterIndicator(visible: Bool) {
+        perkGotFromCharacterIndicator.isHidden = !visible
+    }
+    
+    override func setStatusAffordable() {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "For Hire"
+        
+        statusShade.alpha = 0.0
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        
+        setStatusVisibility(label: false, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+    }
+    
+    override func setStatusUnaffordable() {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "For Hire"
+        
+        statusShade.alpha = 0.45
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        setStatusVisibility(label: false, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 128/255, green: 0/255, blue: 0/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+    }
+    
+    func setStatusRequiredCharacterNotPresent() {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        //statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "Requires Party"
+        
+        statusShade.alpha = 0.7
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        setStatusVisibility(label: true, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+    }
 
+    ///sets the visual status to affordable and ready for purchase
+    override func setStatusUnlocked() {
+        setStatusVisibility(label: false, shade: false)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        priceLabel.text = "Active!"
+    }
     
 }
