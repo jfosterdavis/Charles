@@ -149,5 +149,19 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
     }
+    
+    func setStatusLevelRequirementNotMet(levelRequired: Int) {
+        //rotate and set text of the label
+        statusLabel.transform = CGAffineTransform.identity //resets to normal
+        //statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
+        statusLabel.text = "Level \(levelRequired)"
+        
+        statusShade.alpha = 0.75
+        statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        setStatusVisibility(label: false, shade: true)
+        
+        priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+    }
 
 }

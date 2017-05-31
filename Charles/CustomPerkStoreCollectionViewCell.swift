@@ -91,7 +91,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         perkGotFromCharacterIndicator.layer.zPosition = 1
         self.setNeedsDisplay()
         
-        statusShade.alpha = 0.85
+        statusShade.alpha = 0.75
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         setStatusVisibility(label: false, shade: true)
         

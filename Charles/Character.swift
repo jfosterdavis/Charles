@@ -24,9 +24,17 @@ class Character: NSObject {
     var topRadius: Int! //radius of the corners on top
     var bottomRadius: Int! //radius of the corners on bottom
     var price: Int! //price to buy this character in the store
+    var hoursUnlocked: Int!
+    var levelEligibleAt: Int!
     
     // MARK: Initializers
-    init(name: String, topRadius: Int, bottomRadius: Int, price: Int, phrases: [Phrase]?) {
+    init(name: String,
+         topRadius: Int,
+         bottomRadius: Int,
+         price: Int,
+         hoursUnlocked: Int!,
+         levelEligibleAt: Int!,
+         phrases: [Phrase]?) {
         super.init()
         
         self.name = name
@@ -34,6 +42,8 @@ class Character: NSObject {
         self.topRadius = topRadius
         self.bottomRadius = bottomRadius
         self.price = price
+        self.hoursUnlocked = hoursUnlocked
+        self.levelEligibleAt = levelEligibleAt
     }
     
     /// returns a phrase from the list of phrases based on the given liklihoods contined within the object

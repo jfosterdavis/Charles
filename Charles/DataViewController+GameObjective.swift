@@ -65,7 +65,7 @@ extension DataViewController {
         
     
         //use a dispatch queue because otherwise the .isEnabled flags will be set to disable before it actually finishes
-        let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(3)
+        let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(5)
         DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
             self.storeButton.fade(.out, delay: 0)
             //only control the perk store if the player level is above minimum + 5

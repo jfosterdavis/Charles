@@ -12,7 +12,7 @@ import UIKit
 
 class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource {
 
-    var parentVC: UIViewController!
+    var parentVC: DataViewController!
     var collectionViewData: [Character]!
     
     @IBOutlet weak var storeCollectionView: UICollectionView!
@@ -83,8 +83,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
-        let pVC = self.parentVC as! DataViewController
-        pVC.storeClosed()
+        let pVC = self.parentVC
+        pVC?.storeClosed()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -171,6 +171,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             }
             
            
+        } else if !isPlayerLevelRequirementMet(character: character){
+            cell.setStatusLevelRequirementNotMet(levelRequired: character.levelEligibleAt)
         } else if !isCharacterAffordable(character: character) {  //check if it is affordable
             cell.setStatusUnaffordable()
         } else {  //the character is not unlocked and is affordable
@@ -206,6 +208,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         guard isCharacterAffordable(character: character) else {
             print ("You cannot afford this item")
+            return
+        }
+        
+        guard isPlayerLevelRequirementMet(character: character) else {
+            print ("You must be a certain level to hire this character. \(character.levelEligibleAt)")
             return
         }
         
@@ -584,6 +591,24 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         } else {
             return (nil, nil, nil)
         }
+    }
+    
+    ///is the player a high enough level
+    func isPlayerLevelRequirementMet(character: Character) -> Bool {
+        //get player level
+        //figure out what level the player is on
+        let userXP = parentVC.calculateUserXP()
+        let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        if let playerLevel = currentLevelAndProgress.0?.level {
+            if playerLevel >= character.levelEligibleAt {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+       
     }
     
     

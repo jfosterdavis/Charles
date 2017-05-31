@@ -38,8 +38,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     }
     
     @IBAction override func dismissButtonPressed(_ sender: Any) {
-        let pVC = self.parentVC as! DataViewController
-        pVC.storeClosed()
+        let pVC = self.parentVC
+        pVC?.storeClosed()
         self.dismiss(animated: true, completion: nil)
     }
     
