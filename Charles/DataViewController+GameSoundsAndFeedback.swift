@@ -32,6 +32,10 @@ extension DataViewController {
         //audioPlayer.stop()
         audioEngine.stop()
         audioPlayerNode.stop()
+        
+        audioEngine.disconnectNodeOutput(audioPlayerNode)
+        audioEngine.disconnectNodeOutput(synesthesiaDistortion)
+        audioEngine.disconnectNodeOutput(synesthesiaReverb)
         //audioEngine.reset()
     }
     

@@ -56,22 +56,87 @@ extension DataViewController {
         
         let subphraseToSound = currentPhrase.subphrases![currentSubphraseIndex]
         
-        //determine if there is a valid .m4a file to play, otherwise speak the word
-        if subphraseToSound.audioFilePath != nil {
-            //try to find file
-            let url = URL(fileURLWithPath: subphraseToSound.audioFilePath!)
+        ///******************************************************/
+        /*******************///MARK: Perk Implimentation: musicalVoices Synesthesia
+        /******************************************************/
+
+        let applicableUnlockedMusicalVoicesPerks = getAllPerks(ofType: .musicalVoices, withStatus: .unlocked)
+        
+        
+        if applicableUnlockedMusicalVoicesPerks.isEmpty {  //no perks active
+            //determine if there is a valid .m4a file to play, otherwise speak the word
+            if subphraseToSound.audioFilePath != nil {
+                //try to find file
+                let url = URL(fileURLWithPath: subphraseToSound.audioFilePath!)
+                
+                
+                do {
+                    try audioPlayer = AVAudioPlayer(contentsOf: url)
+                    audioPlayer.enableRate = true
+                    
+                    resetAudioEngineAndPlayer()
+                    
+                    //                try audioPlayer = AVAudioPlayer(contentsOf: url)
+                    let audioFile = try AVAudioFile(forReading: url)
+                    
+                    changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+                    
+                    audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+                    audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+                    
+                    audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
+                    
+                    try audioEngine.start()
+                    audioPlayerNode.play()
+                    
+                    //audioPlayer.play()
+                } catch {
+                    //there was an error, so speak it instead
+                    speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
+                }
+                
+            } else {
+                speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
+            }
+        } else {  //perks are active
+            //assume there is only one active perk
+            //there should be 3 audiofile paths in the perk, each is a different whistle
+            let perk = applicableUnlockedMusicalVoicesPerks[0].0
+            
+            let url1 = URL(fileURLWithPath: perk.meta1 as! String)
+            let url2 = URL(fileURLWithPath: perk.meta2 as! String)
+            let url3 = URL(fileURLWithPath: perk.meta3 as! String)
+            
+            let urls = [url1, url2, url3]
+            //select a random URL to play
+            let selectedUrl = urls[Utilities.random(range: 0...(urls.count - 1))]
             
             
             do {
-                try audioPlayer = AVAudioPlayer(contentsOf: url)
+                try audioPlayer = AVAudioPlayer(contentsOf: selectedUrl)
                 audioPlayer.enableRate = true
                 
                 resetAudioEngineAndPlayer()
                 
                 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
-                let audioFile = try AVAudioFile(forReading: url)
+                let audioFile = try AVAudioFile(forReading: selectedUrl)
                 
-                changePitchEffect.pitch = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+                //Synesthesia produces nice sounds, so compress the tone range.
+                let rawTone = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
+                var newTone = rawTone!
+                if newTone > 150.0 {
+                    newTone = 150.0
+                } else if newTone < -150.0 {
+                    newTone = -150.0
+                }
+                //now reduce the tone to make it soothing
+                newTone -= 500
+                
+                changePitchEffect.pitch = newTone
+                
+                audioEngine.connect(audioPlayerNode, to: synesthesiaReverb, format: nil)
+                audioEngine.connect(synesthesiaReverb, to: synesthesiaDistortion, format: nil)
+                audioEngine.connect(synesthesiaDistortion, to: audioEngine.outputNode, format: nil)
                 
                 audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 
@@ -83,9 +148,6 @@ extension DataViewController {
                 //there was an error, so speak it instead
                 speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
             }
-            
-        } else {
-            speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
         }
         
         var addThisColor: UIColor
@@ -141,6 +203,10 @@ extension DataViewController {
                     if scoreResults.2 >= level.successThreshold {
                         
                         //check to see if an xp-related perk is active. ask the perk store
+                        /******************************************************/
+                        /*******************///MARK: Perk Implimentation: increasedXP
+                        /******************************************************/
+
                         let applicablePerksAndUnlockedPerkObjects = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
                         
 //                        let perkStore = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController

@@ -67,6 +67,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var audioEngineGameSounds: AVAudioEngine!
     var audioPlayerNodeGameSounds: AVAudioPlayerNode!
     var changePitchEffectGameSounds: AVAudioUnitTimePitch!
+    //Synesthesia
+    var audioPlayerNodeSynesthesia: AVAudioPlayerNode!
+    var synesthesiaReverb: AVAudioUnitReverb!
+    var synesthesiaDistortion: AVAudioUnitDistortion!
     
     //CoreData
     let keyCurrentScore = "CurrentScore"
@@ -108,9 +112,22 @@ class DataViewController: CoreDataViewController, StoreReactor {
         audioEngine.attach(audioPlayerNode)
         changePitchEffect = AVAudioUnitTimePitch()
         audioEngine.attach(changePitchEffect)
-        
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        
+        //Synesthesia effects
+        audioPlayerNodeSynesthesia = AVAudioPlayerNode()
+        synesthesiaReverb = AVAudioUnitReverb()
+        synesthesiaReverb.loadFactoryPreset(AVAudioUnitReverbPreset.plate)
+        synesthesiaReverb.wetDryMix = 50
+        audioEngine.attach(synesthesiaReverb)
+
+        synesthesiaDistortion = AVAudioUnitDistortion()
+        synesthesiaDistortion.loadFactoryPreset(AVAudioUnitDistortionPreset.speechCosmicInterference)
+        synesthesiaDistortion.wetDryMix = 85
+        audioEngine.attach(synesthesiaDistortion)
+        
+        
         
         //setup the same for the game sounds
         audioEngineGameSounds = AVAudioEngine()
