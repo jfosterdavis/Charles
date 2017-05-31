@@ -91,10 +91,11 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         perkGotFromCharacterIndicator.layer.zPosition = 1
         self.setNeedsDisplay()
         
-        statusShade.alpha = 0.75
+        statusShade.alpha = 0.80
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         setStatusVisibility(label: false, shade: true)
         
+        priceLabel.text = ""
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
     }

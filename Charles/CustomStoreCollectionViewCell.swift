@@ -21,6 +21,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var statusShade: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var pieLockImageView: UIImageView!
+    @IBOutlet weak var characterOutfitBlocker: UIView!
+    
     
     //expiration timer
     @IBOutlet weak var expirationStatusView: UIView!
@@ -83,6 +85,10 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         }
         
         roundCorners()
+        
+        characterOutfitBlocker.isHidden = true
+        
+        self.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1)
         
         
         
@@ -156,10 +162,13 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         //statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
         statusLabel.text = "Level \(levelRequired)"
         
-        statusShade.alpha = 0.75
+        statusShade.alpha = 0.80
+        characterOutfitBlocker.isHidden = false  //hide the outfit
+        self.backgroundColor = .white //put the card to white
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         setStatusVisibility(label: false, shade: true)
         
+        priceLabel.text = ""
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
     }

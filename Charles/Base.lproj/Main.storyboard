@@ -337,7 +337,11 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JC-GMq">
                                                     <rect key="frame" x="8" y="33" width="119" height="119"/>
                                                 </stackView>
-                                                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ap7-zq-s1c">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NoL-mU-opA">
+                                                    <rect key="frame" x="8" y="33" width="119" height="119"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <view userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ap7-zq-s1c">
                                                     <rect key="frame" x="-0.5" y="0.0" width="135" height="180"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -389,12 +393,15 @@
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="12W-Ht-U2Y"/>
                                             <constraint firstItem="dCl-FR-QLN" firstAttribute="centerX" secondItem="VMi-JC-GMq" secondAttribute="centerX" id="1cC-6L-5c9"/>
                                             <constraint firstItem="AuP-bE-VU4" firstAttribute="centerY" secondItem="dCl-FR-QLN" secondAttribute="centerY" id="1ed-kH-eUJ"/>
+                                            <constraint firstItem="NoL-mU-opA" firstAttribute="centerX" secondItem="VMi-JC-GMq" secondAttribute="centerX" id="2YI-PY-gA9"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="centerX" secondItem="IY4-mC-g1J" secondAttribute="centerX" id="59S-pG-FOe"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="5yW-Xm-N3g"/>
+                                            <constraint firstItem="NoL-mU-opA" firstAttribute="centerY" secondItem="VMi-JC-GMq" secondAttribute="centerY" id="6a8-QV-nTF"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="centerY" secondItem="IY4-mC-g1J" secondAttribute="centerY" id="7Kl-OT-aMs"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="top" secondItem="Kb1-00-WTk" secondAttribute="bottom" constant="5" id="9ZY-Ub-8dd"/>
                                             <constraint firstItem="AuP-bE-VU4" firstAttribute="centerX" secondItem="dCl-FR-QLN" secondAttribute="centerX" id="AsO-zD-vHa"/>
                                             <constraint firstItem="mQn-5c-tTR" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="BMb-uI-6SW"/>
+                                            <constraint firstItem="NoL-mU-opA" firstAttribute="height" secondItem="VMi-JC-GMq" secondAttribute="height" id="CBp-Ak-S5s"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="height" secondItem="IY4-mC-g1J" secondAttribute="height" id="Clh-no-VDH"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" id="Kqg-xz-sZm"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="NBe-xN-5zh"/>
@@ -411,9 +418,11 @@
                                             <constraint firstItem="dCl-FR-QLN" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" multiplier="2:5" id="jth-fe-0dq"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="v4J-ln-O4Z" secondAttribute="bottom" id="s2b-Hq-OwS"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="uDA-ld-juI"/>
+                                            <constraint firstItem="NoL-mU-opA" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" id="w87-St-mgy"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
+                                            <outlet property="characterOutfitBlocker" destination="NoL-mU-opA" id="zrA-G8-saq"/>
                                             <outlet property="expirationStatusView" destination="dCl-FR-QLN" id="h8P-C8-iN4"/>
                                             <outlet property="pieLockImageView" destination="AuP-bE-VU4" id="Zxq-Wb-zdL"/>
                                             <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
