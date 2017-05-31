@@ -15,6 +15,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
     @IBOutlet weak var perkIconImageView: UIImageView!
     @IBOutlet weak var perkColorFrame: UIView!
     @IBOutlet weak var perkGotFromCharacterIndicator: UIImageView!
+    @IBOutlet weak var perkIconBlocker: UIView!
     
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(fromPerk perk: Perk) {
@@ -42,7 +43,10 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         perkGotFromCharacterIndicator.roundCorners(with: 6)
         
+        //make background the paper color
+        self.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1)
         
+        perkIconBlocker.isHidden = true
         
     }
     
@@ -90,6 +94,11 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         perkGotFromCharacterIndicator.layer.zPosition = 1
         self.setNeedsDisplay()
+        
+        //put to black and white
+        self.backgroundColor = .white
+        perkIconBlocker.isHidden = false
+        perkColorFrame.layer.borderColor = UIColor.black.cgColor
         
         statusShade.alpha = 0.80
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
