@@ -22,7 +22,7 @@ struct Perks {
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "You see things others might not.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
-                                    price: 1,
+                                    price: 5000,
                                     meta1: 2,
                                     meta2: nil,
                                     meta3: nil,
@@ -36,11 +36,11 @@ struct Perks {
     static let Quickstudy = Perk(     name: "Quick Study",
                                    gameDescription: "You get more out of each encounter.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 1,
+                                    price: 100000,
                                     meta1: 2,
                                     meta2: nil,
                                     meta3: nil,
-                                    minutesUnlocked: 30,
+                                    minutesUnlocked: 40,
                                     icon: #imageLiteral(resourceName: "PerkQuickstudy"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: 5,
@@ -51,7 +51,7 @@ struct Perks {
     static let Synesthesia = Perk(     name: "Synesthesia",
                                       gameDescription: "When others hear words, you hear music.",
                                       type: .musicalVoices, //types are strings that the game will look for when determining how to behave
-                                        price: 1,
+                                        price: 200,
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
@@ -65,7 +65,7 @@ struct Perks {
     static let Synesthesia2 = Perk(     name: "Synesthesia 2",
                                        gameDescription: "When others hear words, you hear music.",
                                        type: .musicalVoices, //types are strings that the game will look for when determining how to behave
-        price: 1,
+        price: 2000231,
         meta1: 2,
         meta2: nil,
         meta3: nil,

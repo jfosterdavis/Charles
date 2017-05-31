@@ -501,6 +501,16 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK2-9t-Leb">
                                                     <rect key="frame" x="3.5" y="3.5" width="127" height="127"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PerkInsight" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-Sp-UWA">
+                                                    <rect key="frame" x="10" y="37" width="115" height="73"/>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPlus" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-mH-dqy">
+                                                    <rect key="frame" x="90" y="90" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="x8C-mH-dqy" secondAttribute="height" multiplier="1:1" id="J4L-NJ-WOD"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-F2-1EG">
                                                     <rect key="frame" x="10" y="6" width="115" height="29"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -525,16 +535,6 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jue-UN-lrB">
                                                     <rect key="frame" x="8" y="40" width="119" height="67"/>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PerkInsight" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-Sp-UWA">
-                                                    <rect key="frame" x="10" y="37" width="115" height="73"/>
-                                                </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPlus" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-mH-dqy">
-                                                    <rect key="frame" x="92" y="77" width="33" height="33"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="x8C-mH-dqy" secondAttribute="height" multiplier="1:1" id="J4L-NJ-WOD"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <view alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXZ-py-YqL">
                                                     <rect key="frame" x="-0.5" y="0.0" width="135" height="135"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -588,7 +588,6 @@
                                             <constraint firstItem="5IP-Sp-UWA" firstAttribute="leading" secondItem="dC0-o6-wh5" secondAttribute="leadingMargin" constant="2" id="2nS-RU-1Wm"/>
                                             <constraint firstItem="tXZ-py-YqL" firstAttribute="centerY" secondItem="dC0-o6-wh5" secondAttribute="centerY" id="3qu-ix-IBf"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="46u-Kj-swG" secondAttribute="trailing" id="5u9-Xy-zAE"/>
-                                            <constraint firstItem="x8C-mH-dqy" firstAttribute="trailing" secondItem="5IP-Sp-UWA" secondAttribute="trailing" id="6dU-3D-4AZ"/>
                                             <constraint firstItem="46u-Kj-swG" firstAttribute="top" secondItem="5IP-Sp-UWA" secondAttribute="bottom" constant="2" id="8Ok-1u-rQl"/>
                                             <constraint firstItem="tXZ-py-YqL" firstAttribute="width" secondItem="dC0-o6-wh5" secondAttribute="width" id="8tr-YV-2QM"/>
                                             <constraint firstItem="3uf-F2-1EG" firstAttribute="top" secondItem="dC0-o6-wh5" secondAttribute="topMargin" constant="-2" id="Adr-az-Ng9"/>
@@ -614,12 +613,13 @@
                                             <constraint firstItem="UfL-7w-yn4" firstAttribute="centerX" secondItem="dC0-o6-wh5" secondAttribute="centerX" id="aL9-xM-gLi"/>
                                             <constraint firstItem="QK2-9t-Leb" firstAttribute="centerY" secondItem="dC0-o6-wh5" secondAttribute="centerY" id="bfS-Eb-gYZ"/>
                                             <constraint firstItem="ZgB-oM-gR5" firstAttribute="centerX" secondItem="dC0-o6-wh5" secondAttribute="centerX" id="e0M-7Y-1yW"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="x8C-mH-dqy" secondAttribute="bottom" constant="-8" id="evv-07-1cl"/>
                                             <constraint firstItem="UfL-7w-yn4" firstAttribute="centerY" secondItem="jue-UN-lrB" secondAttribute="centerY" id="f6U-PF-sn8"/>
-                                            <constraint firstItem="x8C-mH-dqy" firstAttribute="baseline" secondItem="5IP-Sp-UWA" secondAttribute="baseline" id="j6r-9h-b25"/>
-                                            <constraint firstItem="x8C-mH-dqy" firstAttribute="width" secondItem="5IP-Sp-UWA" secondAttribute="height" multiplier="1:2.2" id="p3u-9c-kGt"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="x8C-mH-dqy" secondAttribute="trailing" constant="-8" id="llF-kC-Ib9"/>
                                             <constraint firstItem="cTG-ML-Xlc" firstAttribute="centerX" secondItem="UfL-7w-yn4" secondAttribute="centerX" id="qSa-cD-NX7"/>
                                             <constraint firstItem="UfL-7w-yn4" firstAttribute="width" secondItem="jue-UN-lrB" secondAttribute="width" multiplier="2:5" id="rn7-AJ-N0w"/>
                                             <constraint firstItem="46u-Kj-swG" firstAttribute="leading" secondItem="dC0-o6-wh5" secondAttribute="leadingMargin" id="sFy-UL-OWb"/>
+                                            <constraint firstItem="x8C-mH-dqy" firstAttribute="width" secondItem="dC0-o6-wh5" secondAttribute="width" multiplier="1:3" id="vdi-6x-bLQ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="3uf-F2-1EG" id="Or6-im-WpN"/>

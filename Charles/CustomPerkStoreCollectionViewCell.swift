@@ -56,7 +56,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
         statusLabel.text = "For Hire"
         
-        statusShade.alpha = 0.0
+        statusShade.alpha = 0.1
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         
         setStatusVisibility(label: false, shade: true)
@@ -71,11 +71,14 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
         statusLabel.text = "For Hire"
         
+        priceLabel.layer.zPosition = 1
+        self.setNeedsDisplay()
+        
         statusShade.alpha = 0.45
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         setStatusVisibility(label: false, shade: true)
         
-        priceLabel.textColor = UIColor(red: 128/255, green: 0/255, blue: 0/255, alpha: 1)
+        priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
     }
     
@@ -85,9 +88,12 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
         statusLabel.text = "Requires Party"
         
-        statusShade.alpha = 0.7
+        perkGotFromCharacterIndicator.layer.zPosition = 1
+        self.setNeedsDisplay()
+        
+        statusShade.alpha = 0.85
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
-        setStatusVisibility(label: true, shade: true)
+        setStatusVisibility(label: false, shade: true)
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
@@ -99,7 +105,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
-        priceLabel.text = "Active!"
+        priceLabel.text = "Active"
     }
     
 }
