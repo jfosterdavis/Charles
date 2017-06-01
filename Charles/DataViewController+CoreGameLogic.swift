@@ -147,7 +147,9 @@ extension DataViewController {
                 audioPlayerNode.play()
                 
                 //you are about to do Synesthesia so give player visual feedback
-                perkSynesthesiaFireBackgroundBlinker()
+                let intensity = abs(newTone)/2500.0
+                print("intensity is \(intensity)")
+                perkSynesthesiaFireBackgroundBlinker(intensity: intensity)
             } catch {
                 //there was an error, so speak it instead
                 speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])

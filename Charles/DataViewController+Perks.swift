@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /******************************************************/
 /*******************///MARK: Perks
@@ -73,17 +74,30 @@ extension DataViewController {
     /******************************************************/
 
     //quickly flashes the background from transparent to not when a button is pressed
-    func perkSynesthesiaFireBackgroundBlinker(fadeInOverSeconds: TimeInterval = 0.5) {
+    func perkSynesthesiaFireBackgroundBlinker(intensity: Float, fadeInOverSeconds: TimeInterval = 2.0) {
+        
+        //intensity should be between .1 and 1
+        var newIntensity = CGFloat(intensity)
+        if intensity > 1 {
+            newIntensity = 1
+        } else if intensity < 0.1 {
+            newIntensity = 0.1
+        }
+        
+        //now half that intensity
+        newIntensity = newIntensity / 2
+        
+        //if the alpha is already non-zero
         
         //fade in
         self.synesthesiaBackgroundBlinker.fade(.in,
-                       resultAlpha: 0.3,
-                  withDuration: 0.2,
+                       resultAlpha: newIntensity,
+                  withDuration: 0.3,
                   delay: 0
                   )
         
         
-        let milliseconds = 200
+        let milliseconds = 300
         
         //fade out
         let deadline = DispatchTime.now() + DispatchTimeInterval.milliseconds(milliseconds)
