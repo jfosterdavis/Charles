@@ -388,8 +388,8 @@ extension DataViewController {
         //fading in and out the perk store. based on user's level
         if let userLevel = getUserCurrentLevel() {
             //store will fade in over 5 levels
-            if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 5) {
-                //slowly introduce the perk store over 5 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
+            if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 2) {
+                //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
                 
                 
                 let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
