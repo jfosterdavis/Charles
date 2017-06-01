@@ -57,7 +57,7 @@ struct Perks {
                                         meta3: Bundle.main.path(forResource: "3c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
                                         minutesUnlocked: 90,
                                         icon: #imageLiteral(resourceName: "PerkSynesthesia"),
-                                        displayColor: UIColor(red: 255/255.0, green: 111/255.0, blue: 207/255.0, alpha: 1),
+                                        displayColor: UIColor(red: 255/255.0, green: 111/255.0, blue: 207/255.0, alpha: 0.75),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: [Characters.Laura]
     )

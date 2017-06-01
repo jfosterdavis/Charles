@@ -92,12 +92,12 @@ extension DataViewController {
         //fade in
         self.synesthesiaBackgroundBlinker.fade(.in,
                        resultAlpha: newIntensity,
-                  withDuration: 0.3,
+                  withDuration: 0.2,
                   delay: 0
                   )
         
         
-        let milliseconds = 300
+        let milliseconds = 200
         
         //fade out
         let deadline = DispatchTime.now() + DispatchTimeInterval.milliseconds(milliseconds)
