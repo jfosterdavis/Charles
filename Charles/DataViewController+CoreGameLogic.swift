@@ -124,17 +124,18 @@ extension DataViewController {
                 //Synesthesia produces nice sounds, so compress the tone range.
                 let rawTone = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
                 var newTone = rawTone!
-                if newTone > 150.0 {
-                    newTone = 150.0
-                } else if newTone < -150.0 {
-                    newTone = -150.0
-                }
+//                if newTone > 150.0 {
+//                    newTone = 150.0
+//                } else if newTone < -150.0 {
+//                    newTone = -150.0
+//                }
                 //now reduce the tone to make it soothing
-                newTone -= 500
+                newTone -= 1200
                 
                 changePitchEffect.pitch = newTone
                 
-                audioEngine.connect(audioPlayerNode, to: synesthesiaReverb, format: nil)
+                audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+                audioEngine.connect(changePitchEffect, to: synesthesiaReverb, format: nil)
                 audioEngine.connect(synesthesiaReverb, to: synesthesiaDistortion, format: nil)
                 audioEngine.connect(synesthesiaDistortion, to: audioEngine.outputNode, format: nil)
                 

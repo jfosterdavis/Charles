@@ -52,9 +52,9 @@ struct Perks {
                                       gameDescription: "When others hear words, you hear music.",
                                       type: .musicalVoices, //types are strings that the game will look for when determining how to behave
                                         price: 750,
-                                        meta1: Bundle.main.path(forResource: "1", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
-                                        meta2: Bundle.main.path(forResource: "2", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
-                                        meta3: Bundle.main.path(forResource: "3", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
+                                        meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
+                                        meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
+                                        meta3: Bundle.main.path(forResource: "3c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
                                         minutesUnlocked: 90,
                                         icon: #imageLiteral(resourceName: "PerkSynesthesia"),
                                         displayColor: UIColor(red: 255/255.0, green: 111/255.0, blue: 207/255.0, alpha: 1),
