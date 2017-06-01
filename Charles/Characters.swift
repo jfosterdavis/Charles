@@ -291,9 +291,9 @@ struct Characters {
                                                 ], slots: [Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
                                                            Slot(tone: 450, color: .white),
                                                            Slot(tone: 700, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: -200, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: -250, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: -300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
+                                                           Slot(tone: 200, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                           Slot(tone: 250, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                           Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "I'm Not Even Tired Zzzz",
                                                    likelihood: 20,
@@ -308,7 +308,7 @@ struct Characters {
                                                            
                                                            Slot(tone: 400, color: UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)),
                                                            Slot(tone: 250, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
-                                                           Slot(tone: -150, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
+                                                           Slot(tone: 350, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1)),
                                                            Slot(tone: -400, color: UIColor(red: 175/255, green: 250/255, blue: 100/255, alpha: 1))
                                                 ])
                                     

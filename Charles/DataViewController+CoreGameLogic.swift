@@ -221,6 +221,33 @@ extension DataViewController {
                 if let level = level {
                     if scoreResults.2 >= level.successThreshold {
                         
+                        /******************************************************/
+                        /*******************///MARK: PERK INCREASEDSCORE
+                        /******************************************************/
+                        
+                        //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
+                        let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
+                        
+                        if !applicableIncreasedScorePerks.isEmpty {
+                            var increasedScoreMultiplier = 0
+                            
+                            for perk in applicableIncreasedScorePerks {
+                                //the multiplier is in meta1
+                                increasedScoreMultiplier += perk.0.meta1 as! Int
+                            }
+                            
+                            pointsJustScored = pointsJustScored * increasedScoreMultiplier
+                            
+                            //just modified the score, so give user feedback
+                            perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
+                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK INCREASEDSCORE
+                        /******************************************************/
+                        
+                        
                         //check to see if an xp-related perk is active. ask the perk store
                         /******************************************************/
                         /*******************///MARK: Perk Implimentation: increasedXP
@@ -270,6 +297,11 @@ extension DataViewController {
                             
                         }
                         
+                        /******************************************************/
+                        /*******************///MARK: END  PERK INCREASEDXP
+                        /******************************************************/
+
+                        
                         //if they got a perfect score, double the points earned
                         if scoreResults.2 == 1 {
                             pointsJustScored = pointsJustScored * 2
@@ -302,6 +334,32 @@ extension DataViewController {
                         }
                     } else {
                         //no XP given here, but points still given
+                        
+                        /******************************************************/
+                        /*******************///MARK: PERK INCREASEDSCORE
+                        /******************************************************/
+                        
+                        //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
+                        let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
+                        
+                        if !applicableIncreasedScorePerks.isEmpty {
+                            var increasedScoreMultiplier = 0
+                            
+                            for perk in applicableIncreasedScorePerks {
+                                //the multiplier is in meta1
+                                increasedScoreMultiplier += perk.0.meta1 as! Int
+                            }
+                            
+                            pointsJustScored = pointsJustScored * increasedScoreMultiplier
+                            
+                            //just modified the score, so give user feedback
+                            perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
+                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK INCREASEDSCORE
+                        /******************************************************/
                         
                         //award points
                         setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
@@ -618,13 +676,13 @@ extension DataViewController {
     /******************************************************/
 
     //simple and quick way to fade someting in then back out after a given time in secods
-    func fadeViewInThenOut(view: UIView, fadeInAfterSeconds: TimeInterval) {
+    func fadeViewInThenOut(view: UIView, fadeOutAfterSeconds: TimeInterval) {
         
         //fade in
         view.fade(.in)
         
-        let seconds = Int(fadeInAfterSeconds)
-        let milliseconds = Int((fadeInAfterSeconds - Double(seconds)) * 1000)
+        let seconds = Int(fadeOutAfterSeconds)
+        let milliseconds = Int((fadeOutAfterSeconds - Double(seconds)) * 1000)
         
         //fade out
         let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(seconds) + DispatchTimeInterval.milliseconds(milliseconds)

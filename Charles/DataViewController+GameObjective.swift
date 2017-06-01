@@ -27,11 +27,11 @@ extension DataViewController {
         }
         
         //allow user to access the stores for a few seconds
-        fadeViewInThenOut(view: self.storeButton, fadeInAfterSeconds: 6.3)
+        fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 6.3)
         
         //only control the perk store if the player level is above minimum + 2
         if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 2) {
-            fadeViewInThenOut(view: self.perkStoreButton, fadeInAfterSeconds: 6.3)
+            fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 6.3)
         }
         
         //fade out the objective

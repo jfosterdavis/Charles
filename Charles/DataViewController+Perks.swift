@@ -85,12 +85,12 @@ extension DataViewController {
         }
         
         //now half that intensity
-        newIntensity = newIntensity / 2
-        
+        //newIntensity = newIntensity / 2
+        //newIntensity = 1
         //if the alpha is already non-zero
         
         //fade in
-        self.synesthesiaBackgroundBlinker.fade(.in,
+        self.synesthesiaBackgroundBlinker.fade(.inOrOut,
                        resultAlpha: newIntensity,
                   withDuration: 0.2,
                   delay: 0
