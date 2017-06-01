@@ -141,10 +141,13 @@ extension DataViewController {
                 
                 audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil)
                 
+                
+                
                 try audioEngine.start()
                 audioPlayerNode.play()
                 
-                //audioPlayer.play()
+                //you are about to do Synesthesia so give player visual feedback
+                perkSynesthesiaFireBackgroundBlinker()
             } catch {
                 //there was an error, so speak it instead
                 speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])

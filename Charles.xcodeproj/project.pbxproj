@@ -17,7 +17,6 @@
 		F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60327BB1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift */; };
 		F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87D1EBFC6E600651FAD /* AppDelegate.swift */; };
 		F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C87F1EBFC6E600651FAD /* RootViewController.swift */; };
-		F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
 		F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8831EBFC6E600651FAD /* ModelController.swift */; };
 		F607C8871EBFC6E600651FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F607C8851EBFC6E600651FAD /* Main.storyboard */; };
 		F607C8891EBFC6E600651FAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F607C8881EBFC6E600651FAD /* Assets.xcassets */; };
@@ -49,6 +48,7 @@
 		F619A2641EDD0BE300493E0E /* UnlockedPerk+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2621EDD0BE300493E0E /* UnlockedPerk+CoreDataClass.swift */; };
 		F619A2651EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2631EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift */; };
 		F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */; };
+		F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
 		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */; };
 		F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */; };
@@ -466,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */,
+				F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */,
 				F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */,
 				F61553611EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift in Sources */,
 				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
@@ -491,7 +492,6 @@
 				F61553681EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift in Sources */,
 				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F614075E1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift in Sources */,
-				F607C8821EBFC6E600651FAD /* DataViewController.swift in Sources */,
 				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
 				F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */,
 				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,

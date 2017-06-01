@@ -45,6 +45,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //color objective and feedback
     @IBOutlet weak var objectiveFeedbackView: ColorMatchFeedbackView!
     var objectiveColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+    //Synesthesia background blinker
+    @IBOutlet weak var synesthesiaBackgroundBlinker: UIView!
     
     
     @IBOutlet weak var buttonStackViewMaskView: UIView!

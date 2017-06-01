@@ -68,4 +68,31 @@ extension DataViewController {
         return [(Perk, UnlockedPerk?)]()
     }
     
+    /******************************************************/
+    /*******************///MARK: Synesthesia
+    /******************************************************/
+
+    //quickly flashes the background from transparent to not when a button is pressed
+    func perkSynesthesiaFireBackgroundBlinker(fadeInOverSeconds: TimeInterval = 0.5) {
+        
+        //fade in
+        self.synesthesiaBackgroundBlinker.fade(.in,
+                       resultAlpha: 0.3,
+                  withDuration: 0.2,
+                  delay: 0
+                  )
+        
+        
+        let milliseconds = 200
+        
+        //fade out
+        let deadline = DispatchTime.now() + DispatchTimeInterval.milliseconds(milliseconds)
+        DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+            self.synesthesiaBackgroundBlinker.fade(.out,
+                           withDuration: fadeInOverSeconds,
+                           delay: 0
+                           )
+        })
+    }
+    
 }
