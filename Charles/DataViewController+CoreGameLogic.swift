@@ -231,6 +231,7 @@ extension DataViewController {
                 
                 
                 //in the checks in the next if statement, the modifier will be added.  The modifier should be negative, which will reduce the score the player needs to achieve to pass
+                //there should also be checks to give user feedback if they just got by the skin of their teeth
                 /******************************************************/
                 /*******************///MARK: END PERK PRECISIONADJUSTMENT
                 /******************************************************/
@@ -240,6 +241,20 @@ extension DataViewController {
                 //compare to match performance
                 if let level = level {
                     if scoreResults.2 >= (level.successThreshold + successThresholdPerkPrecisionAdjustmentModifier) {
+                        
+                        /******************************************************/
+                        /*******************///MARK: PERK PRECISIONADJUSTMENT
+                        /******************************************************/
+                        //let the user know if they got by because of precision adjustment
+                        if scoreResults.2 < (level.successThreshold) {  //user would have failed
+                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                            
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                        /******************************************************/
+                        
                         
                         /******************************************************/
                         /*******************///MARK: PERK INCREASEDSCORE
@@ -335,6 +350,8 @@ extension DataViewController {
                         }
                         
                     } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
+                        
+                        
                         giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                         
                         //penalty points!
@@ -353,6 +370,19 @@ extension DataViewController {
                             presentJustScoredMessageFeedback(message: scoreMessage, isGoodMessage: false)
                         }
                     } else {
+                        
+                        /******************************************************/
+                        /*******************///MARK: PERK PRECISIONADJUSTMENT
+                        /******************************************************/
+                        //let the user know if they got by because of precision adjustment
+                        if scoreResults.2 <= (level.punishThreshold) {  //user would have failed
+                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                        /******************************************************/
+                        
                         //no XP given here, but points still given
                         
                         /******************************************************/

@@ -44,6 +44,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //perk increasedScore
     @IBOutlet weak var perkIncreasedScoreUserFeedback: UILabel!
     
+    //perk precisionadjustment
+    @IBOutlet weak var perkPrecisionAdjustmentUserFeedback: UIView!
+    
+    
     
     
     //color objective and feedback
@@ -160,6 +164,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkStoreButton.alpha = 0
         perkStoreButton.isEnabled = false
         perkIncreasedScoreUserFeedback.alpha = 0
+        perkPrecisionAdjustmentUserFeedback.alpha = 0
+        
         
         //setup the color feedback view to recieve touches
         registerTouchRecognizerColorFeedback()
@@ -221,6 +227,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         self.roundButtonCorners(topRadius: self.dataObject.topRadius, bottomRadius: self.dataObject.bottomRadius)
         
         roundStackViewMask()
+        
+        perkPrecisionAdjustmentUserFeedback.roundCorners(with: 10)
         
     }
     
