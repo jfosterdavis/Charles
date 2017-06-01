@@ -16,8 +16,8 @@ import UIKit
 
 struct Perks {
     
-    static let ValidPerks:[Perk] = [Moneymaker, Insight, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
-    static let UnlockablePerks:[Perk] = [Moneymaker, Insight, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
+    static let ValidPerks:[Perk] = [Moneymaker, Insight, Closeenough, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
+    static let UnlockablePerks:[Perk] = [Moneymaker, Insight, Closeenough, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
     
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "You see things others might not.",
@@ -116,6 +116,20 @@ struct Perks {
                                             displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
                                             levelEligibleAt: 5,
                                             requiredPartyMembers: [Characters.Charles]
+    )
+    
+    static let Closeenough = Perk(     name: "Close Enough",
+                                        gameDescription: "You are able to squeak by where others would fail.",
+                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
+                                        price: 5000,
+                                        meta1: -0.05,
+                                        meta2: nil,
+                                        meta3: nil,
+                                        minutesUnlocked: 30,
+                                        icon: #imageLiteral(resourceName: "PerkPrecisionadjustment"),
+                                        displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
+                                        levelEligibleAt: 5,
+                                        requiredPartyMembers: []
     )
     
     

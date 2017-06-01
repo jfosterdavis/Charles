@@ -216,10 +216,30 @@ extension DataViewController {
                 let scoreResults = calculateColorMatchPointsEarned()
                 pointsJustScored = calculateBaseScore(phrase: currentPhrase) + scoreResults.0
                 
+                /******************************************************/
+                /*******************///MARK: PERK PRECISIONADJUSTMENT
+                /******************************************************/
+                //to adjust the precision, we give the player the benefit of a score that might not otherwise pass the threshold
+                let applicablePrecisionAdjustmentPerks = getAllPerks(ofType: .precisionAdjustment, withStatus: .unlocked)
+                var successThresholdPerkPrecisionAdjustmentModifier: Float = 0.0
+                if !applicablePrecisionAdjustmentPerks.isEmpty {
+                    //perks are unlocked.  Add together the meta1s
+                    for perk in applicablePrecisionAdjustmentPerks {
+                        successThresholdPerkPrecisionAdjustmentModifier += Float(perk.0.meta1 as! Double)
+                    }
+                }
+                
+                
+                //in the checks in the next if statement, the modifier will be added.  The modifier should be negative, which will reduce the score the player needs to achieve to pass
+                /******************************************************/
+                /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                /******************************************************/
+
+                
                 let level = getUserCurrentLevel()
                 //compare to match performance
                 if let level = level {
-                    if scoreResults.2 >= level.successThreshold {
+                    if scoreResults.2 >= (level.successThreshold + successThresholdPerkPrecisionAdjustmentModifier) {
                         
                         /******************************************************/
                         /*******************///MARK: PERK INCREASEDSCORE
@@ -314,7 +334,7 @@ extension DataViewController {
                             presentJustScoredMessageFeedback(message: scoreMessage)
                         }
                         
-                    } else if scoreResults.2 <= level.punishThreshold {  //if the score was so low that use must lose XP
+                    } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
                         giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                         
                         //penalty points!
