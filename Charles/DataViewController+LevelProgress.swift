@@ -63,9 +63,9 @@ extension DataViewController {
                 }
                 
                 //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
-                var shouldAnimate = true
+                var shouldAnimate = false
                 if let currentLevel = currentLevelAndProgress.0 {
-                    shouldAnimate = !didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
+                    shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
                 }
                 
                 //if an increased XP perk is active, change the color of the progressview
