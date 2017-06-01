@@ -56,6 +56,8 @@ extension DataViewController {
         
         let subphraseToSound = currentPhrase.subphrases![currentSubphraseIndex]
         
+        
+        
         ///******************************************************/
         /*******************///MARK: Perk Implimentation: musicalVoices Synesthesia
         /******************************************************/
@@ -105,11 +107,18 @@ extension DataViewController {
             
             let url1 = URL(fileURLWithPath: perk.meta1 as! String)
             let url2 = URL(fileURLWithPath: perk.meta2 as! String)
-            let url3 = URL(fileURLWithPath: perk.meta3 as! String)
+            let urlFinal = URL(fileURLWithPath: perk.meta3 as! String)
             
-            let urls = [url1, url2, url3]
+            let urls = [url1, url2]
             //select a random URL to play
-            let selectedUrl = urls[Utilities.random(range: 0...(urls.count - 1))]
+            let selectedUrl: URL
+                //if this is the last subphrase in the series, play the final
+            if (currentSubphraseIndex + 1) >= currentPhrase.subphrases!.count {
+                selectedUrl = urlFinal
+            } else {
+               selectedUrl = urls[Utilities.random(range: 0...(urls.count - 1))]
+            }
+            
             
             
             do {
@@ -133,6 +142,10 @@ extension DataViewController {
                 newTone -= 1200
                 
                 changePitchEffect.pitch = newTone
+                //don't change the pitch of this is the final tone
+                if selectedUrl == urlFinal {
+                    changePitchEffect.pitch = -100
+                }
                 
                 audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
                 audioEngine.connect(changePitchEffect, to: synesthesiaReverb, format: nil)

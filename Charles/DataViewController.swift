@@ -121,7 +121,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         audioPlayerNodeSynesthesia = AVAudioPlayerNode()
         synesthesiaReverb = AVAudioUnitReverb()
         synesthesiaReverb.loadFactoryPreset(AVAudioUnitReverbPreset.plate)
-        synesthesiaReverb.wetDryMix = 20
+        synesthesiaReverb.wetDryMix = 5
         audioEngine.attach(synesthesiaReverb)
 
         synesthesiaDistortion = AVAudioUnitDistortion()
