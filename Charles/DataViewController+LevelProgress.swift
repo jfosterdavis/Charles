@@ -49,12 +49,12 @@ extension DataViewController {
                 var thisLevelColor: UIColor
                 var nextLevelColor: UIColor
                 
-                //there are 10 sections of the progress bar and the width of each label is 1/10 of the progress bar
+                //there are 11 sections of the progress bar and the width of each label is 1/11 of the progress bar. 1/11 = 0.0909090909
                 switch progress {
-                case let x where x < 0.1:
+                case let x where x < 0.091:
                     thisLevelColor = UIColor.darkGray
                     nextLevelColor = UIColor.darkGray
-                case let x where x >= 0.9:
+                case let x where x >= 0.91:
                     thisLevelColor = progressViewLightTextColor.textColor
                     nextLevelColor = progressViewLightTextColor.textColor
                 default:

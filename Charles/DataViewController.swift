@@ -318,7 +318,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //perkStoreVC.lockAllExpiredPerks()
             
             //open the perk store
-            //perkStoreButtonPressed(self)
+            perkStoreButtonPressed(self)
             
             //invoke the function to mimic functionality as though the store had just closed
             //self.storeClosed()

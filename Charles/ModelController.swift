@@ -93,7 +93,16 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         //currentVC.refreshPageControl()
         
         //set the current page
-        self.rootVC.pageViewController!.setViewControllers([self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!)!], direction: .forward, animated: false, completion: {done in })
+        guard self.rootVC.pageViewController != nil else {
+            fatalError("the pageviewcontroller is missing!")
+        }
+        guard self.rootVC.storyboard != nil else {
+            fatalError("the self.rootVC.storyboard is missing!")
+        }
+        guard let vc = self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!) else {
+            fatalError("the viewControllerAtIndex result is missing!")
+        }
+        self.rootVC.pageViewController!.setViewControllers([vc], direction: .forward, animated: false, completion: {done in })
         
     }
     
