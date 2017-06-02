@@ -89,8 +89,8 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         //update the pagecontroller dots.
         //I realize this is not the right way to manipulate the page control
         //TODO: Impliment proper ways to manipulate the page control
-        currentVC.numPages = self.pageData.count
-        currentVC.refreshPageControl()
+        //currentVC.numPages = self.pageData.count
+        //currentVC.refreshPageControl()
         
         //set the current page
         self.rootVC.pageViewController!.setViewControllers([self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!)!], direction: .forward, animated: false, completion: {done in })

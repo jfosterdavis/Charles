@@ -250,9 +250,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
     func refreshPageControl(){
         //set the page control
+        
         self.pageControl.numberOfPages = numPages
         self.pageControl.currentPage = currentPage
         self.pageControl.updateCurrentPageDisplay()
+        
     }
     
     func setPageControl(visible: Bool) {
