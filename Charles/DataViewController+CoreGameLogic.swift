@@ -76,7 +76,10 @@ extension DataViewController {
                     try audioPlayer = AVAudioPlayer(contentsOf: url)
                     audioPlayer.enableRate = true
                     
-                    resetAudioEngineAndPlayer()
+                    //if this is the first phrase in the series then reset the audio player
+                    if currentSubphraseIndex == 0 {
+                        resetAudioEngineAndPlayer()
+                    }
                     
                     //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                     let audioFile = try AVAudioFile(forReading: url)
@@ -125,7 +128,10 @@ extension DataViewController {
                 try audioPlayer = AVAudioPlayer(contentsOf: selectedUrl)
                 audioPlayer.enableRate = true
                 
-                resetAudioEngineAndPlayer()
+                //if this is the first phrase in the series then reset the audio player
+                if currentSubphraseIndex == 0 {
+                    resetAudioEngineAndPlayer()
+                }
                 
                 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                 let audioFile = try AVAudioFile(forReading: selectedUrl)

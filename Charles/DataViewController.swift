@@ -95,7 +95,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //constants
     let minimumScoreToUnlockObjective = 1000
     let minimumScoreToUnlockStore = 500
-    let minimumLevelToUnlockPerkStore = 10
+    let minimumLevelToUnlockPerkStore = 8
     
     
     //Store

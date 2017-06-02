@@ -84,9 +84,9 @@ struct Characters {
                                                              Subphrase(words: "Head", audioFilePath: Bundle.main.path(forResource: "Head", ofType: "m4a", inDirectory: "Audio/Dan"))
                                 ],
                                                 slots: [Slot(tone: -300, color: .black),
-                                                        Slot(tone: 200, color: .white),
-                                                        Slot(tone: 200, color: .white),
-                                                        Slot(tone: 200, color: .white),
+                                                        Slot(tone: 300, color: .white),
+                                                        Slot(tone: 300, color: .white),
+                                                        Slot(tone: 300, color: .white),
                                                         Slot(tone: 600, color: .blue),
                                                         Slot(tone: 600, color: .blue),
                                                         Slot(tone: 600, color: .blue),
