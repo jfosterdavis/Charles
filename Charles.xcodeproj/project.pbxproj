@@ -264,9 +264,9 @@
 				F6FD50731ED4FDF70087F461 /* Protocols.swift */,
 				F60327BA1EC54C0D00493DC3 /* Core Data Parents */,
 				F607C87F1EBFC6E600651FAD /* RootViewController.swift */,
+				F607C8831EBFC6E600651FAD /* ModelController.swift */,
 				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
 				F61553621EDCBE29004BBCB6 /* DVC Extensions */,
-				F607C8831EBFC6E600651FAD /* ModelController.swift */,
 				F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */,
 				F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */,
 			);

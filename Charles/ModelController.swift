@@ -92,6 +92,9 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         currentVC.numPages = self.pageData.count
         currentVC.refreshPageControl()
         
+        //set the current page
+        self.rootVC.pageViewController!.setViewControllers([self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!)!], direction: .forward, animated: false, completion: {done in })
+        
     }
     
     /******************************************************/
