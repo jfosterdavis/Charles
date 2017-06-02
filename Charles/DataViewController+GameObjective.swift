@@ -45,6 +45,9 @@ extension DataViewController {
                                         self.loadAndFadeInFeedbackObjective(using: color)
                                     }
         })
+        perkStickViewDeviation.fade(.out,
+                                    withDuration: 0.5,
+                                    delay: 0.6)
         
     }
     
@@ -55,12 +58,38 @@ extension DataViewController {
         
         self.objectiveFeedbackView.objectiveRingColor = color
         self.objectiveFeedbackView.setNeedsDisplay()
-        
         let objectiveBackDelay = 2.3
+        
+        /******************************************************/
+        /*******************///MARK: PERK VISUALIZECOLORVALUES
+        /******************************************************/
+
+        //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
+        let applicableVisualizeColroValuesPerks = getAllPerks(ofType: .visualizeColorValues, withStatus: .unlocked)
+        if !applicableVisualizeColroValuesPerks.isEmpty {
+            //calculate the percent of red, green, blue in the objective ring color
+            var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
+            objectiveFeedbackView.calculateColorDeviation(color1: color, color2: objectiveFeedbackView.progressRingColor).getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
+            perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+            perkStickViewDeviation.fade(.in,
+                                        withDuration: 0.5,
+                                        delay: objectiveBackDelay)
+        }
+        
+        /******************************************************/
+        /*******************///MARK: END PERK VISUALIZECOLORVALUES
+        /******************************************************/
+
+        
         
         self.objectiveFeedbackView.fade(.in,
                                         withDuration: 0.5,
                                         delay: objectiveBackDelay)
+        
+       
+        
+        
+        
     
     }
     

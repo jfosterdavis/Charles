@@ -39,6 +39,9 @@ class ColorMatchFeedbackView:UIView
     
     @IBInspectable var isSelected: Bool = true
     var rotateAnimation: CABasicAnimation?
+    //var stickViewGoal: InsightColorStickView!
+    //var stickViewDeviation: InsightColorStickView!
+    //var stickViewProgress: InsightColorStickView!
     
     override func draw(_ rect: CGRect)
     {
@@ -46,6 +49,8 @@ class ColorMatchFeedbackView:UIView
         //if progressRingColor == UIColor.clear {
         //    mainColor = UIColor.clear
         //} else {
+        
+        //stickViewDeviation.
         
         mainColor = calculateColorDeviation(color1: objectiveRingColor, color2: progressRingColor)
         mainColor = mainColor.withAlphaComponent(1.0)

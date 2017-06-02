@@ -97,6 +97,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     let minimumScoreToUnlockStore = 500
     let minimumLevelToUnlockPerkStore = 8
     
+    //color stick view for Insight
+    @IBOutlet weak var perkStickViewDeviation: InsightColorStickView!
+    
+    
     
     //Store
     @IBOutlet weak var storeButton: UIButton!
@@ -165,6 +169,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkStoreButton.isEnabled = false
         perkIncreasedScoreUserFeedback.alpha = 0
         perkPrecisionAdjustmentUserFeedback.alpha = 0
+        perkStickViewDeviation.alpha = 0
         
         
         //setup the color feedback view to recieve touches

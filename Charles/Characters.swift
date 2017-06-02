@@ -118,6 +118,7 @@ struct Characters {
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A (pawn)", ofType: "m4a", inDirectory: "Audio/Dan")),
                                                                  Subphrase(words: "pawn", audioFilePath: Bundle.main.path(forResource: "Pawn", ofType: "m4a", inDirectory: "Audio/Dan"))
                                                 ], slots: [Slot(tone: 600, color: .black),
+                                                           Slot(tone: 600, color: .black),
                                                             Slot(tone: 550, color: .red),
                                                            Slot(tone: 550, color: .yellow),
                                                            Slot(tone: 550, color: .green),
@@ -125,7 +126,6 @@ struct Characters {
                                                            Slot(tone: 300, color: .blue),
                                                            Slot(tone: 300, color: .magenta),
                                                            Slot(tone: -250, color: .red),
-                                                           Slot(tone: -250, color: .white),
                                                            Slot(tone: -250, color: .white)
                                                 ])
                                     
