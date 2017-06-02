@@ -85,7 +85,7 @@ struct Perks {
                                         meta3: nil,
                                         minutesUnlocked: 15,
                                         icon: #imageLiteral(resourceName: "coin"),
-                                        displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
+                                        displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: []
     )
@@ -99,7 +99,7 @@ struct Perks {
                                         meta3: nil,
                                         minutesUnlocked: 30,
                                         icon: #imageLiteral(resourceName: "coin"),
-                                        displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
+                                        displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: [Characters.Charles]
     )
@@ -113,7 +113,7 @@ struct Perks {
                                             meta3: nil,
                                             minutesUnlocked: 30,
                                             icon: #imageLiteral(resourceName: "coin"),
-                                            displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
+                                            displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 5,
                                             requiredPartyMembers: [Characters.Fred]
     )
