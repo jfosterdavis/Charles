@@ -219,10 +219,11 @@ struct Characters {
                                                          Slot(tone: -250, color: .white),
                                                          Slot(tone: -350, color: .white)
                                             ]),
-                                          Phrase(name: "You Know You're Not As Dumb As You Look",
+                                          Phrase(name: "You're Not As Dumb As You Look",
                                                  likelihood: 95,
-                                                 subphrases: [Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You", ofType: "m4a", inDirectory: "Audio/Benton")),
-                                                              Subphrase(words: "Know", audioFilePath: Bundle.main.path(forResource: "Know", ofType: "m4a", inDirectory: "Audio/Benton")),
+                                                 subphrases: [
+//                                                    Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You", ofType: "m4a", inDirectory: "Audio/Benton")),
+//                                                              Subphrase(words: "Know", audioFilePath: Bundle.main.path(forResource: "Know", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "Not", audioFilePath: Bundle.main.path(forResource: "Not", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "As", audioFilePath: Bundle.main.path(forResource: "As", ofType: "m4a", inDirectory: "Audio/Benton")),
@@ -232,9 +233,9 @@ struct Characters {
                                                               Subphrase(words: "Look", audioFilePath: Bundle.main.path(forResource: "Look", ofType: "m4a", inDirectory: "Audio/Benton"))
                                             ], slots: [Slot(tone: -350, color: .white),
                                                        Slot(tone: -200, color: .orange),
-                                                       Slot(tone: -150, color: .orange),
-                                                       Slot(tone: -150, color: .white),
-                                                       Slot(tone: -250, color: .white)
+                                                       Slot(tone: -250, color: .orange),
+                                                       Slot(tone: -275, color: .white),
+                                                       Slot(tone: -225, color: .white)
                                                 
                                             ]),
                                           Phrase(name: "Laugh", //this is funny because it awards no base points.  Cuts you deep!
