@@ -70,7 +70,28 @@ extension DataViewController {
             //calculate the percent of red, green, blue in the objective ring color
             var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
             objectiveFeedbackView.calculateColorDeviation(color1: color, color2: objectiveFeedbackView.progressRingColor).getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
-            perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+            
+            //check the level of the perk
+            var highestPerkValue = 1
+            for perk in applicableVisualizeColroValuesPerks {
+                let perkValue = perk.0.meta1 as! Int
+                if  perkValue > highestPerkValue {
+                    highestPerkValue = perkValue
+                }
+            }
+            
+            switch highestPerkValue {
+            case 1:
+                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+            case 2:
+                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+            default:
+                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+            }
+            
+            
+            
+            
             perkStickViewDeviation.fade(.in,
                                         withDuration: 0.5,
                                         delay: objectiveBackDelay + 1)

@@ -28,13 +28,14 @@ class InsightColorStickView:UIView
         didSet {}
     }
     
+    var showColors: Bool = false
     
     override func draw(_ rect: CGRect)
     {
-        drawSticks(redPercent: redPercent, greenPercent: greenPercent, bluePercent: bluePercent, stickWidth: stickWidth)
+        drawSticks(redPercent: redPercent, greenPercent: greenPercent, bluePercent: bluePercent, stickWidth: stickWidth, showColors: showColors)
     }
     
-    fileprivate func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat, stickWidth: CGFloat = 8) {
+    fileprivate func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat, stickWidth: CGFloat = 8, showColors: Bool = true) {
         
         var redLength: CGFloat = redPercent
         if redLength > 1 {
@@ -65,9 +66,9 @@ class InsightColorStickView:UIView
         
         
         //the paths
-        var redPath = UIBezierPath()
-        var greenPath = UIBezierPath()
-        var bluePath = UIBezierPath()
+        let redPath = UIBezierPath()
+        let greenPath = UIBezierPath()
+        let bluePath = UIBezierPath()
         
         //line width
         redLength = stickHeight * redLength
@@ -78,12 +79,32 @@ class InsightColorStickView:UIView
         redPath.addLine(to: CGPoint(
             x:viewCenterX,
             y:viewCenterY - redLength - circleCompensator))
-        if redLength == 0 {
-            UIColor.black.setStroke()
-        } else {
-            UIColor.red.setStroke()
+        
+        
+        
+        //draw red stroke background
+        let redPathBackground = UIBezierPath()
+        redPathBackground.lineWidth = redPath.lineWidth + 2
+        let redPathBackgroundLength = redLength
+        redPathBackground.move(to: CGPoint(
+            x:viewCenterX ,
+            y:viewCenterY))
+        redPathBackground.addLine(to: CGPoint(
+            x:viewCenterX ,
+            y:viewCenterY - redPathBackgroundLength - circleCompensator))
+        UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1).setStroke() //darker gray color
+        redPathBackground.stroke()
+        
+        if showColors {
+            if redLength == 0 {
+                UIColor.black.setStroke()
+            } else {
+                UIColor.red.setStroke()
+            }
+           //lay the red stroke
+            redPath.stroke()
         }
-        redPath.stroke()
+        
         
         
         let greenCircleCompensationX = circleCompensator * CGFloat(sin(60 * Double.pi/180))
@@ -97,12 +118,31 @@ class InsightColorStickView:UIView
         greenPath.addLine(to: CGPoint(
             x:viewCenterX + greenXAddition + greenCircleCompensationX,
             y:viewCenterY + greenYAddition + greenCircleCompensationY))
-        if greenLength == 0 {
-            UIColor.black.setStroke()
-        } else {
-            UIColor.green.setStroke()
+        
+        
+        //green background
+        let greenPathBackground = UIBezierPath()
+        greenPathBackground.lineWidth = greenPath.lineWidth + 3
+        let greenPathBackgroundXAddition = greenXAddition + 2
+        let greenPathBackgroundYAddition = greenYAddition + 2
+        greenPathBackground.move(to: CGPoint(
+            x:viewCenterX,
+            y:viewCenterY))
+        greenPathBackground.addLine(to: CGPoint(
+            x:viewCenterX + greenPathBackgroundXAddition + greenCircleCompensationX,
+            y:viewCenterY + greenPathBackgroundYAddition + greenCircleCompensationY))
+        UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1).setStroke() //darker gray color
+        greenPathBackground.stroke()
+        
+        if showColors {
+            if greenLength == 0 {
+                UIColor.black.setStroke()
+            } else {
+                UIColor.green.setStroke()
+            }
+            greenPath.stroke()
+
         }
-        greenPath.stroke()
         
         
         let blueXAddition = stickHeight * blueLength * CGFloat(sin(60 * Double.pi/180)) * -1
@@ -114,12 +154,31 @@ class InsightColorStickView:UIView
         bluePath.addLine(to: CGPoint(
             x:viewCenterX + blueXAddition - greenCircleCompensationX,
             y:viewCenterY + blueYAddition + greenCircleCompensationY))
-        if blueLength == 0 {
-            UIColor.black.setStroke()
-        } else {
-            UIColor.blue.setStroke()
+        
+        
+        //blue background
+        let bluePathBackground = UIBezierPath()
+        bluePathBackground.lineWidth = bluePath.lineWidth + 2
+        let bluePathBackgroundXAddition = blueXAddition
+        let bluePathBackgroundYAddition = blueYAddition
+        bluePathBackground.move(to: CGPoint(
+            x:viewCenterX,
+            y:viewCenterY + 1))
+        bluePathBackground.addLine(to: CGPoint(
+            x:viewCenterX + bluePathBackgroundXAddition - greenCircleCompensationX,
+            y:viewCenterY + bluePathBackgroundYAddition + greenCircleCompensationY + 1))
+        UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1).setStroke() //darker gray color
+        bluePathBackground.stroke()
+        
+        if showColors {
+            if blueLength == 0 {
+                UIColor.black.setStroke()
+            } else {
+                UIColor.blue.setStroke()
+            }
+            bluePath.stroke()
         }
-        bluePath.stroke()
+        
         
         
         //circle center
@@ -140,10 +199,11 @@ class InsightColorStickView:UIView
     
     
     ///draws the InsightColorStickView with the given percentages, each a CGFloat from 0 to 1
-    func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat) {
+    func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat, showColors: Bool = true) {
         self.redPercent = redPercent
         self.greenPercent = greenPercent
         self.bluePercent = bluePercent
+        self.showColors = showColors
         self.setNeedsDisplay()
     }
    

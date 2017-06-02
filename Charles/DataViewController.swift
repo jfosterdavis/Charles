@@ -310,7 +310,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         if !expiredPerks.isEmpty {
             //there are expired perks.  lock them and reload the modelController
-            perkStoreVC.lockAllExpiredPerks()
+            //perkStoreVC.lockAllExpiredPerks()
             
             //open the perk store
             //perkStoreButtonPressed(self)
@@ -339,6 +339,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //pass the score
         storeViewController.score = getCurrentScore()
+        
+        //if this was called without the button, slide it in from bottom
+        if sender as? DataViewController == self {
+            storeViewController.modalTransitionStyle = .coverVertical
+        }
     
         present(storeViewController, animated: true, completion: nil)
     
@@ -358,6 +363,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //pass the score
         perkStoreViewController.score = getCurrentScore()
+        
+        //if this was called without the button, slide it in from bottom
+        if sender as? DataViewController == self {
+            perkStoreViewController.modalTransitionStyle = .coverVertical
+        }
         
         present(perkStoreViewController, animated: true, completion: nil)
     }

@@ -226,8 +226,11 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-q0-6eO" customClass="InsightColorStickView" customModule="Charles" customModuleProvider="target">
-                                <rect key="frame" x="150" y="321.5" width="76" height="76.5"/>
+                                <rect key="frame" x="149" y="320.5" width="78" height="78"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="height" multiplier="1:1" id="7dC-Hz-jQ0"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="redPercent">
                                         <real key="value" value="0.0"/>
@@ -293,12 +296,12 @@
                             <constraint firstItem="lO8-fJ-aIM" firstAttribute="centerX" secondItem="ZwX-cT-FIQ" secondAttribute="centerX" id="nWV-uo-bXe"/>
                             <constraint firstItem="rwY-dv-xmQ" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" constant="-0.5" id="neH-ae-HSo"/>
                             <constraint firstItem="nRk-TB-6n2" firstAttribute="height" secondItem="4Ma-Wn-fWR" secondAttribute="height" id="om8-SM-B12"/>
-                            <constraint firstItem="u5L-q0-6eO" firstAttribute="height" secondItem="pGH-Bq-aMo" secondAttribute="height" multiplier="1:2.25" id="pnx-mD-get"/>
+                            <constraint firstItem="u5L-q0-6eO" firstAttribute="height" secondItem="pGH-Bq-aMo" secondAttribute="height" multiplier="1:2.21" id="pnx-mD-get"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="centerX" secondItem="rwY-dv-xmQ" secondAttribute="centerX" id="pw2-VR-ggQ"/>
                             <constraint firstItem="e4J-0b-BVK" firstAttribute="centerY" secondItem="cF2-Le-7mQ" secondAttribute="centerY" id="qgy-T0-3aM"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="top" secondItem="lO8-fJ-aIM" secondAttribute="bottom" constant="-6" id="sBt-0x-e1I"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="leading" secondItem="Shc-Pd-fue" secondAttribute="trailing" constant="10" id="sV3-OV-uLu"/>
-                            <constraint firstItem="u5L-q0-6eO" firstAttribute="width" secondItem="pGH-Bq-aMo" secondAttribute="width" multiplier="1:2.25" id="t1m-eo-MDb"/>
+                            <constraint firstItem="u5L-q0-6eO" firstAttribute="width" secondItem="pGH-Bq-aMo" secondAttribute="width" multiplier="1:2.21" id="t1m-eo-MDb"/>
                             <constraint firstItem="hfs-G9-RyR" firstAttribute="leading" secondItem="lO8-fJ-aIM" secondAttribute="leading" constant="3" id="tCh-rP-sZj"/>
                             <constraint firstItem="u5L-q0-6eO" firstAttribute="centerY" secondItem="pGH-Bq-aMo" secondAttribute="centerY" constant="-8.5" id="tIH-4A-1wA"/>
                             <constraint firstItem="nRk-TB-6n2" firstAttribute="width" secondItem="4Ma-Wn-fWR" secondAttribute="width" id="tda-XO-rI7"/>

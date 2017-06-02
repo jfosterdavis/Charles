@@ -78,8 +78,8 @@ extension CoreDataCollectionViewController {
             case .delete:
                 //from apple documentation
                 //self.collectionView.deleteItems(at: [indexPath!])
-                stack.save()
-                //print("case delete")
+                //stack.save()
+                print("case delete")
             case .update:
                 //from apple documentation
                 stack.save()
@@ -106,8 +106,8 @@ extension CoreDataCollectionViewController {
             case .delete:
                 //from apple documentation
                 //self.collectionView.deleteItems(at: [indexPath!])
-                stack.save()
-            //print("case delete")
+                //stack.save()
+                print("case delete")
             case .update:
                 //from apple documentation
                 stack.save()

@@ -48,7 +48,7 @@ extension DataViewController {
         
         if !expiredCharacters.isEmpty {
             //there are expired characters.  lock them and reload the modelController
-            storeVC.lockAllExpiredCharacters()
+            //storeVC.lockAllExpiredCharacters()
             
             
             //open the store
