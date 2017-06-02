@@ -185,6 +185,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //mask the stackview
         roundStackViewMask()
+        
+        //housekeeping
+        checkXPAndConsolidateIfNeccessary(consolidateAt: 100)
     }
 
     override func didReceiveMemoryWarning() {

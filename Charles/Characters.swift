@@ -346,12 +346,13 @@ struct Characters {
                                                                 Subphrase(words: "Dead", audioFilePath: Bundle.main.path(forResource: "Dead", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
                                                 ],
                                                    slots: [Slot(tone: 237, color: .black),
-                                                           Slot(tone: 200, color: .green),
-                                                           Slot(tone: 200, color: .green),
-                                                           Slot(tone: 225, color: .red),
-                                                           Slot(tone: 225, color: .red),
-                                                           Slot(tone: 215, color: .blue),
-                                                           Slot(tone: 215, color: .blue)
+                                                           Slot(tone: 550, color: .yellow),
+                                                           Slot(tone: 550, color: .green),
+                                                           Slot(tone: 300, color: .cyan),
+                                                           Slot(tone: 300, color: .blue),
+                                                           Slot(tone: 300, color: .magenta),
+                                                           Slot(tone: 250, color: .red),
+                                                           Slot(tone: 250, color: .white)
                                                     
                                                 ]),
                                             Phrase(name: "Ouch that really hurt",
@@ -494,7 +495,7 @@ struct Characters {
                                    bottomRadius: 50,
                                    price: 19000,
                                    hoursUnlocked: 1,
-                                   levelEligibleAt: 9,
+                                   levelEligibleAt: 13,
                                    phrases: [Phrase(name: "Back in my day",
                                                     likelihood: 80,
                                                     subphrases: [Subphrase(words: "Back", audioFilePath: Bundle.main.path(forResource: "Back", ofType: "m4a", inDirectory: "Audio/Stanley")),

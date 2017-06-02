@@ -225,6 +225,59 @@ extension DataViewController {
         
     }
     
+    
+    ///checks to see how many XP records there are.  If above the given number, will combine them all into a single record for each level.  This to prevent big O problems
+    func checkXPAndConsolidateIfNeccessary(consolidateAt numRecords: Int) {
+        guard let fc = frcDict[keyXP] else {
+            fatalError("Counldn't get frcDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            fatalError("Counldn't get XP")
+        }
+        
+        if xps.count >= numRecords {
+            //go thru each level
+            for (levelKey, _) in Levels.Game {
+                var resultantValue:Int64 = 0
+                var resultantScore:Int64 = 0
+                var found = false
+                var numFound = 0
+                
+                //and check each xp record's level
+                for xp in xps {
+                    if Int(xp.level) == levelKey {
+                        //this xp record matches the level
+                        resultantValue += xp.value
+                        resultantScore += xp.score
+                        found = true
+                        numFound += 1
+                        
+                        //now delete the record you just found
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        self.stack = delegate.stack
+                        
+                        if let context = self.frcDict[keyXP]?.managedObjectContext {
+                            context.delete(xp)
+                        }
+                    }
+                }
+                
+                //if an applicable XP record was found, then consolidate and create a new XP
+                if found {
+                    //create a new score object
+                    let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
+                    newXP.value = Int64(resultantValue)
+                    newXP.earnedDatetime = Date() as NSDate
+                    newXP.level = Int64(levelKey)
+                    newXP.score = Int64(resultantScore)
+                    print("Consolidated \(numFound) XP objects at level \(levelKey).  Resulting XP sum for this level is \(resultantValue).")
+                }
+            }
+        }
+    }
+    
     ///returns the total amount of user XP
     func calculateUserXP() -> Int {
         guard let fc = frcDict[keyXP] else {
