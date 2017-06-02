@@ -95,7 +95,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //constants
     let minimumScoreToUnlockObjective = 1000
     let minimumScoreToUnlockStore = 500
-    let minimumLevelToUnlockPerkStore = 5
+    let minimumLevelToUnlockPerkStore = 10
     
     
     //Store
@@ -305,6 +305,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         if !expiredPerks.isEmpty {
             //there are expired perks.  lock them and reload the modelController
             perkStoreVC.lockAllExpiredPerks()
+            
+            //open the perk store
+            //perkStoreButtonPressed(self)
             
             //invoke the function to mimic functionality as though the store had just closed
             //self.storeClosed()

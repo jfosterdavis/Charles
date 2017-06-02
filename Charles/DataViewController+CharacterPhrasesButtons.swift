@@ -50,8 +50,11 @@ extension DataViewController {
             //there are expired characters.  lock them and reload the modelController
             storeVC.lockAllExpiredCharacters()
             
+            
+            //open the store
+            storeButtonPressed(self)
             //invoke the function to mimic functionality as though the store had just closed
-            self.storeClosed()
+            //self.storeClosed()
             
             //            loadPageData()
             //
