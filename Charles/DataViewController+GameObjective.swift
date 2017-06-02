@@ -94,7 +94,7 @@ extension DataViewController {
             
             perkStickViewDeviation.fade(.in,
                                         withDuration: 0.5,
-                                        delay: objectiveBackDelay + 1)
+                                        delay: objectiveBackDelay + 0.5)
         }
         
         /******************************************************/

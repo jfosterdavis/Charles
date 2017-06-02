@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//@IBDesignable
+@IBDesignable
 class InsightColorStickView:UIView
 {
     @IBInspectable var redPercent: CGFloat = 1.0
@@ -27,8 +27,14 @@ class InsightColorStickView:UIView
         {
         didSet {}
     }
-    
-    var showColors: Bool = false
+    @IBInspectable var margin: CGFloat = 10.0
+        {
+        didSet {}
+    }
+    @IBInspectable var showColors: Bool = true
+        {
+        didSet {}
+    }
     
     override func draw(_ rect: CGRect)
     {
@@ -59,9 +65,9 @@ class InsightColorStickView:UIView
         }
         
         let stickWidth:CGFloat = stickWidth
-        let stickHeight: CGFloat = max(bounds.width, bounds.height) / 2
+        let stickHeight: CGFloat = max(bounds.width, bounds.height) / 2 - (margin * 2)
         let viewCenterX = bounds.width/2
-        let viewCenterY = bounds.height/2 + stickWidth
+        let viewCenterY = bounds.height/2 + stickWidth - margin
         let circleCompensator = stickWidth - 1
         
         
@@ -85,7 +91,7 @@ class InsightColorStickView:UIView
         //draw red stroke background
         let redPathBackground = UIBezierPath()
         redPathBackground.lineWidth = redPath.lineWidth + 2
-        let redPathBackgroundLength = redLength
+        let redPathBackgroundLength = redLength + 1
         redPathBackground.move(to: CGPoint(
             x:viewCenterX ,
             y:viewCenterY))
@@ -122,9 +128,9 @@ class InsightColorStickView:UIView
         
         //green background
         let greenPathBackground = UIBezierPath()
-        greenPathBackground.lineWidth = greenPath.lineWidth + 3
-        let greenPathBackgroundXAddition = greenXAddition + 2
-        let greenPathBackgroundYAddition = greenYAddition + 2
+        greenPathBackground.lineWidth = greenPath.lineWidth + 2
+        let greenPathBackgroundXAddition = greenXAddition + 1 * CGFloat(sin(60 * Double.pi/180))
+        let greenPathBackgroundYAddition = greenYAddition + 1 * CGFloat(cos(60 * Double.pi/180))
         greenPathBackground.move(to: CGPoint(
             x:viewCenterX,
             y:viewCenterY))
@@ -159,14 +165,14 @@ class InsightColorStickView:UIView
         //blue background
         let bluePathBackground = UIBezierPath()
         bluePathBackground.lineWidth = bluePath.lineWidth + 2
-        let bluePathBackgroundXAddition = blueXAddition
-        let bluePathBackgroundYAddition = blueYAddition
+        let bluePathBackgroundXAddition = blueXAddition - 1 * CGFloat(sin(60 * Double.pi/180))
+        let bluePathBackgroundYAddition = blueYAddition + 1 * CGFloat(cos(60 * Double.pi/180))
         bluePathBackground.move(to: CGPoint(
             x:viewCenterX,
-            y:viewCenterY + 1))
+            y:viewCenterY))
         bluePathBackground.addLine(to: CGPoint(
             x:viewCenterX + bluePathBackgroundXAddition - greenCircleCompensationX,
-            y:viewCenterY + bluePathBackgroundYAddition + greenCircleCompensationY + 1))
+            y:viewCenterY + bluePathBackgroundYAddition + greenCircleCompensationY))
         UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1).setStroke() //darker gray color
         bluePathBackground.stroke()
         
