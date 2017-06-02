@@ -160,14 +160,14 @@ struct Perks {
         requiredPartyMembers: [Characters.Matthew]
     )
     
-    static let Insight2 = Perk(     name: "Greater Insight",
+    static let Insight2 = Perk(     name: "Epiphany",
                                    gameDescription: "You see things others might not with the help of a friend.",
                                    type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
-        price: 250,
+        price: 25000,
         meta1: 2,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 20,
+        minutesUnlocked: 10,
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,

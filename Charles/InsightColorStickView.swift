@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@IBDesignable
+//@IBDesignable
 class InsightColorStickView:UIView
 {
     @IBInspectable var redPercent: CGFloat = 1.0

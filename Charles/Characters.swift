@@ -492,7 +492,7 @@ struct Characters {
     static let Stanley = Character(name: "Stanley",
                                    topRadius: 80,
                                    bottomRadius: 50,
-                                   price: 900,
+                                   price: 19000,
                                    hoursUnlocked: 1,
                                    levelEligibleAt: 9,
                                    phrases: [Phrase(name: "Back in my day",
