@@ -16,8 +16,8 @@ import UIKit
 
 struct Perks {
     
-    static let ValidPerks:[Perk] = [Moneymaker, Insight, Closeenough, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
-    static let UnlockablePerks:[Perk] = [Moneymaker, Insight, Closeenough, Quickstudy, Synesthesia, Studybuddy, Doublestacks, Triplestacks]
+    static let ValidPerks:[Perk] = [Stacks, Synesthesia, Insight, Quickstudy, Closeenough, Studybuddy, Doublestacks, Justabout, Triplestacks, Intheballpark]
+    static let UnlockablePerks:[Perk] = [Stacks, Synesthesia, Insight, Quickstudy, Closeenough,   Studybuddy, Doublestacks, Justabout,  Triplestacks, Intheballpark]
     
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "You see things others might not.",
@@ -27,7 +27,7 @@ struct Perks {
                                     meta2: nil,
                                     meta3: nil,
                                     minutesUnlocked: 120,
-                                    icon: #imageLiteral(resourceName: "PerkInsight"),
+                                    icon: #imageLiteral(resourceName: "lightbulb"),
                                     displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
                                     levelEligibleAt: 5,
                                     requiredPartyMembers: []
@@ -41,7 +41,7 @@ struct Perks {
                                     meta2: nil,
                                     meta3: nil,
                                     minutesUnlocked: 45,
-                                    icon: #imageLiteral(resourceName: "PerkQuickstudy"),
+                                    icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: 5,
                                     requiredPartyMembers: []
@@ -56,7 +56,7 @@ struct Perks {
                                         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
                                         meta3: Bundle.main.path(forResource: "Finala", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
                                         minutesUnlocked: 90,
-                                        icon: #imageLiteral(resourceName: "PerkSynesthesia"),
+                                        icon: #imageLiteral(resourceName: "musicNote"),
                                         displayColor: UIColor(red: 255/255.0, green: 111/255.0, blue: 207/255.0, alpha: 0.75),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: [Characters.Laura]
@@ -70,13 +70,13 @@ struct Perks {
                                     meta2: nil,
                                     meta3: nil,
                                     minutesUnlocked: 20,
-                                    icon: #imageLiteral(resourceName: "PerkQuickstudy"),
+                                    icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: 5,
                                     requiredPartyMembers: [Characters.Fred]
     )
     
-    static let Moneymaker = Perk(     name: "Money Maker",
+    static let Stacks = Perk(     name: "Stacks",
                                       gameDescription: "You find a way to walk away with more from each encounter.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 5000,
@@ -84,7 +84,7 @@ struct Perks {
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 15,
-                                        icon: #imageLiteral(resourceName: "PerkMoneymaker"),
+                                        icon: #imageLiteral(resourceName: "coin"),
                                         displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: []
@@ -98,7 +98,7 @@ struct Perks {
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 30,
-                                        icon: #imageLiteral(resourceName: "PerkMoneymaker"),
+                                        icon: #imageLiteral(resourceName: "coin"),
                                         displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: [Characters.Charles]
@@ -112,7 +112,7 @@ struct Perks {
                                             meta2: nil,
                                             meta3: nil,
                                             minutesUnlocked: 30,
-                                            icon: #imageLiteral(resourceName: "PerkMoneymaker"),
+                                            icon: #imageLiteral(resourceName: "coin"),
                                             displayColor: UIColor(red: 246/255.0, green: 228/255.0, blue: 154/255.0, alpha: 1),
                                             levelEligibleAt: 5,
                                             requiredPartyMembers: [Characters.Charles]
@@ -122,14 +122,42 @@ struct Perks {
                                         gameDescription: "You are able to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
-                                        meta1: -0.03,
+                                        meta1: -0.01,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 10,
-                                        icon: #imageLiteral(resourceName: "PerkPrecisionadjustment"),
+                                        icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: 5,
                                         requiredPartyMembers: [Characters.Matthew]
+    )
+    
+    static let Justabout = Perk(     name: "Just About",
+                                       gameDescription: "You are able to get by where others would fail.",
+                                       type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
+                                        price: 50000,
+                                        meta1: -0.025,
+                                        meta2: nil,
+                                        meta3: nil,
+                                        minutesUnlocked: 10,
+                                        icon: #imageLiteral(resourceName: "bullseye"),
+                                        displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
+                                        levelEligibleAt: 5,
+                                        requiredPartyMembers: [Characters.Matthew]
+    )
+    
+    static let Intheballpark = Perk(     name: "In The Ballpark",
+                                     gameDescription: "You are able to squeak by where others would fail.",
+                                     type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
+        price: 150000,
+        meta1: -0.05,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 10,
+        icon: #imageLiteral(resourceName: "bullseye"),
+        displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
+        levelEligibleAt: 5,
+        requiredPartyMembers: [Characters.Matthew]
     )
     
     
