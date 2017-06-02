@@ -47,7 +47,7 @@ extension DataViewController {
         })
         perkStickViewDeviation.fade(.out,
                                     withDuration: 0.5,
-                                    delay: 0.6)
+                                    delay: 0.2)
         
     }
     
@@ -73,7 +73,7 @@ extension DataViewController {
             perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
             perkStickViewDeviation.fade(.in,
                                         withDuration: 0.5,
-                                        delay: objectiveBackDelay)
+                                        delay: objectiveBackDelay + 1)
         }
         
         /******************************************************/

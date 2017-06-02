@@ -198,6 +198,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //set opacity of elements
         //storeButton.alpha = 0
+        perkStickViewDeviation.alpha = 0
         
         
         //set up the game
