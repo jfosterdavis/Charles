@@ -17,6 +17,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     //CoreData FRC Keys
     let keyUnlockedPerk = "keyUnlockedPerk"
     
+    let enforcePerkLevel = true //helpful when testing.  When only perks with a level at or below the user current level are displayed in store.
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -459,8 +461,28 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
 
     func getAllPerksDisplayableInStore() -> [Perk] {
         
-        return Perks.ValidPerks
-        
+        //only show perks avialable based on the user's current level
+        if enforcePerkLevel {
+            var applicablePerks = [Perk]()
+            guard let userLevel = parentVC.getUserCurrentLevel() else {
+                //can't get user level so just return all perks
+                return Perks.ValidPerks
+            }
+            
+            for perk in Perks.ValidPerks {
+                //only perks with a level to be enforced are non-optional
+                if let perkLevel = perk.levelEligibleAt {
+                    if perkLevel <= userLevel.level {
+                        applicablePerks.append(perk)
+                    }
+                } else { //no enforcement neccessary, add to store
+                    applicablePerks.append(perk)
+                }
+            }
+            return applicablePerks
+        } else {
+            return Perks.ValidPerks
+        }
     }
     
     

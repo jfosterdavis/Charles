@@ -48,6 +48,10 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         perkIconBlocker.isHidden = true
         
+        //default the shade on top unless others will change
+        perkGotFromCharacterIndicator.layer.zPosition = 2
+        perkGotFromCharacterIndicator.alpha = 0.65
+        
     }
     
     func setGotPerkFromCharacterIndicator(visible: Bool) {
@@ -93,6 +97,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         statusLabel.text = "Requires Party"
         
         perkGotFromCharacterIndicator.layer.zPosition = 1
+        perkGotFromCharacterIndicator.alpha = 1
         self.setNeedsDisplay()
         
         //put to black and white
