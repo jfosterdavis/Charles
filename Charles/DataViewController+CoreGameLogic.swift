@@ -223,6 +223,9 @@ extension DataViewController {
                 perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
             case 2:
                 perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+            case 3:
+                let deviation = CGFloat(calculateColorMatchPointsEarned().2)
+                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], deviation: deviation)
             default:
                 perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
             }

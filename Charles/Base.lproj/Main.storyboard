@@ -218,7 +218,7 @@
                                         <real key="value" value="9"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="objectiveRingColor">
-                                        <color key="value" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="progressRingColor">
                                         <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,9 +230,23 @@
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-q0-6eO" customClass="InsightColorStickView" customModule="Charles" customModuleProvider="target">
                                 <rect key="frame" x="130.5" y="313" width="114.5" height="114.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="AZk-UR-thl">
+                                        <rect key="frame" x="28" y="80.5" width="57.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="1" height="-1"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="height" multiplier="1:1" id="7dC-Hz-jQ0"/>
+                                    <constraint firstItem="AZk-UR-thl" firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="width" multiplier="1:2" id="Ds6-ar-ehk"/>
+                                    <constraint firstItem="AZk-UR-thl" firstAttribute="centerX" secondItem="u5L-q0-6eO" secondAttribute="centerX" id="Nv9-1Q-3Ly"/>
+                                    <constraint firstAttribute="bottom" secondItem="AZk-UR-thl" secondAttribute="bottom" constant="15" id="RXz-rO-5Vj"/>
+                                    <constraint firstItem="AZk-UR-thl" firstAttribute="height" secondItem="u5L-q0-6eO" secondAttribute="height" multiplier="1:6" id="bNX-ov-6PY"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="redPercent">
@@ -249,6 +263,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showColors" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="deviationLabel" destination="AZk-UR-thl" id="MH4-On-4mj"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.91764705882352937" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

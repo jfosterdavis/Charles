@@ -24,6 +24,7 @@ class InsightColorStickView:UIView
         didSet {}
     }
     
+    
     @IBInspectable var stickWidth: CGFloat = 8.0
         {
         didSet {}
@@ -37,13 +38,27 @@ class InsightColorStickView:UIView
         {
         didSet {}
     }
+    
+    
     @IBInspectable var showColors: Bool = true
         {
         didSet {}
     }
+    @IBInspectable var showDeviation: Bool = false
+        {
+        didSet {}
+    }
+    @IBInspectable var deviation: CGFloat = 0.75
+        {
+        didSet {}
+    }
+    
+    @IBOutlet var deviationLabel: UILabel!
+    
     
     override func draw(_ rect: CGRect)
     {
+        
         drawSticks(redPercent: redPercent, greenPercent: greenPercent, bluePercent: bluePercent, stickWidth: stickWidth, showColors: showColors)
     }
     
@@ -215,11 +230,27 @@ class InsightColorStickView:UIView
         }
         
         circlePath.fill()
+        
+        
+        //show or don't the deviation
+        if showDeviation {
+            deviationLabel.isHidden = !showDeviation
+            deviationLabel.text = String(describing: "\(Int(deviation * 100))%")
+        } else {
+            deviationLabel.isHidden = !showDeviation
+        }
     }
     
     
     ///draws the InsightColorStickView with the given percentages, each a CGFloat from 0 to 1
-    func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat, showColors: Bool = true) {
+    func drawSticks(redPercent: CGFloat, greenPercent: CGFloat, bluePercent: CGFloat, showColors: Bool = true, deviation: CGFloat? = nil) {
+        if let deviation = deviation {
+            self.deviation = deviation
+            self.showDeviation = true
+        } else {
+            self.showDeviation = false
+        }
+        
         self.redPercent = redPercent
         self.greenPercent = greenPercent
         self.bluePercent = bluePercent

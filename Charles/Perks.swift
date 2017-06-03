@@ -16,8 +16,8 @@ import UIKit
 
 struct Perks {
     
-    static let ValidPerks:[Perk] = [Stacks,  Insight, Quickstudy, Synesthesia, Closeenough, Studybuddy, Doublestacks, Justabout, Triplestacks, Intheballpark, Insight2]
-    static let UnlockablePerks:[Perk] = [Stacks, Insight, Quickstudy, Synesthesia, Closeenough,   Studybuddy, Doublestacks, Justabout,  Triplestacks, Intheballpark, Insight2]
+    static let ValidPerks:[Perk] = [Stacks,  Insight, Quickstudy, Synesthesia, Closeenough, Studybuddy, Doublestacks, Justabout, Triplestacks, Insight2, Insight3,Intheballpark]
+    static let UnlockablePerks:[Perk] = [Stacks, Insight, Quickstudy, Synesthesia, Closeenough,   Studybuddy, Doublestacks, Justabout,  Triplestacks, Insight2, Insight3,Intheballpark]
     
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "You see things others might not.",
@@ -157,10 +157,10 @@ struct Perks {
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.Matthew]
+        requiredPartyMembers: [Characters.Matthew, Characters.Charles]
     )
     
-    static let Insight2 = Perk(     name: "Epiphany",
+    static let Insight2 = Perk(     name: "Perception",
                                    gameDescription: "You see things others might not with the help of a friend.",
                                    type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 25000,
@@ -171,7 +171,21 @@ struct Perks {
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.Stanley]
+        requiredPartyMembers: [Characters.StanleyJr]
+    )
+    
+    static let Insight3 = Perk(     name: "Epiphany",
+                                    gameDescription: "You see many things others might not with the help of a friend.",
+                                    type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
+        price: 1,
+        meta1: 3,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 60,
+        icon: #imageLiteral(resourceName: "lightbulb"),
+        displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
+        levelEligibleAt: 5,
+        requiredPartyMembers: []
     )
     
     
