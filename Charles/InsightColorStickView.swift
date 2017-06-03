@@ -58,7 +58,7 @@ class InsightColorStickView:UIView
     
     override func draw(_ rect: CGRect)
     {
-        
+        deviationLabel.roundCorners()
         drawSticks(redPercent: redPercent, greenPercent: greenPercent, bluePercent: bluePercent, stickWidth: stickWidth, showColors: showColors)
     }
     
@@ -235,7 +235,7 @@ class InsightColorStickView:UIView
         //show or don't the deviation
         if showDeviation {
             deviationLabel.isHidden = !showDeviation
-            deviationLabel.text = String(describing: "\(Int(deviation * 100))%")
+            deviationLabel.text = String(describing: "\(Int(deviation * 100))")
         } else {
             deviationLabel.isHidden = !showDeviation
         }

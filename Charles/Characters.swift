@@ -653,7 +653,7 @@ struct Characters {
                                                         
                                     ],
                                                     slots: [
-                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
                                                         Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
                                                         Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
                                                         Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
@@ -668,7 +668,7 @@ struct Characters {
                                                         
                                                 ],
                                                     slots: [
-                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
                                                         Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
                                                         Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
                                                         Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
@@ -684,7 +684,7 @@ struct Characters {
                                                         
                                                 ],
                                                     slots: [
-                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
                                                         Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
                                                         Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
                                                         Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
