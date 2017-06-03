@@ -36,7 +36,7 @@ struct Perks {
     static let Quickstudy = Perk(     name: "Quick Study",
                                    gameDescription: "You get more out of each encounter.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 50000,
+                                    price: 1,
                                     meta1: 2,
                                     meta2: nil,
                                     meta3: nil,

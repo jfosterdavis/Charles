@@ -64,10 +64,22 @@ extension DataViewController {
                 
                 //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
                 var shouldAnimate = false
+                var playerLeveledUpWithXPPerkActive = false
                 if let currentLevel = currentLevelAndProgress.0 {
                     shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
+                    
+                    //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
+                    //this would occur if progress > 0 and the player increased in level
+                    let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
+                    if playerIncreasedLevel && progress > 0 {
+                        playerLeveledUpWithXPPerkActive = true
+                    }
                 }
                 
+                /******************************************************/
+                /*******************///MARK: PERK INCREASED XP
+                /******************************************************/
+
                 //if an increased XP perk is active, change the color of the progressview
                 let xpPerks = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
                 if xpPerks.isEmpty {
@@ -79,34 +91,64 @@ extension DataViewController {
                     self.levelProgressView.progressTintColor = self.progressViewProgressTintColorXPPerkActive
                     
                 }
+                /******************************************************/
+                /*******************///MARK: END PERK INCREASED XP
+                /******************************************************/
+
+                let labelUpdates: (() -> Void) = {
+                    if let currentLevel = currentLevelAndProgress.0 {
+                        self.thisLevelLabel.alpha = 1
+                        self.thisLevelLabel.text = String(describing: currentLevel.level!)
+                        self.thisLevelLabel.textColor = thisLevelColor
+                        //print(" text of this level label: \(self.thisLevelLabel.text)")
+                        
+                        self.nextLevelLabel.alpha = 1
+                        self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
+                        self.nextLevelLabel.textColor = nextLevelColor
+                        
+                        //level label
+                        self.levelDescriptionLabel.alpha = 1
+                        self.levelDescriptionLabel.text = currentLevel.levelDescription
+                    }
+                }
                 
-                
-                UIView.animate(withDuration: 0.8,
-                               delay: 0.8,
-                               animations: {
-                                
-                                if let currentLevel = currentLevelAndProgress.0 {
-                                    self.thisLevelLabel.alpha = 1
-                                    self.thisLevelLabel.text = String(describing: currentLevel.level!)
-                                    self.thisLevelLabel.textColor = thisLevelColor
-                                    //print(" text of this level label: \(self.thisLevelLabel.text)")
-                                    
-                                    self.nextLevelLabel.alpha = 1
-                                    self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
-                                    self.nextLevelLabel.textColor = nextLevelColor
-                                    
-                                    //level label
-                                    self.levelDescriptionLabel.alpha = 1
-                                    self.levelDescriptionLabel.text = currentLevel.levelDescription
-                                }
-                                
-                                
-                }, completion: { (finished:Bool) in
+                if playerLeveledUpWithXPPerkActive && levelProgressView.progress < 1.0 {
                     
-                    //if progress is going to 1, then animate to 1 then continue
+                    //the player leveled up by earning more than 1 XP, so progress bar should animate to full, then reset to the current level and progress
+                    //0. update labels
+                    UIView.animate(withDuration: 0.8,
+                                   delay: 0.8,
+                                   animations: {
+                                    
+                                    labelUpdates()
+                    })
+                    //1. animate the progress bar to full
+                    self.levelProgressView.setProgress(progress, animated: true)
                     
-                    self.levelProgressView.setProgress(progress, animated: shouldAnimate)
-                })
+                    //2. wait then call this refresh function again
+                    let seconds = 3
+                    let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(seconds)
+                    DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+                        self.refreshLevelProgress()
+                    })
+                    
+                    
+                } else {
+                    
+                    UIView.animate(withDuration: 0.8,
+                                   delay: 0.8,
+                                   animations: {
+                                    
+                                    labelUpdates()
+                                    
+                                    
+                    }, completion: { (finished:Bool) in
+                        
+                        //if progress is going to 1, then animate to 1 then continue
+                        
+                        self.levelProgressView.setProgress(progress, animated: shouldAnimate)
+                    })
+                }
                 
                 
             } else {
