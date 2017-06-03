@@ -362,7 +362,7 @@ extension DataViewController {
                             giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                         } else {
                             //there is a modifier.  This is located in meta1
-                            var mult = 0
+                            var mult = 1
                             
                             //sum the value of all increasedXP perks
                             for perk in applicablePerksAndUnlockedPerkObjects {
@@ -370,9 +370,7 @@ extension DataViewController {
                                     mult += multiplier
                                 }
                             }
-                            if mult == 0 {
-                                mult = 1
-                            }
+            
                             // award xp
                             giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                             

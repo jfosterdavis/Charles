@@ -336,16 +336,26 @@ extension Formatter {
 
 extension Integer {
     var formattedWithSeparator: String {
-        switch self {
-        case let x where x > 1000000000000000:
-            return String(describing: "A lot.")
-        case let x where x > 1000000000000:
-            return String(describing: "> \(x/1000000000)B")
-        case let x where x > 1000000000:
-            return String(describing: "> \(x/1000000)M")
-        case let x where x > 1000000:
-            return String(describing: "> \(x/1000)K")
-        default:
+        if let int = self as? Int {
+            switch int {
+            case let x where x >= 1000000000000:
+                return String(describing: "A lot.")
+            case let x where x >= 1000000000 && x < 1000000000000:
+                let temp1:Int = x / 100000000 // tens of millions
+                let floatNum:Double = Double(temp1) / 10.0  //billions accurrate to 1 decimal
+                return String(describing: "\(Formatter.withSeparator.string(for: floatNum) ?? "")B")
+            case let x where x >= 1000000 && x < 1000000000:
+                let temp1:Int = x / 100000 // tens of thousands
+                let floatNum:Double = Double(temp1) / 10.0  //millions accurrate to 1 decimal
+                return String(describing: "\(Formatter.withSeparator.string(for: floatNum) ?? "")M")
+            case let x where x >= 100000 && x < 1000000:
+                let temp1:Int = x / 100 // tens of hundreds
+                let floatNum:Double = Double(temp1) / 10.0  //thousands accurrate to 1 decimal
+                return String(describing: "\(Formatter.withSeparator.string(for: floatNum) ?? "")k")
+            default:
+                return Formatter.withSeparator.string(for: self) ?? ""
+            }
+        } else {
             return Formatter.withSeparator.string(for: self) ?? ""
         }
     }

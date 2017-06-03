@@ -33,7 +33,7 @@ class Perk: NSObject {
     var minutesUnlocked: Int!
     var icon: UIImage!
     var displayColor: UIColor!
-    var levelEligibleAt: Int!
+    var levelEligibleAt: Int? //nil if there is no level requirement
     var requiredPartyMembers: [Character]!
     
     
@@ -48,7 +48,7 @@ class Perk: NSObject {
         minutesUnlocked: Int!,
         icon: UIImage!,
         displayColor: UIColor!,
-        levelEligibleAt: Int!,
+        levelEligibleAt: Int?,
         requiredPartyMembers: [Character]) {
         
         super.init()
