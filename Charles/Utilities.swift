@@ -336,6 +336,17 @@ extension Formatter {
 
 extension Integer {
     var formattedWithSeparator: String {
-        return Formatter.withSeparator.string(for: self) ?? ""
+        switch self {
+        case let x where x > 1000000000000000:
+            return String(describing: "A lot.")
+        case let x where x > 1000000000000:
+            return String(describing: "\(x/1000000000)T")
+        case let x where x > 1000000000:
+            return String(describing: "\(x/1000000)B")
+        case let x where x > 1000000:
+            return String(describing: "\(x/1000)K")
+        default:
+            return Formatter.withSeparator.string(for: self) ?? ""
+        }
     }
 }

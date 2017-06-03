@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr,  Stanley, Matthew]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr,  Stanley, Matthew, R0berte]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley, Matthew]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley, Matthew, R0berte]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -36,7 +36,7 @@ struct Characters {
                                    bottomRadius: 15,
                                    price: 10200,
                                    hoursUnlocked: 96,
-                                   levelEligibleAt: 6,
+                                   levelEligibleAt: 10,
                                    phrases: [Phrase(name: "I'm a pimp",
                                                     likelihood: 60,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
@@ -138,7 +138,7 @@ struct Characters {
                                 bottomRadius: 15,
                                 price: 10200,
                                 hoursUnlocked: 96,
-                                levelEligibleAt: 6,
+                                levelEligibleAt: 10,
                                phrases: [Phrase(name: "You're not the boss of me.",
                                                 likelihood: 60,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -637,6 +637,262 @@ struct Characters {
                                                         Slot(tone: 400, color: UIColor(red: 107/255, green: 96/255, blue: 107/255, alpha: 1))
                                                 ])
                                              
+                                    
+        ])
+    
+    static let R0berte = Character(name: "R0berte",
+                                   topRadius: 2,
+                                   bottomRadius: 2,
+                                   price: 10101010, //10101010
+                                   hoursUnlocked: 7200,
+                                   levelEligibleAt: 25, //10
+                                   phrases: [Phrase(name: "Maybe I should just take my shirt off",
+                                    likelihood: 50,
+                                    subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),
+                                                 Subphrase(words: "aye", audioFilePath: nil),
+                                                 Subphrase(words: "Should", audioFilePath: nil),
+                                                 Subphrase(words: "Just", audioFilePath: nil),
+                                                 Subphrase(words: "Take", audioFilePath: nil),
+                                                 Subphrase(words: "My", audioFilePath: nil),
+                                                 Subphrase(words: "Shirt", audioFilePath: nil),
+                                                 Subphrase(words: "Off", audioFilePath: nil)
+                                    ],
+                                    slots: [
+                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                    ]),
+                                             Phrase(name: "All right all right all right",
+                                                    likelihood: 50,
+                                                    subphrases: [Subphrase(words: "All right.", audioFilePath: nil),
+                                                                 Subphrase(words: "All right.", audioFilePath: nil),
+                                                                 Subphrase(words: "All right!", audioFilePath: nil)
+                                                                 
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    
+                                    ,
+                                             Phrase(name: "You're not the boss of me.",
+                                                    likelihood: 50,
+                                                    subphrases: [Subphrase(words: "You're", audioFilePath: nil),
+                                                                 Subphrase(words: "not", audioFilePath: nil),
+                                                                 Subphrase(words: "the", audioFilePath: nil),
+                                                                 Subphrase(words: "boss", audioFilePath: nil),
+                                                                 Subphrase(words: "of", audioFilePath: nil),
+                                                                 Subphrase(words: "me", audioFilePath: nil),
+                                                                 Subphrase(words: "master.", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "I'm a player.",
+                                                    likelihood: 50,
+                                                    subphrases: [Subphrase(words: "I'm", audioFilePath: nil),
+                                                                 Subphrase(words: "a", audioFilePath: nil),
+                                                                 Subphrase(words: "playah?", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "Gee golly mister.",
+                                                    likelihood: 50,
+                                                    subphrases: [Subphrase(words: "Gee", audioFilePath: nil),
+                                                                 Subphrase(words: "golly", audioFilePath: nil),
+                                                                 Subphrase(words: "mister!", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+
+                                    ,
+                                             Phrase(name: "Mo money mo problems.",
+                                                    likelihood: 21,
+                                                    subphrases: [Subphrase(words: "More money?", audioFilePath: nil),
+                                                                 Subphrase(words: "More problems!", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "What's the square root of this aparment",
+                                                    likelihood: 20,
+                                                    subphrases: [Subphrase(words: "What's the square root of this apartment?", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "The square root of this aparment is...",
+                                                    likelihood: 1,
+                                                    subphrases: [Subphrase(words: "The square root of this apartment...", audioFilePath: nil),
+                                                                 Subphrase(words: "is the logarithmic cube of five fingers on your face.", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+
+
+                                    
                                     
         ])
     

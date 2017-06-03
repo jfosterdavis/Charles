@@ -129,7 +129,7 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: 5,
-                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley]
+                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.R0berte]
     )
     
     static let Justabout = Perk(     name: "Just About",
@@ -171,13 +171,13 @@ struct Perks {
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.StanleyJr]
+        requiredPartyMembers: [Characters.StanleyJr, Characters.R0berte]
     )
     
     static let Insight3 = Perk(     name: "Epiphany",
                                     gameDescription: "You see many things others might not with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
-        price: 1,
+        price: 65000,
         meta1: 3,
         meta2: nil,
         meta3: nil,
@@ -185,7 +185,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: []
+        requiredPartyMembers: [Characters.Stanley, Characters.Laura]
     )
     
     
