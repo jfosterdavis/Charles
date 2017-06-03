@@ -57,13 +57,15 @@ struct Perks {
     /*******************///MARK: Synesthesia
     /******************************************************/
     
+    
+    
     static let Synesthesia = Perk(     name: "Synesthesia",
                                        gameDescription: "In a moment of stress, when others hear words, you hear music.",
                                        type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 750,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
-        meta3: Bundle.main.path(forResource: "Finala", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
+        meta3: nil,
         minutesUnlocked: 30,
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
@@ -71,10 +73,10 @@ struct Perks {
         requiredPartyMembers: [Characters.Laura]
     )
     
-    static let Synesthesia2 = Perk(     name: "Diliberate Synesthesia",
+    static let Synesthesia2 = Perk(     name: "Synesthetic",
                                         gameDescription: "It appears you try your hardest not to listen, and you hear only music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
-        price: 7500,
+        price: 2500,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta3: Bundle.main.path(forResource: "Finala", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -85,10 +87,10 @@ struct Perks {
         requiredPartyMembers: [Characters.Laura]
     )
     
-    static let Synesthesia3 = Perk(     name: "Chronic Synesthesia",
+    static let Synesthesia3 = Perk(     name: "Synesthete",
                                         gameDescription: "It seems like you have always only heard music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
-        price: 75000,
+        price: 10000,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta3: Bundle.main.path(forResource: "Finala", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -98,6 +100,7 @@ struct Perks {
         levelEligibleAt: nil,
         requiredPartyMembers: [Characters.Laura]
     )
+    
     
     /******************************************************/
     /*******************///MARK: Insight
@@ -211,7 +214,7 @@ struct Perks {
     /******************************************************/
     
     
-    static let Stacks = Perk(     name: "Stacks",
+    static let Stacks = Perk(     name: "Innovation",
                                       gameDescription: "You find a way to walk away with more from each encounter.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
@@ -225,7 +228,7 @@ struct Perks {
                                         requiredPartyMembers: []
     )
     
-    static let Stacks2 = Perk(     name: "Double Stacks",
+    static let Stacks2 = Perk(     name: "Creativity",
                                       gameDescription: "You find a way to walk away with more from each encounter with the help of a friend.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
@@ -236,10 +239,10 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "coin"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 15,
-                                        requiredPartyMembers: [Characters.Charles, Characters.R0berte]
+                                        requiredPartyMembers: [Characters.Charles, Characters.R0berte, Characters.Laura]
     )
     
-    static let Stacks3 = Perk(     name: "Triple Stacks",
+    static let Stacks3 = Perk(     name: "Invention",
                                         gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 100000,

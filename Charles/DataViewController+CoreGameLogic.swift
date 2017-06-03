@@ -104,13 +104,60 @@ extension DataViewController {
                 speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
             }
         } else {  //perks are active
-            //assume there is only one active perk
-            //there should be 3 audiofile paths in the perk, each is a different whistle
-            let perk = applicableUnlockedMusicalVoicesPerks[0].0
             
-            let url1 = URL(fileURLWithPath: perk.meta1 as! String)
-            let url2 = URL(fileURLWithPath: perk.meta2 as! String)
-            let urlFinal = URL(fileURLWithPath: perk.meta3 as! String)
+            /******************************************************/
+            /*******************///MARK: PERK SYNESTHESIA MUSICALVOICES
+            /******************************************************/
+            
+            //get the most advanced of the perks (they do not stack)
+            var highestPerk: Perk = applicableUnlockedMusicalVoicesPerks[0].0
+            var highestPerkLevel = 1
+            for (perk, _) in applicableUnlockedMusicalVoicesPerks {
+                
+                let thisLevel: Int
+                switch perk {
+                case let x where x === Perks.Synesthesia:
+                    //level 1
+                    thisLevel = 1
+                case let x where x === Perks.Synesthesia2:
+                    //level 2
+                    thisLevel = 2
+                case let x where x === Perks.Synesthesia3:
+                    //level 3
+                    thisLevel = 3
+                default:
+                    //level 1
+                    thisLevel = 1
+                }
+                
+                if thisLevel > highestPerkLevel {
+                    highestPerkLevel = thisLevel
+                    highestPerk = perk
+                }
+            }
+            print("Highest Synesthesia level is \(highestPerkLevel). Name of perk is \(highestPerk.name)")
+            
+            //load the perk meta values (which is related to the level, some higher perks have more sound files and only top have the final sound file)
+            let meta1 = highestPerk.meta1 //this should never be nil (it is an optional, but in Perks this should not be set to nil)
+            let meta2 = highestPerk.meta2 //this could be nil
+            let meta3 = highestPerk.meta3 //this could be nil
+            
+            
+            
+            let url1 = URL(fileURLWithPath: meta1 as! String)
+            let url2: URL
+            let urlFinal: URL
+            if meta2 != nil { //if the second meta is nil, use the first meta, which should never be nil
+                url2 = URL(fileURLWithPath: meta2 as! String)
+            } else {
+                url2 = URL(fileURLWithPath: meta1 as! String)
+            }
+            if meta3 != nil { //if the third meta is nil, the first sound is used as the last sound.
+                urlFinal = URL(fileURLWithPath: meta3 as! String)
+            } else {
+                urlFinal = URL(fileURLWithPath: meta1 as! String)
+            }
+            
             
             let urls = [url1, url2]
             //select a random URL to play
@@ -136,18 +183,17 @@ extension DataViewController {
                 //                try audioPlayer = AVAudioPlayer(contentsOf: url)
                 let audioFile = try AVAudioFile(forReading: selectedUrl)
                 
-                //Synesthesia produces nice sounds, so compress the tone range.
                 let rawTone = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
                 var newTone = rawTone!
-//                if newTone > 150.0 {
-//                    newTone = 150.0
-//                } else if newTone < -150.0 {
-//                    newTone = -150.0
-//                }
-                //now reduce the tone to make it soothing
-                newTone -= 1200
-                
+
+                //now reduce the tone to make it soothing unless this is level 1, which doesn't get this benefit
+                if highestPerkLevel > 1 {
+                    newTone -= 1200
+                } else {
+                    newTone -= 400
+                }
                 changePitchEffect.pitch = newTone
+                
                 //don't change the pitch of this is the final tone
                 if selectedUrl == urlFinal {
                     changePitchEffect.pitch = -100
@@ -173,6 +219,11 @@ extension DataViewController {
                 //there was an error, so speak it instead
                 speak(subphrase: currentPhrase.subphrases![currentSubphraseIndex])
             }
+            
+            /******************************************************/
+            /*******************///MARK: END PERK SYNESTHESIA MUSICALVOICES
+            /******************************************************/
+
         }
         
         var addThisColor: UIColor
