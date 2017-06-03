@@ -30,6 +30,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         //create the ImageView
         perkIconImageView.image = perk.icon
+        
         //perkIconImageView.backgroundColor = perk.displayColor
         
         //color the border
@@ -41,6 +42,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
                 
         roundCorners()
         
+        perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupChecked")
+        perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.95) //an off-white
         perkGotFromCharacterIndicator.roundCorners(with: 6)
         
         //make background the paper color
@@ -98,6 +101,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         perkGotFromCharacterIndicator.layer.zPosition = 1
         perkGotFromCharacterIndicator.alpha = 1
+        perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupMissing")
+        perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 255/255, green: 182/255, blue: 180/255, alpha: 1) //a gentle red
         self.setNeedsDisplay()
         
         //put to black and white

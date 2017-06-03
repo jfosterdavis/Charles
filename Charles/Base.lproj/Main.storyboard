@@ -591,9 +591,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PerkInsight" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-Sp-UWA">
                                                     <rect key="frame" x="10" y="40" width="115" height="69"/>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupPlus" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-mH-dqy">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupMissing" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-mH-dqy">
                                                     <rect key="frame" x="101.5" y="101.5" width="33.5" height="33.5"/>
-                                                    <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.50548893229897596" blue="0.53908902238170664" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="x8C-mH-dqy" secondAttribute="height" multiplier="1:1" id="J4L-NJ-WOD"/>
                                                     </constraints>
@@ -781,7 +781,7 @@
     <resources>
         <image name="Grid-2" width="28" height="24"/>
         <image name="Grid-4" width="28" height="24"/>
-        <image name="GroupPlus" width="28" height="28"/>
+        <image name="GroupMissing" width="28" height="28"/>
         <image name="PerkInsight" width="28" height="20"/>
         <image name="unlocked" width="32" height="28"/>
         <image name="x" width="18" height="18"/>
