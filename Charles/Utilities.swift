@@ -340,11 +340,11 @@ extension Integer {
         case let x where x > 1000000000000000:
             return String(describing: "A lot.")
         case let x where x > 1000000000000:
-            return String(describing: "\(x/1000000000)T")
+            return String(describing: "> \(x/1000000000)B")
         case let x where x > 1000000000:
-            return String(describing: "\(x/1000000)B")
+            return String(describing: "> \(x/1000000)M")
         case let x where x > 1000000:
-            return String(describing: "\(x/1000)K")
+            return String(describing: "> \(x/1000)K")
         default:
             return Formatter.withSeparator.string(for: self) ?? ""
         }

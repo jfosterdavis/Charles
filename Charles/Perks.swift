@@ -16,8 +16,8 @@ import UIKit
 
 struct Perks {
     
-    static let ValidPerks:[Perk] = [Stacks,  Insight, Quickstudy, Synesthesia, Closeenough, Studybuddy, Doublestacks, Justabout, Triplestacks, Insight2, Insight3,Intheballpark]
-    static let UnlockablePerks:[Perk] = [Stacks, Insight, Quickstudy, Synesthesia, Closeenough,   Studybuddy, Doublestacks, Justabout,  Triplestacks, Insight2, Insight3,Intheballpark]
+    static let ValidPerks:[Perk] = [Stacks,  Insight, Quickstudy, Synesthesia, Closeenough, Studybuddy, Doublestacks, Justabout, Triplestacks, Insight2, Insight3, Intheballpark, Emeritus]
+    static let UnlockablePerks:[Perk] = [Stacks, Insight, Quickstudy, Synesthesia, Closeenough,   Studybuddy, Doublestacks, Justabout,  Triplestacks, Insight2, Insight3, Intheballpark, Emeritus]
     
     static let Insight = Perk(     name: "Insight",
                                     gameDescription: "You see things others might not.",
@@ -59,21 +59,35 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "musicNote"),
                                         displayColor: UIColor(red: 255/255.0, green: 111/255.0, blue: 207/255.0, alpha: 0.75),
                                         levelEligibleAt: 5,
-                                        requiredPartyMembers: [Characters.Laura]
+                                        requiredPartyMembers: [Characters.Laura, Characters.John]
+    )
+    
+    static let Emeritus = Perk(     name: "Emeritus",
+                                      gameDescription: "You get more out of each encounter with the help of a lost friend.",
+                                      type: .increasedXP, //types are strings that the game will look for when determining how to behave
+                                    price: 20070000,
+                                    meta1: 5,
+                                    meta2: nil,
+                                    meta3: nil,
+                                    minutesUnlocked: 5,
+                                    icon: #imageLiteral(resourceName: "pencil"),
+                                    displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
+                                    levelEligibleAt: 5,
+                                    requiredPartyMembers: [Characters.John]
     )
     
     static let Studybuddy = Perk(     name: "Study Buddy",
                                       gameDescription: "You get more out of each encounter with the help of a friend.",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 55000,
-                                    meta1: 2,
-                                    meta2: nil,
-                                    meta3: nil,
-                                    minutesUnlocked: 25,
-                                    icon: #imageLiteral(resourceName: "pencil"),
-                                    displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: 5,
-                                    requiredPartyMembers: [Characters.Fred]
+        price: 55000,
+        meta1: 2,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 25,
+        icon: #imageLiteral(resourceName: "pencil"),
+        displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
+        levelEligibleAt: 5,
+        requiredPartyMembers: [Characters.Fred]
     )
     
     static let Stacks = Perk(     name: "Stacks",
@@ -171,7 +185,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.StanleyJr, Characters.R0berte]
+        requiredPartyMembers: [Characters.StanleyJr, Characters.R0berte, Characters.John]
     )
     
     static let Insight3 = Perk(     name: "Epiphany",
@@ -185,7 +199,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.Stanley, Characters.Laura]
+        requiredPartyMembers: [Characters.Stanley, Characters.Laura, Characters.John]
     )
     
     

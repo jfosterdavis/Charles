@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr,  Stanley, Matthew, R0berte]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, StanleyJr, Stanley, Charles, Fred, Matthew, R0berte, John]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley, Matthew, R0berte]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, StanleyJr, Stanley, Charles, Fred, Matthew, R0berte, John]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -36,7 +36,7 @@ struct Characters {
                                    bottomRadius: 15,
                                    price: 10200,
                                    hoursUnlocked: 96,
-                                   levelEligibleAt: 10,
+                                   levelEligibleAt: 15,
                                    phrases: [Phrase(name: "I'm a pimp",
                                                     likelihood: 60,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
@@ -138,7 +138,7 @@ struct Characters {
                                 bottomRadius: 15,
                                 price: 10200,
                                 hoursUnlocked: 96,
-                                levelEligibleAt: 10,
+                                levelEligibleAt: 15,
                                phrases: [Phrase(name: "You're not the boss of me.",
                                                 likelihood: 60,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -408,7 +408,7 @@ struct Characters {
                                        bottomRadius: 50,
                                        price: 9000,
                                        hoursUnlocked: 1,
-                                       levelEligibleAt: 8,
+                                       levelEligibleAt: 9,
                                        phrases: [Phrase(name: "Back in my day",
                                                         likelihood: 50,
                                                         subphrases: [Subphrase(words: "Back", audioFilePath: Bundle.main.path(forResource: "Back", ofType: "m4a", inDirectory: "Audio/Stanley")),
@@ -582,7 +582,7 @@ struct Characters {
                                    bottomRadius: 10,
                                    price: 75000,
                                    hoursUnlocked: 72,
-                                   levelEligibleAt: 15,
+                                   levelEligibleAt: 21,
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off", //he will have his shirt off in the store!
                                                     likelihood: 55,
                                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: Bundle.main.path(forResource: "Maybe", ofType: "m4a", inDirectory: "Audio/Matthew")),
@@ -640,14 +640,69 @@ struct Characters {
                                     
         ])
     
+    static let John = Character(name: "John",
+                                   topRadius: 15,
+                                   bottomRadius: 15,
+                                   price: 5, //5
+                                   hoursUnlocked: 12, //12
+                                   levelEligibleAt: 1, //35
+                                   phrases: [Phrase(name: "1",
+                                                    likelihood: 100,
+                                                    subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil)
+                                                        
+                                    ],
+                                                    slots: [
+                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                                                        Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                                                        Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                                                        
+                                    ]),
+                                             Phrase(name: "2",
+                                                    likelihood: 100,
+                                                    subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                                                        Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                                                        Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                                                        
+                                                        ]),
+                                             Phrase(name: "3",
+                                                    likelihood: 100,
+                                                    subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: -2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                                                        Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                                                        Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                                                        Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                                                        
+                                                        ]),
+                                    
+                                    
+        ])
+    
     static let R0berte = Character(name: "R0berte",
                                    topRadius: 2,
                                    bottomRadius: 2,
                                    price: 10101010, //10101010
                                    hoursUnlocked: 7200,
-                                   levelEligibleAt: 25, //10
+                                   levelEligibleAt: 28, //10
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off",
-                                    likelihood: 50,
+                                    likelihood: 30,
                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),
                                                  Subphrase(words: "aye", audioFilePath: nil),
                                                  Subphrase(words: "Should", audioFilePath: nil),
@@ -711,7 +766,7 @@ struct Characters {
                                     
                                     ,
                                              Phrase(name: "You're not the boss of me.",
-                                                    likelihood: 50,
+                                                    likelihood: 25,
                                                     subphrases: [Subphrase(words: "You're", audioFilePath: nil),
                                                                  Subphrase(words: "not", audioFilePath: nil),
                                                                  Subphrase(words: "the", audioFilePath: nil),
@@ -745,7 +800,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "I'm a player.",
-                                                    likelihood: 50,
+                                                    likelihood: 20,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: nil),
                                                                  Subphrase(words: "a", audioFilePath: nil),
                                                                  Subphrase(words: "playah?", audioFilePath: nil)
@@ -775,7 +830,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "Gee golly mister.",
-                                                    likelihood: 50,
+                                                    likelihood: 20,
                                                     subphrases: [Subphrase(words: "Gee", audioFilePath: nil),
                                                                  Subphrase(words: "golly", audioFilePath: nil),
                                                                  Subphrase(words: "mister!", audioFilePath: nil)
@@ -806,7 +861,7 @@ struct Characters {
 
                                     ,
                                              Phrase(name: "Mo money mo problems.",
-                                                    likelihood: 21,
+                                                    likelihood: 11,
                                                     subphrases: [Subphrase(words: "More money?", audioFilePath: nil),
                                                                  Subphrase(words: "More problems!", audioFilePath: nil)
                                                         
@@ -835,7 +890,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "What's the square root of this aparment",
-                                                    likelihood: 20,
+                                                    likelihood: 35,
                                                     subphrases: [Subphrase(words: "What's the square root of this apartment?", audioFilePath: nil)
                                                         
                                                 ],
@@ -866,6 +921,63 @@ struct Characters {
                                                     likelihood: 1,
                                                     subphrases: [Subphrase(words: "The square root of this apartment...", audioFilePath: nil),
                                                                  Subphrase(words: "is the logarithmic cube of five fingers on your face.", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "Dipset",
+                                                    likelihood: 1,
+                                                    subphrases: [Subphrase(words: "Dip", audioFilePath: nil),
+                                                                 Subphrase(words: "Set", audioFilePath: nil)
+                                                        
+                                                ],
+                                                    slots: [
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 176/255, green: 176/255, blue: 176/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 172/255, green: 172/255, blue: 172/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 164/255, green: 164/255, blue: 164/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 152/255, green: 152/255, blue: 152/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 148/255, green: 148/255, blue: 148/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 144/255, green: 144/255, blue: 144/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)),
+                                                        Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
+                                                ])
+                                    ,
+                                             Phrase(name: "Dipset!",
+                                                    likelihood: 1,
+                                                    subphrases: [Subphrase(words: "Dip set!", audioFilePath: nil)
                                                         
                                                 ],
                                                     slots: [
