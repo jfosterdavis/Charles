@@ -109,7 +109,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
-    var parentVC: CoreDataNSObject!
+    var parentVC: ModelController!
     var dataObject: Character!
     var currentPhrase: Phrase!
     var currentSubphraseIndex = 0
@@ -315,10 +315,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         if !expiredPerks.isEmpty {
             //there are expired perks.  lock them and reload the modelController
-            //perkStoreVC.lockAllExpiredPerks()
+            perkStoreVC.lockAllExpiredPerks()
+            self.parentVC.storeClosed()
             
             //open the perk store
-            perkStoreButtonPressed(self)
+            //perkStoreButtonPressed(self)
             
             //invoke the function to mimic functionality as though the store had just closed
             //self.storeClosed()

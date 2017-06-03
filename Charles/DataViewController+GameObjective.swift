@@ -58,7 +58,7 @@ extension DataViewController {
         
         self.objectiveFeedbackView.objectiveRingColor = color
         self.objectiveFeedbackView.setNeedsDisplay()
-        let objectiveBackDelay = 2.3
+        let objectiveBackDelay = 1.8
         
         /******************************************************/
         /*******************///MARK: PERK VISUALIZECOLORVALUES

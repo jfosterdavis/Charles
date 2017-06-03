@@ -545,7 +545,7 @@ extension DataViewController {
                              withDuration: 0.2,
                              completion: { (finished:Bool) in
                                 //set score
-                                self.scoreLabel.text = String(describing: currentScore)
+                                self.scoreLabel.text = String(describing: currentScore.formattedWithSeparator)
                                 self.scoreLabel.fade(.inOrOut,
                                                      resultAlpha: scoreAlpha,
                                                      withDuration: 0.3)

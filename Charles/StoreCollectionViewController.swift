@@ -110,7 +110,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         if price! <= 0 {
             priceLabelText = "Free!"
         } else {
-            priceLabelText = String(describing: price!)
+            priceLabelText = String(describing: price!.formattedWithSeparator)
         }
         
         cell.priceLabel.text = priceLabelText
@@ -337,7 +337,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /******************************************************/
 
     func updateScoreLabel() {
-        let scoreTemp = String(describing: score)
+        let scoreTemp = String(describing: score.formattedWithSeparator)
         
         playerScoreLabel.text = scoreTemp
     }

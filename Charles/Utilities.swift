@@ -319,3 +319,23 @@ enum MagnitudeComparison {
     case decrease
     case noChange
 }
+
+/******************************************************/
+/*******************///MARK: Number formatting
+//adapted from https://stackoverflow.com/questions/29999024/adding-thousand-separator-to-int-in-swift
+/******************************************************/
+
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        //formatter.groupingSeparator = " "
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension Integer {
+    var formattedWithSeparator: String {
+        return Formatter.withSeparator.string(for: self) ?? ""
+    }
+}
