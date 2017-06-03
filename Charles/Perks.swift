@@ -36,7 +36,7 @@ struct Perks {
     static let Quickstudy = Perk(     name: "Quick Study",
                                    gameDescription: "You get more out of each encounter.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 1,
+                                    price: 50000,
                                     meta1: 2,
                                     meta2: nil,
                                     meta3: nil,
@@ -129,7 +129,7 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: 5,
-                                        requiredPartyMembers: [Characters.Matthew]
+                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley]
     )
     
     static let Justabout = Perk(     name: "Just About",

@@ -99,10 +99,16 @@ class ModelController: CoreDataNSObject, UIPageViewControllerDataSource, StoreRe
         guard self.rootVC.storyboard != nil else {
             fatalError("the self.rootVC.storyboard is missing!")
         }
-        guard let vc = self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!) else {
-            fatalError("the viewControllerAtIndex result is missing!")
+        if let vc = self.viewControllerAtIndex(currentVC.currentPage, storyboard: self.rootVC.storyboard!) {
+            self.rootVC.pageViewController!.setViewControllers([vc], direction: .forward, animated: false, completion: {done in })
+        } else {
+            let secondAttemptVc = self.viewControllerAtIndex(0, storyboard: self.rootVC.storyboard!)
+            guard secondAttemptVc != nil else {
+                fatalError("the secondattemptvc is nil")
+            }
+            self.rootVC.pageViewController!.setViewControllers([secondAttemptVc!], direction: .forward, animated: false, completion: {done in })
         }
-        self.rootVC.pageViewController!.setViewControllers([vc], direction: .forward, animated: false, completion: {done in })
+        
         
     }
     

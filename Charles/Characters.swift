@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, LittleJimmy, Benton, Laura, Charles, Fred, StanleyJr,  Matthew, Stanley]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr,  Stanley, Matthew]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [LittleJimmy, Benton, Laura, Charles, Fred, StanleyJr,  Matthew, Stanley]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley, Matthew]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -36,7 +36,7 @@ struct Characters {
                                    bottomRadius: 15,
                                    price: 10200,
                                    hoursUnlocked: 96,
-                                   levelEligibleAt: 4,
+                                   levelEligibleAt: 6,
                                    phrases: [Phrase(name: "I'm a pimp",
                                                     likelihood: 60,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
@@ -138,7 +138,7 @@ struct Characters {
                                 bottomRadius: 15,
                                 price: 10200,
                                 hoursUnlocked: 96,
-                                levelEligibleAt: 4,
+                                levelEligibleAt: 6,
                                phrases: [Phrase(name: "You're not the boss of me.",
                                                 likelihood: 60,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -321,7 +321,7 @@ struct Characters {
                                   bottomRadius: 5,
                                   price: 250,
                                   hoursUnlocked: 150,
-                                  levelEligibleAt: 1,
+                                  levelEligibleAt: 3,
                                   phrases: [Phrase(name: "Gee Golly Mister",
                                                    likelihood: 82,
                                                    subphrases: [Subphrase(words: "Gee", audioFilePath: Bundle.main.path(forResource: "Gee", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
@@ -408,7 +408,7 @@ struct Characters {
                                        bottomRadius: 50,
                                        price: 9000,
                                        hoursUnlocked: 1,
-                                       levelEligibleAt: 5,
+                                       levelEligibleAt: 8,
                                        phrases: [Phrase(name: "Back in my day",
                                                         likelihood: 50,
                                                         subphrases: [Subphrase(words: "Back", audioFilePath: Bundle.main.path(forResource: "Back", ofType: "m4a", inDirectory: "Audio/Stanley")),
@@ -580,9 +580,9 @@ struct Characters {
     static let Matthew = Character(name: "Matthew",
                                    topRadius: 10,
                                    bottomRadius: 10,
-                                   price: 55000,
-                                   hoursUnlocked: 2,
-                                   levelEligibleAt: 12,
+                                   price: 75000,
+                                   hoursUnlocked: 72,
+                                   levelEligibleAt: 15,
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off", //he will have his shirt off in the store!
                                                     likelihood: 55,
                                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: Bundle.main.path(forResource: "Maybe", ofType: "m4a", inDirectory: "Audio/Matthew")),
