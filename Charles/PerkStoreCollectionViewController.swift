@@ -294,6 +294,10 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
                     minutesToUnlock = thePerk.minutesUnlocked
                 }
                 
+                // Get the stack
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                self.stack = delegate.stack
+                
                 let newPerk = UnlockedPerk(name: perkName, expiresMinutes: minutesToUnlock, context: stack.context)
                 
                 print("Unlocked a new Perk named \(String(describing: newPerk.name))")

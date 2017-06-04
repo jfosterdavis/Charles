@@ -73,17 +73,20 @@ extension DataViewController {
             //present the view to the player to let them know
             let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
             departingVC.departingCharacters = departingCharacters!
+            departingVC.score = getCurrentScore()
             topVC.present(departingVC, animated: true, completion: nil)
             
         case let x where x.0 == nil && x.1 != nil: //Perks have expired
             //present the view to the player to let them know
             let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
             departingVC.departingPerks = expiredPerks!
+            departingVC.score = getCurrentScore()
             topVC.present(departingVC, animated: true, completion: nil)
             
         case let x where x.0 != nil && x.1 != nil: //Both Characters and Perks have expired
             //create the Characters VC
             let departingCharactersVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
+            departingCharactersVC.score = getCurrentScore()
             departingCharactersVC.departingCharacters = departingCharacters!
             
             //create the Perks VC
@@ -92,8 +95,9 @@ extension DataViewController {
             
             //Present the perks, then have that VC present the characters
             //That way when characters expire, the player knows in the next screen why their perks are missing character requirements
+            //when characters closes pass the new score to the perks VC
             topVC.present(departingPerksVC, animated: true, completion: nil)
-            departingPerksVC.present(departingCharactersVC, animated: true, completion: nil)
+            departingPerksVC.present(departingCharactersVC, animated: true, completion: {departingPerksVC.score = self.getCurrentScore()})
             
         default: //none are expired, do nothing
             break

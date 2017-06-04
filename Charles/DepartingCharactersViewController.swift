@@ -25,6 +25,7 @@ class DepartingCharactersViewController: StoreCollectionViewController {
         
         //setup CoreData
         _ = setupFetchedResultsController(frcKey: keyUnlockedCharacter, entityName: "UnlockedCharacter", sortDescriptors: [],  predicate: nil)
+        _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
         
         //round corners of the dismiss button
         dismissButton.roundCorners()

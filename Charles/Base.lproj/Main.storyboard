@@ -878,7 +878,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-S0-BFi">
-                                <rect key="frame" x="16" y="78" width="343" height="589"/>
+                                <rect key="frame" x="16" y="120" width="343" height="547"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="je3-Js-whv">
                                     <size key="itemSize" width="135" height="180"/>
@@ -1014,6 +1014,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8g-uH-TvU">
+                                <rect key="frame" x="153" y="30" width="69.5" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="oaI-GP-u8p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing:" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="H7z-iR-zKU">
+                                <rect key="frame" x="114.5" y="75" width="146.5" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="K3C-Gi-THX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt5-Xw-UVi">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1025,40 +1043,32 @@
                                     <action selector="dismissButtonPressed:" destination="AIw-kg-icH" eventType="touchUpInside" id="1Ic-TQ-YMQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing:" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="H7z-iR-zKU">
-                                <rect key="frame" x="66" y="30" width="243" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="K3C-Gi-THX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="H7z-iR-zKU" secondAttribute="trailing" constant="50" id="JzR-eu-0Qj"/>
-                            <constraint firstItem="wt5-Xw-UVi" firstAttribute="centerY" secondItem="H7z-iR-zKU" secondAttribute="centerY" id="Ke9-gJ-E8T"/>
+                            <constraint firstItem="wt5-Xw-UVi" firstAttribute="height" secondItem="H7z-iR-zKU" secondAttribute="height" constant="6" id="4ut-Cn-nAT"/>
+                            <constraint firstItem="H7z-iR-zKU" firstAttribute="centerX" secondItem="k8g-uH-TvU" secondAttribute="centerX" id="L3A-S2-ult"/>
                             <constraint firstItem="2CT-Yf-b0D" firstAttribute="top" secondItem="J0b-S0-BFi" secondAttribute="bottom" id="LKA-Gg-26f"/>
                             <constraint firstItem="wt5-Xw-UVi" firstAttribute="leading" secondItem="fgD-fT-Ip4" secondAttribute="leadingMargin" id="Lge-eu-WLv"/>
-                            <constraint firstItem="H7z-iR-zKU" firstAttribute="top" secondItem="j6z-0e-OiD" secondAttribute="bottom" constant="10" id="PWf-Mk-gDK"/>
                             <constraint firstItem="J0b-S0-BFi" firstAttribute="trailing" secondItem="fgD-fT-Ip4" secondAttribute="trailingMargin" id="TTo-CU-J93"/>
-                            <constraint firstItem="wt5-Xw-UVi" firstAttribute="height" secondItem="H7z-iR-zKU" secondAttribute="height" constant="6" id="aSP-as-ses"/>
-                            <constraint firstItem="J0b-S0-BFi" firstAttribute="top" secondItem="wt5-Xw-UVi" secondAttribute="bottom" constant="10" id="dMe-AC-S4l"/>
+                            <constraint firstItem="k8g-uH-TvU" firstAttribute="centerX" secondItem="fgD-fT-Ip4" secondAttribute="centerX" id="hei-S7-30x"/>
+                            <constraint firstItem="k8g-uH-TvU" firstAttribute="centerY" secondItem="wt5-Xw-UVi" secondAttribute="centerY" id="lin-e5-foP"/>
+                            <constraint firstItem="J0b-S0-BFi" firstAttribute="top" secondItem="H7z-iR-zKU" secondAttribute="bottom" constant="10" id="mdS-BL-6On"/>
+                            <constraint firstItem="H7z-iR-zKU" firstAttribute="top" secondItem="k8g-uH-TvU" secondAttribute="bottom" constant="10" id="nyB-YW-zLW"/>
                             <constraint firstItem="J0b-S0-BFi" firstAttribute="leading" secondItem="fgD-fT-Ip4" secondAttribute="leadingMargin" id="pFx-Ar-4xV"/>
-                            <constraint firstItem="H7z-iR-zKU" firstAttribute="leading" secondItem="fgD-fT-Ip4" secondAttribute="leadingMargin" constant="50" id="ush-aR-Vv2"/>
+                            <constraint firstItem="wt5-Xw-UVi" firstAttribute="top" secondItem="j6z-0e-OiD" secondAttribute="bottom" constant="7" id="pW0-Lz-gEq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="wt5-Xw-UVi" id="eG3-fI-nM6"/>
                         <outlet property="explainationLabel" destination="H7z-iR-zKU" id="dgw-XZ-cch"/>
-                        <outlet property="playerScoreLabel" destination="H7z-iR-zKU" id="jcC-Hb-cob"/>
+                        <outlet property="playerScoreLabel" destination="k8g-uH-TvU" id="qeK-9v-CVP"/>
                         <outlet property="storeCollectionView" destination="J0b-S0-BFi" id="4T7-1i-P2m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jqs-Z5-sbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="-889"/>
+            <point key="canvasLocation" x="1348" y="-889"/>
         </scene>
         <!--Departing Perks View Controller-->
         <scene sceneID="bhk-Nm-KIi">
@@ -1073,7 +1083,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zTB-QD-i9H">
-                                <rect key="frame" x="16" y="78" width="343" height="589"/>
+                                <rect key="frame" x="16" y="118" width="343" height="549"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="I2p-2U-fXS">
                                     <size key="itemSize" width="135" height="135"/>
@@ -1247,9 +1257,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiring:" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IO-eo-Kzl">
-                                <rect key="frame" x="66" y="30" width="243" height="35"/>
+                                <rect key="frame" x="66" y="70" width="243" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Mta-0h-7tR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0B-eR-LTQ">
+                                <rect key="frame" x="66" y="30" width="243" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="jpd-WC-tvS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1259,20 +1278,24 @@
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wQ0-2l-b8a" firstAttribute="leading" secondItem="RTI-x3-qA8" secondAttribute="leadingMargin" id="B35-Mq-844"/>
-                            <constraint firstItem="zTB-QD-i9H" firstAttribute="top" secondItem="wQ0-2l-b8a" secondAttribute="bottom" constant="10" id="EZs-Bi-a66"/>
+                            <constraint firstItem="wQ0-2l-b8a" firstAttribute="top" secondItem="5dr-os-REo" secondAttribute="bottom" constant="7" id="PiV-cm-kdA"/>
                             <constraint firstItem="wQ0-2l-b8a" firstAttribute="height" secondItem="0IO-eo-Kzl" secondAttribute="height" constant="6" id="RA3-Dh-8dy"/>
                             <constraint firstItem="GcU-Pr-vic" firstAttribute="top" secondItem="zTB-QD-i9H" secondAttribute="bottom" id="RmI-sD-boo"/>
+                            <constraint firstItem="0IO-eo-Kzl" firstAttribute="top" secondItem="T0B-eR-LTQ" secondAttribute="bottom" constant="5" id="YLN-nb-Xag"/>
                             <constraint firstItem="zTB-QD-i9H" firstAttribute="trailing" secondItem="RTI-x3-qA8" secondAttribute="trailingMargin" id="ZFR-6S-kbl"/>
+                            <constraint firstItem="T0B-eR-LTQ" firstAttribute="centerY" secondItem="wQ0-2l-b8a" secondAttribute="centerY" id="dbJ-pB-VXM"/>
                             <constraint firstItem="0IO-eo-Kzl" firstAttribute="leading" secondItem="RTI-x3-qA8" secondAttribute="leadingMargin" constant="50" id="e4a-fO-7b4"/>
+                            <constraint firstItem="zTB-QD-i9H" firstAttribute="top" secondItem="0IO-eo-Kzl" secondAttribute="bottom" constant="13" id="fKw-rZ-2AS"/>
                             <constraint firstItem="zTB-QD-i9H" firstAttribute="leading" secondItem="RTI-x3-qA8" secondAttribute="leadingMargin" id="fyU-VG-8IX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0IO-eo-Kzl" secondAttribute="trailing" constant="50" id="hXa-BF-dK5"/>
-                            <constraint firstItem="0IO-eo-Kzl" firstAttribute="top" secondItem="5dr-os-REo" secondAttribute="bottom" constant="10" id="imG-CG-L9b"/>
-                            <constraint firstItem="wQ0-2l-b8a" firstAttribute="centerY" secondItem="0IO-eo-Kzl" secondAttribute="centerY" id="zuT-mN-ZSk"/>
+                            <constraint firstItem="T0B-eR-LTQ" firstAttribute="centerX" secondItem="RTI-x3-qA8" secondAttribute="centerX" id="jui-IC-j3n"/>
+                            <constraint firstItem="T0B-eR-LTQ" firstAttribute="width" secondItem="0IO-eo-Kzl" secondAttribute="width" id="uef-7n-ZuG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="wQ0-2l-b8a" id="m5p-Ia-fTd"/>
                         <outlet property="explainationLabel" destination="0IO-eo-Kzl" id="JU7-TM-W1Z"/>
+                        <outlet property="playerScoreLabel" destination="T0B-eR-LTQ" id="ZnJ-nw-e2C"/>
                         <outlet property="storeCollectionView" destination="zTB-QD-i9H" id="ETM-Zc-6AC"/>
                     </connections>
                 </viewController>

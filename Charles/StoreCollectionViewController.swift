@@ -297,12 +297,12 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /// sets the current score, returns the newly set score
     func setCurrentScore(newScore: Int) -> Int {
         guard let fc = frcDict[keyCurrentScore] else {
-            return -1
+            fatalError("Can't get the frcDict \(keyCurrentScore)")
             
         }
         
         guard let currentScores = fc.fetchedObjects as? [CurrentScore] else {
-            return -1
+            fatalError("nil in the current score!")
         }
         
         if (currentScores.count) == 0  {
@@ -414,6 +414,9 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 //get the amount of time this character will be hired for.
                 let character = Characters.UnlockableCharacters.filter { $0.name == characterName }[0]
                 
+                // Get the stack
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                self.stack = delegate.stack
                 
                 let newCharacter = UnlockedCharacter(name: characterName, expiresHours: character.hoursUnlocked, context: stack.context)
                 //newCharacter.name = characterName
