@@ -344,7 +344,8 @@ extension DataViewController {
                         /******************************************************/
                         //let the user know if they got by because of precision adjustment
                         if scoreResults.2 < (level.successThreshold) {  //user would have failed
-                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                            //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
                             
                         }
                         
@@ -356,24 +357,24 @@ extension DataViewController {
                         /*******************///MARK: PERK INVESTMENT
                         /******************************************************/
                         
-                        //add to the points earned
-                        var perkAddition = 0
-                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
-                        
-                        if !applicablePerks.isEmpty {
-                            //there are perks
-                            
-                            for (perk, _) in applicablePerks {
-                                //each perk adds to the reward
-                                perkAddition += perk.meta1 as! Int
-                            }
-                            
-                            //fire the perk feedback
-                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
-                            
-                            pointsJustScored += perkAddition
-                            
-                        }
+//                        //add to the points earned
+//                        var perkAddition = 0
+//                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+//                        
+//                        if !applicablePerks.isEmpty {
+//                            //there are perks
+//                            
+//                            for (perk, _) in applicablePerks {
+//                                //each perk adds to the reward
+//                                perkAddition += perk.meta1 as! Int
+//                            }
+//                            
+//                            //fire the perk feedback
+//                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+//                            
+//                            pointsJustScored += perkAddition
+//                            
+//                        }
                         
                         /******************************************************/
                         /*******************///MARK: END PERK INVESTMENT
@@ -400,6 +401,8 @@ extension DataViewController {
                             //just modified the score, so give user feedback
                             perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
                             fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                            
                         }
                         
                         /******************************************************/
@@ -504,7 +507,8 @@ extension DataViewController {
                         /******************************************************/
                         //let the user know if they got by because of precision adjustment
                         if scoreResults.2 <= (level.punishThreshold) {  //user would have failed
-                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                            //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
                         }
                         
                         /******************************************************/
@@ -517,24 +521,24 @@ extension DataViewController {
                         /*******************///MARK: PERK INVESTMENT
                         /******************************************************/
                         
-                        //add to the points earned
-                        var perkAddition = 0
-                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
-                        
-                        if !applicablePerks.isEmpty {
-                            //there are perks
-                            
-                            for (perk, _) in applicablePerks {
-                                //each perk adds to the reward
-                                perkAddition += perk.meta1 as! Int
-                            }
-                            
-                            //fire the perk feedback
-                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
-                            
-                            pointsJustScored += perkAddition
-                            
-                        }
+//                        //add to the points earned
+//                        var perkAddition = 0
+//                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+//                        
+//                        if !applicablePerks.isEmpty {
+//                            //there are perks
+//                            
+//                            for (perk, _) in applicablePerks {
+//                                //each perk adds to the reward
+//                                perkAddition += perk.meta1 as! Int
+//                            }
+//                            
+//                            //fire the perk feedback
+//                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+//                            
+//                            pointsJustScored += perkAddition
+//                            
+//                        }
                         
                         /******************************************************/
                         /*******************///MARK: END PERK INVESTMENT
@@ -560,6 +564,7 @@ extension DataViewController {
                             //just modified the score, so give user feedback
                             perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
                             fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
                         }
                         
                         /******************************************************/
@@ -585,24 +590,24 @@ extension DataViewController {
                 /*******************///MARK: PERK INVESTMENT
                 /******************************************************/
                 
-                //add to the points earned
-                var perkAddition = 0
-                let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
-                
-                if !applicablePerks.isEmpty {
-                    //there are perks
-                    
-                    for (perk, _) in applicablePerks {
-                        //each perk adds to the reward
-                        perkAddition += perk.meta1 as! Int
-                    }
-                    
-                    //fire the perk feedback
-                    fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
-                    
-                    pointsJustScored += perkAddition
-                    
-                }
+//                //add to the points earned
+//                var perkAddition = 0
+//                let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+//                
+//                if !applicablePerks.isEmpty {
+//                    //there are perks
+//                    
+//                    for (perk, _) in applicablePerks {
+//                        //each perk adds to the reward
+//                        perkAddition += perk.meta1 as! Int
+//                    }
+//                    
+//                    //fire the perk feedback
+//                    fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+//                    
+//                    pointsJustScored += perkAddition
+//                    
+//                }
                 
                 /******************************************************/
                 /*******************///MARK: END PERK INVESTMENT

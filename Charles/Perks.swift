@@ -225,7 +225,7 @@ struct Perks {
     static let Stacks = Perk(     name: "Innovation",
                                       gameDescription: "You find a way to walk away with more from each encounter.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
-                                        price: 10000,
+                                        price: 5, //10000
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,

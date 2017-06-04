@@ -43,13 +43,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //perk increasedScore
     @IBOutlet weak var perkIncreasedScoreUserFeedback: UILabel!
+    @IBOutlet weak var perkIncreasedScoreUserFeedbackImageView: UIImageView!
     
     //perk precisionadjustment
     @IBOutlet weak var perkPrecisionAdjustmentUserFeedback: UIView!
+    @IBOutlet weak var perkPrecisionAdjustmentUserFeedbackImageView: UIImageView!
     
     //Investment perk feedback
-    @IBOutlet weak var perkInvestmentScoreUserFeedback: UIImageView!
-    @IBOutlet weak var perkInvestmentPrecisionUserFeedback: UIImageView!
+    //@IBOutlet weak var perkInvestmentScoreUserFeedback: UIImageView!
+    
+    
     
     
     
@@ -184,8 +187,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkIncreasedScoreUserFeedback.alpha = 0
         perkPrecisionAdjustmentUserFeedback.alpha = 0
         perkStickViewDeviation.alpha = 0
-        perkInvestmentScoreUserFeedback.alpha = 0
-        perkInvestmentPrecisionUserFeedback.alpha = 0
+        perkIncreasedScoreUserFeedbackImageView.alpha = 0
+        perkPrecisionAdjustmentUserFeedbackImageView.alpha = 0
         
         
         //setup the color feedback view to recieve touches
