@@ -33,8 +33,8 @@ struct Perks {
     /******************************************************/
 
     
-    static let ValidPerks:[Perk] = [Stacks, Insight,
-                                    Study, Synesthesia,
+    static let ValidPerks:[Perk] = [Synesthesia, Insight, Stacks,
+                                    Study,
                                     Closeenough,
                                     Study2,
                                     
@@ -47,8 +47,8 @@ struct Perks {
                                     Synesthesia3, Study4,
                                     Stacks4, Closeenough4]
     
-    static let UnlockablePerks:[Perk] = [Stacks, Insight,
-                                         Study, Synesthesia,
+    static let UnlockablePerks:[Perk] = [Synesthesia, Insight, Stacks,
+                                         Study,
                                          Closeenough,
                                          Study2,
                                          
