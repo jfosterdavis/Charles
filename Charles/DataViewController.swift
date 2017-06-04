@@ -295,10 +295,12 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
     func storeClosed() {
                 
-        let pVC = self.parentVC as! ModelController
+        let pVC = self.parentVC!
         pVC.storeClosed()
         
         //fade in and out the store buttons
+        //self.storeButton.isHidden = false
+        //self.storeButton.alpha = 1
         
         //allow user to access the stores for a few seconds
         fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 6.3)
@@ -322,6 +324,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
             //there are expired perks.  lock them and reload the modelController
             perkStoreVC.parentVC = self
             perkStoreVC.lockAllExpiredPerks()
+            self.view.fade(.out,
+                           withDuration: 0.5,
+                           completion: { (finished:Bool) in
+                            self.view.fade(.in)
+            
+            })
+            
             self.parentVC.storeClosed()
             
             //open the perk store

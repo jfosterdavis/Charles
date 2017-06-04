@@ -227,7 +227,7 @@ extension UIView {
     func fade(_ direction: FadeDirection, resultAlpha: CGFloat? = nil, disable: Bool? = nil, withDuration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: ((Bool) -> Void)? = nil ) {
         
         let endAlpha: CGFloat
-        
+        self.isHidden = false //make sure the damn thing is not hidden
         
             switch direction {
             case .in:
@@ -248,47 +248,54 @@ extension UIView {
                        delay: delay,
                        animations: {
                         self.alpha = endAlpha
-        }, completion: {(finished:Bool) in
+        }, completion: nil )
         
-            //check to disable or not
-            switch self {
-            case is UIButton:
-                let myself = self as! UIButton
-                if let disable = disable {
-                    if disable {
+        let seconds = withDuration + delay
+        let secondsInt = Int(seconds)
+        let milliseconds = Int((seconds - Double(secondsInt))  * 1000)
+        
+        let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(secondsInt) + DispatchTimeInterval.milliseconds(milliseconds)
+        
+        DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+                //check to disable or not
+                switch self {
+                case is UIButton:
+                    let myself = self as! UIButton
+                    if let disable = disable {
+                        if disable {
+                            myself.isEnabled = false
+                        } else {
+                            myself.isEnabled  = true
+                        }
+                    } else if endAlpha == 0 { //if this will be going to zero, will be disabled
                         myself.isEnabled = false
-                    } else {
-                        myself.isEnabled  = true
+                    } else { //for any alpha value
+                        //set to true
+                        myself.isEnabled = true
                     }
-                } else if endAlpha == 0 { //if this will be going to zero, will be disabled
-                    myself.isEnabled = false
-                } else { //for any alpha value
-                    //set to true
-                    myself.isEnabled = true
-                }
-            case is UILabel:
-                let myself = self as! UILabel
-                if let disable = disable {
-                    if disable {
+                case is UILabel:
+                    let myself = self as! UILabel
+                    if let disable = disable {
+                        if disable {
+                            myself.isEnabled = false
+                        } else {
+                            myself.isEnabled  = true
+                        }
+                    } else if endAlpha == 0 { //if this will be going to zero, will be disabled
                         myself.isEnabled = false
-                    } else {
-                        myself.isEnabled  = true
+                    } else { //for any alpha value
+                        //set to true
+                        myself.isEnabled = true
                     }
-                } else if endAlpha == 0 { //if this will be going to zero, will be disabled
-                    myself.isEnabled = false
-                } else { //for any alpha value
-                    //set to true
-                    myself.isEnabled = true
+                default:
+                    break
                 }
-            default:
-                break
-            }
             
-            if let completion = completion {
-                completion(finished)
-            }
+                if let completion = completion {
+                    completion(true)
+                }
             
-        })
+            })
     }
     
 }

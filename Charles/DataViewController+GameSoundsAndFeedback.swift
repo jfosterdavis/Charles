@@ -173,7 +173,7 @@ extension DataViewController {
             justScoredLabel.textColor = feedbackColorMoss.textColor
         }
         
-        justScoredLabel.text = "\(scoreModifier) \(String(describing: presentableScoreValue))"
+        justScoredLabel.text = "\(scoreModifier)\(String(describing: presentableScoreValue))"
         self.justScoredLabel.isHidden = false
         UIView.animate(withDuration: 0.2, animations: {
             
