@@ -212,7 +212,7 @@ struct Perks {
                                     minutesUnlocked: 45,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: 35,
+                                    levelEligibleAt: Characters.John.levelEligibleAt,
                                     requiredPartyMembers: [Characters.John]
     )
     
@@ -320,7 +320,7 @@ struct Perks {
         minutesUnlocked: 20,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: 21,
+        levelEligibleAt: 24,
         requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
     )
     

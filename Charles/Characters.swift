@@ -645,7 +645,7 @@ struct Characters {
                                    bottomRadius: 15,
                                    price: 5, //5
                                    hoursUnlocked: 12, //12
-                                   levelEligibleAt: 1, //35
+                                   levelEligibleAt: 35, //35
                                    phrases: [Phrase(name: "1",
                                                     likelihood: 100,
                                                     subphrases: [Subphrase(words: "", audioFilePath: nil),
@@ -755,7 +755,7 @@ struct Characters {
                                    bottomRadius: 2,
                                    price: 10101010, //10101010
                                    hoursUnlocked: 7200,
-                                   levelEligibleAt: 28, //10
+                                   levelEligibleAt: 28, //28
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off",
                                     likelihood: 30,
                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),

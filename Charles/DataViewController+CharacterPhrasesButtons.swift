@@ -47,14 +47,27 @@ extension DataViewController {
         let expiredCharacters: [UnlockedCharacter] = storeVC.getExpiredCharacters()
         
         if !expiredCharacters.isEmpty {
+            
+            
+            //present the view to the player to let them know
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
+            
+            //prepare the data for the VC
+            var departingCharacters = [Character]()
+            for unlockedCharacter in expiredCharacters {
+                for character in Characters.ValidCharacters {
+                    if unlockedCharacter.name == character.name {
+                        departingCharacters.append(character)
+                    }
+                }
+            }
+            
+            departingVC.departingCharacters = departingCharacters
+            present(departingVC, animated: true, completion: nil)
+            
             //there are expired characters.  lock them and reload the modelController
+            storeVC.parentVC = self
             storeVC.lockAllExpiredCharacters()
-            self.view.fade(.out,
-                           withDuration: 0.5,
-                           completion: { (finished:Bool) in
-                            self.view.fade(.in)
-                            
-            })
             
             self.parentVC.storeClosed()
             

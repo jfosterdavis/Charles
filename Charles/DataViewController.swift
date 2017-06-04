@@ -321,15 +321,27 @@ class DataViewController: CoreDataViewController, StoreReactor {
         let expiredPerks: [UnlockedPerk] = perkStoreVC.getExpiredPerks()
         
         if !expiredPerks.isEmpty {
+            
+            //present the view to the player to let them know
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
+            
+            //prepare the data for the VC
+            var departingPerks = [Perk]()
+            for unlockedPerk in expiredPerks {
+                for perk in Perks.ValidPerks {
+                    if unlockedPerk.name == perk.name {
+                        departingPerks.append(perk)
+                    }
+                }
+            }
+            
+            departingVC.departingPerks = departingPerks
+            present(departingVC, animated: true, completion: nil)
+            
             //there are expired perks.  lock them and reload the modelController
             perkStoreVC.parentVC = self
             perkStoreVC.lockAllExpiredPerks()
-            self.view.fade(.out,
-                           withDuration: 0.5,
-                           completion: { (finished:Bool) in
-                            self.view.fade(.in)
             
-            })
             
             self.parentVC.storeClosed()
             
