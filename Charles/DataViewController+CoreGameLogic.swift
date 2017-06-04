@@ -186,11 +186,20 @@ extension DataViewController {
                 let rawTone = currentPhrase.slots![currentButtons.index(of: sendingButton!)!].tone
                 var newTone = rawTone!
 
-                //now reduce the tone to make it soothing unless this is level 1, which doesn't get this benefit
+                //now reduce the tone to make it soothing unless this is level 1, which doesn't get this benefit as much
                 if highestPerkLevel > 1 {
                     newTone -= 1200
+                    //if this is the second to last subphrase and if this is level 2 or higher, make pitch very low to give user a hint
+                    if (currentSubphraseIndex + 2) >= currentPhrase.subphrases!.count  {
+                        if highestPerkLevel > 2 {
+                            newTone -= 1400
+                        } else { //player is only level 2 perk so make this distinction very subtle
+                            newTone -= 300
+                        }
+                        
+                    }
                 } else {
-                    newTone -= 400
+                    newTone -= 500
                 }
                 changePitchEffect.pitch = newTone
                 

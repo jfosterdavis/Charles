@@ -75,7 +75,7 @@ struct Perks {
         price: 750,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
-        meta3: nil,
+        meta3: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
