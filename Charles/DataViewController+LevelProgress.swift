@@ -41,9 +41,6 @@ extension DataViewController {
             //show the level progress
             levelProgressView.isHidden = false
             
-            //play sounds if needed
-            compareLevelAndProgressAndPlaySounds(given: currentLevelAndProgress)
-            
             if let progress = calculateProgressValue() {
                 
                 var thisLevelColor: UIColor
@@ -154,6 +151,9 @@ extension DataViewController {
             } else {
                 levelProgressView.setProgress(0.0, animated: true)
             }
+            
+            //play sounds if needed
+            compareLevelAndProgressAndPlaySounds(given: currentLevelAndProgress)
             
         }
         
