@@ -56,9 +56,9 @@
                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-Pd-fue">
-                                <rect key="frame" x="16" y="30" width="38" height="33"/>
+                                <rect key="frame" x="9" y="27" width="45" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="38" id="AD0-SX-ake"/>
+                                    <constraint firstAttribute="width" constant="45" id="AD0-SX-ake"/>
                                     <constraint firstAttribute="width" secondItem="Shc-Pd-fue" secondAttribute="height" multiplier="7:6" id="W9S-tr-vDt"/>
                                 </constraints>
                                 <state key="normal" image="Grid-2"/>
@@ -67,10 +67,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4J-0b-BVK">
-                                <rect key="frame" x="321" y="30" width="38" height="33"/>
+                                <rect key="frame" x="321" y="27" width="45" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="e4J-0b-BVK" secondAttribute="height" multiplier="7:6" id="Kd7-FM-Kd0"/>
-                                    <constraint firstAttribute="width" constant="38" id="q9L-8R-fRV"/>
+                                    <constraint firstAttribute="width" constant="45" id="q9L-8R-fRV"/>
                                 </constraints>
                                 <state key="normal" image="Grid-4"/>
                                 <connections>
@@ -296,7 +296,7 @@
                             <constraint firstItem="5MD-vF-f6l" firstAttribute="centerY" secondItem="nRk-TB-6n2" secondAttribute="centerY" id="4fn-Cl-JQe"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="centerX" secondItem="cF2-Le-7mQ" secondAttribute="centerX" id="AfY-kF-Wph"/>
                             <constraint firstItem="lO8-fJ-aIM" firstAttribute="top" secondItem="fXf-Jd-eTc" secondAttribute="bottom" id="Cac-Nc-9lF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e4J-0b-BVK" secondAttribute="trailing" id="D6c-HY-29g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e4J-0b-BVK" secondAttribute="trailing" constant="-7" id="D6c-HY-29g"/>
                             <constraint firstItem="yJ1-Y9-W5p" firstAttribute="top" secondItem="rwY-dv-xmQ" secondAttribute="bottom" id="Daa-3v-BRV"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="centerY" secondItem="rwY-dv-xmQ" secondAttribute="centerY" id="EcQ-Jv-5w0"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="width" secondItem="rwY-dv-xmQ" secondAttribute="width" multiplier="1:2" id="F4d-qh-5RC"/>
@@ -322,7 +322,7 @@
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="height" secondItem="lO8-fJ-aIM" secondAttribute="height" constant="-1" id="cg0-QP-Im6"/>
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="trailing" secondItem="lO8-fJ-aIM" secondAttribute="trailing" id="cpV-tG-jNq"/>
                             <constraint firstItem="jeA-Nm-BNH" firstAttribute="centerX" secondItem="ZwX-cT-FIQ" secondAttribute="centerX" id="czp-Fu-oIs"/>
-                            <constraint firstItem="Shc-Pd-fue" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" id="fJH-iG-HRd"/>
+                            <constraint firstItem="Shc-Pd-fue" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" constant="-7" id="fJH-iG-HRd"/>
                             <constraint firstItem="4Ma-Wn-fWR" firstAttribute="centerX" secondItem="nRk-TB-6n2" secondAttribute="centerX" id="jLH-Kz-ZFE"/>
                             <constraint firstItem="hfs-G9-RyR" firstAttribute="width" secondItem="lO8-fJ-aIM" secondAttribute="width" multiplier="1:11" id="jSi-pr-o8R"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="top" secondItem="cF2-Le-7mQ" secondAttribute="bottom" id="kJ8-4v-0SU"/>
