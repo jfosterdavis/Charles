@@ -61,6 +61,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var objectiveColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
     //Synesthesia background blinker
     @IBOutlet weak var synesthesiaBackgroundBlinker: UIView!
+    @IBOutlet weak var synesthesiaBackgroundBlinkerImageView: UIImageView!
+    
     
     
     @IBOutlet weak var buttonStackViewMaskView: UIView!
@@ -189,6 +191,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkStickViewDeviation.alpha = 0
         perkIncreasedScoreUserFeedbackImageView.alpha = 0
         perkPrecisionAdjustmentUserFeedbackImageView.alpha = 0
+        synesthesiaBackgroundBlinkerImageView.alpha = 0
         
         
         //setup the color feedback view to recieve touches

@@ -95,7 +95,11 @@ extension DataViewController {
                   withDuration: 0.2,
                   delay: 0
                   )
-        
+        self.synesthesiaBackgroundBlinkerImageView.fade(.inOrOut,
+                                               resultAlpha: newIntensity,
+                                               withDuration: 0.2,
+                                               delay: 0
+        )
         
         let milliseconds = 200
         
@@ -106,6 +110,11 @@ extension DataViewController {
                            withDuration: fadeInOverSeconds,
                            delay: 0
                            )
+            
+            self.synesthesiaBackgroundBlinkerImageView.fade(.out,
+                                                   withDuration: fadeInOverSeconds,
+                                                   delay: 0
+            )
         })
     }
     
