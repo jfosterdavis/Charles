@@ -879,7 +879,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-S0-BFi">
                                 <rect key="frame" x="16" y="120" width="343" height="547"/>
-                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.41828596260000001" green="0.048289619620000002" blue="0.001187714301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="je3-Js-whv">
                                     <size key="itemSize" width="135" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1044,7 +1044,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41828596259131645" green="0.048289619622422709" blue="0.0011877143012171882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wt5-Xw-UVi" firstAttribute="height" secondItem="H7z-iR-zKU" secondAttribute="height" constant="6" id="4ut-Cn-nAT"/>
                             <constraint firstItem="H7z-iR-zKU" firstAttribute="centerX" secondItem="k8g-uH-TvU" secondAttribute="centerX" id="L3A-S2-ult"/>
@@ -1084,7 +1084,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zTB-QD-i9H">
                                 <rect key="frame" x="16" y="118" width="343" height="549"/>
-                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.41828596260000001" green="0.048289619620000002" blue="0.001187714301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="I2p-2U-fXS">
                                     <size key="itemSize" width="135" height="135"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1275,7 +1275,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.41828596260000001" green="0.048289619620000002" blue="0.001187714301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wQ0-2l-b8a" firstAttribute="leading" secondItem="RTI-x3-qA8" secondAttribute="leadingMargin" id="B35-Mq-844"/>
                             <constraint firstItem="wQ0-2l-b8a" firstAttribute="top" secondItem="5dr-os-REo" secondAttribute="bottom" constant="7" id="PiV-cm-kdA"/>
