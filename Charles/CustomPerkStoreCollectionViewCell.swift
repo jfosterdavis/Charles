@@ -102,7 +102,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         perkGotFromCharacterIndicator.layer.zPosition = 1
         perkGotFromCharacterIndicator.alpha = 1
         perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupMissing")
-        perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 255/255, green: 182/255, blue: 180/255, alpha: 1) //a gentle red
+        perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 255/255, green: 94/255, blue: 94/255, alpha: 1) //a gentle red
         self.setNeedsDisplay()
         
         //put to black and white
