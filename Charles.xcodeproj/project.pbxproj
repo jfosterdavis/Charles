@@ -53,6 +53,7 @@
 		F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038261EE399750059F946 /* InvestmentCrashViewController.swift */; };
 		F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */; };
 		F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */; };
+		F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */; };
 		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */; };
 		F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */; };
@@ -132,6 +133,7 @@
 		F62038261EE399750059F946 /* InvestmentCrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCrashViewController.swift; sourceTree = "<group>"; };
 		F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingCharactersViewController.swift; sourceTree = "<group>"; };
 		F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingPerksViewController.swift; sourceTree = "<group>"; };
+		F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWinnerViewController.swift; sourceTree = "<group>"; };
 		F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				F62038261EE399750059F946 /* InvestmentCrashViewController.swift */,
 				F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */,
 				F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */,
+				F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */,
 				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,
 				F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */,
+				F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */,
 				F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,

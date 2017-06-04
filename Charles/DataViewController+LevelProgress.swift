@@ -257,7 +257,7 @@ extension DataViewController {
     /******************************************************/
     
     /// sets the current score, returns the newly set score
-    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil) {
+    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil, dontExceedHighestLevel: Bool = true) {
         guard let fc = frcDict[keyXP] else {
             return
             
@@ -267,9 +267,16 @@ extension DataViewController {
             return
         }
         
+        var xpToAward = value
+        
+        if let excessXP = howMuchWouldPlayerExceedHighestLevel(ifPlayerGained: value), dontExceedHighestLevel { //if the player is at the highest level of the game and this function should not exceed that
+            xpToAward -= excessXP
+            
+        }
+        
         //create a new score object
         let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
-        newXP.value = Int64(value)
+        newXP.value = Int64(xpToAward)
         newXP.earnedDatetime = earnedDatetime as NSDate
         newXP.level = Int64(level)
         newXP.score = Int64(score)
@@ -284,6 +291,10 @@ extension DataViewController {
         
         newXP.metaString1 = metaString1
         newXP.metaString2 = metaString2
+        
+        //save this right away
+        stack.save()
+        
         
     }
     
@@ -371,6 +382,68 @@ extension DataViewController {
         } else {
             return nil
         }
+    }
+    
+    ///determines if the user just reached the highest progress of the highest level
+    func didPlayerBeatGame() -> Bool {
+        let userCurrentLevel = getUserCurrentLevel()?.level
+        if isPlayerAtHighestLevelAndProgress() {  //looks like the user is at the highest level with the highest progress
+            //check that the player just arrived at this level
+            let didJustReach = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel!)
+            
+            //if the player just reached this level, then show the "you won" sequence
+            if didJustReach {
+                return true
+            }
+        }
+     
+        return false
+    }
+    
+    ///determines if the user is at the highest level and progress values allowed
+    func isPlayerAtHighestLevelAndProgress() -> Bool {
+        let highestLevel = (Levels.HighestLevel?.level)!
+        let highestProgressRequiredOnHighestLevel = Levels.Game[(highestLevel)]?.xPRequired
+        let userXP = calculateUserXP()
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let requiredProgressValue = highestProgressRequiredOnHighestLevel! - 1 //The user must get up to 1 fewer than the highest XP of the highest level to win the game
+        
+        if userLevelAndProgress.0?.level == highestLevel &&  userLevelAndProgress.1! ==  requiredProgressValue {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    ///determines if the user is at the highest level and progress values allowed
+    func howMuchWouldPlayerExceedHighestLevel(ifPlayerGained XP: Int) -> Int? {
+        let highestLevel = Levels.HighestLevel
+        let userXP = calculateUserXP()
+        let userXPAndHypotheticalXP = userXP + XP
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXPAndHypotheticalXP)
+        
+        if (userLevelAndProgress.0?.level!)! > (highestLevel?.level!)! {
+            var maxXP = 0
+            var level = 1
+            while level <= (Levels.HighestLevel?.level)! {
+                maxXP += (Levels.Game[level]?.xPRequired)!
+                level += 1
+            }
+            //maxXP now holds the total number of XP required to win
+            let xpDeviation = abs(userXPAndHypotheticalXP - maxXP) + 1 //if the user level is higher than the highest level the deviation will be the entire higher levels plus one.
+            
+            return xpDeviation
+        } else {
+            return nil
+        }
+    }
+    
+    ///shows the wining sequence
+    func showWinningSequence() {
+        let topVC = topMostController()
+        let youWonVC = self.storyboard!.instantiateViewController(withIdentifier: "GameWinner") as! GameWinnerViewController
+        
+        topVC.present(youWonVC, animated: true, completion: nil)
     }
     
     

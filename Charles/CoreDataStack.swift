@@ -133,7 +133,9 @@ extension CoreDataStack {
                 do {
                     try self.context.save()
                 } catch {
-                    fatalError("Error while saving main context: \(error)")
+                    //assume was just trying to save something that was already saved
+                    print("Attempted to save something that was already saved.")
+                    //fatalError("Error while saving main context: \(error)")
                 }
                 
                 // now we save in the background

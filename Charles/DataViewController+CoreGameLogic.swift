@@ -644,13 +644,18 @@ extension DataViewController {
             //update the score
             refreshScore()
             
+            //first check to see if player has won
+            let userCurrentLevel = (getUserCurrentLevel()?.level)!
+            if isPlayerAtHighestLevelAndProgress() && didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel) {  //player has won so show the final sequence
+                showWinningSequence()
+            }
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {
                 self.reloadGame()
             })
             
             
         }
-        
     }
     
     /******************************************************/

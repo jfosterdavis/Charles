@@ -15,6 +15,9 @@ struct Levels {
     
     //static let valid: [Level] = []
     ///All levels in the order for the game
+    static let HighestLevel = Game[7]  //everything that determines level or winning the game references this as the highest level
+   
+     ///All levels in the order for the game
     static let Game: [Int:Level] = [1 : Level(level: 1,
                                               levelDescription: "newbie",
                                               xPRequired: 5,
@@ -78,7 +81,8 @@ struct Levels {
         
         //no level found by now, player either has max xp or xp above the standard levels
         //for now, return level 39 with highest progress
-        return (Levels.Game[39], 11)
+        //return (Levels.Game[Levels.HighestLevel!.level - 1], Levels.Game[Levels.HighestLevel!.level - 1]?.xPRequired)
+        return (nil, nil)
     }
     
 }

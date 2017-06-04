@@ -55,6 +55,8 @@ extension DataViewController {
     
     /// reloads all UI elements neccessary to play the game after a phrase has been completed.  Reloads the buttons and the color feedback
     func reloadGame() {
+        
+        
         //load the buttons
         reloadButtons()
         

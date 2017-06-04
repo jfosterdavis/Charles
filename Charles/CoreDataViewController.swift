@@ -98,7 +98,7 @@ extension CoreDataViewController: NSFetchedResultsControllerDelegate {
                 
                 //TODO: initiate download of terms?
                 
-                //print("case insert")
+                print("case insert \(anObject)")
                 break
             case .delete:
                 //from apple documentation
