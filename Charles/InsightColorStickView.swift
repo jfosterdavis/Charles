@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//@IBDesignable
+@IBDesignable
 class InsightColorStickView:UIView
 {
     @IBInspectable var redPercent: CGFloat = 1.0
@@ -54,6 +54,7 @@ class InsightColorStickView:UIView
     }
     
     @IBOutlet var deviationLabel: UILabel!
+    @IBOutlet var deviationImageView: UIImageView!
     
     
     override func draw(_ rect: CGRect)

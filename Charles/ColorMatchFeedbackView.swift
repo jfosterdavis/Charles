@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-//@IBDesignable
+@IBDesignable
 class ColorMatchFeedbackView:UIView
 {
     @IBInspectable var mainColor: UIColor = UIColor.clear

@@ -118,13 +118,13 @@
                                 <rect key="frame" x="237" y="74" width="122" height="20"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-ak-3np">
-                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4x!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-Jf-5wa">
-                                        <rect key="frame" x="75.5" y="0.0" width="26.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="20"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -163,14 +163,14 @@
                                 <color key="textColor" red="1" green="0.95294117649999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHi-zc-Tu3">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHi-zc-Tu3">
                                 <rect key="frame" x="333" y="646" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRq-bu-RPO">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRq-bu-RPO">
                                 <rect key="frame" x="-1" y="649" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -245,6 +245,12 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-q0-6eO" customClass="InsightColorStickView" customModule="Charles" customModuleProvider="target">
                                 <rect key="frame" x="130.5" y="317" width="114.5" height="114.5"/>
                                 <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightbulb" translatesAutoresizingMaskIntoConstraints="NO" id="1mT-GO-gPj">
+                                        <rect key="frame" x="47.5" y="46" width="19" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1mT-GO-gPj" secondAttribute="height" multiplier="69:80" id="F2h-mS-R3d"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="AZk-UR-thl">
                                         <rect key="frame" x="37.5" y="81.5" width="38.5" height="23"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -258,9 +264,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="height" multiplier="1:1" id="7dC-Hz-jQ0"/>
                                     <constraint firstItem="AZk-UR-thl" firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="width" multiplier="1:3" id="Ds6-ar-ehk"/>
+                                    <constraint firstItem="1mT-GO-gPj" firstAttribute="centerX" secondItem="u5L-q0-6eO" secondAttribute="centerX" id="JVE-zA-G4x"/>
                                     <constraint firstItem="AZk-UR-thl" firstAttribute="centerX" secondItem="u5L-q0-6eO" secondAttribute="centerX" id="Nv9-1Q-3Ly"/>
                                     <constraint firstAttribute="bottom" secondItem="AZk-UR-thl" secondAttribute="bottom" constant="10" id="RXz-rO-5Vj"/>
                                     <constraint firstItem="AZk-UR-thl" firstAttribute="height" secondItem="u5L-q0-6eO" secondAttribute="height" multiplier="1:5" id="bNX-ov-6PY"/>
+                                    <constraint firstItem="1mT-GO-gPj" firstAttribute="width" secondItem="u5L-q0-6eO" secondAttribute="width" multiplier="1:5" id="drQ-Z9-8Lf"/>
+                                    <constraint firstItem="1mT-GO-gPj" firstAttribute="centerY" secondItem="u5L-q0-6eO" secondAttribute="centerY" id="dzp-QA-0Mk"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="redPercent">
@@ -278,6 +287,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showColors" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="deviationImageView" destination="1mT-GO-gPj" id="eBX-mf-mCe"/>
                                     <outlet property="deviationLabel" destination="AZk-UR-thl" id="MH4-On-4mj"/>
                                 </connections>
                             </view>
@@ -1312,6 +1322,7 @@
         <image name="bullseye" width="69" height="80"/>
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>
+        <image name="lightbulb" width="69" height="80"/>
         <image name="unlocked" width="32" height="28"/>
         <image name="x" width="18" height="18"/>
     </resources>
