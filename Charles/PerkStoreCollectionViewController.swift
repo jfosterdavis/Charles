@@ -316,8 +316,50 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     func lockAllExpiredPerks() {
         let expiredPerks = getExpiredPerks()
         
-        for perk in expiredPerks {
-            lockPerk(unlockedPerk: perk)
+        /******************************************************/
+        /*******************///MARK: PERK INVESTMENT
+        /******************************************************/
+        //if the big payoff investment has expired, player will lose 50% of all money plus 5% for all active (and expiring) investment perks.  Then lock all perks.
+        //let vC = self.storyboard!.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
+        //add to the points earned
+        let applicableInvestmentPerks = parentVC.getAllPerks(ofType: .investment, withStatus: .unlocked)
+        
+        if !applicableInvestmentPerks.isEmpty {
+            //there are active investment perks
+            var foundExpiringBigPayoff = false
+            for (perk, unlockedPerk) in applicableInvestmentPerks {
+                //check to see if the big payoff is among the expired perks
+                if perk === Perks.Investment5 {  //the big payoff is Investment5
+                    //the big payoff is active
+                    
+                    for expiredPerk in expiredPerks {
+                        if expiredPerk === unlockedPerk {
+                            ///the big payoff is one of the expired perks
+                            print("The big payoff is expiring.")
+                            foundExpiringBigPayoff = true
+                        }
+                    }
+                }
+            }
+            
+            if foundExpiringBigPayoff {
+                parentVC.investmentCrash(activeInvestmentPerks: applicableInvestmentPerks)
+            } else {
+                //normal locking routine
+                for perk in expiredPerks {
+                    lockPerk(unlockedPerk: perk)
+                }
+            }
+            /******************************************************/
+            /*******************///MARK: END PERK INVESTMENT
+            /******************************************************/
+        } else {
+            
+            
+            //normal locking routine
+            for perk in expiredPerks {
+                lockPerk(unlockedPerk: perk)
+            }
         }
     }
     

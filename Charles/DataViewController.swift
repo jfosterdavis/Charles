@@ -320,6 +320,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         if !expiredPerks.isEmpty {
             //there are expired perks.  lock them and reload the modelController
+            perkStoreVC.parentVC = self
             perkStoreVC.lockAllExpiredPerks()
             self.parentVC.storeClosed()
             

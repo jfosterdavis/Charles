@@ -35,28 +35,28 @@ struct Perks {
     
     static let ValidPerks:[Perk] = [Stacks, Insight,
                                     Study, Synesthesia,
-                                    Investment, Closeenough,
+                                    Closeenough,
                                     Study2,
                                     
-                                    Investment2, Stacks2, Closeenough2,
-                                    Investment3,
+                                    Stacks2, Closeenough2,
+                                    
                                     Stacks3, Insight2,
-                                    Investment4,
-                                    Synesthesia2, Investment5, Study3,
+                                    
+                                    Synesthesia2, Study3,
                                     Insight3, Closeenough3,
                                     Synesthesia3, Study4,
                                     Stacks4, Closeenough4]
     
     static let UnlockablePerks:[Perk] = [Stacks, Insight,
                                          Study, Synesthesia,
-                                         Investment, Closeenough,
+                                         Closeenough,
                                          Study2,
                                          
-                                         Investment2, Stacks2, Closeenough2,
-                                         Investment3,
+                                         Stacks2, Closeenough2,
+                                         
                                          Stacks3, Insight2,
-                                         Investment4,
-                                         Synesthesia2, Investment5, Study3,
+                                         
+                                         Synesthesia2, Study3,
                                          Insight3, Closeenough3,
                                          Synesthesia3, Study4,
                                          Stacks4, Closeenough4]
@@ -348,8 +348,8 @@ struct Perks {
     static let Investment = Perk(     name: "Stock",
                                         gameDescription: "You make some clear and easy returns by making this investment.",
                                         type: .investment, //types are strings that the game will look for when determining how to behave
-        price: 1000,
-        meta1: 100,  //increase to base score for all characters
+        price: 0,
+        meta1: 300,  //increase to base score for all characters
         meta2: nil,  //increase to closeenough
         meta3: nil,
         minutesUnlocked: 30, //short time requies player to keep asking for it
@@ -362,56 +362,56 @@ struct Perks {
     static let Investment2 = Perk(     name: "Investment",
                                       gameDescription: "You make some very clear and easy returns by making this investment.",
                                       type: .investment, //types are strings that the game will look for when determining how to behave
-        price: 1200,
-        meta1: 300,  //increase to base score for all characters
+        price: 0,
+        meta1: 600,  //increase to base score for all characters
         meta2: nil,  //increase to closeenough
         meta3: nil,
         minutesUnlocked: 45,
         icon: #imageLiteral(resourceName: "hex-rubyBlur6"),
         displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
-        levelEligibleAt: 15,
+        levelEligibleAt: 1, //15
         requiredPartyMembers: [Characters.Francisco]
     )
     
     static let Investment3 = Perk(     name: "Portfolio",
                                        gameDescription: "You make some clear and easy returns in a lot of ways by making this investment.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
-        price: 1400,
-        meta1: 300,  //increase to base score for all characters
+        price: 0,
+        meta1: 900,  //increase to base score for all characters
         meta2: -0.01,  //increase to closeenough
         meta3: nil,
-        minutesUnlocked: 2880, //2 Days, 2880
+        minutesUnlocked: 15, //2 Days, 2880
         icon: #imageLiteral(resourceName: "hex-rubyBlur4"),
         displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
-        levelEligibleAt: 18,
+        levelEligibleAt: 1, //18
         requiredPartyMembers: [Characters.Francisco]
     )
     
     static let Investment4 = Perk(     name: "Reinvestment",
                                        gameDescription: "You will definately make some easy returns in a lot of ways by making this investment.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
-        price: 1600,
-        meta1: 400,  //increase to base score for all characters
+        price: 0,
+        meta1: 1500,  //increase to base score for all characters
         meta2: -0.01,  //increase to closeenough
         meta3: nil,
-        minutesUnlocked: 4320, //3 days 4320
+        minutesUnlocked: 15, //3 days 4320
         icon: #imageLiteral(resourceName: "hex-rubyBlur2"),
         displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
-        levelEligibleAt: 22,
+        levelEligibleAt: 1, //22
         requiredPartyMembers: [Characters.Francisco]
     )
     
     static let Investment5 = Perk(     name: "Big Payoff",
                                        gameDescription: "You have made many sure-fire investments before this and have no reason to think this will be any different.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
-        price: 2500,
-        meta1: 700,  //increase to base score for all characters
+        price: 0,
+        meta1: 2400,  //increase to base score for all characters
         meta2: -0.02,  //increase to closeenough
         meta3: true,  //when this perk expires, player will lose 80% of all money, all perks will expire (be locked), level will be reset to "looter" (level 22)
-        minutesUnlocked: 10080, //7 Days, 10080.  make player forget about it
+        minutesUnlocked: 30, //7 Days, 10080.  make player forget about it
         icon: #imageLiteral(resourceName: "hex-ruby"),
         displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
-        levelEligibleAt: 24,
+        levelEligibleAt: 1, //24
         requiredPartyMembers: [Characters.Francisco]
     )
     

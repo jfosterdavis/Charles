@@ -573,6 +573,81 @@
             </objects>
             <point key="canvasLocation" x="1364" y="-244.22788605697153"/>
         </scene>
+        <!--Investment Crash View Controller-->
+        <scene sceneID="CfQ-56-a83">
+            <objects>
+                <viewController storyboardIdentifier="InvestmentCrash" id="ova-jC-RP5" customClass="InvestmentCrashViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Wn-yg-5VP"/>
+                        <viewControllerLayoutGuide type="bottom" id="igx-lP-sOQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VUR-Xc-sMq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hexDollarLarge175" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-Sd-aYv">
+                                <rect key="frame" x="100" y="166" width="175" height="202"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="Ceb-Nn-dKG"/>
+                                    <constraint firstAttribute="width" secondItem="7Jc-Sd-aYv" secondAttribute="height" multiplier="350:404" id="pHT-FK-4JT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGj-WO-CtR">
+                                <rect key="frame" x="0.0" y="70" width="375" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ujp-lX-1fB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not seek an unearned advantage.  Seek to improve yourself.  Pay for what you take." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cl7-aw-Shz">
+                                <rect key="frame" x="10" y="388" width="355" height="229"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXU-nM-bIE">
+                                <rect key="frame" x="16" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wXU-nM-bIE" secondAttribute="height" id="RWS-2x-PgN"/>
+                                    <constraint firstAttribute="width" constant="50" id="zMc-Ib-61I"/>
+                                </constraints>
+                                <state key="normal" image="x"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="ova-jC-RP5" eventType="touchUpInside" id="A2a-59-2Q1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2200020718" green="0.2200020718" blue="0.2200020718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wXU-nM-bIE" firstAttribute="leading" secondItem="VUR-Xc-sMq" secondAttribute="leadingMargin" id="2yu-Ij-Ig8"/>
+                            <constraint firstItem="7Jc-Sd-aYv" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="CPc-bw-fwh"/>
+                            <constraint firstItem="7Jc-Sd-aYv" firstAttribute="centerY" secondItem="VUR-Xc-sMq" secondAttribute="centerY" multiplier="4:5" id="Mbn-Vv-afR"/>
+                            <constraint firstItem="wXU-nM-bIE" firstAttribute="width" secondItem="wXU-nM-bIE" secondAttribute="height" id="MyH-MG-jEf"/>
+                            <constraint firstItem="igx-lP-sOQ" firstAttribute="top" secondItem="cl7-aw-Shz" secondAttribute="bottom" constant="50" id="RmJ-yf-hw7"/>
+                            <constraint firstItem="cl7-aw-Shz" firstAttribute="width" secondItem="VUR-Xc-sMq" secondAttribute="width" constant="-20" id="Sr0-fh-jI4"/>
+                            <constraint firstItem="wXU-nM-bIE" firstAttribute="top" secondItem="2Wn-yg-5VP" secondAttribute="bottom" id="aUg-Yv-PTg"/>
+                            <constraint firstItem="sGj-WO-CtR" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="bHX-Vh-jJL"/>
+                            <constraint firstItem="7Jc-Sd-aYv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sGj-WO-CtR" secondAttribute="bottom" constant="30" id="gKz-fl-RKr"/>
+                            <constraint firstItem="sGj-WO-CtR" firstAttribute="width" secondItem="VUR-Xc-sMq" secondAttribute="width" id="kO3-8i-LXo"/>
+                            <constraint firstItem="cl7-aw-Shz" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="lcR-ey-Bmi"/>
+                            <constraint firstItem="cl7-aw-Shz" firstAttribute="top" secondItem="7Jc-Sd-aYv" secondAttribute="bottom" constant="20" id="qaw-Qm-ezb"/>
+                            <constraint firstItem="sGj-WO-CtR" firstAttribute="top" secondItem="2Wn-yg-5VP" secondAttribute="bottom" constant="50" id="vIm-C9-HXS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="wXU-nM-bIE" id="TZ9-f9-JK5"/>
+                        <outlet property="hexDollarImageView" destination="7Jc-Sd-aYv" id="kBM-b7-DJL"/>
+                        <outlet property="messageLabel" destination="cl7-aw-Shz" id="nAP-be-u1Z"/>
+                        <outlet property="scoreLabel" destination="sGj-WO-CtR" id="6Cw-MW-8Vd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxl-yC-1Ao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1349" y="417"/>
+        </scene>
         <!--Perk Store Collection View Controller-->
         <scene sceneID="n2Y-ll-4YK">
             <objects>
@@ -800,6 +875,7 @@
         <image name="Grid-4" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
         <image name="PerkInsight" width="28" height="20"/>
+        <image name="hexDollarLarge175" width="175" height="202"/>
         <image name="redGemUserFeedback" width="23" height="20"/>
         <image name="unlocked" width="32" height="28"/>
         <image name="x" width="18" height="18"/>
