@@ -69,6 +69,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var characterInteractionEnabled = true
     
     // MARK: AV Variables
+    //continue audio from outside apps
+    let audioSession = AVAudioSession.sharedInstance()
+    //game audio
     let synth = AVSpeechSynthesizer()
     var textUtterance = AVSpeechUtterance(string: "")
     var audioPlayer: AVAudioPlayer!
@@ -120,6 +123,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //allow outside audio (like from Music App)
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback, with: [.duckOthers, .allowAirPlay])
+            try audioSession.setActive(true)
+        }catch{
+            // handle error
+        }
         
         //audio
         audioEngine = AVAudioEngine()
