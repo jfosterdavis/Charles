@@ -645,8 +645,13 @@ extension DataViewController {
             refreshScore()
             
             //first check to see if player has won
-            let userCurrentLevel = (getUserCurrentLevel()?.level)!
-            if isPlayerAtHighestLevelAndProgress() && didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel) {  //player has won so show the final sequence
+            
+            let userXP = calculateUserXP()
+            let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+            let userCurrentProgress = userLevelAndProgress.1!
+            let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
+            
+            if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so show the final sequence
                 showWinningSequence()
             }
             
