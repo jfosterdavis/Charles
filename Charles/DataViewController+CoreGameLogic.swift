@@ -352,6 +352,33 @@ extension DataViewController {
                         /*******************///MARK: END PERK PRECISIONADJUSTMENT
                         /******************************************************/
                         
+                        /******************************************************/
+                        /*******************///MARK: PERK INVESTMENT
+                        /******************************************************/
+                        
+                        //add to the points earned
+                        var perkAddition = 0
+                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+                        
+                        if !applicablePerks.isEmpty {
+                            //there are perks
+                            
+                            for (perk, _) in applicablePerks {
+                                //each perk adds to the reward
+                                perkAddition += perk.meta1 as! Int
+                            }
+                            
+                            //fire the perk feedback
+                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+                            
+                            pointsJustScored += perkAddition
+                            
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK INVESTMENT
+                        /******************************************************/
+                        
                         
                         /******************************************************/
                         /*******************///MARK: PERK INCREASEDSCORE
@@ -379,6 +406,8 @@ extension DataViewController {
                         /*******************///MARK: END PERK INCREASEDSCORE
                         /******************************************************/
                         
+                        
+
                         
                         //check to see if an xp-related perk is active. ask the perk store
                         /******************************************************/
@@ -485,6 +514,33 @@ extension DataViewController {
                         //no XP given here, but points still given
                         
                         /******************************************************/
+                        /*******************///MARK: PERK INVESTMENT
+                        /******************************************************/
+                        
+                        //add to the points earned
+                        var perkAddition = 0
+                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+                        
+                        if !applicablePerks.isEmpty {
+                            //there are perks
+                            
+                            for (perk, _) in applicablePerks {
+                                //each perk adds to the reward
+                                perkAddition += perk.meta1 as! Int
+                            }
+                            
+                            //fire the perk feedback
+                            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+                            
+                            pointsJustScored += perkAddition
+                            
+                        }
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK INVESTMENT
+                        /******************************************************/
+                        
+                        /******************************************************/
                         /*******************///MARK: PERK INCREASEDSCORE
                         /******************************************************/
                         
@@ -524,6 +580,33 @@ extension DataViewController {
                 //give them some points for finishing a phrase
                 
                 pointsJustScored = calculateBaseScore(phrase: currentPhrase)
+                
+                /******************************************************/
+                /*******************///MARK: PERK INVESTMENT
+                /******************************************************/
+                
+                //add to the points earned
+                var perkAddition = 0
+                let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+                
+                if !applicablePerks.isEmpty {
+                    //there are perks
+                    
+                    for (perk, _) in applicablePerks {
+                        //each perk adds to the reward
+                        perkAddition += perk.meta1 as! Int
+                    }
+                    
+                    //fire the perk feedback
+                    fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+                    
+                    pointsJustScored += perkAddition
+                    
+                }
+                
+                /******************************************************/
+                /*******************///MARK: END PERK INVESTMENT
+                /******************************************************/
                 
                 setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                 
@@ -682,7 +765,37 @@ extension DataViewController {
     
     /// calculates the base score, which is 100 - the liklihood of the phrase just completed
     func calculateBaseScore(phrase: Phrase) -> Int {
-        return (100 - phrase.likelihood) * 8
+        
+        let baseReward = (100 - phrase.likelihood) * 8
+//        var perkAddition = 0
+//        /******************************************************/
+//        /*******************///MARK: PERK INVESTMENT
+//        /******************************************************/
+//        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
+//        
+//        if !applicablePerks.isEmpty {
+//            //there are perks
+//            
+//            for (perk, _) in applicablePerks {
+//                //each perk adds to the reward
+//                perkAddition += perk.meta1 as! Int
+//            }
+//            
+//            //fire the perk feedback
+//            fadeViewInThenOut(view: perkInvestmentScoreUserFeedback, fadeOutAfterSeconds: 1.8)
+//            
+//            return baseReward + perkAddition
+//            
+//        } else {
+        
+            return baseReward
+        //}
+
+        
+        
+        /******************************************************/
+        /*******************///MARK: END PERK INVESTMENT
+        /******************************************************/
     }
 
     

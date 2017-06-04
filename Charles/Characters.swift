@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, StanleyJr, Stanley, Charles, Fred, Matthew, R0berte, John]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, StanleyJr, Francisco, Stanley, Charles, Fred, Matthew, R0berte, John]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, StanleyJr, Stanley, Charles, Fred, Matthew, R0berte, John]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, StanleyJr, Francisco, Stanley, Charles, Fred, Matthew, R0berte, John]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -694,6 +694,61 @@ struct Characters {
                                     
                                     
         ])
+    
+    static let Francisco = Character(name: "Francisco",
+                                topRadius: 20,
+                                bottomRadius: 20,
+                                price: 0,
+        hoursUnlocked: 1, //requires player to keep asking for him
+        levelEligibleAt: 11, //35
+        phrases: [Phrase(name: "1",
+                         likelihood: 100,
+                         subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil)
+                            
+            ],
+                         slots: [
+                            Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                            Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                            Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                            Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                            Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                            
+            ]),
+                  Phrase(name: "2",
+                         likelihood: 100,
+                         subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil)
+                            
+                    ],
+                         slots: [
+                            Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                            Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                            Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                            Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                            Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                            
+                    ]),
+                  Phrase(name: "3",
+                         likelihood: 100,
+                         subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil),
+                                      Subphrase(words: "", audioFilePath: nil)
+                            
+                    ],
+                         slots: [
+                            Slot(tone: -600, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)),
+                            Slot(tone: -1200, color: UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1)),
+                            Slot(tone: 0, color: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1)),
+                            Slot(tone: 1200, color: UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)),
+                            Slot(tone: 2400, color: UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1))
+                            
+                    ]),
+                  
+                  
+                  ])
     
     static let R0berte = Character(name: "R0berte",
                                    topRadius: 2,

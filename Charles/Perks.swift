@@ -35,23 +35,31 @@ struct Perks {
     
     static let ValidPerks:[Perk] = [Stacks, Insight,
                                     Study, Synesthesia,
-                                    Closeenough,   Study2,
-                                    Stacks2, Closeenough2,
+                                    Investment, Closeenough,
+                                    Study2,
+                                    
+                                    Investment2, Stacks2, Closeenough2,
+                                    Investment3,
                                     Stacks3, Insight2,
-                                    Synesthesia2, Study3,
+                                    Investment4,
+                                    Synesthesia2, Investment5, Study3,
                                     Insight3, Closeenough3,
                                     Synesthesia3, Study4,
-                                    Closeenough4]
+                                    Stacks4, Closeenough4]
     
     static let UnlockablePerks:[Perk] = [Stacks, Insight,
                                          Study, Synesthesia,
-                                         Closeenough,   Study2,
-                                         Stacks2, Closeenough2,
+                                         Investment, Closeenough,
+                                         Study2,
+                                         
+                                         Investment2, Stacks2, Closeenough2,
+                                         Investment3,
                                          Stacks3, Insight2,
-                                         Synesthesia2, Study3,
+                                         Investment4,
+                                         Synesthesia2, Investment5, Study3,
                                          Insight3, Closeenough3,
                                          Synesthesia3, Study4,
-                                         Closeenough4]
+                                         Stacks4, Closeenough4]
     
     /******************************************************/
     /*******************///MARK: Synesthesia
@@ -143,7 +151,7 @@ struct Perks {
         minutesUnlocked: 10080, //1 week 10080
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
-        levelEligibleAt: nil,
+        levelEligibleAt: 19,
         requiredPartyMembers: [Characters.Stanley, Characters.John, Characters.R0berte]
     )
     
@@ -175,7 +183,7 @@ struct Perks {
         minutesUnlocked: 25,
         icon: #imageLiteral(resourceName: "pencil"),
         displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-        levelEligibleAt: nil,
+        levelEligibleAt: 10,
         requiredPartyMembers: [Characters.Fred, Characters.R0berte]
     )
     
@@ -221,7 +229,7 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 15,
+                                        minutesUnlocked: 30,
                                         icon: #imageLiteral(resourceName: "coin"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: nil,
@@ -235,14 +243,28 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 15,
+                                        minutesUnlocked: 25,
                                         icon: #imageLiteral(resourceName: "coin"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                        levelEligibleAt: 15,
-                                        requiredPartyMembers: [Characters.Charles, Characters.R0berte, Characters.Laura]
+                                        levelEligibleAt: 13,
+                                        requiredPartyMembers: [Characters.Charles, Characters.Laura]
     )
     
-    static let Stacks3 = Perk(     name: "Invention",
+    static let Stacks3 = Perk(     name: "Ability",
+                                   gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
+                                   type: .increasedScore, //types are strings that the game will look for when determining how to behave
+        price: 60000,
+        meta1: 2,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 20,
+        icon: #imageLiteral(resourceName: "coin"),
+        displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
+        levelEligibleAt: 21,
+        requiredPartyMembers: [Characters.Fred, Characters.R0berte]
+    )
+    
+    static let Stacks4 = Perk(     name: "Invention",
                                         gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 100000,
@@ -252,7 +274,7 @@ struct Perks {
                                             minutesUnlocked: 15,
                                             icon: #imageLiteral(resourceName: "coin"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                            levelEligibleAt: 28,
+                                            levelEligibleAt: 33,
                                             requiredPartyMembers: [Characters.Fred, Characters.R0berte]
     )
     
@@ -271,7 +293,7 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: nil,
-                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.R0berte]
+                                        requiredPartyMembers: []
     )
     
     static let Closeenough2 = Perk(     name: "Just About",
@@ -284,11 +306,11 @@ struct Perks {
                                         minutesUnlocked: 300, //5 hours 300
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-                                        levelEligibleAt: nil,
-                                        requiredPartyMembers: [Characters.Matthew, Characters.R0berte]
+                                        levelEligibleAt: 13,
+                                        requiredPartyMembers: [Characters.Matthew, Characters.StanleyJr, Characters.R0berte]
     )
     
-    static let Closeenough3 = Perk(     name: "In The Ballpark",
+    static let Closeenough3 = Perk(     name: "Ballpark",
                                      gameDescription: "When you are almost there, you are.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
@@ -298,8 +320,8 @@ struct Perks {
         minutesUnlocked: 20,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: nil,
-        requiredPartyMembers: [Characters.Matthew, Characters.Charles]
+        levelEligibleAt: 21,
+        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
     )
     
     static let Closeenough4 = Perk(     name: "Out of My Way",
@@ -323,18 +345,90 @@ struct Perks {
     //second highest level of this perk will bankrupt the player by making all characters bleed his score
     //when perk expires a fullscreen modal shows a crash - player loses money
 
-    static let Investment = Perk(     name: "Casual Investment",
-                                        gameDescription: "You make some clear and easy returns in a lot of ways by making this investment.",
-                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
+    static let Investment = Perk(     name: "Stock",
+                                        gameDescription: "You make some clear and easy returns by making this investment.",
+                                        type: .investment, //types are strings that the game will look for when determining how to behave
         price: 1000,
         meta1: 100,  //increase to base score for all characters
         meta2: nil,  //increase to closeenough
         meta3: nil,
-        minutesUnlocked: 600, //10 hours
-        icon: #imageLiteral(resourceName: "bullseye"),
-        displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: 5,
-        requiredPartyMembers: [Characters.John]
+        minutesUnlocked: 30, //short time requies player to keep asking for it
+        icon: #imageLiteral(resourceName: "hex-rubyBlur10"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: Characters.Francisco.levelEligibleAt,
+        requiredPartyMembers: [Characters.Francisco]
+    )
+    
+    static let Investment2 = Perk(     name: "Investment",
+                                      gameDescription: "You make some very clear and easy returns by making this investment.",
+                                      type: .investment, //types are strings that the game will look for when determining how to behave
+        price: 1200,
+        meta1: 300,  //increase to base score for all characters
+        meta2: nil,  //increase to closeenough
+        meta3: nil,
+        minutesUnlocked: 45,
+        icon: #imageLiteral(resourceName: "hex-rubyBlur6"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: 15,
+        requiredPartyMembers: [Characters.Francisco]
+    )
+    
+    static let Investment3 = Perk(     name: "Portfolio",
+                                       gameDescription: "You make some clear and easy returns in a lot of ways by making this investment.",
+                                       type: .investment, //types are strings that the game will look for when determining how to behave
+        price: 1400,
+        meta1: 300,  //increase to base score for all characters
+        meta2: -0.01,  //increase to closeenough
+        meta3: nil,
+        minutesUnlocked: 2880, //2 Days, 2880
+        icon: #imageLiteral(resourceName: "hex-rubyBlur4"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: 18,
+        requiredPartyMembers: [Characters.Francisco]
+    )
+    
+    static let Investment4 = Perk(     name: "Reinvestment",
+                                       gameDescription: "You will definately make some easy returns in a lot of ways by making this investment.",
+                                       type: .investment, //types are strings that the game will look for when determining how to behave
+        price: 1600,
+        meta1: 400,  //increase to base score for all characters
+        meta2: -0.01,  //increase to closeenough
+        meta3: nil,
+        minutesUnlocked: 4320, //3 days 4320
+        icon: #imageLiteral(resourceName: "hex-rubyBlur2"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: 22,
+        requiredPartyMembers: [Characters.Francisco]
+    )
+    
+    static let Investment5 = Perk(     name: "Big Payoff",
+                                       gameDescription: "You have made many sure-fire investments before this and have no reason to think this will be any different.",
+                                       type: .investment, //types are strings that the game will look for when determining how to behave
+        price: 2500,
+        meta1: 700,  //increase to base score for all characters
+        meta2: -0.02,  //increase to closeenough
+        meta3: true,  //when this perk expires, player will lose 80% of all money, all perks will expire (be locked), level will be reset to "looter" (level 22)
+        minutesUnlocked: 10080, //7 Days, 10080.  make player forget about it
+        icon: #imageLiteral(resourceName: "hex-ruby"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: 24,
+        requiredPartyMembers: [Characters.Francisco]
+    )
+    
+    //TODO: figure this one out
+    
+    static let FranciscoRedemption = Perk(     name: "Redemption",
+                                       gameDescription: "You have made many sure-fire investments before this and have no reason to think this will be any different.",
+                                       type: .investment, //types are strings that the game will look for when determining how to behave
+        price: 2500,
+        meta1: 700,  //increase to base score for all characters
+        meta2: -0.02,  //increase to closeenough
+        meta3: true,  //when this perk expires, player will lose 50% of all money plus 5% for all other active (or being unlocked) investment perks, all perks will expire (be locked), level will be reset to "looter" (level 22)
+        minutesUnlocked: 10080, //7 Days, 10080.  make player forget about it
+        icon: #imageLiteral(resourceName: "hex-ruby"),
+        displayColor: UIColor(red: 0/255.0, green: 128/255.0, blue: 64/255.0, alpha: 1), //green.  A snake or money?
+        levelEligibleAt: Characters.John.levelEligibleAt,
+        requiredPartyMembers: [Characters.Francisco]
     )
     
 }
