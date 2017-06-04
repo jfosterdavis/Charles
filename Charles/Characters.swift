@@ -205,7 +205,7 @@ struct Characters {
                                   bottomRadius: 30,
                                   price: 0,
                                   hoursUnlocked: 4,
-                                  levelEligibleAt: 1,
+                                  levelEligibleAt: 3,
                                 phrases: [Phrase(name: "Oh Tessa You're So Cute",
                                                  likelihood: 90,
                                                  subphrases: [Subphrase(words: "Oh", audioFilePath: Bundle.main.path(forResource: "Oh", ofType: "m4a", inDirectory: "Audio/Benton")),
