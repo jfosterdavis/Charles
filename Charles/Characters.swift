@@ -78,7 +78,7 @@ struct Characters {
                                hoursUnlocked: 1,
                                levelEligibleAt: 1,
                                phrases: [Phrase(name: "Pawned his head",
-                                                likelihood: 91,
+                                                likelihood: 88,
                                                 subphrases: [Subphrase(words: "Pawned", audioFilePath: Bundle.main.path(forResource: "Pawned", ofType: "m4a", inDirectory: "Audio/Dan")),
                                                              Subphrase(words: "his", audioFilePath: Bundle.main.path(forResource: "His", ofType: "m4a", inDirectory: "Audio/Dan")),
                                                              Subphrase(words: "Head", audioFilePath: Bundle.main.path(forResource: "Head", ofType: "m4a", inDirectory: "Audio/Dan"))
@@ -95,7 +95,7 @@ struct Characters {
                                                         Slot(tone: -375, color: .black),
                                 ]),
                                          Phrase(name: "N00b!",
-                                                    likelihood: 94,
+                                                    likelihood: 90,
                                                     subphrases: [Subphrase(words: "nooob!", audioFilePath: Bundle.main.path(forResource: "N00b!", ofType: "m4a", inDirectory: "Audio/Dan"))
                                     ],
                                                     slots: [Slot(tone: -50, color: .black),
@@ -113,7 +113,7 @@ struct Characters {
                                     ]),
                                              
                                              Phrase(name: "That's a pawn",
-                                                    likelihood: 92,
+                                                    likelihood: 88,
                                                     subphrases: [Subphrase(words: "That's", audioFilePath: Bundle.main.path(forResource: "That's", ofType: "m4a", inDirectory: "Audio/Dan")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A (pawn)", ofType: "m4a", inDirectory: "Audio/Dan")),
                                                                  Subphrase(words: "pawn", audioFilePath: Bundle.main.path(forResource: "Pawn", ofType: "m4a", inDirectory: "Audio/Dan"))
@@ -205,7 +205,7 @@ struct Characters {
                                   bottomRadius: 30,
                                   price: 0,
                                   hoursUnlocked: 4,
-                                  levelEligibleAt: 3,
+                                  levelEligibleAt: 2,
                                 phrases: [Phrase(name: "Oh Tessa You're So Cute",
                                                  likelihood: 90,
                                                  subphrases: [Subphrase(words: "Oh", audioFilePath: Bundle.main.path(forResource: "Oh", ofType: "m4a", inDirectory: "Audio/Benton")),

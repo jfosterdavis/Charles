@@ -64,24 +64,10 @@ extension DataViewController {
                     nextLevelColor = UIColor.darkGray
                 }
                 
-                //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
-                var shouldAnimate = false
-                var playerLeveledUpWithXPPerkActive = false
-                if let currentLevel = currentLevelAndProgress.0 {
-                    shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
-                    
-                    //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
-                    //this would occur if progress > 0 and the player increased in level
-                    let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
-                    if playerIncreasedLevel {
-                        playerLeveledUpWithXPPerkActive = true
-                    }
-                }
-                
                 /******************************************************/
                 /*******************///MARK: PERK INCREASED XP
                 /******************************************************/
-
+                
                 //if an increased XP perk is active, change the color of the progressview
                 let xpPerks = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
                 if xpPerks.isEmpty {
@@ -93,6 +79,22 @@ extension DataViewController {
                     self.levelProgressView.progressTintColor = self.progressViewProgressTintColorXPPerkActive
                     
                 }
+                
+                //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
+                var shouldAnimate = false
+                var playerLeveledUpWithXPPerkActive = false
+                if let currentLevel = currentLevelAndProgress.0 {
+                    shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
+                    
+                    //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
+                    //this would occur if progress > 0 and the player increased in level
+                    let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
+                    if playerIncreasedLevel && !xpPerks.isEmpty {
+                        playerLeveledUpWithXPPerkActive = true
+                    }
+                }
+                
+                
                 /******************************************************/
                 /*******************///MARK: END PERK INCREASED XP
                 /******************************************************/
