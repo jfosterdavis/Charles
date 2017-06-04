@@ -110,7 +110,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //constants
     let minimumScoreToUnlockObjective = 1000
     let minimumScoreToUnlockStore = 500
-    let minimumLevelToUnlockPerkStore = 8
+    let minimumLevelToUnlockPerkStore = 5
     
     //color stick view for Insight
     @IBOutlet weak var perkStickViewDeviation: InsightColorStickView!
