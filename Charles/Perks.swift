@@ -230,7 +230,7 @@ struct Perks {
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 30,
-                                        icon: #imageLiteral(resourceName: "coin"),
+                                        icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: nil,
                                         requiredPartyMembers: []
@@ -244,7 +244,7 @@ struct Perks {
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 25,
-                                        icon: #imageLiteral(resourceName: "coin"),
+                                        icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 13,
                                         requiredPartyMembers: [Characters.Charles, Characters.Laura]
@@ -258,7 +258,7 @@ struct Perks {
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 20,
-        icon: #imageLiteral(resourceName: "coin"),
+        icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 21,
         requiredPartyMembers: [Characters.Fred, Characters.R0berte]
@@ -272,7 +272,7 @@ struct Perks {
                                             meta2: nil,
                                             meta3: nil,
                                             minutesUnlocked: 15,
-                                            icon: #imageLiteral(resourceName: "coin"),
+                                            icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 33,
                                             requiredPartyMembers: [Characters.Fred, Characters.R0berte]

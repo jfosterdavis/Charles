@@ -917,7 +917,11 @@ extension DataViewController {
     
     func updateTimer() {
         //reduce the score
-        let currentScore = getCurrentScore()
+        reduceScoreByPeriodicValue()
+    }
+    
+    func reduceScoreByPeriodicValue() {
+         let currentScore = getCurrentScore()
         
         if currentScore >= 0 {
             let penalty = pointsToLoseEachCycle
