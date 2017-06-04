@@ -17,10 +17,11 @@ class DepartingPerksViewController: PerkStoreCollectionViewController {
     var departingPerks = [Perk]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         //setup CoreData
-        _ = setupFetchedResultsController(frcKey: keyUnlockedPerk, entityName: "UnlockedPerk", sortDescriptors: [],  predicate: nil)
-        _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
+//        _ = setupFetchedResultsController(frcKey: keyUnlockedPerk, entityName: "UnlockedPerk", sortDescriptors: [],  predicate: nil)
+//        _ = setupFetchedResultsController(frcKey: keyCurrentScore, entityName: "CurrentScore", sortDescriptors: [],  predicate: nil)
         
         self.collectionView = storeCollectionView
         self.collectionView.dataSource = self
