@@ -45,7 +45,7 @@
                         <subviews>
                             <view opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeA-Nm-BNH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="1" green="0.71415932714897568" blue="0.97809944666980297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.50735903818034878" green="0.65038510109567982" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yJ1-Y9-W5p">
                                 <rect key="frame" x="16" y="652" width="343" height="15"/>
@@ -907,7 +907,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uGA-hZ-aQD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uGA-hZ-aQD">
                                                     <rect key="frame" x="8" y="157" width="119" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="zLi-QG-xq1"/>
@@ -1002,13 +1002,6 @@
                                             <constraint firstItem="0FM-O1-1CP" firstAttribute="width" secondItem="U5y-lr-Fyd" secondAttribute="width" id="vlU-Rv-e4v"/>
                                             <constraint firstItem="Svd-Ey-ffV" firstAttribute="width" secondItem="w8a-ng-d2c" secondAttribute="width" id="zo8-62-yda"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="Svd-Ey-ffV"/>
-                                                <exclude reference="AK1-ST-uXf"/>
-                                                <exclude reference="ObV-J3-UdS"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="CcF-a4-mfw" id="6hq-AQ-0DD"/>
                                             <outlet property="characterOutfitBlocker" destination="0FM-O1-1CP" id="ZEb-cB-wVP"/>
@@ -1122,7 +1115,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="A6h-kP-Zah">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="A6h-kP-Zah">
                                                     <rect key="frame" x="8" y="108" width="119" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="rVo-BJ-9SQ"/>
@@ -1228,14 +1221,6 @@
                                             <constraint firstItem="jCQ-d0-asg" firstAttribute="width" secondItem="AzY-2n-npD" secondAttribute="width" multiplier="1:4" id="xSU-Yp-2lO"/>
                                             <constraint firstItem="4jk-oM-KEw" firstAttribute="width" secondItem="q1c-zw-t0l" secondAttribute="width" multiplier="2:5" id="yV8-i5-RR7"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="jCQ-d0-asg"/>
-                                                <exclude reference="WGx-jk-xWS"/>
-                                                <exclude reference="4jk-oM-KEw"/>
-                                                <exclude reference="Hm0-s7-P4f"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Mpl-A0-TIT" id="DGv-fe-Cce"/>
                                             <outlet property="expirationStatusView" destination="4jk-oM-KEw" id="pvz-zG-8iG"/>
@@ -1263,7 +1248,7 @@
                                     <action selector="dismissButtonPressed:" destination="KLH-m1-cBh" eventType="touchUpInside" id="5rH-0x-VqG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departing:" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IO-eo-Kzl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiring:" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IO-eo-Kzl">
                                 <rect key="frame" x="66" y="30" width="243" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Mta-0h-7tR"/>

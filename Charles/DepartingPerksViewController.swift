@@ -29,19 +29,19 @@ class DepartingPerksViewController: PerkStoreCollectionViewController {
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
-        let perk = self.perkCollectionViewData[indexPath.row]
-        
-        cell.characterNameLabel.text = perk.name
-        
-        cell.priceLabel.text = ""
-        
-        
-        cell.loadAppearance(fromPerk: perk)
-        return cell
-    }
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
+//        let perk = self.perkCollectionViewData[indexPath.row]
+//        
+//        cell.characterNameLabel.text = perk.name
+//        
+//        cell.priceLabel.text = ""
+//        
+//        
+//        cell.loadAppearance(fromPerk: perk)
+//        return cell
+//    }
     
     @IBAction override func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

@@ -325,16 +325,13 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     
     ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
-    func checkForAndRemoveExpiredPerks() {
+    func checkForAndRemoveExpiredPerks() -> [Perk]? {
         
         //create a store object to use its functions for checking if perks have expired
         let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
         let expiredPerks: [UnlockedPerk] = perkStoreVC.getExpiredPerks()
         
         if !expiredPerks.isEmpty {
-            
-            //present the view to the player to let them know
-            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
             
             //prepare the data for the VC
             var departingPerks = [Perk]()
@@ -345,10 +342,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
                     }
                 }
             }
-            
-            departingVC.departingPerks = departingPerks
-            present(departingVC, animated: true, completion: nil)
-            
+                        
             //there are expired perks.  lock them and reload the modelController
             perkStoreVC.parentVC = self
             perkStoreVC.lockAllExpiredPerks()
@@ -356,12 +350,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
             
             self.parentVC.storeClosed()
             
+            return departingPerks
+            
             //open the perk store
             //perkStoreButtonPressed(self)
             
             //invoke the function to mimic functionality as though the store had just closed
             //self.storeClosed()
             
+        } else {
+            return nil
         }
     }
     

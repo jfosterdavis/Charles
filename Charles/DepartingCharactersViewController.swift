@@ -33,22 +33,22 @@ class DepartingCharactersViewController: StoreCollectionViewController {
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        switch segmentedControl.selectedSegmentIndex {
-        //        case 0:
-        //TODO: replace as! UITAbleViewCell witha  custom cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath as IndexPath) as! CustomStoreCollectionViewCell
-        let character = self.collectionViewData[indexPath.row]
-        
-        cell.characterNameLabel.text = character.name
-
-        cell.priceLabel.text = ""
-        
-        
-        cell.loadAppearance(from: character.phrases![0])
-        
-        return cell
-    }
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        //        switch segmentedControl.selectedSegmentIndex {
+//        //        case 0:
+//        //TODO: replace as! UITAbleViewCell witha  custom cell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath as IndexPath) as! CustomStoreCollectionViewCell
+//        let character = self.collectionViewData[indexPath.row]
+//        
+//        cell.characterNameLabel.text = character.name
+//
+//        cell.priceLabel.text = ""
+//        
+//        
+//        cell.loadAppearance(from: character.phrases![0])
+//        
+//        return cell
+//    }
     
     @IBAction override func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

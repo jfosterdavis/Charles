@@ -60,9 +60,47 @@ extension DataViewController {
         
         refreshLevelProgress()
         
-        checkForAndRemoveExpiredCharacters()
+        let departingCharacters = checkForAndRemoveExpiredCharacters()
         
-        checkForAndRemoveExpiredPerks()
+        let expiredPerks = checkForAndRemoveExpiredPerks()
+        
+        //present a series of Departing and Expired VCs depending on what is expired
+        switch (departingCharacters, expiredPerks) {
+        case let x where x.0 != nil && x.1 == nil: //Characters have expired but perks have not
+            //present the view to the player to let them know
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
+            departingVC.departingCharacters = departingCharacters!
+            present(departingVC, animated: true, completion: nil)
+            
+        case let x where x.0 == nil && x.1 != nil: //Characters have not expired but perks have
+            //present the view to the player to let them know
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
+            departingVC.departingPerks = expiredPerks!
+            present(departingVC, animated: true, completion: nil)
+            
+        case let x where x.0 != nil && x.1 != nil: //Both Characters and Perks have expired
+            //create the Characters VC
+            let departingCharactersVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
+            departingCharactersVC.departingCharacters = departingCharacters!
+            
+            //create the Perks VC
+            let departingPerksVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
+            departingPerksVC.departingPerks = expiredPerks!
+            
+            //Present the perks, then have that VC present the characters
+            //That way when characters expire, the player knows in the next screen why their perks are missing character requirements
+            present(departingPerksVC, animated: true, completion: nil)
+            departingPerksVC.present(departingCharactersVC, animated: true, completion: nil)
+            
+        default: //none are expired, do nothing
+            break
+        }
+        
+        
+        
+        
+        
+        
         
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             

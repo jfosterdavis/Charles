@@ -40,7 +40,7 @@ extension DataViewController {
     }
     
     ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
-    func checkForAndRemoveExpiredCharacters() {
+    func checkForAndRemoveExpiredCharacters() -> [Character]? {
         
         //create a store object to use its functions for checking if characters have expired
         let storeVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
@@ -48,12 +48,8 @@ extension DataViewController {
         
         if !expiredCharacters.isEmpty {
             
-            
-            //present the view to the player to let them know
-            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
-            
             //prepare the data for the VC
-            var departingCharacters = [Character]()
+            var departingCharacters: [Character] = [Character]()
             for unlockedCharacter in expiredCharacters {
                 for character in Characters.ValidCharacters {
                     if unlockedCharacter.name == character.name {
@@ -62,28 +58,16 @@ extension DataViewController {
                 }
             }
             
-            departingVC.departingCharacters = departingCharacters
-            present(departingVC, animated: true, completion: nil)
-            
             //there are expired characters.  lock them and reload the modelController
             storeVC.parentVC = self
             storeVC.lockAllExpiredCharacters()
             
             self.parentVC.storeClosed()
             
-            //open the store
-            //storeButtonPressed(self)
-            //invoke the function to mimic functionality as though the store had just closed
-            //self.storeClosed()
+            return departingCharacters
             
-            //            loadPageData()
-            //
-            //            //update the pagecontroller dots.
-            //            //I realize this is not the right way to manipulate the page control
-            //            //TODO: Impliment proper ways to manipulate the page control
-            //            currentVC.numPages = self.pageData.count
-            //            currentVC.refreshPageControl()
-            
+        } else {
+            return nil
         }
     }
     
