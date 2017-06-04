@@ -457,6 +457,18 @@ extension DataViewController {
                             // award xp
                             giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                             
+                            
+                            /******************************************************/
+                            /*******************///MARK: PERK IncreasedXP
+                            /******************************************************/
+                            //if the xp perk is active and they made positive progress, flash feedback
+                            fadeViewInThenOut(view: perkIncreasedXPUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                            
+                            
+                            /******************************************************/
+                            /*******************///MARK: END PERK INCREASEDXP
+                            /******************************************************/
+                            
                         }
                         
                         /******************************************************/

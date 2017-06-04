@@ -21,7 +21,7 @@ extension DataViewController {
     /*******************///MARK: Level Progress
     /******************************************************/
     
-    func refreshLevelProgress() {
+    func refreshLevelProgress(_ justAnimatedPlayerFinishingLevel: Bool = false) {
         
         //figure out what level the player is on
         let userXP = calculateUserXP()
@@ -40,6 +40,11 @@ extension DataViewController {
            
             //show the level progress
             levelProgressView.isHidden = false
+            
+            //if just got done animating player to a full bar, set the progressbar progress to zero so it can finish animating to current progress
+            if justAnimatedPlayerFinishingLevel {
+                levelProgressView.setProgress(0, animated: false)
+            }
             
             if let progress = calculateProgressValue() {
                 
@@ -68,7 +73,7 @@ extension DataViewController {
                     //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
                     //this would occur if progress > 0 and the player increased in level
                     let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
-                    if playerIncreasedLevel && progress > 0 {
+                    if playerIncreasedLevel {
                         playerLeveledUpWithXPPerkActive = true
                     }
                 }
@@ -109,24 +114,34 @@ extension DataViewController {
                     }
                 }
                 
-                if playerLeveledUpWithXPPerkActive && levelProgressView.progress < 1.0 {
+                if playerLeveledUpWithXPPerkActive && progress < 1.0 {
+                    
+                    //TODO: fix this so it works
+                    
+                    
+                    //flash user feedback for increased xp
                     
                     //the player leveled up by earning more than 1 XP, so progress bar should animate to full, then reset to the current level and progress
                     //0. update labels
+                    //trick the label to think it will end up light
+                    thisLevelColor = progressViewLightTextColor.textColor
+                    nextLevelColor = progressViewLightTextColor.textColor
                     UIView.animate(withDuration: 0.8,
                                    delay: 0.8,
                                    animations: {
                                     
                                     labelUpdates()
                     })
+                    
                     //1. animate the progress bar to full
-                    self.levelProgressView.setProgress(progress, animated: true)
+                    //to do this need to animate it to 1
+                    self.levelProgressView.setProgress(1, animated: true)
                     
                     //2. wait then call this refresh function again
-                    let seconds = 3
+                    let seconds = 2
                     let deadline = DispatchTime.now() + DispatchTimeInterval.seconds(seconds)
                     DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
-                        self.refreshLevelProgress()
+                        self.refreshLevelProgress(true)
                     })
                     
                     
@@ -143,10 +158,13 @@ extension DataViewController {
                         
                         //if progress is going to 1, then animate to 1 then continue
                         
+                        
                         self.levelProgressView.setProgress(progress, animated: shouldAnimate)
                     })
+                    
+                    
                 }
-                
+               
                 
             } else {
                 levelProgressView.setProgress(0.0, animated: true)

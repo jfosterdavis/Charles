@@ -52,6 +52,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //Investment perk feedback
     //@IBOutlet weak var perkInvestmentScoreUserFeedback: UIImageView!
     
+    //increasedXP
+    @IBOutlet weak var perkIncreasedXPUserFeedbackImageView: UIImageView!
+    
+    
     
     
     
@@ -192,6 +196,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkIncreasedScoreUserFeedbackImageView.alpha = 0
         perkPrecisionAdjustmentUserFeedbackImageView.alpha = 0
         synesthesiaBackgroundBlinkerImageView.alpha = 0
+        perkIncreasedXPUserFeedbackImageView.alpha = 0
         
         
         //setup the color feedback view to recieve touches
