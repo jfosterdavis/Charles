@@ -137,7 +137,7 @@ struct Perks {
         minutesUnlocked: 240, //4 hours
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
-        levelEligibleAt: Characters.StanleyJr.level,
+        levelEligibleAt: Characters.StanleyJr.levelEligibleAt,
         requiredPartyMembers: [Characters.StanleyJr, Characters.R0berte]
     )
     
