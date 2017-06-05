@@ -158,7 +158,7 @@ extension DataViewController {
         } else if predeterminedColors!.isEmpty { //predetermined colors is nil and randomcolorprecision is not nil.  Do same as if was empty as above
             return ColorLibrary.totallyRandomColor(precision: randomColorPrecision!)
         } else { //color precision is defined, and there are also colors in the predetermined sets.  neither is nil
-            //randomly pick to go with a predetermined set or with a random color
+            //randomly pick to go with a predetermined set or with a random color.
             
             //pick a random set and then a random color from that set
             var randomIndex = Int(arc4random_uniform(UInt32(2)))
