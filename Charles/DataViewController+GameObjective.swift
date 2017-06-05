@@ -134,18 +134,18 @@ extension DataViewController {
     func getGameColor(usingLevel playerLevel: Level) -> UIColor {
         
         //The level describes if predetermined sets are eligible, if a random color is elibigle, or both
-        let predeterminedColors = playerLevel.eligiblePredefinedObjectives!
+        let predeterminedColors = playerLevel.eligiblePredefinedObjectives
         let randomColorPrecision = playerLevel.eligibleRandomColorPrecision
         
         //if for some reason both are nil or empty, just return a random color of default precision
-        if randomColorPrecision == nil && predeterminedColors.isEmpty {
+        guard randomColorPrecision != nil || predeterminedColors != nil else {
             return ColorLibrary.totallyRandomColor()
         }
         
-        if randomColorPrecision == nil {  //if we won't be generating a random color
+        if randomColorPrecision == nil && predeterminedColors != nil{  //if we won't be generating a random color
             //pick a random set and then a random color from that set
-            var randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors.count)))
-            let randomSet = predeterminedColors[randomIndex]
+            var randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors!.count)))
+            let randomSet = predeterminedColors![randomIndex]
             
             //now from that set pick a color
             randomIndex = Int(arc4random_uniform(UInt32(randomSet.count)))
@@ -153,9 +153,11 @@ extension DataViewController {
             
             return randomColorFromSet
             
-        } else if predeterminedColors.isEmpty {  //if there are no predetermined colors then just return a random one
+        } else if predeterminedColors == nil {  //if there are no predetermined colors then just return a random one
             return ColorLibrary.totallyRandomColor(precision: randomColorPrecision!)
-        } else { //color precision is defined, and there are also colors in the predetermined sets
+        } else if predeterminedColors!.isEmpty { //predetermined colors is nil and randomcolorprecision is not nil.  Do same as if was empty as above
+            return ColorLibrary.totallyRandomColor(precision: randomColorPrecision!)
+        } else { //color precision is defined, and there are also colors in the predetermined sets.  neither is nil
             //randomly pick to go with a predetermined set or with a random color
             
             //pick a random set and then a random color from that set
@@ -163,8 +165,8 @@ extension DataViewController {
             
             if randomIndex == 1 {  //1 means that a color from the set was chosen, so randomly pick one and return
                 //pick a random set and then a random color from that set
-                randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors.count)))
-                let randomSet = predeterminedColors[randomIndex]
+                randomIndex = Int(arc4random_uniform(UInt32(predeterminedColors!.count)))
+                let randomSet = predeterminedColors![randomIndex]
                 
                 //now from that set pick a color
                 randomIndex = Int(arc4random_uniform(UInt32(randomSet.count)))

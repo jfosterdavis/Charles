@@ -30,11 +30,11 @@ class Level: NSObject {
     var successThreshold: Float!
     var punishThreshold: Float!
     var canBeLost: Bool! //radius of the corners on top
-    var eligiblePredefinedObjectives: [[UIColor]]!
+    var eligiblePredefinedObjectives: [[UIColor]]?
     var eligibleRandomColorPrecision: Int?
     
     // MARK: Initializers
-    init(level: Int, levelDescription: String, xPRequired: Int, successThreshold: Float, punishThreshold: Float, canBeLost: Bool, eligiblePredefinedObjectives: [[UIColor]], eligibleRandomColorPrecision: Int? = nil) {
+    init(level: Int, levelDescription: String, xPRequired: Int, successThreshold: Float, punishThreshold: Float, canBeLost: Bool, eligiblePredefinedObjectives: [[UIColor]]?, eligibleRandomColorPrecision: Int? = nil) {
         super.init()
         
         self.level = level
