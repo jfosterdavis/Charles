@@ -1343,32 +1343,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hexDollarLarge175" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-en-HhB">
-                                <rect key="frame" x="100" y="166" width="175" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollarSignLargeWinGame" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-en-HhB">
+                                <rect key="frame" x="96" y="190" width="183" height="287"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="44n-Hx-cYo"/>
-                                    <constraint firstAttribute="width" secondItem="sgA-en-HhB" secondAttribute="height" multiplier="350:404" id="54P-1n-mej"/>
+                                    <constraint firstAttribute="width" constant="183" id="44n-Hx-cYo"/>
+                                    <constraint firstAttribute="width" secondItem="sgA-en-HhB" secondAttribute="height" multiplier="183:287" id="54P-1n-mej"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-8C-oSP">
                                 <rect key="frame" x="16" y="20" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="height" id="8kU-I0-E65"/>
                                     <constraint firstAttribute="width" constant="50" id="Aip-mq-8Al"/>
                                 </constraints>
                                 <state key="normal" image="x"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="tXh-BX-QIG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wco-jy-Ctg">
+                                <rect key="frame" x="309" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.19238164320000001" blue="0.0039097093600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
+                                <state key="normal" image="skip-back">
+                                    <color key="titleColor" red="0.95765617635459632" green="0.96713792067493887" blue="0.96713792067493887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="choiceButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="81Z-Kz-sJo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozA-xa-nsv">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ozA-xa-nsv" secondAttribute="height" id="2ov-MK-ZSY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
+                                <state key="normal" image="rewind">
+                                    <color key="titleColor" red="0.9576561764" green="0.96713792070000004" blue="0.96713792070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="choiceButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="Ips-fo-OCT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yV2-eG-meA">
+                                <rect key="frame" x="16" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
+                                <state key="normal" image="shuffle">
+                                    <color key="titleColor" red="0.9576561764" green="0.96713792070000004" blue="0.96713792070000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="choiceButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="YsK-8g-8PV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2200020718" green="0.2200020718" blue="0.2200020718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wco-jy-Ctg" secondAttribute="trailing" id="5sG-ws-RgS"/>
                             <constraint firstItem="sgA-en-HhB" firstAttribute="centerX" secondItem="AHr-Mp-Onn" secondAttribute="centerX" id="6QX-qh-LIE"/>
                             <constraint firstItem="ibB-8C-oSP" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="height" id="AjY-RO-THz"/>
-                            <constraint firstItem="sgA-en-HhB" firstAttribute="centerY" secondItem="AHr-Mp-Onn" secondAttribute="centerY" multiplier="4:5" id="Xc1-J6-zya"/>
-                            <constraint firstItem="ibB-8C-oSP" firstAttribute="top" secondItem="iF3-Nv-mdd" secondAttribute="bottom" id="eoK-rr-8iL"/>
+                            <constraint firstItem="wco-jy-Ctg" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="LBa-OQ-2ta"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ozA-xa-nsv" secondAttribute="trailing" id="OGV-lS-Z2I"/>
+                            <constraint firstItem="yV2-eG-meA" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="OOb-RF-AOe"/>
+                            <constraint firstItem="sgA-en-HhB" firstAttribute="centerY" secondItem="AHr-Mp-Onn" secondAttribute="centerY" id="Xc1-J6-zya"/>
+                            <constraint firstItem="uSd-R1-8y9" firstAttribute="top" secondItem="ozA-xa-nsv" secondAttribute="bottom" constant="20" id="cJf-ZT-lM4"/>
+                            <constraint firstItem="ibB-8C-oSP" firstAttribute="top" secondItem="iF3-Nv-mdd" secondAttribute="bottom" constant="20" id="eoK-rr-8iL"/>
+                            <constraint firstItem="wco-jy-Ctg" firstAttribute="top" secondItem="iF3-Nv-mdd" secondAttribute="bottom" constant="20" id="fIu-jz-Gh3"/>
+                            <constraint firstItem="wco-jy-Ctg" firstAttribute="width" secondItem="wco-jy-Ctg" secondAttribute="height" id="iRL-iN-e16"/>
+                            <constraint firstItem="uSd-R1-8y9" firstAttribute="top" secondItem="yV2-eG-meA" secondAttribute="bottom" constant="20" id="kmq-kP-Uff"/>
+                            <constraint firstItem="yV2-eG-meA" firstAttribute="leading" secondItem="AHr-Mp-Onn" secondAttribute="leadingMargin" id="pag-Yf-P5y"/>
+                            <constraint firstItem="ozA-xa-nsv" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="qK3-ly-Abj"/>
                             <constraint firstItem="ibB-8C-oSP" firstAttribute="leading" secondItem="AHr-Mp-Onn" secondAttribute="leadingMargin" id="wxP-aE-6hw"/>
+                            <constraint firstItem="yV2-eG-meA" firstAttribute="width" secondItem="yV2-eG-meA" secondAttribute="height" id="xEl-rr-h6S"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="dismissButton" destination="ibB-8C-oSP" id="qRt-pL-Ofl"/>
+                        <outlet property="graphicImageView" destination="sgA-en-HhB" id="2mq-bN-SwM"/>
+                        <outlet property="option1Button" destination="wco-jy-Ctg" id="F1u-jl-r3E"/>
+                        <outlet property="option2Button" destination="ozA-xa-nsv" id="u2G-OC-Sxi"/>
+                        <outlet property="option3Button" destination="yV2-eG-meA" id="Nh7-Ad-DDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agD-UG-M7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1376,6 +1433,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DollarSignLargeWinGame" width="183" height="287"/>
         <image name="Grid-2" width="28" height="24"/>
         <image name="Grid-4" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
@@ -1386,6 +1444,9 @@
         <image name="lightbulb" width="69" height="80"/>
         <image name="musicNote" width="69" height="80"/>
         <image name="pencil" width="69" height="80"/>
+        <image name="rewind" width="28" height="28"/>
+        <image name="shuffle" width="28" height="20"/>
+        <image name="skip-back" width="28" height="28"/>
         <image name="unlocked" width="32" height="28"/>
         <image name="x" width="18" height="18"/>
     </resources>

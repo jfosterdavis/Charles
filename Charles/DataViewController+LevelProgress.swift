@@ -443,8 +443,46 @@ extension DataViewController {
         let topVC = topMostController()
         let youWonVC = self.storyboard!.instantiateViewController(withIdentifier: "GameWinner") as! GameWinnerViewController
         
+        let userXP = calculateUserXP()
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let userLevel = userLevelAndProgress.0?.level!
+        
+        youWonVC.parentVC = self
+        youWonVC.userLevel = userLevel
         topVC.present(youWonVC, animated: true, completion: nil)
     }
     
+    //modifies the user's real XP data to send them back to the given level
+    func reducePlayerLevel(to level: Int = 22) {
+        //destroy all XP earned after the player reached given level
+        guard let fc = frcDict[keyXP] else {
+            fatalError("Counldn't get frcDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            fatalError("Counldn't get XP")
+        }
+        
+        //delete any xp object earnedon the given level or higher
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        self.stack = delegate.stack
+        for xp in xps {
+            
+            if Int(xp.level) >= level {
+                if let context = self.frcDict[keyXP]?.managedObjectContext {
+                    print("Deleting XP for level \(xp.level)")
+                    context.delete(xp)
+                    
+                }
+            }
+        }
+        
+        //now check that player is back to given level
+        let newActualLevel = getUserCurrentLevel()?.level
+        if newActualLevel! > level {
+            fatalError("Something went wrong when trying to put player back to level \(level)")
+        }
+    }
     
 }
