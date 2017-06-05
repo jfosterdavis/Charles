@@ -21,6 +21,7 @@ extension DataViewController {
         case decreaseLevel
         case increaseProgress
         case decreaseProgress
+        case wonGame
     }
     
     /******************************************************/
@@ -80,6 +81,9 @@ extension DataViewController {
         case .decreaseProgress:
             audioFilePath = Bundle.main.path(forResource: "ProgressDown", ofType: "m4a", inDirectory: "Audio/GameSounds")
             gameSoundPitchModifier = -300
+        case .wonGame:
+            audioFilePath = Bundle.main.path(forResource: "LevelUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
+            gameSoundPitchModifier = 400
 //        default:
 //            audioFilePath = nil
         }
@@ -119,35 +123,43 @@ extension DataViewController {
             
             let currentLevel = currentLevelAndProgress.0!
             
-            
-            
-            //determine if the player just increased in level
-            let didProgressInLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
-            let didDecreaseInLevel = didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
-            
-            if didProgressInLevel {
-                //the user progressed in level, play appropriate sound
-                playGameSound(forProgressSituation: .increaseLevel)
+            //get all the stuff you need to determine if the player won
+            let userXP = calculateUserXP()
+            let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+            let userCurrentProgress = userLevelAndProgress.1!
+            let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
+            if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so play the final sounds
+                playGameSound(forProgressSituation: .wonGame)
+            } else {  //player did not win the game yet
                 
-            } else if didDecreaseInLevel {
-                //the user decreased in level, play appropriate sound
-                playGameSound(forProgressSituation: .decreaseLevel)
+                //determine if the player just increased in level
+                let didProgressInLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
+                let didDecreaseInLevel = didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
                 
-            } else { //didn't progress in level, check baseline progress
-                
-                let currentProgress = currentLevelAndProgress.1!
-                
-                //determine if the player just increased in progress
-                let didProgressInProgress = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: currentProgress)
-                let didDecreaseInProgress = didPlayer(magnitudeDirection: .decrease, in: .progress, byAchieving: currentProgress)
-                
-                if didProgressInProgress {
-                    playGameSound(forProgressSituation: .increaseProgress)
-                } else if didDecreaseInProgress {
-                    playGameSound(forProgressSituation: .decreaseProgress)
+                if didProgressInLevel {
+                    //the user progressed in level, play appropriate sound
+                    playGameSound(forProgressSituation: .increaseLevel)
+                    
+                } else if didDecreaseInLevel {
+                    //the user decreased in level, play appropriate sound
+                    playGameSound(forProgressSituation: .decreaseLevel)
+                    
+                } else { //didn't progress in level, check baseline progress
+                    
+                    let currentProgress = currentLevelAndProgress.1!
+                    
+                    //determine if the player just increased in progress
+                    let didProgressInProgress = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: currentProgress)
+                    let didDecreaseInProgress = didPlayer(magnitudeDirection: .decrease, in: .progress, byAchieving: currentProgress)
+                    
+                    if didProgressInProgress {
+                        playGameSound(forProgressSituation: .increaseProgress)
+                    } else if didDecreaseInProgress {
+                        playGameSound(forProgressSituation: .decreaseProgress)
+                    }
+                    //if none of the above triggered, there is no sound to play
+                    
                 }
-                //if none of the above triggered, there is no sound to play
-                
             }
         }
     }

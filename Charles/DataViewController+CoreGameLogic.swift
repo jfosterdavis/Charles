@@ -652,7 +652,11 @@ extension DataViewController {
             let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
             
             if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so show the final sequence
-                showWinningSequence()
+                
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay * 2), execute: {
+                    self.showWinningSequence()
+                })
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay), execute: {

@@ -477,11 +477,12 @@ extension DataViewController {
                 }
             }
         }
+        stack.save()
         
         //now check that player is back to given level
         let newActualLevel = getUserCurrentLevel()?.level
         if newActualLevel! > level {
-            fatalError("Something went wrong when trying to put player back to level \(level)")
+            fatalError("Something went wrong when trying to put player back to level \(level).  Current level being reported as \(String(describing: newActualLevel))")
         }
     }
     
