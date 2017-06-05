@@ -213,6 +213,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //mask the stackview
         roundStackViewMask()
         
+        //add a listener so can tell when app enters background
+        NotificationCenter.default.addObserver(self, selector: #selector(appEnteredBackground), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+
+        
         //housekeeping
         checkXPAndConsolidateIfNeccessary(consolidateAt: 100)
     }
@@ -374,6 +378,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
         }
     }
     
+    ///to be called by the entered background observer.  presses the store button.
+    func appEnteredBackground(notification : NSNotification) {
+        storeButtonPressed(self)
+    }
     
     /******************************************************/
     /*******************///MARK: UI Button Actions
