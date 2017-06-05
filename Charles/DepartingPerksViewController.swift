@@ -30,6 +30,12 @@ class DepartingPerksViewController: PerkStoreCollectionViewController {
         perkCollectionViewData = departingPerks
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.playerScoreLabel.text = String(describing: score)
+    }
+    
     
 //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        

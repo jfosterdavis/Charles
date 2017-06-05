@@ -33,6 +33,12 @@ class DepartingCharactersViewController: StoreCollectionViewController {
         collectionViewData = departingCharacters
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.playerScoreLabel.text = String(describing: score)
+    }
+    
     
 //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        //        switch segmentedControl.selectedSegmentIndex {
