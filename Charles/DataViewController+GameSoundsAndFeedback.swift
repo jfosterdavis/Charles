@@ -83,7 +83,7 @@ extension DataViewController {
             gameSoundPitchModifier = -300
         case .wonGame:
             audioFilePath = Bundle.main.path(forResource: "LevelUp", ofType: "m4a", inDirectory: "Audio/GameSounds")
-            gameSoundPitchModifier = 400
+            gameSoundPitchModifier = 500
 //        default:
 //            audioFilePath = nil
         }
