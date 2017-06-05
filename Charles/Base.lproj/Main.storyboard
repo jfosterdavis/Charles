@@ -55,24 +55,26 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-Pd-fue">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shc-Pd-fue">
                                 <rect key="frame" x="9" y="27" width="45" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="AD0-SX-ake"/>
                                     <constraint firstAttribute="width" secondItem="Shc-Pd-fue" secondAttribute="height" multiplier="7:6" id="W9S-tr-vDt"/>
                                 </constraints>
                                 <state key="normal" image="Grid-2"/>
+                                <state key="highlighted" image="Grid-2Selected"/>
                                 <connections>
                                     <action selector="storeButtonPressed:" destination="S4R-Ja-viH" eventType="touchUpInside" id="dU0-50-y14"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4J-0b-BVK">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4J-0b-BVK">
                                 <rect key="frame" x="321" y="27" width="45" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="e4J-0b-BVK" secondAttribute="height" multiplier="7:6" id="Kd7-FM-Kd0"/>
                                     <constraint firstAttribute="width" constant="45" id="q9L-8R-fRV"/>
                                 </constraints>
                                 <state key="normal" image="Grid-4"/>
+                                <state key="highlighted" image="Grid-4Selected"/>
                                 <connections>
                                     <action selector="perkStoreButtonPressed:" destination="S4R-Ja-viH" eventType="touchUpInside" id="x6t-gc-sq6"/>
                                 </connections>
@@ -553,7 +555,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-sP-u8Y">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-sP-u8Y">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925204784848" blue="0.93021490035323318" alpha="0.89726027397260277" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -837,7 +839,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJt-RL-m4Y">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJt-RL-m4Y">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1049,7 +1051,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt5-Xw-UVi">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wt5-Xw-UVi">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1262,7 +1264,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-2l-b8a">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-2l-b8a">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1339,7 +1341,7 @@
                                     <constraint firstAttribute="width" secondItem="sgA-en-HhB" secondAttribute="height" multiplier="183:287" id="54P-1n-mej"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-8C-oSP">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibB-8C-oSP">
                                 <rect key="frame" x="16" y="20" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1350,7 +1352,7 @@
                                     <action selector="dismissButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="tXh-BX-QIG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wco-jy-Ctg">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wco-jy-Ctg">
                                 <rect key="frame" x="309" y="20" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
@@ -1361,7 +1363,7 @@
                                     <action selector="choiceButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="81Z-Kz-sJo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozA-xa-nsv">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozA-xa-nsv">
                                 <rect key="frame" x="309" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1375,7 +1377,7 @@
                                     <action selector="choiceButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="Ips-fo-OCT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yV2-eG-meA">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yV2-eG-meA">
                                 <rect key="frame" x="16" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
@@ -1424,7 +1426,9 @@
     <resources>
         <image name="DollarSignLargeWinGame" width="183" height="287"/>
         <image name="Grid-2" width="28" height="24"/>
+        <image name="Grid-2Selected" width="28" height="24"/>
         <image name="Grid-4" width="28" height="24"/>
+        <image name="Grid-4Selected" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
         <image name="PerkInsight" width="28" height="20"/>
         <image name="bullseye" width="69" height="80"/>
