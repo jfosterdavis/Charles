@@ -164,7 +164,7 @@ struct Perks {
     static let Study = Perk(     name: "Quick Study",
                                    gameDescription: "You get more out of each encounter.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 1, //50000
+                                    price: 50000, //50000
                                     meta1: 1,
                                     meta2: nil,
                                     meta3: nil,
@@ -231,7 +231,7 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 30,
+                                        minutesUnlocked: 30, //30
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: nil,
@@ -245,7 +245,7 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 25,
+                                        minutesUnlocked: 25, //30
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 13,
@@ -259,7 +259,7 @@ struct Perks {
         meta1: 2,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 20,
+        minutesUnlocked: 20, //20
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 21,

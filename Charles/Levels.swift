@@ -15,7 +15,7 @@ struct Levels {
     
     //static let valid: [Level] = []
     ///All levels in the order for the game
-    static let HighestLevel = Game[7]  //everything that determines level or winning the game references this as the highest level
+    static let HighestLevel = Game[40]  //everything that determines level or winning the game references this as the highest level
    
      ///All levels in the order for the game
     static let Game: [Int:Level] = [1 : Level(level: 1,

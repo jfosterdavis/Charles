@@ -626,12 +626,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not seek an unearned advantage.  Seek to improve yourself.  Pay for what you take." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cl7-aw-Shz">
-                                <rect key="frame" x="10" y="388" width="355" height="229"/>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXU-nM-bIE">
                                 <rect key="frame" x="16" y="20" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
@@ -651,21 +645,16 @@
                             <constraint firstItem="7Jc-Sd-aYv" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="CPc-bw-fwh"/>
                             <constraint firstItem="7Jc-Sd-aYv" firstAttribute="centerY" secondItem="VUR-Xc-sMq" secondAttribute="centerY" multiplier="4:5" id="Mbn-Vv-afR"/>
                             <constraint firstItem="wXU-nM-bIE" firstAttribute="width" secondItem="wXU-nM-bIE" secondAttribute="height" id="MyH-MG-jEf"/>
-                            <constraint firstItem="igx-lP-sOQ" firstAttribute="top" secondItem="cl7-aw-Shz" secondAttribute="bottom" constant="50" id="RmJ-yf-hw7"/>
-                            <constraint firstItem="cl7-aw-Shz" firstAttribute="width" secondItem="VUR-Xc-sMq" secondAttribute="width" constant="-20" id="Sr0-fh-jI4"/>
                             <constraint firstItem="wXU-nM-bIE" firstAttribute="top" secondItem="2Wn-yg-5VP" secondAttribute="bottom" id="aUg-Yv-PTg"/>
                             <constraint firstItem="sGj-WO-CtR" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="bHX-Vh-jJL"/>
                             <constraint firstItem="7Jc-Sd-aYv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sGj-WO-CtR" secondAttribute="bottom" constant="30" id="gKz-fl-RKr"/>
                             <constraint firstItem="sGj-WO-CtR" firstAttribute="width" secondItem="VUR-Xc-sMq" secondAttribute="width" id="kO3-8i-LXo"/>
-                            <constraint firstItem="cl7-aw-Shz" firstAttribute="centerX" secondItem="VUR-Xc-sMq" secondAttribute="centerX" id="lcR-ey-Bmi"/>
-                            <constraint firstItem="cl7-aw-Shz" firstAttribute="top" secondItem="7Jc-Sd-aYv" secondAttribute="bottom" constant="20" id="qaw-Qm-ezb"/>
                             <constraint firstItem="sGj-WO-CtR" firstAttribute="top" secondItem="2Wn-yg-5VP" secondAttribute="bottom" constant="50" id="vIm-C9-HXS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dismissButton" destination="wXU-nM-bIE" id="TZ9-f9-JK5"/>
                         <outlet property="hexDollarImageView" destination="7Jc-Sd-aYv" id="kBM-b7-DJL"/>
-                        <outlet property="messageLabel" destination="cl7-aw-Shz" id="nAP-be-u1Z"/>
                         <outlet property="scoreLabel" destination="sGj-WO-CtR" id="6Cw-MW-8Vd"/>
                     </connections>
                 </viewController>
@@ -1363,7 +1352,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wco-jy-Ctg">
                                 <rect key="frame" x="309" y="20" width="50" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.19238164320000001" blue="0.0039097093600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="40"/>
                                 <state key="normal" image="skip-back">
                                     <color key="titleColor" red="0.95765617635459632" green="0.96713792067493887" blue="0.96713792067493887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
