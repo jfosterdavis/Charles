@@ -49,7 +49,7 @@ class GameWinnerViewController: UIViewController {
         option2Level = Int(userLevel / 2) //option 2 goes back halfway
         //option2Button.setTitle(String(describing: option2Level), for: UIControlState.normal)
         
-        option3Level = Utilities.random(range: 1...userLevel) //option 3 is a random level
+        option3Level = Utilities.random(range: 1...(userLevel - 1)) //option 3 is a random level
         //option3Button.setTitle(String(describing: option3Level), for: UIControlState.normal)
         
         
