@@ -99,22 +99,6 @@ extension DataViewController {
                 /*******************///MARK: END PERK INCREASED XP
                 /******************************************************/
 
-                let labelUpdates: (() -> Void) = {
-                    if let currentLevel = currentLevelAndProgress.0 {
-                        self.thisLevelLabel.alpha = 1
-                        self.thisLevelLabel.text = String(describing: currentLevel.level!)
-                        self.thisLevelLabel.textColor = thisLevelColor
-                        //print(" text of this level label: \(self.thisLevelLabel.text)")
-                        
-                        self.nextLevelLabel.alpha = 1
-                        self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
-                        self.nextLevelLabel.textColor = nextLevelColor
-                        
-                        //level label
-                        self.levelDescriptionLabel.alpha = 1
-                        self.levelDescriptionLabel.text = currentLevel.levelDescription
-                    }
-                }
                 
                 if playerLeveledUpWithXPPerkActive && progress < 1.0 {
                     
@@ -128,12 +112,32 @@ extension DataViewController {
                     //trick the label to think it will end up light
                     thisLevelColor = progressViewLightTextColor.textColor
                     nextLevelColor = progressViewLightTextColor.textColor
-                    UIView.animate(withDuration: 0.8,
+                    if let currentLevel = currentLevelAndProgress.0 {
+                        let previousLevel = (Levels.Game[currentLevel.level - 1])!
+                    
+                    
+                        UIView.animate(withDuration: 0.8,
                                    delay: 0.8,
                                    animations: {
                                     
-                                    labelUpdates()
-                    })
+                                    
+                                    self.thisLevelLabel.alpha = 1
+                                    self.thisLevelLabel.text = String(describing: previousLevel.level!)
+                                    self.thisLevelLabel.textColor = thisLevelColor
+                                    //print(" text of this level label: \(self.thisLevelLabel.text)")
+                                    
+                                    self.nextLevelLabel.alpha = 1
+                                    self.nextLevelLabel.text = String(describing: (previousLevel.level + 1))
+                                    self.nextLevelLabel.textColor = nextLevelColor
+                                    
+                                    //level label
+                                    self.levelDescriptionLabel.alpha = 1
+                                    self.levelDescriptionLabel.text = previousLevel.levelDescription
+                                    
+                        })
+                    } else {
+                        fatalError("Couldn't get the level")
+                    }
                     
                     //1. animate the progress bar to full
                     //to do this need to animate it to 1
@@ -153,7 +157,20 @@ extension DataViewController {
                                    delay: 0.8,
                                    animations: {
                                     
-                                    labelUpdates()
+                                    if let currentLevel = currentLevelAndProgress.0 {
+                                        self.thisLevelLabel.alpha = 1
+                                        self.thisLevelLabel.text = String(describing: currentLevel.level!)
+                                        self.thisLevelLabel.textColor = thisLevelColor
+                                        //print(" text of this level label: \(self.thisLevelLabel.text)")
+                                        
+                                        self.nextLevelLabel.alpha = 1
+                                        self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
+                                        self.nextLevelLabel.textColor = nextLevelColor
+                                        
+                                        //level label
+                                        self.levelDescriptionLabel.alpha = 1
+                                        self.levelDescriptionLabel.text = currentLevel.levelDescription
+                                    }
                                     
                                     
                     }, completion: { (finished:Bool) in
