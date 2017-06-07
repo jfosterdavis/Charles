@@ -30,7 +30,7 @@ extension DataViewController {
         fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 10.3)
         
         //only control the perk store if the player level is above minimum + 2
-        if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 2) {
+        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockPerkStore + 2) {
             fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 10.3)
         }
         
@@ -188,11 +188,7 @@ extension DataViewController {
         //load the objective
         
         //pick a random color to load
-        guard let userLevel = getUserCurrentLevel() else {
-            //users level may be too high and this is where advanced levels can be loaded
-            //TODO: Load advanced levels
-            fatalError("User may be at adanvced level but this hasn't been programmed yet!!!!")
-        }
+        let userLevel = getUserCurrentLevel()
         let gameColor = getGameColor(usingLevel: userLevel)
         loadAndFadeInFeedbackObjective(using: gameColor)
         

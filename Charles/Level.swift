@@ -24,7 +24,7 @@ import UIKit
  */
 class Level: NSObject {
     
-    var level: Int!
+    var level: Int
     var levelDescription: String!
     var xPRequired: Int! //an array of phrase objects
     var successThreshold: Float!
@@ -35,7 +35,7 @@ class Level: NSObject {
     
     // MARK: Initializers
     init(level: Int, levelDescription: String, xPRequired: Int, successThreshold: Float, punishThreshold: Float, canBeLost: Bool, eligiblePredefinedObjectives: [[UIColor]]?, eligibleRandomColorPrecision: Int? = nil) {
-        super.init()
+        
         
         self.level = level
         self.levelDescription = levelDescription
@@ -45,5 +45,7 @@ class Level: NSObject {
         self.canBeLost = canBeLost
         self.eligiblePredefinedObjectives = eligiblePredefinedObjectives
         self.eligibleRandomColorPrecision = eligibleRandomColorPrecision
+        
+        super.init()
     }
 }

@@ -83,16 +83,16 @@ extension DataViewController {
                 //only animate if the user is progressing on the same level or degressing on same level.  don't animate if user just lost a level or if the view just loaded.
                 var shouldAnimate = false
                 var playerLeveledUpWithXPPerkActive = false
-                if let currentLevel = currentLevelAndProgress.0 {
-                    shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
-                    
-                    //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
-                    //this would occur if progress > 0 and the player increased in level
-                    let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
-                    if playerIncreasedLevel && !xpPerks.isEmpty {
-                        playerLeveledUpWithXPPerkActive = true
-                    }
+                let currentLevel = currentLevelAndProgress.0
+                shouldAnimate = didPlayer(magnitudeDirection: .noChange, in: .level, byAchieving: currentLevel.level)
+                
+                //determine if the player leveled up while the XP perk was active, or by earning more than 1 xp
+                //this would occur if progress > 0 and the player increased in level
+                let playerIncreasedLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
+                if playerIncreasedLevel && !xpPerks.isEmpty {
+                    playerLeveledUpWithXPPerkActive = true
                 }
+                
                 
                 
                 /******************************************************/
@@ -112,32 +112,30 @@ extension DataViewController {
                     //trick the label to think it will end up light
                     thisLevelColor = progressViewLightTextColor.textColor
                     nextLevelColor = progressViewLightTextColor.textColor
-                    if let currentLevel = currentLevelAndProgress.0 {
-                        let previousLevel = (Levels.Game[currentLevel.level - 1])!
+                    let currentLevel = currentLevelAndProgress.0
+                    let previousLevel = (Levels.Game[currentLevel.level - 1])!
+                
+                
+                    UIView.animate(withDuration: 0.8,
+                               delay: 0.8,
+                               animations: {
+                                
+                                
+                                self.thisLevelLabel.alpha = 1
+                                self.thisLevelLabel.text = String(describing: previousLevel.level)
+                                self.thisLevelLabel.textColor = thisLevelColor
+                                //print(" text of this level label: \(self.thisLevelLabel.text)")
+                                
+                                self.nextLevelLabel.alpha = 1
+                                self.nextLevelLabel.text = String(describing: (previousLevel.level + 1))
+                                self.nextLevelLabel.textColor = nextLevelColor
+                                
+                                //level label
+                                self.levelDescriptionLabel.alpha = 1
+                                self.levelDescriptionLabel.text = previousLevel.levelDescription
+                                
+                    })
                     
-                    
-                        UIView.animate(withDuration: 0.8,
-                                   delay: 0.8,
-                                   animations: {
-                                    
-                                    
-                                    self.thisLevelLabel.alpha = 1
-                                    self.thisLevelLabel.text = String(describing: previousLevel.level!)
-                                    self.thisLevelLabel.textColor = thisLevelColor
-                                    //print(" text of this level label: \(self.thisLevelLabel.text)")
-                                    
-                                    self.nextLevelLabel.alpha = 1
-                                    self.nextLevelLabel.text = String(describing: (previousLevel.level + 1))
-                                    self.nextLevelLabel.textColor = nextLevelColor
-                                    
-                                    //level label
-                                    self.levelDescriptionLabel.alpha = 1
-                                    self.levelDescriptionLabel.text = previousLevel.levelDescription
-                                    
-                        })
-                    } else {
-                        fatalError("Couldn't get the level")
-                    }
                     
                     //1. animate the progress bar to full
                     //to do this need to animate it to 1
@@ -157,20 +155,20 @@ extension DataViewController {
                                    delay: 0.8,
                                    animations: {
                                     
-                                    if let currentLevel = currentLevelAndProgress.0 {
-                                        self.thisLevelLabel.alpha = 1
-                                        self.thisLevelLabel.text = String(describing: currentLevel.level!)
-                                        self.thisLevelLabel.textColor = thisLevelColor
-                                        //print(" text of this level label: \(self.thisLevelLabel.text)")
-                                        
-                                        self.nextLevelLabel.alpha = 1
-                                        self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
-                                        self.nextLevelLabel.textColor = nextLevelColor
-                                        
-                                        //level label
-                                        self.levelDescriptionLabel.alpha = 1
-                                        self.levelDescriptionLabel.text = currentLevel.levelDescription
-                                    }
+                                let currentLevel = currentLevelAndProgress.0
+                                    self.thisLevelLabel.alpha = 1
+                                    self.thisLevelLabel.text = String(describing: currentLevel.level)
+                                    self.thisLevelLabel.textColor = thisLevelColor
+                                    //print(" text of this level label: \(self.thisLevelLabel.text)")
+                                    
+                                    self.nextLevelLabel.alpha = 1
+                                    self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
+                                    self.nextLevelLabel.textColor = nextLevelColor
+                                    
+                                    //level label
+                                    self.levelDescriptionLabel.alpha = 1
+                                    self.levelDescriptionLabel.text = currentLevel.levelDescription
+                                    
                                     
                                     
                     }, completion: { (finished:Bool) in
@@ -202,14 +200,9 @@ extension DataViewController {
         //get user's level and progress
         let userXP = calculateUserXP()
         let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-        
-        guard currentLevelAndProgress.0 != nil && currentLevelAndProgress.1 != nil else {
-            //this may mean the user is too high of a level
-            return nil
-        }
-        
-        let usersProgressOnCurrentLevel = currentLevelAndProgress.1!
-        let usersCurrentLevel = currentLevelAndProgress.0!
+                
+        let usersProgressOnCurrentLevel = currentLevelAndProgress.1
+        let usersCurrentLevel = currentLevelAndProgress.0
         
         let progress: Float = Float(usersProgressOnCurrentLevel) / (Float(usersCurrentLevel.xPRequired) - 1)
         
@@ -225,17 +218,13 @@ extension DataViewController {
         let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
         
         //record the current level for comparison at score time
-        if let userLevel = userLevelAndProgress.0 {
+        let userLevel = userLevelAndProgress.0
             playerLevelBaseline = userLevel.level
-        } else {
-            playerLevelBaseline = 0
-        }
         
-        if let userProgress = userLevelAndProgress.1 {
+        
+        let userProgress = userLevelAndProgress.1
             playerProgressBaseline = userProgress
-        } else {
-            playerProgressBaseline = 0
-        }
+        
     }
     
     
@@ -388,25 +377,22 @@ extension DataViewController {
     }
     
     ///returns the user's current level determine programmatically.  returns nil if user's level is off the charts high
-    func getUserCurrentLevel() -> Level? {
+    func getUserCurrentLevel() -> Level {
         let userXP = calculateUserXP()
         let userLevel = Levels.getLevelAndProgress(from: userXP)
         
         //userLevel is a tuple (player level, xp towards that level)
         
-        if let lvl = userLevel.0 {
-            return lvl
-        } else {
-            return nil
-        }
+        return userLevel.0
+        
     }
     
     ///determines if the user just reached the highest progress of the highest level
     func didPlayerBeatGame() -> Bool {
-        let userCurrentLevel = getUserCurrentLevel()?.level
+        let userCurrentLevel = getUserCurrentLevel().level
         if isPlayerAtHighestLevelAndProgress() {  //looks like the user is at the highest level with the highest progress
             //check that the player just arrived at this level
-            let didJustReach = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel!)
+            let didJustReach = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
             
             //if the player just reached this level, then show the "you won" sequence
             if didJustReach {
@@ -419,13 +405,13 @@ extension DataViewController {
     
     ///determines if the user is at the highest level and progress values allowed
     func isPlayerAtHighestLevelAndProgress() -> Bool {
-        let highestLevel = (Levels.HighestLevel?.level)!
+        let highestLevel = (Levels.HighestLevel.level)
         let highestProgressRequiredOnHighestLevel = Levels.Game[(highestLevel)]?.xPRequired
         let userXP = calculateUserXP()
         let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
         let requiredProgressValue = highestProgressRequiredOnHighestLevel! - 1 //The user must get up to 1 fewer than the highest XP of the highest level to win the game
         
-        if userLevelAndProgress.0?.level == highestLevel &&  userLevelAndProgress.1! ==  requiredProgressValue {
+        if userLevelAndProgress.0.level == highestLevel &&  userLevelAndProgress.1 ==  requiredProgressValue {
             return true
         } else {
             return false
@@ -439,10 +425,10 @@ extension DataViewController {
         let userXPAndHypotheticalXP = userXP + XP
         let userLevelAndProgress = Levels.getLevelAndProgress(from: userXPAndHypotheticalXP)
         
-        if (userLevelAndProgress.0?.level!)! > (highestLevel?.level!)! {
+        if (userLevelAndProgress.0.level) > (highestLevel.level) {
             var maxXP = 0
             var level = 1
-            while level <= (Levels.HighestLevel?.level)! {
+            while level <= (Levels.HighestLevel.level) {
                 maxXP += (Levels.Game[level]?.xPRequired)!
                 level += 1
             }
@@ -462,7 +448,7 @@ extension DataViewController {
         
         let userXP = calculateUserXP()
         let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-        let userLevel = userLevelAndProgress.0?.level!
+        let userLevel = userLevelAndProgress.0.level
         
         youWonVC.parentVC = self
         youWonVC.userLevel = userLevel
@@ -497,8 +483,8 @@ extension DataViewController {
         stack.save()
         
         //now check that player is back to given level
-        let newActualLevel = getUserCurrentLevel()?.level
-        if newActualLevel! > level {
+        let newActualLevel = getUserCurrentLevel().level
+        if newActualLevel > level {
             fatalError("Something went wrong when trying to put player back to level \(level).  Current level being reported as \(String(describing: newActualLevel))")
         }
     }

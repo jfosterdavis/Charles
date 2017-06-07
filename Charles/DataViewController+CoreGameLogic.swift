@@ -345,27 +345,26 @@ extension DataViewController {
                 
                 let level = getUserCurrentLevel()
                 //compare to match performance
-                if let level = level {
-                    if scoreResults.2 >= (level.successThreshold + successThresholdPerkPrecisionAdjustmentModifier) {
+                if scoreResults.2 >= (level.successThreshold + successThresholdPerkPrecisionAdjustmentModifier) {
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK PRECISIONADJUSTMENT
+                    /******************************************************/
+                    //let the user know if they got by because of precision adjustment
+                    if scoreResults.2 < (level.successThreshold) {  //user would have failed
+                        //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                        fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
                         
-                        /******************************************************/
-                        /*******************///MARK: PERK PRECISIONADJUSTMENT
-                        /******************************************************/
-                        //let the user know if they got by because of precision adjustment
-                        if scoreResults.2 < (level.successThreshold) {  //user would have failed
-                            //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
-                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
-                            
-                        }
-                        
-                        /******************************************************/
-                        /*******************///MARK: END PERK PRECISIONADJUSTMENT
-                        /******************************************************/
-                        
-                        /******************************************************/
-                        /*******************///MARK: PERK INVESTMENT
-                        /******************************************************/
-                        
+                    }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                    /******************************************************/
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK INVESTMENT
+                    /******************************************************/
+                    
 //                        //add to the points earned
 //                        var perkAddition = 0
 //                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
@@ -384,50 +383,50 @@ extension DataViewController {
 //                            pointsJustScored += perkAddition
 //                            
 //                        }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK INVESTMENT
+                    /******************************************************/
+                    
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK INCREASEDSCORE
+                    /******************************************************/
+                    
+                    //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
+                    let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
+                    
+                    if !applicableIncreasedScorePerks.isEmpty {
+                        var increasedScoreMultiplier = 0
                         
-                        /******************************************************/
-                        /*******************///MARK: END PERK INVESTMENT
-                        /******************************************************/
-                        
-                        
-                        /******************************************************/
-                        /*******************///MARK: PERK INCREASEDSCORE
-                        /******************************************************/
-                        
-                        //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
-                        let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
-                        
-                        if !applicableIncreasedScorePerks.isEmpty {
-                            var increasedScoreMultiplier = 0
-                            
-                            for perk in applicableIncreasedScorePerks {
-                                //the multiplier is in meta1
-                                increasedScoreMultiplier += perk.0.meta1 as! Int
-                            }
-                            
-                            pointsJustScored = pointsJustScored * increasedScoreMultiplier
-                            
-                            //just modified the score, so give user feedback
-                            perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
-                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
-                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
-                            
+                        for perk in applicableIncreasedScorePerks {
+                            //the multiplier is in meta1
+                            increasedScoreMultiplier += perk.0.meta1 as! Int
                         }
                         
-                        /******************************************************/
-                        /*******************///MARK: END PERK INCREASEDSCORE
-                        /******************************************************/
+                        pointsJustScored = pointsJustScored * increasedScoreMultiplier
                         
+                        //just modified the score, so give user feedback
+                        perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
+                        fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                        fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
                         
+                    }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK INCREASEDSCORE
+                    /******************************************************/
+                    
+                    
 
-                        
-                        //check to see if an xp-related perk is active. ask the perk store
-                        /******************************************************/
-                        /*******************///MARK: Perk Implimentation: increasedXP
-                        /******************************************************/
+                    
+                    //check to see if an xp-related perk is active. ask the perk store
+                    /******************************************************/
+                    /*******************///MARK: Perk Implimentation: increasedXP
+                    /******************************************************/
 
-                        let applicablePerksAndUnlockedPerkObjects = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
-                        
+                    let applicablePerksAndUnlockedPerkObjects = getAllPerks(ofType: .increasedXP, withStatus: .unlocked)
+                    
 //                        let perkStore = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
 //                        let unlockedPerks = perkStore.getAllUnlockedPerks()
 //                        print("The following perks are unlocked: \(unlockedPerks)")
@@ -445,103 +444,103 @@ extension DataViewController {
 //                                }
 //                            }
 //                        }
-                        
-                        //now should have an array of perks that apply to this situation.
-                        //for now assume that if there are any just take the first one and apply it
-                        
-                        if applicablePerksAndUnlockedPerkObjects.isEmpty {
-                            //its empty so there are no applicable perks.  Give the normal amount of XP.
-                            giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
-                        } else {
-                            //there is a modifier.  This is located in meta1
-                            var mult = 1
-                            
-                            //sum the value of all increasedXP perks
-                            for perk in applicablePerksAndUnlockedPerkObjects {
-                                if let multiplier = perk.0.meta1 as! Int? {
-                                    mult += multiplier
-                                }
-                            }
-            
-                            // award xp
-                            giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
-                            
-                            
-                            /******************************************************/
-                            /*******************///MARK: PERK IncreasedXP
-                            /******************************************************/
-                            //if the xp perk is active and they made positive progress, flash feedback
-                            fadeViewInThenOut(view: perkIncreasedXPUserFeedbackImageView, fadeOutAfterSeconds: 2)
-                            
-                            
-                            /******************************************************/
-                            /*******************///MARK: END PERK INCREASEDXP
-                            /******************************************************/
-                            
-                        }
-                        
-                        /******************************************************/
-                        /*******************///MARK: END  PERK INCREASEDXP
-                        /******************************************************/
-
-                        
-                        //if they got a perfect score, double the points earned
-                        if scoreResults.2 == 1 {
-                            pointsJustScored = pointsJustScored * 2
-                        }
-                        
-                        //award points
-                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
-                        
-                        if let scoreMessage = scoreResults.1{
-                            presentJustScoredMessageFeedback(message: scoreMessage)
-                        }
-                        
-                    } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
-                        
-                        //only give negative XP if the sum of their XP is greater than zero.
-                        //This prevents them from going below level 1
-                        let playerXP = calculateUserXP()
-                        if playerXP > 0 {
-                            giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
-                        }
-                        
-                        //penalty points!
-                        //penalty is negative the amount you would have scored
-                        pointsJustScored = -1 * pointsJustScored
-                        
-                        //if they got a 0% score, triple the points lost
-                        if scoreResults.2 == 0 {
-                            pointsJustScored = pointsJustScored * 3
-                        }
-                        
-                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
-                        
-                        //give them a message so they know how bad they did
-                        if let scoreMessage = scoreResults.1{
-                            presentJustScoredMessageFeedback(message: scoreMessage, isGoodMessage: false)
-                        }
+                    
+                    //now should have an array of perks that apply to this situation.
+                    //for now assume that if there are any just take the first one and apply it
+                    
+                    if applicablePerksAndUnlockedPerkObjects.isEmpty {
+                        //its empty so there are no applicable perks.  Give the normal amount of XP.
+                        giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
                     } else {
+                        //there is a modifier.  This is located in meta1
+                        var mult = 1
                         
-                        /******************************************************/
-                        /*******************///MARK: PERK PRECISIONADJUSTMENT
-                        /******************************************************/
-                        //let the user know if they got by because of precision adjustment
-                        if scoreResults.2 <= (level.punishThreshold) {  //user would have failed
-                            //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
-                            fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                        //sum the value of all increasedXP perks
+                        for perk in applicablePerksAndUnlockedPerkObjects {
+                            if let multiplier = perk.0.meta1 as! Int? {
+                                mult += multiplier
+                            }
                         }
+        
+                        // award xp
+                        giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        
                         
                         /******************************************************/
-                        /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                        /*******************///MARK: PERK IncreasedXP
+                        /******************************************************/
+                        //if the xp perk is active and they made positive progress, flash feedback
+                        fadeViewInThenOut(view: perkIncreasedXPUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                        
+                        
+                        /******************************************************/
+                        /*******************///MARK: END PERK INCREASEDXP
                         /******************************************************/
                         
-                        //no XP given here, but points still given
-                        
-                        /******************************************************/
-                        /*******************///MARK: PERK INVESTMENT
-                        /******************************************************/
-                        
+                    }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END  PERK INCREASEDXP
+                    /******************************************************/
+
+                    
+                    //if they got a perfect score, double the points earned
+                    if scoreResults.2 == 1 {
+                        pointsJustScored = pointsJustScored * 2
+                    }
+                    
+                    //award points
+                    setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                    
+                    if let scoreMessage = scoreResults.1{
+                        presentJustScoredMessageFeedback(message: scoreMessage)
+                    }
+                    
+                } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
+                    
+                    //only give negative XP if the sum of their XP is greater than zero.
+                    //This prevents them from going below level 1
+                    let playerXP = calculateUserXP()
+                    if playerXP > 0 {
+                        giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    }
+                    
+                    //penalty points!
+                    //penalty is negative the amount you would have scored
+                    pointsJustScored = -1 * pointsJustScored
+                    
+                    //if they got a 0% score, triple the points lost
+                    if scoreResults.2 == 0 {
+                        pointsJustScored = pointsJustScored * 3
+                    }
+                    
+                    setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                    
+                    //give them a message so they know how bad they did
+                    if let scoreMessage = scoreResults.1{
+                        presentJustScoredMessageFeedback(message: scoreMessage, isGoodMessage: false)
+                    }
+                } else {
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK PRECISIONADJUSTMENT
+                    /******************************************************/
+                    //let the user know if they got by because of precision adjustment
+                    if scoreResults.2 <= (level.punishThreshold) {  //user would have failed
+                        //fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedback, fadeOutAfterSeconds: 2)
+                        fadeViewInThenOut(view: perkPrecisionAdjustmentUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                    }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK PRECISIONADJUSTMENT
+                    /******************************************************/
+                    
+                    //no XP given here, but points still given
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK INVESTMENT
+                    /******************************************************/
+                    
 //                        //add to the points earned
 //                        var perkAddition = 0
 //                        let applicablePerks = getAllPerks(ofType: .investment, withStatus: .unlocked)
@@ -560,46 +559,46 @@ extension DataViewController {
 //                            pointsJustScored += perkAddition
 //                            
 //                        }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK INVESTMENT
+                    /******************************************************/
+                    
+                    /******************************************************/
+                    /*******************///MARK: PERK INCREASEDSCORE
+                    /******************************************************/
+                    
+                    //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
+                    let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
+                    
+                    if !applicableIncreasedScorePerks.isEmpty {
+                        var increasedScoreMultiplier = 0
                         
-                        /******************************************************/
-                        /*******************///MARK: END PERK INVESTMENT
-                        /******************************************************/
-                        
-                        /******************************************************/
-                        /*******************///MARK: PERK INCREASEDSCORE
-                        /******************************************************/
-                        
-                        //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
-                        let applicableIncreasedScorePerks = getAllPerks(ofType: .increasedScore, withStatus: .unlocked)
-                        
-                        if !applicableIncreasedScorePerks.isEmpty {
-                            var increasedScoreMultiplier = 0
-                            
-                            for perk in applicableIncreasedScorePerks {
-                                //the multiplier is in meta1
-                                increasedScoreMultiplier += perk.0.meta1 as! Int
-                            }
-                            
-                            pointsJustScored = pointsJustScored * increasedScoreMultiplier
-                            
-                            //just modified the score, so give user feedback
-                            perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
-                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
-                            fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                        for perk in applicableIncreasedScorePerks {
+                            //the multiplier is in meta1
+                            increasedScoreMultiplier += perk.0.meta1 as! Int
                         }
                         
-                        /******************************************************/
-                        /*******************///MARK: END PERK INCREASEDSCORE
-                        /******************************************************/
+                        pointsJustScored = pointsJustScored * increasedScoreMultiplier
                         
-                        //award points
-                        setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
-                        
-                        if let scoreMessage = scoreResults.1{
-                            presentJustScoredMessageFeedback(message: scoreMessage)
-                        }
+                        //just modified the score, so give user feedback
+                        perkIncreasedScoreUserFeedback.text = "\(increasedScoreMultiplier)X!"
+                        fadeViewInThenOut(view: perkIncreasedScoreUserFeedback, fadeOutAfterSeconds: 2)
+                        fadeViewInThenOut(view: perkIncreasedScoreUserFeedbackImageView, fadeOutAfterSeconds: 2)
+                    }
+                    
+                    /******************************************************/
+                    /*******************///MARK: END PERK INCREASEDSCORE
+                    /******************************************************/
+                    
+                    //award points
+                    setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                    
+                    if let scoreMessage = scoreResults.1{
+                        presentJustScoredMessageFeedback(message: scoreMessage)
                     }
                 }
+                
                 
                 
             } else { //when not working on an objective, everyone is a winner!
@@ -648,7 +647,7 @@ extension DataViewController {
             
             let userXP = calculateUserXP()
             let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-            let userCurrentProgress = userLevelAndProgress.1!
+            let userCurrentProgress = userLevelAndProgress.1
             let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
             
             if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so show the final sequence
@@ -729,21 +728,21 @@ extension DataViewController {
         
         
         //fading in and out the perk store. based on user's level
-        if let userLevel = getUserCurrentLevel() {
-            //store will fade in over 5 levels
-            if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 2) {
-                //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
-                
-                
-                let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
-                
-                //fade in the perk store
-                //this should automatically disable if it fades to 0 or enable if it is > 0
-                self.perkStoreButton.fade(.inOrOut,
-                                          resultAlpha: newAlpha,
-                                          withDuration: 0.3,
-                                          delay: 0.6)
-                //only disable if it is invisible
+        let userLevel = getUserCurrentLevel()
+        //store will fade in over 5 levels
+        if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 2) {
+            //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
+            
+            
+            let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
+            
+            //fade in the perk store
+            //this should automatically disable if it fades to 0 or enable if it is > 0
+            self.perkStoreButton.fade(.inOrOut,
+                                      resultAlpha: newAlpha,
+                                      withDuration: 0.3,
+                                      delay: 0.6)
+            //only disable if it is invisible
 //                if self.perkStoreButton.alpha == 0 {
 //                    self.perkStoreButton.isEnabled = false
 //                } else {
@@ -760,15 +759,15 @@ extension DataViewController {
 //                                    self.perkStoreButton.isEnabled = true
 //                                }
 //                }, completion: nil)
-                
-            } else  if currentScore <= minimumScoreToUnlockObjective {
-                //fade to zero
-                //fade in the perk store
-                
-                self.perkStoreButton.fade(.out,
-                                          withDuration: 0.3,
-                                          delay: 0.6)
-                
+            
+        } else  if currentScore <= minimumScoreToUnlockObjective {
+            //fade to zero
+            //fade in the perk store
+            
+            self.perkStoreButton.fade(.out,
+                                      withDuration: 0.3,
+                                      delay: 0.6)
+            
 //                UIView.animate(withDuration: 0.3,
 //                               delay: 0.6,
 //                               animations: {
@@ -776,10 +775,6 @@ extension DataViewController {
 //                                self.perkStoreButton.alpha = 0
 //                                    self.perkStoreButton.isEnabled = false
 //                }, completion: nil)
-            }
-        } else {
-            //something is not right
-            fatalError("Can't get the user's level")
         }
     
         //score housekeeping.

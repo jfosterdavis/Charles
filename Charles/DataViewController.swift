@@ -55,6 +55,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //increasedXP
     @IBOutlet weak var perkIncreasedXPUserFeedbackImageView: UIImageView!
     
+    //entire view background
+    @IBOutlet weak var backgroundView: UIView!
     
     
     
@@ -207,6 +209,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         //add placeholder buttons to the array of buttons
         currentButtons = [button1, button2, button3]
         
+        //load the background based on the level
+        setBackground(from: getUserCurrentLevel())
+        
         //set the page control
         refreshPageControl()
         
@@ -332,7 +337,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 6.3)
         
         //only control the perk store if the player level is above minimum + 2
-        if self.getUserCurrentLevel()!.level > (self.minimumLevelToUnlockPerkStore + 2) {
+        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockPerkStore + 2) {
             fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 6.3)
         }
         

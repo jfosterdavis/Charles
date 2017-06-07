@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /******************************************************/
 /*******************///MARK: Higher Game functionality showing the flow of the game
@@ -118,12 +119,8 @@ extension DataViewController {
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             
             //pick a random color to load
-            guard let userLevel = getUserCurrentLevel() else {
-                //users level may be too high and this is where advanced levels can be loaded
-                //TODO: Load advanced levels
-                fatalError("User may be at adanvced level but this hasn't been programmed yet!!!!")
-            }
             
+            let userLevel = getUserCurrentLevel()
             let gameColor = getGameColor(usingLevel: userLevel)
             
             //set the baselines, then reload the objective
@@ -131,6 +128,33 @@ extension DataViewController {
             
             reloadObjective(using: gameColor)
             
+        }
+    }
+    
+    
+    //sets the backgorund based on the level
+    func setBackground(from level:Level) {
+        let userCurrentLevel = level
+        let levelProgress = Levels.getLevelPhaseAndProgress(level: userCurrentLevel)
+        
+        let phase = levelProgress.0
+        let progress = levelProgress.1
+        
+        switch phase {
+        case .training:
+            //during training, the background is always black
+            backgroundView.alpha = 0
+        case .emergeFromDarkness:
+            //during this phase, the background starts as black and slowly fades to the background color
+            backgroundView.alpha = CGFloat(progress)
+        case .returnToDarkness:
+            //in this phase the background goes from normal color back to black
+            backgroundView.alpha = CGFloat(1 - progress)
+        case .returnToLight:
+            //fade from black to normal color
+            backgroundView.alpha = CGFloat(progress)
+        default:
+            backgroundView.alpha = 1
         }
     }
     

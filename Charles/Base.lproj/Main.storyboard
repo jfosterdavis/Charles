@@ -43,6 +43,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKw-VG-s3E">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.91764705879999997" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeA-Nm-BNH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.50735903818034878" green="0.65038510109567982" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -303,7 +307,7 @@
                                 <rect key="frame" x="2" y="645.5" width="17" height="19.5"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.97647058823529409" green="0.91764705882352937" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jeA-Nm-BNH" firstAttribute="width" secondItem="ZwX-cT-FIQ" secondAttribute="width" id="0NO-gY-dEL"/>
                             <constraint firstItem="jeA-Nm-BNH" firstAttribute="height" secondItem="ZwX-cT-FIQ" secondAttribute="height" id="1R5-oa-ZjO"/>
@@ -348,9 +352,11 @@
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="height" secondItem="lO8-fJ-aIM" secondAttribute="height" constant="-1" id="cg0-QP-Im6"/>
                             <constraint firstItem="dAI-RJ-YQy" firstAttribute="trailing" secondItem="lO8-fJ-aIM" secondAttribute="trailing" id="cpV-tG-jNq"/>
                             <constraint firstItem="jeA-Nm-BNH" firstAttribute="centerX" secondItem="ZwX-cT-FIQ" secondAttribute="centerX" id="czp-Fu-oIs"/>
+                            <constraint firstItem="TKw-VG-s3E" firstAttribute="height" secondItem="ZwX-cT-FIQ" secondAttribute="height" id="eCe-6B-aiS"/>
                             <constraint firstItem="3pe-fQ-90Z" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" constant="-14" id="f8e-mF-BdB"/>
                             <constraint firstItem="Shc-Pd-fue" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leadingMargin" constant="-7" id="fJH-iG-HRd"/>
                             <constraint firstItem="AHI-k3-9bk" firstAttribute="height" secondItem="dAI-RJ-YQy" secondAttribute="height" id="fdi-uu-ykh"/>
+                            <constraint firstItem="TKw-VG-s3E" firstAttribute="width" secondItem="ZwX-cT-FIQ" secondAttribute="width" id="gxV-0O-6Sq"/>
                             <constraint firstItem="4Ma-Wn-fWR" firstAttribute="centerX" secondItem="nRk-TB-6n2" secondAttribute="centerX" id="jLH-Kz-ZFE"/>
                             <constraint firstItem="hfs-G9-RyR" firstAttribute="width" secondItem="lO8-fJ-aIM" secondAttribute="width" multiplier="1:11" id="jSi-pr-o8R"/>
                             <constraint firstItem="hg6-2S-TQR" firstAttribute="top" secondItem="cF2-Le-7mQ" secondAttribute="bottom" id="kJ8-4v-0SU"/>
@@ -361,6 +367,7 @@
                             <constraint firstItem="nZI-6a-96N" firstAttribute="leading" secondItem="hg6-2S-TQR" secondAttribute="trailing" id="pHv-6X-arm"/>
                             <constraint firstItem="u5L-q0-6eO" firstAttribute="height" secondItem="pGH-Bq-aMo" secondAttribute="height" multiplier="1:1.51" id="pnx-mD-get"/>
                             <constraint firstItem="pGH-Bq-aMo" firstAttribute="centerX" secondItem="rwY-dv-xmQ" secondAttribute="centerX" id="pw2-VR-ggQ"/>
+                            <constraint firstItem="TKw-VG-s3E" firstAttribute="centerX" secondItem="ZwX-cT-FIQ" secondAttribute="centerX" id="q4x-Bq-fOw"/>
                             <constraint firstItem="e4J-0b-BVK" firstAttribute="centerY" secondItem="cF2-Le-7mQ" secondAttribute="centerY" id="qgy-T0-3aM"/>
                             <constraint firstItem="rwY-dv-xmQ" firstAttribute="top" secondItem="nRk-TB-6n2" secondAttribute="bottom" constant="2" id="qjm-XI-1M1"/>
                             <constraint firstItem="cF2-Le-7mQ" firstAttribute="top" secondItem="lO8-fJ-aIM" secondAttribute="bottom" constant="-3" id="sBt-0x-e1I"/>
@@ -369,10 +376,12 @@
                             <constraint firstItem="hfs-G9-RyR" firstAttribute="leading" secondItem="lO8-fJ-aIM" secondAttribute="leading" id="tCh-rP-sZj"/>
                             <constraint firstItem="u5L-q0-6eO" firstAttribute="centerY" secondItem="pGH-Bq-aMo" secondAttribute="centerY" id="tIH-4A-1wA"/>
                             <constraint firstItem="hfs-G9-RyR" firstAttribute="height" secondItem="lO8-fJ-aIM" secondAttribute="height" constant="-1" id="y54-EZ-XLD"/>
+                            <constraint firstItem="TKw-VG-s3E" firstAttribute="centerY" secondItem="ZwX-cT-FIQ" secondAttribute="centerY" id="ynF-Kg-XXC"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundView" destination="TKw-VG-s3E" id="EXA-wD-DMi"/>
                         <outlet property="button1" destination="pmn-4x-XHC" id="JKj-oi-ZOy"/>
                         <outlet property="button2" destination="eOi-nQ-4dM" id="1jI-wi-TcA"/>
                         <outlet property="button3" destination="ufb-l7-FgI" id="uJf-Mc-eAT"/>

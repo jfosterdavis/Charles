@@ -604,15 +604,13 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //figure out what level the player is on
         let userXP = parentVC.calculateUserXP()
         let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-        if let playerLevel = currentLevelAndProgress.0?.level {
+        let playerLevel = currentLevelAndProgress.0.level
             if playerLevel >= character.levelEligibleAt {
                 return true
             } else {
                 return false
             }
-        } else {
-            return false
-        }
+        
        
     }
     

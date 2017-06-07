@@ -118,50 +118,50 @@ extension DataViewController {
     
     
     ///checks baselines and plays sounds if appropriate
-    func compareLevelAndProgressAndPlaySounds(given currentLevelAndProgress: (Level?, Int?)) {
-        if currentLevelAndProgress.0 != nil && currentLevelAndProgress.1 != nil {
+    func compareLevelAndProgressAndPlaySounds(given currentLevelAndProgress: (Level, Int)) {
+        
             
-            let currentLevel = currentLevelAndProgress.0!
+        let currentLevel = currentLevelAndProgress.0
+        
+        //get all the stuff you need to determine if the player won
+        let userXP = calculateUserXP()
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let userCurrentProgress = userLevelAndProgress.1
+        let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
+        if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so play the final sounds
+            playGameSound(forProgressSituation: .wonGame)
+        } else {  //player did not win the game yet
             
-            //get all the stuff you need to determine if the player won
-            let userXP = calculateUserXP()
-            let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-            let userCurrentProgress = userLevelAndProgress.1!
-            let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: userCurrentProgress)
-            if isPlayerAtHighestLevelAndProgress() &&  didPlayerProgressToGetHere {  //player has won so play the final sounds
-                playGameSound(forProgressSituation: .wonGame)
-            } else {  //player did not win the game yet
+            //determine if the player just increased in level
+            let didProgressInLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
+            let didDecreaseInLevel = didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
+            
+            if didProgressInLevel {
+                //the user progressed in level, play appropriate sound
+                playGameSound(forProgressSituation: .increaseLevel)
                 
-                //determine if the player just increased in level
-                let didProgressInLevel = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: currentLevel.level)
-                let didDecreaseInLevel = didPlayer(magnitudeDirection: .decrease, in: .level, byAchieving: currentLevel.level)
+            } else if didDecreaseInLevel {
+                //the user decreased in level, play appropriate sound
+                playGameSound(forProgressSituation: .decreaseLevel)
                 
-                if didProgressInLevel {
-                    //the user progressed in level, play appropriate sound
-                    playGameSound(forProgressSituation: .increaseLevel)
-                    
-                } else if didDecreaseInLevel {
-                    //the user decreased in level, play appropriate sound
-                    playGameSound(forProgressSituation: .decreaseLevel)
-                    
-                } else { //didn't progress in level, check baseline progress
-                    
-                    let currentProgress = currentLevelAndProgress.1!
-                    
-                    //determine if the player just increased in progress
-                    let didProgressInProgress = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: currentProgress)
-                    let didDecreaseInProgress = didPlayer(magnitudeDirection: .decrease, in: .progress, byAchieving: currentProgress)
-                    
-                    if didProgressInProgress {
-                        playGameSound(forProgressSituation: .increaseProgress)
-                    } else if didDecreaseInProgress {
-                        playGameSound(forProgressSituation: .decreaseProgress)
-                    }
-                    //if none of the above triggered, there is no sound to play
-                    
+            } else { //didn't progress in level, check baseline progress
+                
+                let currentProgress = currentLevelAndProgress.1
+                
+                //determine if the player just increased in progress
+                let didProgressInProgress = didPlayer(magnitudeDirection: .increase, in: .progress, byAchieving: currentProgress)
+                let didDecreaseInProgress = didPlayer(magnitudeDirection: .decrease, in: .progress, byAchieving: currentProgress)
+                
+                if didProgressInProgress {
+                    playGameSound(forProgressSituation: .increaseProgress)
+                } else if didDecreaseInProgress {
+                    playGameSound(forProgressSituation: .decreaseProgress)
                 }
+                //if none of the above triggered, there is no sound to play
+                
             }
         }
+        
     }
     
     /******************************************************/

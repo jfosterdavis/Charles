@@ -510,11 +510,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         //only show perks avialable based on the user's current level
         if enforcePerkLevel {
             var applicablePerks = [Perk]()
-            guard let userLevel = parentVC.getUserCurrentLevel() else {
-                //can't get user level so just return all perks
-                return Perks.ValidPerks
-            }
             
+            let userLevel = parentVC.getUserCurrentLevel()
+                        
             for perk in Perks.ValidPerks {
                 //only perks with a level to be enforced are non-optional
                 if let perkLevel = perk.levelEligibleAt {

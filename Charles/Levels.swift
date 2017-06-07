@@ -8,6 +8,16 @@
 
 import Foundation
 
+//phases of the game
+enum GamePhase {
+    //training
+    case training
+    case emergeFromDarkness
+    case returnToDarkness
+    case returnToLight
+    case noPhase
+    
+}
 
 ///Holds all of the Levels
 
@@ -15,8 +25,54 @@ struct Levels {
     
     //static let valid: [Level] = []
     ///All levels in the order for the game
-    static let HighestLevel = Game[142]  //everything that determines level or winning the game references this as the highest level
+    static let HighestLevel = Game[142]!  //everything that determines level or winning the game references this as the highest level
    
+    
+    static let TrainingLevelFirst = Game[1]!
+    static let TrainingLevelLast = Game[10]!
+    
+    static let EmergeFromDarknessLevelFirst = Game[11]!
+    static let EmergeFromDarknessLevelLast = Game[106]!
+    
+    static let ReturnToDarknessLevelFirst = Game[107]!
+    static let ReturnToDarknessLevelLast = Game[126]!
+    
+    static let ReturnToLightLevelFirst = Game[127]!
+    static let ReturnToLightLevelLast = Game[142]!
+    
+    //for the given level, returns the GamePhase and a Double of the progress within that phase, where 0 = the first level of the phase and 1 is the last level of the phase
+    static func getLevelPhaseAndProgress(level: Level) -> (GamePhase, Double) {
+        let levelLevel = level.level
+        
+        switch levelLevel {
+        case let x where TrainingLevelFirst.level <= x && x <= TrainingLevelLast.level:
+            let adjustedLevel = levelLevel - TrainingLevelFirst.level
+            let progress = Double(adjustedLevel) / Double(TrainingLevelLast.level - TrainingLevelFirst.level)
+            return (.training, progress)
+            
+        case let x where EmergeFromDarknessLevelFirst.level <= x && x <= EmergeFromDarknessLevelLast.level:
+            let adjustedLevel = levelLevel - EmergeFromDarknessLevelFirst.level
+            let progress = Double(adjustedLevel) / Double(EmergeFromDarknessLevelLast.level - EmergeFromDarknessLevelFirst.level)
+            return (.emergeFromDarkness, progress)
+            
+        case let x where ReturnToDarknessLevelFirst.level <= x && x <= ReturnToDarknessLevelLast.level:
+            let adjustedLevel = levelLevel - ReturnToDarknessLevelFirst.level
+            let progress = Double(adjustedLevel) / Double(ReturnToDarknessLevelLast.level - ReturnToDarknessLevelFirst.level)
+            return (.returnToDarkness, progress)
+            
+        case let x where ReturnToLightLevelFirst.level <= x && x <= ReturnToLightLevelLast.level:
+            let adjustedLevel = levelLevel - ReturnToLightLevelFirst.level
+            let progress = Double(adjustedLevel) / Double(ReturnToLightLevelLast.level - ReturnToLightLevelFirst.level)
+            return (.returnToLight, progress)
+            
+        default:
+            return (.noPhase, 0)
+            
+        }
+    }
+    
+    
+    
      ///All levels in the order for the game
     static let Game: [Int:Level] = [
     
@@ -40,7 +96,7 @@ struct Levels {
     12 : Level(level: 12, levelDescription: "something",                xPRequired: 11, successThreshold: 0.58, punishThreshold: 0.33, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy], eligibleRandomColorPrecision: nil),
     13 : Level(level: 13, levelDescription: "quantity",                 xPRequired: 11, successThreshold: 0.59, punishThreshold: 0.33, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy], eligibleRandomColorPrecision: nil),
     14 : Level(level: 14, levelDescription: "change",                   xPRequired: 11, successThreshold: 0.60, punishThreshold: 0.34, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy], eligibleRandomColorPrecision: nil),
-    15 : Level(level: 15, levelDescription: "infinite",                 xPRequired: 11, successThreshold: 0.61, punishThreshold: 0.34, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
+    15 : Level(level: 15, levelDescription: "infinite",                 xPRequired: 11, successThreshold: 0.61, punishThreshold: 0.34, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil), //Fred Ch
     16 : Level(level: 16, levelDescription: "nothingness",              xPRequired: 11, successThreshold: 0.61, punishThreshold: 0.34, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
     17 : Level(level: 17, levelDescription: "dimension",                xPRequired: 11, successThreshold: 0.62, punishThreshold: 0.34, canBeLost: false, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
     18 : Level(level: 18, levelDescription: "direction",                xPRequired: 11, successThreshold: 0.63, punishThreshold: 0.35, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
@@ -48,7 +104,7 @@ struct Levels {
     20 : Level(level: 20, levelDescription: "vector",                   xPRequired: 11, successThreshold: 0.63, punishThreshold: 0.35, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
     21 : Level(level: 21, levelDescription: "bounds",                   xPRequired: 11, successThreshold: 0.64, punishThreshold: 0.35, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
     22 : Level(level: 22, levelDescription: "emptiness",                xPRequired: 11, successThreshold: 0.64, punishThreshold: 0.36, canBeLost: false, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
-    23 : Level(level: 23, levelDescription: "empty",                    xPRequired: 11, successThreshold: 0.64, punishThreshold: 0.36, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
+    23 : Level(level: 23, levelDescription: "empty",                    xPRequired: 11, successThreshold: 0.64, punishThreshold: 0.36, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil), //S Jr. E
     24 : Level(level: 24, levelDescription: "the void",                 xPRequired: 11, successThreshold: 0.65, punishThreshold: 0.36, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
     25 : Level(level: 25, levelDescription: "expanse",                  xPRequired: 11, successThreshold: 0.65, punishThreshold: 0.36, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
     26 : Level(level: 26, levelDescription: "time",                     xPRequired: 11, successThreshold: 0.66, punishThreshold: 0.36, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
@@ -65,7 +121,7 @@ struct Levels {
     37 : Level(level: 37, levelDescription: "momentum",                 xPRequired: 11, successThreshold: 0.71, punishThreshold: 0.42, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
     38 : Level(level: 38, levelDescription: "acceleration",             xPRequired: 11, successThreshold: 0.72, punishThreshold: 0.43, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
     39 : Level(level: 39, levelDescription: "impulse",                  xPRequired: 11, successThreshold: 0.72, punishThreshold: 0.44, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
-    40 : Level(level: 40, levelDescription: "jerk",                     xPRequired: 11, successThreshold: 0.73, punishThreshold: 0.42, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
+    40 : Level(level: 40, levelDescription: "jerk",                     xPRequired: 11, successThreshold: 0.73, punishThreshold: 0.42, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1), //Stanley Enters
     41 : Level(level: 41, levelDescription: "impact",                   xPRequired: 11, successThreshold: 0.73, punishThreshold: 0.43, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
     42 : Level(level: 42, levelDescription: "causality",                xPRequired: 11, successThreshold: 0.73, punishThreshold: 0.44, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
     43 : Level(level: 43, levelDescription: "action",                   xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.45, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 1),
@@ -89,7 +145,7 @@ struct Levels {
     61 : Level(level: 61, levelDescription: "material",                 xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
     62 : Level(level: 62, levelDescription: "emergence",                xPRequired: 20, successThreshold: 0.79, punishThreshold: 0.53, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     63 : Level(level: 63, levelDescription: "complex system",           xPRequired: 20, successThreshold: 0.79, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    64 : Level(level: 64, levelDescription: "replication",              xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    64 : Level(level: 64, levelDescription: "replication",              xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //Matthew Enters
     65 : Level(level: 65, levelDescription: "life",                     xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.59, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Fundamental], eligibleRandomColorPrecision: 2),
     66 : Level(level: 66, levelDescription: "death",                    xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.59, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Fundamental], eligibleRandomColorPrecision: 2),
     67 : Level(level: 67, levelDescription: "survival",                 xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
@@ -113,7 +169,7 @@ struct Levels {
     85 : Level(level: 85, levelDescription: "Ego",                      xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
     86 : Level(level: 86, levelDescription: "forethought",              xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     87 : Level(level: 87, levelDescription: "free will",                xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
-    88 : Level(level: 88, levelDescription: "thinking",                 xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    88 : Level(level: 88, levelDescription: "thinking",                 xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //John enters
     89 : Level(level: 89, levelDescription: "intent",                   xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
     90 : Level(level: 90, levelDescription: "planning",                 xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //last 10 levels exception to the pattern
     91 : Level(level: 91, levelDescription: "self-interest",            xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
@@ -130,7 +186,7 @@ struct Levels {
    102 : Level(level: 102, levelDescription: "respect",                 xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 2),
    103 : Level(level: 103, levelDescription: "production",              xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
    104 : Level(level: 104, levelDescription: "wealth",                  xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   105 : Level(level: 105, levelDescription: "thrive",                  xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   105 : Level(level: 105, levelDescription: "thrive",                  xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //R0berte enters
    106 : Level(level: 106, levelDescription: "flourish",                xPRequired: 11, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
 
    
@@ -180,7 +236,7 @@ struct Levels {
     ]
     
     //given an amount of XP the player has, return the level the player is on. (currentLevel, xp towards this level) Returns nil if the player's level is off the charts
-    static func getLevelAndProgress(from xp: Int) -> (Level?, Int?) {
+    static func getLevelAndProgress(from xp: Int) -> (Level, Int) {
         
         var level = 1
         var xPRemaining = xp
@@ -188,8 +244,13 @@ struct Levels {
         //count up each level until xp number is exceeded
         while level <= Levels.Game.count {
             let xpRequired = Levels.Game[level]?.xPRequired
+            
+            if level >= Levels.HighestLevel.level {
+                return (Levels.HighestLevel, 0)
+            }
+            
             if xPRemaining < xpRequired! {
-                return (Levels.Game[level], xPRemaining)
+                return (Levels.Game[level]!, xPRemaining)
             }
             
             xPRemaining = xPRemaining - (Levels.Game[level]?.xPRequired)!
@@ -199,7 +260,7 @@ struct Levels {
         //no level found by now, player either has max xp or xp above the standard levels
         //for now, return level 39 with highest progress
         //return (Levels.Game[Levels.HighestLevel!.level - 1], Levels.Game[Levels.HighestLevel!.level - 1]?.xPRequired)
-        return (nil, nil)
+        fatalError("Level out of bounds")
     }
     
 }
