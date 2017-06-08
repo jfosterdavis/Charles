@@ -105,7 +105,7 @@ extension DataViewController {
             //when characters closes pass the new score to the perks VC
             
             topVC.present(departingCharactersVC, animated: true, completion: {
-                departingPerksVC.score = getCurrentScore()
+                departingPerksVC.score = self.getCurrentScore()
                 topVC.present(departingPerksVC, animated: true, completion: nil)
             })
             
@@ -134,6 +134,33 @@ extension DataViewController {
         }
     }
     
+    //does everything needed to assess the palyer's taxes based on the level they are on.  Will deduct score accordingly and show user how much was taken.
+    func assessAndCollectTaxesAndShowFeedback() {
+        let userCurrentLevel = getUserCurrentLevel()
+        let phaseProgress = Levels.getLevelPhaseAndProgress(level: userCurrentLevel)
+        let phase: GamePhase = phaseProgress.0
+        let progress = phaseProgress.1
+        var taxRate:Double = 0
+        let maxTaxRate:Double = 0.25
+        
+        //if the phase is return to darkness then tax applies
+        if phase == .returnToDarkness {
+            taxRate = maxTaxRate * progress //tax rate is 25% times the progress in returnToDarkness
+            
+            let currentScore = getCurrentScore()
+            let taxAmount = Int(Double(currentScore) * taxRate)
+            let newScore = currentScore - taxAmount
+            
+            //set the new score and inform the userCurrentLevel
+            setCurrentScore(newScore: newScore)
+            
+            presentTaxFeedback(taxAmount: taxAmount)
+            
+            refreshScore()
+        }
+
+        
+    }
 
     
 }

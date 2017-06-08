@@ -185,7 +185,7 @@ extension DataViewController {
             justScoredLabel.textColor = feedbackColorMoss.textColor
         }
         
-        justScoredLabel.text = "\(scoreModifier)\(String(describing: presentableScoreValue))"
+        justScoredLabel.text = "\(scoreModifier)\(String(describing: presentableScoreValue.formattedWithSeparator))"
         self.justScoredLabel.isHidden = false
         UIView.animate(withDuration: 0.2, animations: {
             
@@ -232,6 +232,13 @@ extension DataViewController {
                 //self.justScoredLabel.isHidden = true
             })
         })
+    }
+    
+    func presentTaxFeedback(taxAmount: Int) {
+        presentJustScoredFeedback(justScored: -1 * taxAmount)
+        let message = "Tax"
+        presentJustScoredMessageFeedback(message: message, isGoodMessage: false)
+        
     }
     
     

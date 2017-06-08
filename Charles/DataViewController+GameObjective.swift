@@ -108,7 +108,13 @@ extension DataViewController {
         
         self.objectiveFeedbackView.fade(.in,
                                         withDuration: 0.5,
-                                        delay: objectiveBackDelay)
+                                        delay: objectiveBackDelay,
+                                        completion: {(finished:Bool) in
+        
+                                            //assess tax
+                                            self.assessAndCollectTaxesAndShowFeedback()
+        
+        })
         
        
         
