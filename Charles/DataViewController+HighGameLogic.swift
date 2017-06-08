@@ -103,8 +103,11 @@ extension DataViewController {
             //Present the perks, then have that VC present the characters
             //That way when characters expire, the player knows in the next screen why their perks are missing character requirements
             //when characters closes pass the new score to the perks VC
-            topVC.present(departingPerksVC, animated: true, completion: nil)
-            departingPerksVC.present(departingCharactersVC, animated: true, completion: {departingPerksVC.score = self.getCurrentScore()})
+            
+            topVC.present(departingCharactersVC, animated: true, completion: {
+                departingPerksVC.score = getCurrentScore()
+                topVC.present(departingPerksVC, animated: true, completion: nil)
+            })
             
         default: //none are expired, do nothing
             break

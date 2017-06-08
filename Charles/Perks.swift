@@ -33,35 +33,43 @@ struct Perks {
     /******************************************************/
 
     
-    static let ValidPerks:[Perk] = [Synesthesia, Insight, Stacks,
-                                    
-                                    Closeenough,
+    static let ValidPerks:[Perk] = [Synesthesia,
+                                    Stacks,
                                     Study,
+                                    Insight,
+                                    Closeenough,
+                                    Synesthesia2,
+                                    Insight2,
+                                    Closeenough2,
+                                    Stacks2,
                                     Study2,
-                                    
-                                    Stacks2, Closeenough2,
-                                    
-                                    Stacks3, Insight2,
-                                    
-                                    Synesthesia2, Study3,
-                                    Insight3, Closeenough3,
-                                    Synesthesia3, Study4,
-                                    Stacks4, Closeenough4]
+                                    Stacks3,
+                                    Closeenough3,
+                                    Stacks4,
+                                    Insight3,
+                                    Synesthesia3,
+                                    Study4,
+                                    Closeenough4,
+                                    Study3]
     
-    static let UnlockablePerks:[Perk] = [Synesthesia, Insight, Stacks,
-                                         
-                                         Closeenough,
+    static let UnlockablePerks:[Perk] = [Synesthesia,
+                                         Stacks,
                                          Study,
+                                         Insight,
+                                         Closeenough,
+                                         Synesthesia2,
+                                         Insight2,
+                                         Closeenough2,
+                                         Stacks2,
                                          Study2,
-                                         
-                                         Stacks2, Closeenough2,
-                                         
-                                         Stacks3, Insight2,
-                                         
-                                         Synesthesia2, Study3,
-                                         Insight3, Closeenough3,
-                                         Synesthesia3, Study4,
-                                         Stacks4, Closeenough4]
+                                         Stacks3,
+                                         Closeenough3,
+                                         Stacks4,
+                                         Insight3,
+                                         Synesthesia3,
+                                         Study4,
+                                         Closeenough4,
+                                         Study3]
     
     /******************************************************/
     /*******************///MARK: Synesthesia
@@ -79,7 +87,7 @@ struct Perks {
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: nil,
+        levelEligibleAt: 5, //5
         requiredPartyMembers: [Characters.Laura]
     )
     
@@ -93,21 +101,21 @@ struct Perks {
         minutesUnlocked: 7200, //5 days, 7200
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 7,
+        levelEligibleAt: 11,
         requiredPartyMembers: [Characters.Laura]
     )
     
     static let Synesthesia3 = Perk(     name: "Synesthete",
                                         gameDescription: "It seems like you have always only heard music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
-        price: 10000,
+        price: 25000,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta2: Bundle.main.path(forResource: "2c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         meta3: Bundle.main.path(forResource: "Finala", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
         minutesUnlocked: 57600, //40 days, 57600
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 9,
+        levelEligibleAt: 75, //75
         requiredPartyMembers: [Characters.Laura]
     )
     
@@ -126,7 +134,7 @@ struct Perks {
                                     minutesUnlocked: 30, //30
                                     icon: #imageLiteral(resourceName: "lightbulb"),
                                     displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
-                                    levelEligibleAt: nil,
+                                    levelEligibleAt: 8, //8
                                     requiredPartyMembers: []
     )
     static let Insight2 = Perk(     name: "Perception",
@@ -153,7 +161,7 @@ struct Perks {
         minutesUnlocked: 10080, //1 week 10080
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
-        levelEligibleAt: 19,
+        levelEligibleAt: 63,
         requiredPartyMembers: [Characters.Stanley, Characters.John, Characters.R0berte]
     )
     
@@ -171,7 +179,7 @@ struct Perks {
                                     minutesUnlocked: 20,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: nil,
+                                    levelEligibleAt: 7,
                                     requiredPartyMembers: []
     )
     
@@ -185,7 +193,7 @@ struct Perks {
         minutesUnlocked: 25,
         icon: #imageLiteral(resourceName: "pencil"),
         displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-        levelEligibleAt: Characters.Fred.levelEligibleAt,
+        levelEligibleAt: 34, //34
         requiredPartyMembers: [Characters.Fred, Characters.R0berte]
     )
     
@@ -234,7 +242,7 @@ struct Perks {
                                         minutesUnlocked: 30, //30
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                        levelEligibleAt: nil,
+                                        levelEligibleAt: 6, //6
                                         requiredPartyMembers: []
     )
     
@@ -248,7 +256,7 @@ struct Perks {
                                         minutesUnlocked: 25, //30
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                        levelEligibleAt: 13,
+                                        levelEligibleAt: 33, //33
                                         requiredPartyMembers: [Characters.Charles, Characters.Laura]
     )
     
@@ -262,7 +270,7 @@ struct Perks {
         minutesUnlocked: 20, //20
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-        levelEligibleAt: 21,
+        levelEligibleAt: 48, //48
         requiredPartyMembers: [Characters.Fred, Characters.R0berte]
     )
     
@@ -276,7 +284,7 @@ struct Perks {
                                             minutesUnlocked: 15,
                                             icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                            levelEligibleAt: 33,
+                                            levelEligibleAt: 61,
                                             requiredPartyMembers: [Characters.Fred, Characters.Charles, Characters.R0berte]
     )
     
@@ -288,13 +296,13 @@ struct Perks {
                                         gameDescription: "You are able to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
-                                        meta1: -0.01,
+                                        meta1: -0.015,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 4320, //3 days, 4320
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-                                        levelEligibleAt: nil,
+                                        levelEligibleAt: 9,
                                         requiredPartyMembers: []
     )
     
@@ -302,13 +310,13 @@ struct Perks {
                                        gameDescription: "You are able to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
-                                        meta1: -0.03,
+                                        meta1: -0.025,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 300, //5 hours 300
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-                                        levelEligibleAt: 13,
+                                        levelEligibleAt: 30,
                                         requiredPartyMembers: [Characters.Matthew, Characters.StanleyJr, Characters.R0berte]
     )
     
@@ -322,7 +330,7 @@ struct Perks {
         minutesUnlocked: 20,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: 24,
+        levelEligibleAt: 50, //50
         requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
     )
     
@@ -330,7 +338,7 @@ struct Perks {
                                          gameDescription: "Some things can only be stopped with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 500000,
-        meta1: -0.08,
+        meta1: -0.10,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 10,

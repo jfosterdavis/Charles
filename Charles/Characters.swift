@@ -321,7 +321,7 @@ struct Characters {
                                   bottomRadius: 5,
                                   price: 250,
                                   hoursUnlocked: 150,
-                                  levelEligibleAt: 3,
+                                  levelEligibleAt: 3, //3
                                   phrases: [Phrase(name: "Gee Golly Mister",
                                                    likelihood: 82,
                                                    subphrases: [Subphrase(words: "Gee", audioFilePath: Bundle.main.path(forResource: "Gee", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),

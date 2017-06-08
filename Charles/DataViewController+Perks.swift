@@ -118,6 +118,45 @@ extension DataViewController {
         })
     }
     
+    ///checks the store for expired characters.  If found they are removed and the storeClosed() function is called. Returns true if expired characters were found, false otherwise
+    func checkForAndRemoveExpiredPerks() -> [Perk]? {
+        
+        //create a store object to use its functions for checking if perks have expired
+        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+        let expiredPerks: [UnlockedPerk] = perkStoreVC.getExpiredPerks()
+        
+        if !expiredPerks.isEmpty {
+            
+            //prepare the data for the VC
+            var departingPerks = [Perk]()
+            for unlockedPerk in expiredPerks {
+                for perk in Perks.ValidPerks {
+                    if unlockedPerk.name == perk.name {
+                        departingPerks.append(perk)
+                    }
+                }
+            }
+            
+            //there are expired perks.  lock them and reload the modelController
+            perkStoreVC.parentVC = self
+            perkStoreVC.lockAllExpiredPerks()
+            
+            
+            self.parentVC.storeClosed()
+            
+            return departingPerks
+            
+            //open the perk store
+            //perkStoreButtonPressed(self)
+            
+            //invoke the function to mimic functionality as though the store had just closed
+            //self.storeClosed()
+            
+        } else {
+            return nil
+        }
+    }
+    
     
     /******************************************************/
     /*******************///MARK: Investment
