@@ -43,7 +43,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3j-To-Mfk">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3j-To-Mfk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.91764705879999997" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -175,7 +175,7 @@
                                 <color key="textColor" red="1" green="0.95294117649999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-Sg-Jsr">
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYP-Sg-Jsr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                 <color key="backgroundColor" red="0.2200020718" green="0.2200020718" blue="0.2200020718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
