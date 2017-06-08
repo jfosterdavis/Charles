@@ -131,31 +131,6 @@ extension DataViewController {
         }
     }
     
-    
-    //sets the backgorund based on the level
-    func setBackground(from level:Level) {
-        let userCurrentLevel = level
-        let levelProgress = Levels.getLevelPhaseAndProgress(level: userCurrentLevel)
-        
-        let phase = levelProgress.0
-        let progress = levelProgress.1
-        
-        switch phase {
-        case .training:
-            //during training, the background is always black
-            backgroundView.alpha = 0
-        case .emergeFromDarkness:
-            //during this phase, the background starts as black and slowly fades to the background color
-            backgroundView.alpha = CGFloat(progress)
-        case .returnToDarkness:
-            //in this phase the background goes from normal color back to black
-            backgroundView.alpha = CGFloat(1 - progress)
-        case .returnToLight:
-            //fade from black to normal color
-            backgroundView.alpha = CGFloat(progress)
-        default:
-            backgroundView.alpha = 1
-        }
-    }
+
     
 }

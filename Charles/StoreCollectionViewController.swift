@@ -264,7 +264,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             
             print("No CurrentScore exists.  Creating.")
             let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
-            
+            stack.save()
             return Int(newScore.value)
         } else {
             
@@ -309,7 +309,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             print("No CurrentScore exists.  Creating.")
             let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
             currentScore.value = Int64(newScore)
-            
+            stack.save()
             return Int(currentScore.value)
         } else {
             

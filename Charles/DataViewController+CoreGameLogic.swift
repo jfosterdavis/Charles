@@ -895,7 +895,7 @@ extension DataViewController {
             
             print("No CurrentScore exists.  Creating.")
             let newScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
-            
+            stack.save()
             return Int(newScore.value)
         } else {
             
@@ -924,7 +924,7 @@ extension DataViewController {
             print("No CurrentScore exists.  Creating.")
             let currentScore = CurrentScore(entity: NSEntityDescription.entity(forEntityName: "CurrentScore", in: stack.context)!, insertInto: fc.managedObjectContext)
             currentScore.value = Int64(newScore)
-            
+            stack.save()
             return
         } else {
             

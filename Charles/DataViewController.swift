@@ -210,7 +210,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         currentButtons = [button1, button2, button3]
         
         //load the background based on the level
-        setBackground(from: getUserCurrentLevel())
+        setBackground(from: getUserCurrentLevel(), animate: false)
         
         //set the page control
         refreshPageControl()
@@ -273,7 +273,11 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         roundStackViewMask()
         
-        perkPrecisionAdjustmentUserFeedback.roundCorners(with: 10)
+//        perkPrecisionAdjustmentUserFeedback.roundCorners(with: 10)
+//        storeButton.roundCorners(with: 5)
+//        perkStoreButton.roundCorners(with: 5)
+//        characterNameLabel.roundCorners(with: 5)
+//        scoreLabel.roundCorners(with: 5)
         
     }
     

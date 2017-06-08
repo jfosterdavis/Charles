@@ -193,6 +193,9 @@ extension DataViewController {
         loadAndFadeInFeedbackObjective(using: gameColor)
         
         setAllUserInteraction(enabled: true)
+        
+        //load the background based on the level
+        setBackground(from: getUserCurrentLevel())
     }
     
 }
