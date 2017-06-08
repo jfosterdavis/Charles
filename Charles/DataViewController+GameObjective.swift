@@ -21,6 +21,8 @@ extension DataViewController {
     
     /// removes all orientation, resets the orientation flag, and gives the color indicator the given color as the objective, and animates its presentation
     func reloadObjective(using color: UIColor) {
+        //load the background based on the level
+        setBackground(from: getUserCurrentLevel())
         
         if !self.objectiveFeedbackView.orientationUp {
             self.objectiveFeedbackView.toggleOrientationAndAnimate()
@@ -191,6 +193,9 @@ extension DataViewController {
     
     ///Loads the objective user visual
     func loadObjective(){
+        //load the background based on the level
+        setBackground(from: getUserCurrentLevel())
+        
         //load the objective
         
         //pick a random color to load
@@ -199,9 +204,7 @@ extension DataViewController {
         loadAndFadeInFeedbackObjective(using: gameColor)
         
         setAllUserInteraction(enabled: true)
-        
-        //load the background based on the level
-        setBackground(from: getUserCurrentLevel())
+
     }
     
 }

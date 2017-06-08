@@ -269,10 +269,14 @@ extension DataViewController {
             newAlpha = 1
         }
         
+        let newTopBackgroundAlpha = 1 - (0.35 * newAlpha + 0.65) //y=mx+b  top half will only ever be half as dark as the other part
+        
         if animate {
-            backgroundView.fade(.inOrOut, resultAlpha: newAlpha, withDuration: 2)
+            backgroundView.fade(.inOrOut, resultAlpha: newAlpha, withDuration: 5)
+            topBackgroundView.fade(.inOrOut, resultAlpha: newTopBackgroundAlpha, withDuration: 5)
         } else {
             backgroundView.alpha = newAlpha
+            topBackgroundView.alpha = newTopBackgroundAlpha
         }
     }
 }

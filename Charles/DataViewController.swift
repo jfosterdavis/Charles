@@ -57,6 +57,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //entire view background
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var topBackgroundView: UIView!
+    
     
     
     
