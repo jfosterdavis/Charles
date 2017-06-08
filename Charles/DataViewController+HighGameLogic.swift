@@ -136,27 +136,40 @@ extension DataViewController {
     
     //does everything needed to assess the palyer's taxes based on the level they are on.  Will deduct score accordingly and show user how much was taken.
     func assessAndCollectTaxesAndShowFeedback() {
+        
         let userCurrentLevel = getUserCurrentLevel()
         let phaseProgress = Levels.getLevelPhaseAndProgress(level: userCurrentLevel)
         let phase: GamePhase = phaseProgress.0
         let progress = phaseProgress.1
-        var taxRate:Double = 0
-        let maxTaxRate:Double = 0.25
+        
+        
         
         //if the phase is return to darkness then tax applies
         if phase == .returnToDarkness {
-            taxRate = maxTaxRate * progress //tax rate is 25% times the progress in returnToDarkness
+            var taxRate:Double = 0
+            var chanceToBeTaxed:Double = 0
+            let maxTaxRate:Double = 0.40
+            let baselineChanceToBeTaxed:Double = 0.20
             
-            let currentScore = getCurrentScore()
-            let taxAmount = Int(Double(currentScore) * taxRate)
-            let newScore = currentScore - taxAmount
+            chanceToBeTaxed = baselineChanceToBeTaxed * progress
+            let chanceTicket = Int(chanceToBeTaxed * 100) // get a number between 1 and 100 based on the user's chance to be taxed
+            let randomTicket = Utilities.random(range: 0...100)
             
-            //set the new score and inform the userCurrentLevel
-            setCurrentScore(newScore: newScore)
+            if randomTicket < chanceTicket { //if the chance ticket is more, then the user lost the lottery and must pay tax
             
-            presentTaxFeedback(taxAmount: taxAmount)
-            
-            refreshScore()
+                taxRate = maxTaxRate * progress //tax rate is 35% times the progress in returnToDarkness
+                
+                let currentScore = getCurrentScore()
+                let taxAmount = Int(Double(currentScore) * taxRate)
+                let newScore = currentScore - taxAmount
+                
+                //set the new score and inform the userCurrentLevel
+                setCurrentScore(newScore: newScore)
+                
+                presentTaxFeedback(taxAmount: taxAmount)
+                
+                refreshScore()
+            }
         }
 
         
