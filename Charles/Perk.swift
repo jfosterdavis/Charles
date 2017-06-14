@@ -20,6 +20,7 @@ enum PerkType {
     case musicalVoices
     case precisionAdjustment
     case investment
+    case adaptClothing
 }
 
 class Perk: NSObject {

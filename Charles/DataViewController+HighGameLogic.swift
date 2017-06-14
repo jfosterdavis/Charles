@@ -113,12 +113,6 @@ extension DataViewController {
             break
         }
         
-        
-        
-        
-        
-        
-        
         if getCurrentScore() >= minimumScoreToUnlockObjective || objectiveFeedbackView.alpha > 0.0 {
             
             //pick a random color to load

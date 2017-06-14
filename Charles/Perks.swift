@@ -38,16 +38,20 @@ struct Perks {
                                     Study,
                                     Insight,
                                     Closeenough,
+                                    Adaptation,
                                     Synesthesia2,
+                                    Adaptation2,
                                     Insight2,
                                     Closeenough2,
                                     Stacks2,
                                     Study2,
                                     Stacks3,
                                     Closeenough3,
+                                    Adaptation3,
                                     Stacks4,
                                     Insight3,
                                     Synesthesia3,
+                                    Adaptation4,
                                     Study4,
                                     Closeenough4,
                                     Study3]
@@ -57,16 +61,20 @@ struct Perks {
                                          Study,
                                          Insight,
                                          Closeenough,
+                                         Adaptation,
                                          Synesthesia2,
+                                         Adaptation2,
                                          Insight2,
                                          Closeenough2,
                                          Stacks2,
                                          Study2,
                                          Stacks3,
                                          Closeenough3,
+                                         Adaptation3,
                                          Stacks4,
                                          Insight3,
                                          Synesthesia3,
+                                         Adaptation4,
                                          Study4,
                                          Closeenough4,
                                          Study3]
@@ -117,6 +125,71 @@ struct Perks {
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
         levelEligibleAt: 75, //75
         requiredPartyMembers: [Characters.Laura]
+    )
+    
+    /******************************************************/
+    /*******************///MARK: Adaptation
+    /******************************************************/
+    //Adaptation stacks, except forks which takes the lowest fork for all active values
+    
+    
+    
+    static let Adaptation = Perk(     name: "Adjustment",
+                                       gameDescription: "Your tools adapt to the challenge at hand.",
+                                       type: .adaptClothing, //types are strings that the game will look for when determining how to behave
+        price: 1, //1000
+        meta1: 0.2, //portion of slots to adjust
+        meta2: 3, //number of forks for a good move
+        meta3: 0.25, //likelihood a good move option will prevail over a random
+        minutesUnlocked: 2, //30
+        icon: #imageLiteral(resourceName: "hex-key"),
+        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        levelEligibleAt: 2, //10
+        requiredPartyMembers: []
+    )
+    
+    static let Adaptation2 = Perk(     name: "Compensation",
+                                        gameDescription: "Your tools adapt better to the challenge at hand.",
+                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
+        price: 4, //4000
+        meta1: 0.25, //portion of slots to adjust
+        meta2: 2, //number of forks for a good move
+        meta3: 0.30, //likelihood a good move option will prevail over a random
+        minutesUnlocked: 3, //1 day, 1440
+        icon: #imageLiteral(resourceName: "hex-key"),
+        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        levelEligibleAt: 3, //20
+        requiredPartyMembers: []
+    )
+    
+    //Adaptation 3 also considers the color of the player's initial progress color
+    static let Adaptation3 = Perk(     name: "Adaptation",
+                                        gameDescription: "Your tools are suited to the challenge at hand.",
+                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
+        price: 250,//25000
+        meta1: 0.30, //portion of slots to adjust
+        meta2: 2, //number of forks for a good move
+        meta3: 0.35, //likelihood a good move option will prevail over a random
+        minutesUnlocked: 4, //2 days, 2880
+        icon: #imageLiteral(resourceName: "hex-key"),
+        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        levelEligibleAt: 4, //56
+        requiredPartyMembers: []
+    )
+    
+    //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
+    static let Adaptation4 = Perk(     name: "Evolution",
+                                       gameDescription: "Your tools are inheriently well suited to the challenge at hand.",
+                                       type: .adaptClothing, //types are strings that the game will look for when determining how to behave
+        price: 750, //75000
+        meta1: 0.35, //portion of slots to adjust
+        meta2: 1, //number of forks for a good move
+        meta3: 0.40, //likelihood a good move option will prevail over a random
+        minutesUnlocked: 5, //14 days, 20160
+        icon: #imageLiteral(resourceName: "hex-key"),
+        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        levelEligibleAt: 5, //82
+        requiredPartyMembers: []
     )
     
     
@@ -275,7 +348,7 @@ struct Perks {
     )
     
     static let Stacks4 = Perk(     name: "Invention",
-                                        gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
+                                        gameDescription: "You find a way to walk away with much more from each encounter.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 100000,
                                             meta1: 3,
@@ -285,7 +358,7 @@ struct Perks {
                                             icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 61,
-                                            requiredPartyMembers: [Characters.Fred, Characters.Charles, Characters.R0berte]
+                                            requiredPartyMembers: []
     )
     
     /******************************************************/
