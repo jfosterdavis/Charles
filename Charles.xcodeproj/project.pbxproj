@@ -407,7 +407,7 @@
 				TargetAttributes = {
 					F607C8791EBFC6E500651FAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 37R6UV3BWH;
+						DevelopmentTeam = 54363DBF9C;
 						ProvisioningStyle = Automatic;
 					};
 					F607C8911EBFC6E600651FAD = {
@@ -678,7 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 37R6UV3BWH;
+				DEVELOPMENT_TEAM = 54363DBF9C;
 				INFOPLIST_FILE = Charles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeromuwebservices.Blend;
@@ -693,7 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 37R6UV3BWH;
+				DEVELOPMENT_TEAM = 54363DBF9C;
 				INFOPLIST_FILE = Charles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeromuwebservices.Blend;
