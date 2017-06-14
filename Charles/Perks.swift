@@ -134,13 +134,13 @@ struct Perks {
     
     
     
-    static let Adaptation = Perk(     name: "Adjustment",
+    static let Adaptation = Perk(     name: "Adjust",
                                        gameDescription: "Your tools adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1, //1000
-        meta1: 0.2, //portion of slots to adjust
+        meta1: 0.3, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.25, //likelihood a good move option will prevail over a random
+        meta3: 0.35, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2, //30
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
@@ -148,13 +148,13 @@ struct Perks {
         requiredPartyMembers: []
     )
     
-    static let Adaptation2 = Perk(     name: "Compensation",
+    static let Adaptation2 = Perk(     name: "Compensate",
                                         gameDescription: "Your tools adapt better to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 4, //4000
-        meta1: 0.25, //portion of slots to adjust
+        meta1: 0.35, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.30, //likelihood a good move option will prevail over a random
+        meta3: 0.40, //likelihood a good move option will prevail over a random
         minutesUnlocked: 3, //1 day, 1440
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
@@ -163,13 +163,13 @@ struct Perks {
     )
     
     //Adaptation 3 also considers the color of the player's initial progress color
-    static let Adaptation3 = Perk(     name: "Adaptation",
+    static let Adaptation3 = Perk(     name: "Adapt",
                                         gameDescription: "Your tools are suited to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 250,//25000
-        meta1: 0.30, //portion of slots to adjust
+        meta1: 0.4, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.35, //likelihood a good move option will prevail over a random
+        meta3: 0.45, //likelihood a good move option will prevail over a random
         minutesUnlocked: 4, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
@@ -178,13 +178,13 @@ struct Perks {
     )
     
     //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
-    static let Adaptation4 = Perk(     name: "Evolution",
+    static let Adaptation4 = Perk(     name: "Evolve",
                                        gameDescription: "Your tools are inheriently well suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 750, //75000
-        meta1: 0.35, //portion of slots to adjust
+        meta1: 0.55, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
-        meta3: 0.40, //likelihood a good move option will prevail over a random
+        meta3: 0.50, //likelihood a good move option will prevail over a random
         minutesUnlocked: 5, //14 days, 20160
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
@@ -305,7 +305,7 @@ struct Perks {
     /******************************************************/
     
     
-    static let Stacks = Perk(     name: "Innovation",
+    static let Stacks = Perk(     name: "Innovate",
                                       gameDescription: "You find a way to walk away with more from each encounter.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 10000, //10000
@@ -319,7 +319,7 @@ struct Perks {
                                         requiredPartyMembers: []
     )
     
-    static let Stacks2 = Perk(     name: "Creativity",
+    static let Stacks2 = Perk(     name: "Create",
                                       gameDescription: "You find a way to walk away with more from each encounter with the help of a friend.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
@@ -333,7 +333,7 @@ struct Perks {
                                         requiredPartyMembers: [Characters.Charles, Characters.Laura]
     )
     
-    static let Stacks3 = Perk(     name: "Ability",
+    static let Stacks3 = Perk(     name: "Produce",
                                    gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
                                    type: .increasedScore, //types are strings that the game will look for when determining how to behave
         price: 60000,
@@ -347,7 +347,7 @@ struct Perks {
         requiredPartyMembers: [Characters.Fred, Characters.R0berte]
     )
     
-    static let Stacks4 = Perk(     name: "Invention",
+    static let Stacks4 = Perk(     name: "Invent",
                                         gameDescription: "You find a way to walk away with much more from each encounter.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 100000,

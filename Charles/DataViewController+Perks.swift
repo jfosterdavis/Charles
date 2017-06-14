@@ -260,6 +260,10 @@ extension DataViewController {
                 numberOfSlotsToAdjust -= 1
             }
         
+            perkAdaptationFeedbackImageView.alpha = 1
+            
+        } else {
+            perkAdaptationFeedbackImageView.alpha = 0
         }
     }
     
