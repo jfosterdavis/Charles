@@ -109,7 +109,7 @@ struct Perks {
         minutesUnlocked: 7200, //5 days, 7200
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 11,
+        levelEligibleAt: 18,
         requiredPartyMembers: [Characters.Laura]
     )
     
