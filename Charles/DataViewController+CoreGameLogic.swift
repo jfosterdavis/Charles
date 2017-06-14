@@ -851,6 +851,9 @@ extension DataViewController {
         let unadjustedScore =  redRaw + greenRaw + blueRaw
         let multiplier: CGFloat = 4.0
         let scoreToAward = CGFloat(unadjustedScore) * multiplier
+        
+        
+        
         print("Awarding \(scoreToAward) points for matching")
         
         
@@ -868,7 +871,12 @@ extension DataViewController {
         default:
             pointMessage = "\(scorePercent)% match"
         }
-        return (Int(scoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
+        
+        //give bonus for player's level
+        let playerLevel = getUserCurrentLevel().level
+        let levelAdjustedScoreToAward = CGFloat(playerLevel * 4)
+        
+        return (Int(levelAdjustedScoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
     }
     
 
