@@ -137,28 +137,28 @@ struct Perks {
     static let Adaptation = Perk(     name: "Adjust",
                                        gameDescription: "Your tools adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 1, //1000
+        price: 1000, //1000
         meta1: 0.3, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
         meta3: 0.35, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 2, //30
+        minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 2, //10
+        levelEligibleAt: 10, //10
         requiredPartyMembers: []
     )
     
     static let Adaptation2 = Perk(     name: "Compensate",
                                         gameDescription: "Your tools adapt better to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 4, //4000
+        price: 7000, //7000
         meta1: 0.35, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.40, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 3, //1 day, 1440
+        minutesUnlocked: 1440, //1 day, 1440
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 3, //20
+        levelEligibleAt: 20, //20
         requiredPartyMembers: []
     )
     
@@ -166,14 +166,14 @@ struct Perks {
     static let Adaptation3 = Perk(     name: "Adapt",
                                         gameDescription: "Your tools are suited to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 250,//25000
+        price: 25000,//25000
         meta1: 0.4, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.45, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 4, //2 days, 2880
+        minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 4, //56
+        levelEligibleAt: 56, //56
         requiredPartyMembers: []
     )
     
@@ -181,14 +181,14 @@ struct Perks {
     static let Adaptation4 = Perk(     name: "Evolve",
                                        gameDescription: "Your tools are inheriently well suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 750, //75000
+        price: 12000, //12000
         meta1: 0.55, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
         meta3: 0.50, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 5, //14 days, 20160
+        minutesUnlocked: 20160, //14 days, 20160
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 5, //82
+        levelEligibleAt: 82, //82
         requiredPartyMembers: []
     )
     
