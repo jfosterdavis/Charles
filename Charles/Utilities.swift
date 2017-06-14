@@ -345,12 +345,12 @@ extension Integer {
     var formattedWithSeparator: String {
         if let int = self as? Int {
             switch int {
-            case let x where x >= 1000000000000:
+            case let x where x >= 1000000000:
                 return String(describing: "A lot.")
-            case let x where x >= 1000000000 && x < 1000000000000:
-                let temp1:Int = x / 100000000 // tens of millions
-                let floatNum:Double = Double(temp1) / 10.0  //billions accurrate to 1 decimal
-                return String(describing: "\(Formatter.withSeparator.string(for: floatNum) ?? "")B")
+//            case let x where x >= 1000000000 && x < 1000000000000:
+//                let temp1:Int = x / 100000000 // tens of millions
+//                let floatNum:Double = Double(temp1) / 10.0  //billions accurrate to 1 decimal
+//                return String(describing: "\(Formatter.withSeparator.string(for: floatNum) ?? "")B")
             case let x where x >= 1000000 && x < 1000000000:
                 let temp1:Int = x / 100000 // tens of thousands
                 let floatNum:Double = Double(temp1) / 10.0  //millions accurrate to 1 decimal
