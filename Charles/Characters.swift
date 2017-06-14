@@ -288,11 +288,11 @@ struct Characters {
                                                                 Subphrase(words: "Down!", audioFilePath: Bundle.main.path(forResource: "Down2", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
                                                    slots: [
-                                                    Slot(tone: 700, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1)),
-                                                    Slot(tone: 650, color: .white),
-                                                    Slot(tone: 600, color: UIColor(red: 110/255, green: 36/255, blue: 166/255, alpha: 1)),
-                                                    Slot(tone: 550, color: .white),
-                                                    Slot(tone: 500, color: UIColor(red: 92/255, green: 166/255, blue: 36/255, alpha: 1))
+                                                    Slot(tone: 600, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1)),
+                                                    Slot(tone: 450, color: .white),
+                                                    Slot(tone: 400, color: UIColor(red: 110/255, green: 36/255, blue: 166/255, alpha: 1)),
+                                                    Slot(tone: 350, color: .white),
+                                                    Slot(tone: 300, color: UIColor(red: 92/255, green: 166/255, blue: 36/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "Rookie Down 2",
                                                    likelihood: 40,
@@ -300,12 +300,12 @@ struct Characters {
                                                                 Subphrase(words: "Down!", audioFilePath: Bundle.main.path(forResource: "Down3", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
                                                    slots: [Slot(tone: 650, color: .white),
-                                                    Slot(tone: 800, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1)),
-                                                    Slot(tone: 750, color: .white),
-                                                    Slot(tone: 700, color: UIColor(red: 166/255, green: 105/255, blue: 36/255, alpha: 1)),
-                                                    Slot(tone: 650, color: .white),
-                                                    Slot(tone: 600, color: UIColor(red: 166/255, green: 40/255, blue: 36/255, alpha: 1)),
-                                                    Slot(tone: 650, color: .white)
+                                                    Slot(tone: 600, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1)),
+                                                    Slot(tone: 550, color: .white),
+                                                    Slot(tone: 500, color: UIColor(red: 166/255, green: 105/255, blue: 36/255, alpha: 1)),
+                                                    Slot(tone: 450, color: .white),
+                                                    Slot(tone: 400, color: UIColor(red: 166/255, green: 40/255, blue: 36/255, alpha: 1)),
+                                                    Slot(tone: 450, color: .white)
                                                 ]),
                                             Phrase(name: "I love you",
                                                    likelihood: 40,
@@ -314,11 +314,11 @@ struct Characters {
                                                                 Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
                                                    slots: [
-                                                           Slot(tone: 800, color: UIColor(red: 110/255, green: 36/255, blue: 166/255, alpha: 1)),
-                                                           Slot(tone: 650, color: .white),
-                                                           Slot(tone: 750, color: .white),
-                                                           Slot(tone: 700, color: UIColor(red: 92/255, green: 166/255, blue: 36/255, alpha: 1)),
-                                                           Slot(tone: 600, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1))
+                                                           Slot(tone: 500, color: UIColor(red: 110/255, green: 36/255, blue: 166/255, alpha: 1)),
+                                                           Slot(tone: 350, color: .white),
+                                                           Slot(tone: 450, color: .white),
+                                                           Slot(tone: 400, color: UIColor(red: 92/255, green: 166/255, blue: 36/255, alpha: 1)),
+                                                           Slot(tone: 300, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1))
                                                            
                                                 ]),
                                             Phrase(name: "Thomas",
