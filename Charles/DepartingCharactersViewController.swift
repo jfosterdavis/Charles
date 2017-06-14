@@ -36,7 +36,7 @@ class DepartingCharactersViewController: StoreCollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.playerScoreLabel.text = String(describing: score)
+        self.playerScoreLabel.text = String(describing: score.formattedWithSeparator)
     }
     
     
