@@ -211,8 +211,13 @@ extension DataViewController {
             var slotsNotYetModified = buttonStackView.subviews
             
             //get a set of color solutions.  This should be replinished when it is depleted
+            //make it random if it will be additive of subractive
+            let randomAdditive = Utilities.random(range: 0...1)
             var solutionTypeAdditive = true
-            var solutionSet = getColorSolutionSet(from: objectiveFeedbackView.objectiveRingColor, of: .additive, forks: numberOfTimesToForkAGoodAnswer)
+            if randomAdditive == 0 {
+                solutionTypeAdditive = false
+            }
+            var solutionSet = [UIColor]()
             
             //for each slot we need to adjust
             while numberOfSlotsToAdjust > 0 {
