@@ -55,6 +55,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //increasedXP
     @IBOutlet weak var perkIncreasedXPUserFeedbackImageView: UIImageView!
     
+    //adaptation perk adaptclothing
+    @IBOutlet weak var perkAdaptationFeedbackImageView: UIImageView!
+    
+    
     //entire view background
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topBackgroundView: UIView!
@@ -201,6 +205,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         perkPrecisionAdjustmentUserFeedbackImageView.alpha = 0
         synesthesiaBackgroundBlinkerImageView.alpha = 0
         perkIncreasedXPUserFeedbackImageView.alpha = 0
+        perkAdaptationFeedbackImageView.alpha = 0
         
         
         //setup the color feedback view to recieve touches

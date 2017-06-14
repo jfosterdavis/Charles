@@ -59,6 +59,19 @@ extension DataViewController {
         
         
         self.objectiveFeedbackView.objectiveRingColor = color
+        /******************************************************/
+        /*******************///MARK: PERK ADAPTATION adaptclothing
+        /******************************************************/
+        let applicableAdaptationPerks = getAllPerks(ofType: .adaptClothing, withStatus: .unlocked)
+        
+        if !applicableAdaptationPerks.isEmpty {
+            //for now, all levels of this perk reset progress ring to black
+            objectiveFeedbackView.progressRingColor = .black
+        
+        }
+        /******************************************************/
+        /*******************///MARK: END PERK ADAPTATION adaptclothing
+        /******************************************************/
         self.objectiveFeedbackView.setNeedsDisplay()
         let objectiveBackDelay = 1.8
         
@@ -67,15 +80,15 @@ extension DataViewController {
         /******************************************************/
 
         //if an increasedScore perk is active, add all bonuses and multiply that multiply the pointsJustScored
-        let applicableVisualizeColroValuesPerks = getAllPerks(ofType: .visualizeColorValues, withStatus: .unlocked)
-        if !applicableVisualizeColroValuesPerks.isEmpty {
+        let applicableVisualizeColorValuesPerks = getAllPerks(ofType: .visualizeColorValues, withStatus: .unlocked)
+        if !applicableVisualizeColorValuesPerks.isEmpty {
             //calculate the percent of red, green, blue in the objective ring color
             var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
             objectiveFeedbackView.calculateColorDeviation(color1: color, color2: objectiveFeedbackView.progressRingColor).getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
             
             //check the level of the perk
             var highestPerkValue = 1
-            for perk in applicableVisualizeColroValuesPerks {
+            for perk in applicableVisualizeColorValuesPerks {
                 let perkValue = perk.0.meta1 as! Int
                 if  perkValue > highestPerkValue {
                     highestPerkValue = perkValue
@@ -94,9 +107,6 @@ extension DataViewController {
                 perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
             }
             
-            
-            
-            
             perkStickViewDeviation.fade(.in,
                                         withDuration: 0.5,
                                         delay: objectiveBackDelay + 0.5)
@@ -107,7 +117,6 @@ extension DataViewController {
         /******************************************************/
 
         
-        
         self.objectiveFeedbackView.fade(.in,
                                         withDuration: 0.5,
                                         delay: objectiveBackDelay,
@@ -115,14 +124,9 @@ extension DataViewController {
         
                                             //assess tax
                                             self.assessAndCollectTaxesAndShowFeedback()
-        
+                    
         })
         
-       
-        
-        
-        
-    
     }
     
     

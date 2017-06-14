@@ -144,6 +144,17 @@ extension DataViewController {
             //now add a new set of buttons
             self.addNewButtons(from: phrase)
             
+            /******************************************************/
+            /*******************///MARK: PERK ADAPTATION adaptclothing
+            /******************************************************/
+            
+            //checkForAndApplyAdaptationPerks()
+            self.checkForAndApplyAdaptationPerks()
+            
+            /******************************************************/
+            /*******************///MARK: END PERK ADAPTATION ADAPTCLOTHING
+            /******************************************************/
+            
             self.fadeInCharacter()
             
         })
@@ -156,6 +167,17 @@ extension DataViewController {
         removeAllButtons()
         
         addNewButtons(from: phrase)
+        
+        /******************************************************/
+        /*******************///MARK: PERK ADAPTATION adaptclothing
+        /******************************************************/
+        
+        //checkForAndApplyAdaptationPerks()
+        self.checkForAndApplyAdaptationPerks()
+        
+        /******************************************************/
+        /*******************///MARK: END PERK ADAPTATION ADAPTCLOTHING
+        /******************************************************/
         
         buttonStackView.alpha = 1.0
         
