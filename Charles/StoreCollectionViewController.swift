@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource {
+class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     var parentVC: DataViewController!
     var collectionViewData: [Character]!
@@ -186,6 +186,17 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //        default: break
         //
         //        }
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Flow Layout
+    /******************************************************/
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = storeCollectionView.bounds.size.width / 2 - 5
+        let height = width * 180 / 135
+        return CGSize(width: CGFloat(width), height: CGFloat(height))
     }
     
     /******************************************************/
