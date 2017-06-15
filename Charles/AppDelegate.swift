@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObserver {
 
     var window: UIWindow?
     
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         stack.save()
+        
+        // Attach an observer to the payment queue.
+        SKPaymentQueue.default().add(self)
         
         return true
     }
@@ -47,8 +51,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         stack.save()
+        
+        // Remove the observer.
+        SKPaymentQueue.default().remove(self)
     }
 
+}
 
+/******************************************************/
+/*******************///MARK: SKPaymentTransactionObserver
+/******************************************************/
+extension AppDelegate {
+    
+    @available(iOS 3.0, *)
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                //validate the purchase
+                break
+            case .deferred:
+                //validate the purchase
+                //this could take some time before transaction is updated
+                break
+            default:
+                break
+                
+            }
+        }
+    }
 }
 

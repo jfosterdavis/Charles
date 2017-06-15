@@ -9,10 +9,16 @@
 import Foundation
 import CoreData
 import UIKit
+import StoreKit
 
-class PerkStoreCollectionViewController: StoreCollectionViewController {
+class PerkStoreCollectionViewController: StoreCollectionViewController, SKProductsRequestDelegate {
+    
+
     
     var perkCollectionViewData: [Perk]!
+    //var inAppPurchasesData: []!
+    var appStoreProductsRequest: SKProductsRequest!
+    var appStoreProducts: [SKProduct]!
     
     //CoreData FRC Keys
     let keyUnlockedPerk = "keyUnlockedPerk"
@@ -21,6 +27,15 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.appStoreProducts = [SKProduct]()
+        
+        //TODO: Check to see if user can buy things in app store.  if so, do load the products
+        if SKPaymentQueue.canMakePayments() {
+            displayInAppStoreProducts()
+        } else {
+            print("IAPs not enabled")
+        }
         
         
         //setup CoreData
@@ -145,6 +160,75 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         return cell
     }
+    
+    /******************************************************/
+    /*******************///MARK: IN APP PURCHASES
+    /******************************************************/
+    
+    
+    ///gets in app purchases from the local bundle
+    func getAppStoreProductsRequest() -> [String] {
+        
+        //Getting a List of Product Identifiers
+        let url: URL = Bundle.main.url(forResource: "InAppPurchases", withExtension: "plist")!
+        
+        let productIdentifiers: [String] = NSArray.init(contentsOf: url)! as! [String]
+        
+        return productIdentifiers
+    }
+    
+    //Retrieving Product Information
+    ///retrieves product information from apple servers
+    func validateProductIdentifiers(productIdentifiers: [String]) {
+        
+        let setOfProductIdentifiers = Set(productIdentifiers)
+        
+        let productsRequest: SKProductsRequest = SKProductsRequest(productIdentifiers: setOfProductIdentifiers)
+        
+        //Keep a strong reference to the request
+        self.appStoreProductsRequest = productsRequest
+        productsRequest.delegate = self
+        
+        //send request to app store
+        productsRequest.start()
+    }
+    
+    ///determines if in app purchases should be displayed and if so loads, validates products and displays UI
+    func displayInAppStoreProducts() {
+        //TODO: Ensure user can make payments or don't go through any of this ribble rabble
+        
+        
+        let productIdentifiers = getAppStoreProductsRequest()
+        
+        validateProductIdentifiers(productIdentifiers: productIdentifiers)
+        
+        //when the response returns it will call productsRequest and set self.appStoreProducts
+        
+    }
+    
+    /******************************************************/
+    /*******************///MARK: SKProductsRequestDelegate
+    /******************************************************/
+
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        
+        if response.products.count > 0 {
+            self.appStoreProducts = response.products
+            
+            for invalidIdentifier in response.invalidProductIdentifiers {
+                //handle any invalid product identifiers
+                print("Found an invalid product identifier")
+            }
+        }
+        
+        //now display the store's UI
+        //for me, this will mean to add products to the perk store
+        //this means I need to refresh the collectionview so that it can see if self.appStoreProducts contains something now.
+        
+    }
+    
+    
+    
     
     /******************************************************/
     /*******************///MARK: Timer
@@ -412,6 +496,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         return unlockedPerks
     }
+    
+    
+    
     
     
     //TODO: Go through all these functions and make them handle all types instead of repeatig them
