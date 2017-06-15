@@ -31,6 +31,15 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         //lock all expired characters
         lockAllExpiredPerks()
+        
+        //updateTimer()
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -145,6 +154,18 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         return cell
     }
+    
+    /******************************************************/
+    /*******************///MARK: Flow Layout
+    /******************************************************/
+    override func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = storeCollectionView.bounds.size.width / 2 - 5
+        let height = width
+        return CGSize(width: CGFloat(width), height: CGFloat(height))
+    }
+    
     
     /******************************************************/
     /*******************///MARK: Timer
