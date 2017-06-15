@@ -56,6 +56,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         perkGotFromCharacterIndicator.layer.zPosition = 2
         perkGotFromCharacterIndicator.alpha = 0.65
         
+        characterNameLabel.textColor = .black
+        
     }
     
     func loadAppearance(fromAppStoreProduct product: SKProduct, fromASPD aspd: AppStoreProductDetail) {
@@ -77,13 +79,13 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //perkIconImageView.backgroundColor = aspd.displayColor
         
         //color the border
-        perkColorFrame.layer.borderWidth = 5
+        perkColorFrame.layer.borderWidth = 4 //make distinct from perks
         perkColorFrame.layer.borderColor = aspd.displayColor.cgColor
-        perkColorFrame.roundCorners(with: 6)
+        perkColorFrame.roundCorners(with: 3) //make frame distinct from perks
         
         //stackView.addArrangedSubview(imageView)
         
-        roundCorners()
+        roundCorners(with: 3) //make corners distinct from perks
         
         perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupChecked")
         perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.95) //an off-white
@@ -103,6 +105,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         pieLockImageView.isHidden = true
         
         priceLabel.textColor = .white
+        characterNameLabel.textColor = .white
         
     }
     

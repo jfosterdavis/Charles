@@ -295,6 +295,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         //for me, this will mean to add products to the perk store
         //this means I need to refresh the collectionview so that it can see if self.appStoreProducts contains something now.
         
+        
+        //in app purchases have arrived so refresh the collection view
+        collectionView.reloadData()
     }
     
     
@@ -316,34 +319,62 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     /******************************************************/
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
         
-        let perk = self.perkCollectionViewData[indexPath.row]
+        //check if this is a perk or an inAppPurchase
+        //store contains perk objects and products from app store
+        let perkItems: [Any] = self.perkCollectionViewData as [Any]
+        let appStoreItems: [Any] = self.appStoreProducts as [Any]
+        let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        guard isPerkAffordable(perk: perk) else {
-            print ("You cannot afford this item")
-            return
-        }
+        let currentItem = allItemsInStore[indexPath.row]
         
-        guard isPerkRequiredCharacterPresent(perk: perk) else {
-            print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
-            return
-        }
+        //now check the item to see if we have a perk or an app store item
+        switch currentItem {
+        case is Perk:
         
-        let newPerk = unlockPerk(named: perk.name)
-        
-        if newPerk != nil {
-            //deduct the price
-            score = score - perk.price!
-            updateScoreLabel()
+            let perk = currentItem as! Perk
             
-            //adjust the core data score
-            reconcileScoreFromPurchase(purchasePrice: perk.price!)
+            guard isPerkAffordable(perk: perk) else {
+                print ("You cannot afford this item")
+                return
+            }
             
-            collectionView.reloadData()
+            guard isPerkRequiredCharacterPresent(perk: perk) else {
+                print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
+                return
+            }
             
-            print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
+            let newPerk = unlockPerk(named: perk.name)
+            
+            if newPerk != nil {
+                //deduct the price
+                score = score - perk.price!
+                updateScoreLabel()
+                
+                //adjust the core data score
+                reconcileScoreFromPurchase(purchasePrice: perk.price!)
+                
+                collectionView.reloadData()
+                
+                print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
+            }
+        case is SKProduct:
+            //start the buying process from the app store.
+            let product = currentItem as! SKProduct
+            requestPayment(for:product)
+            
+        default:
+            //some other type of item has been shown, throw error
+            fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
+    }
         
+    ///Sends a payment request for the given product
+    func requestPayment(for product:SKProduct) {
+        let payment = SKMutablePayment(product: product)
+        payment.quantity = 1
         
+        //put the payment object in the payment queue
+        SKPaymentQueue.default().add(payment)
     }
     
     ///Checks the given CoreData set for the given FRCKey, for the given id of the feature to see if that feature is unlocked in the store or not.
