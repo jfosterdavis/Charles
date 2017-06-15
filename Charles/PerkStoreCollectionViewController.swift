@@ -66,94 +66,136 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //returns number of items in the collection
-        return perkCollectionViewData.count
+        
+        //number should also include in app purchases available
+        let count = perkCollectionViewData.count + self.appStoreProducts.count
+        
+        return count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
-        let perk = self.perkCollectionViewData[indexPath.row]
         
-        cell.characterNameLabel.text = perk.name
-        let price = perk.price
-        var priceLabelText = ""
-        if price! <= 0 {
-            priceLabelText = "Free!"
-        } else {
-            priceLabelText = String(describing: price!.formattedWithSeparator)
-        }
+        //store contains perk objects and products from app store
+        let perkItems: [Any] = self.perkCollectionViewData as [Any]
+        let appStoreItems: [Any] = self.appStoreProducts as [Any]
+        let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        cell.priceLabel.text = priceLabelText
+        let currentItem = allItemsInStore[indexPath.row]
         
-        
-        cell.loadAppearance(fromPerk: perk)
-        
-        //check if this perk requires a party member
-        if perk.requiredPartyMembers.isEmpty {
-            cell.setGotPerkFromCharacterIndicator(visible: false)
-        } else {
-            cell.setGotPerkFromCharacterIndicator(visible: true)
-        }
-        
-        
-        //set the status of this perk.  Is it unlocked or affordable?
-        
-        //start the progress pie as hidden
-        let expiryPie = cell.expirationStatusView as! PieTimerView
-        expiryPie.isHidden = true
-        cell.pieLockImageView.isHidden = true
-        
-        //if it is unlocked
-        if try! checkForUnlockFeature(featureKey: keyUnlockedPerk, featureId: perk.name) {
-            //it is unlocked, so set the status to unlocked
-            cell.setStatusUnlocked()
+        //now check the item to see if we have a perk or an app store item
+        switch currentItem {
+        case is Perk:
+            let perk = currentItem as! Perk
             
-            //if this character is unlockable and if we can get it
-            if let unlockedPerk = getUnlockedPerk(named: perk.name) {
-                
-                //calculate number of hours remaining and number of hours total
-                let hours = getHoursOfExpiry(forPerk: unlockedPerk)
-                
-                if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.2, let minutesUntilExpiry = hours.1 {
-                    //if there is only one hour left, show red in minutes
-                    if hoursUntilExpiry <= 1 {
-                        
-                        let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
-                        print("Expiry in \(minutesUntilExpiry) for \(perk.name) in minutes.  Percentage left is \(percentOfPieToFill)")
-                        //less than one minute, set color to red
-                        expiryPie.setProgressColor(color: UIColor.red)
-                        
-                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
-                        expiryPie.setProgress(percent: percentOfPieToFill)
-                        
-                    } else {
-                        
-                        let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
-                        
-                        //set the progress color to blue
-                        expiryPie.setProgressColor(color: UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1))
-                        
-                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
-                        expiryPie.setProgress(percent: percentOfPieToFill)
-                        
-                        
-                    }
-                    //able to populate the pie, so show it
-                    expiryPie.isHidden = false
-                    cell.pieLockImageView.isHidden = false
-                }
-                
+            cell.characterNameLabel.text = perk.name
+            let price = perk.price
+            var priceLabelText = ""
+            if price! <= 0 {
+                priceLabelText = "Free!"
+            } else {
+                priceLabelText = String(describing: price!.formattedWithSeparator)
+            }
+            
+            cell.priceLabel.text = priceLabelText
+            
+            
+            cell.loadAppearance(fromPerk: perk)
+            
+            //check if this perk requires a party member
+            if perk.requiredPartyMembers.isEmpty {
+                cell.setGotPerkFromCharacterIndicator(visible: false)
+            } else {
+                cell.setGotPerkFromCharacterIndicator(visible: true)
             }
             
             
-        } else if !isPerkRequiredCharacterPresent(perk: perk) {
-            //they are missing a party member to unlock this perk
-            cell.setStatusRequiredCharacterNotPresent()
-        } else if !isPerkAffordable(perk: perk) {  //check if it is affordable
-            cell.setStatusUnaffordable()
-        } else {  //the character is not unlocked and is affordable
-            cell.setStatusAffordable()
+            //set the status of this perk.  Is it unlocked or affordable?
+            
+            //start the progress pie as hidden
+            let expiryPie = cell.expirationStatusView as! PieTimerView
+            expiryPie.isHidden = true
+            cell.pieLockImageView.isHidden = true
+            
+            //if it is unlocked
+            if try! checkForUnlockFeature(featureKey: keyUnlockedPerk, featureId: perk.name) {
+                //it is unlocked, so set the status to unlocked
+                cell.setStatusUnlocked()
+                
+                //if this character is unlockable and if we can get it
+                if let unlockedPerk = getUnlockedPerk(named: perk.name) {
+                    
+                    //calculate number of hours remaining and number of hours total
+                    let hours = getHoursOfExpiry(forPerk: unlockedPerk)
+                    
+                    if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.2, let minutesUntilExpiry = hours.1 {
+                        //if there is only one hour left, show red in minutes
+                        if hoursUntilExpiry <= 1 {
+                            
+                            let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
+                            print("Expiry in \(minutesUntilExpiry) for \(perk.name) in minutes.  Percentage left is \(percentOfPieToFill)")
+                            //less than one minute, set color to red
+                            expiryPie.setProgressColor(color: UIColor.red)
+                            
+                            //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                            expiryPie.setProgress(percent: percentOfPieToFill)
+                            
+                        } else {
+                            
+                            let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                            
+                            //set the progress color to blue
+                            expiryPie.setProgressColor(color: UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1))
+                            
+                            //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                            expiryPie.setProgress(percent: percentOfPieToFill)
+                            
+                            
+                        }
+                        //able to populate the pie, so show it
+                        expiryPie.isHidden = false
+                        cell.pieLockImageView.isHidden = false
+                    }
+                    
+                }
+                
+                
+            } else if !isPerkRequiredCharacterPresent(perk: perk) {
+                //they are missing a party member to unlock this perk
+                cell.setStatusRequiredCharacterNotPresent()
+            } else if !isPerkAffordable(perk: perk) {  //check if it is affordable
+                cell.setStatusUnaffordable()
+            } else {  //the character is not unlocked and is affordable
+                cell.setStatusAffordable()
+            }
+            //END OF CASE AS PERK
+        case is SKProduct:
+            
+            let product = currentItem as! SKProduct
+            //display as an app store product
+            cell.characterNameLabel.text = product.localizedTitle
+            
+            cell.priceLabel.text = priceStringForProduct(item: product) //localized price string
+            
+            //get the ASPD (AppStoreProductDetail object) which contains information about the purchase in the bundle
+            let aspd = getAppStoreProductDetail(from: product)
+            
+            cell.loadAppearance(fromAppStoreProduct: product, fromASPD: aspd)
+            
+            //check if this perk requires a party member
+            if aspd.requiredPartyMembers.isEmpty {
+                cell.setGotPerkFromCharacterIndicator(visible: false)
+            } else {
+                cell.setGotPerkFromCharacterIndicator(visible: true)
+            }
+
+        default:
+            //some other type of item has been shown, throw error
+            fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
+        
+        
         
         
         
@@ -175,6 +217,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         let productIdentifiers: [String] = NSArray.init(contentsOf: url)! as! [String]
         
         return productIdentifiers
+    }
+    
+    ///gets a locally formatted string for the price.  Adapted from https://stackoverflow.com/questions/36794489/how-to-get-local-currency-for-skproduct-display-iap-price-in-swift
+    func priceStringForProduct(item: SKProduct) -> String? {
+        let price = item.price
+        if price == 0 {
+            return "Free!" //or whatever you like really... maybe 'Free'
+        } else {
+            let numberFormatter = NumberFormatter()
+            let locale = item.priceLocale
+            numberFormatter.numberStyle = .currency
+            numberFormatter.locale = locale
+            return numberFormatter.string(from: price)
+        }
     }
     
     //Retrieving Product Information
@@ -204,6 +260,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         
         //when the response returns it will call productsRequest and set self.appStoreProducts
         
+    }
+    
+    ///finds the local details for the given SKProduct
+    func getAppStoreProductDetail(from product:SKProduct) -> AppStoreProductDetail {
+        
+        //filter out ASPDs that don't match the product's identifier
+        let matchingASPDs: [AppStoreProductDetail] = AppStoreProductDetails.valid.filter{$0.productID == product.productIdentifier}
+        
+        //This should have only returned one
+        guard matchingASPDs.count == 1 else {
+            fatalError("Found more than one ASPD among \(AppStoreProductDetails.valid) for product: \(product)")
+        }
+        
+        return matchingASPDs[0]
     }
     
     /******************************************************/

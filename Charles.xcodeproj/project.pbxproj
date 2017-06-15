@@ -59,6 +59,8 @@
 		F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */; };
 		F64E74951ED9E43B000E99E1 /* PieTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E74941ED9E43B000E99E1 /* PieTimerView.swift */; };
 		F6C1D0C91EF2296800A90286 /* InAppPurchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */; };
+		F6E6CBFD1EF2FB6600091CDF /* AppStoreProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */; };
+		F6E6CBFF1EF2FD1300091CDF /* AppStoreProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
 		F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50731ED4FDF70087F461 /* Protocols.swift */; };
 		F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */; };
@@ -140,6 +142,8 @@
 		F63F0D051ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F64E74941ED9E43B000E99E1 /* PieTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieTimerView.swift; sourceTree = "<group>"; };
 		F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
+		F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetail.swift; sourceTree = "<group>"; };
+		F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetails.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
 		F6FD50731ED4FDF70087F461 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMatchFeedbackView.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				F60C8CE91EDA0FE900F15EF9 /* Levels.swift */,
 				F615536B1EDCF1A2004BBCB6 /* Perk.swift */,
 				F615536D1EDCF5A5004BBCB6 /* Perks.swift */,
+				F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */,
+				F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */,
 				F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */,
 				F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */,
+				F6E6CBFD1EF2FB6600091CDF /* AppStoreProductDetail.swift in Sources */,
 				F607C8801EBFC6E600651FAD /* RootViewController.swift in Sources */,
 				F61553611EDCBDFB004BBCB6 /* DataViewController+LevelProgress.swift in Sources */,
 				F607C8C01EBFD8D800651FAD /* Slot.swift in Sources */,
@@ -523,6 +530,7 @@
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
 				F61553641EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift in Sources */,
 				F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */,
+				F6E6CBFF1EF2FD1300091CDF /* AppStoreProductDetails.swift in Sources */,
 				F6FD50761ED8BAFB0087F461 /* ColorMatchFeedbackView.swift in Sources */,
 				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,
 				F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */,
