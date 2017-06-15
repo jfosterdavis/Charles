@@ -67,18 +67,45 @@ extension AppDelegate {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
+            case .purchasing:
+                //update the UI to let user know it is happenening
+                break
             case .purchased:
                 //validate the purchase
+                //deliver the product
+                let productID = transaction.payment.productIdentifier
+                let aspd = getAppStoreProductDetail(fromProductID: productID)
+                aspd.givePointsToPlayer()
+                
+                //product is delivered.  Close the transaction.
+                queue.finishTransaction(transaction)
                 break
             case .deferred:
                 //validate the purchase
                 //this could take some time before transaction is updated
+                break
+            case .failed:
+                //finish the transaction
                 break
             default:
                 break
                 
             }
         }
+    }
+    
+    ///finds the local details for the given SKProduct
+    func getAppStoreProductDetail(fromProductID productID:String) -> AppStoreProductDetail {
+        
+        //filter out ASPDs that don't match the product's identifier
+        let matchingASPDs: [AppStoreProductDetail] = AppStoreProductDetails.valid.filter{$0.productID == productID}
+        
+        //This should have only returned one
+        guard matchingASPDs.count == 1 else {
+            fatalError("Found more than one ASPD among \(AppStoreProductDetails.valid) for productID: \(productID)")
+        }
+        
+        return matchingASPDs[0]
     }
 }
 

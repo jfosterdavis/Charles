@@ -179,7 +179,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             cell.priceLabel.text = priceStringForProduct(item: product) //localized price string
             
             //get the ASPD (AppStoreProductDetail object) which contains information about the purchase in the bundle
-            let aspd = getAppStoreProductDetail(from: product)
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let aspd = delegate.getAppStoreProductDetail(fromProductID: product.productIdentifier)
             
             cell.loadAppearance(fromAppStoreProduct: product, fromASPD: aspd)
             
@@ -262,19 +263,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         
     }
     
-    ///finds the local details for the given SKProduct
-    func getAppStoreProductDetail(from product:SKProduct) -> AppStoreProductDetail {
-        
-        //filter out ASPDs that don't match the product's identifier
-        let matchingASPDs: [AppStoreProductDetail] = AppStoreProductDetails.valid.filter{$0.productID == product.productIdentifier}
-        
-        //This should have only returned one
-        guard matchingASPDs.count == 1 else {
-            fatalError("Found more than one ASPD among \(AppStoreProductDetails.valid) for product: \(product)")
-        }
-        
-        return matchingASPDs[0]
-    }
+    
     
     /******************************************************/
     /*******************///MARK: SKProductsRequestDelegate
