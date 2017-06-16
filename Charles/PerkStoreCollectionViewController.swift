@@ -222,9 +222,22 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         //Getting a List of Product Identifiers
         let url: URL = Bundle.main.url(forResource: "InAppPurchases", withExtension: "plist")!
         
-        let productIdentifiers: [String] = NSArray.init(contentsOf: url)! as! [String]
+        let allProductIdentifiers: [String] = NSArray.init(contentsOf: url)! as! [String]
         
-        return productIdentifiers
+        //remove the products that are above the user's level
+        let userLevel = parentVC.getUserCurrentLevel().level
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        var applicableProductIdentifiers = [String]()
+        for productID in allProductIdentifiers {
+            let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
+            if aspd.levelEligibleAt == nil {
+                applicableProductIdentifiers.append(productID)
+            } else if userLevel >= aspd.levelEligibleAt! {
+                applicableProductIdentifiers.append(productID)
+            }
+        }
+        
+        return applicableProductIdentifiers
     }
     
     ///gets a locally formatted string for the price.  Adapted from https://stackoverflow.com/questions/36794489/how-to-get-local-currency-for-skproduct-display-iap-price-in-swift

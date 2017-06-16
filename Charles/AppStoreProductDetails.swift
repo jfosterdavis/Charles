@@ -37,7 +37,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   levelEligibleAt: 4,
+                                                   levelEligibleAt: 6,
                                                    requiredPartyMembers: [])
     
     static let Coin_400000 = AppStoreProductDetail(productID: "coin_400000",
@@ -47,7 +47,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   levelEligibleAt: 5,
+                                                   levelEligibleAt: 9,
                                                    requiredPartyMembers: [])
     
     static let Coin_1M = AppStoreProductDetail(productID: "coin_1M",
@@ -67,7 +67,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   levelEligibleAt: 17,
+                                                   levelEligibleAt: 15,
                                                    requiredPartyMembers: [])
     
 
