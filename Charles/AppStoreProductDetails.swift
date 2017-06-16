@@ -63,7 +63,7 @@ struct AppStoreProductDetails {
     static let Coin_10M = AppStoreProductDetail(productID: "coin_10M",
                                                    name: "+ 10,000,000",
                                                    icon: #imageLiteral(resourceName: "coin_10MIcon"),
-                                                   value: 400000,
+                                                   value: 10000000,
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
