@@ -943,45 +943,46 @@
                                     <action selector="dismissButtonPressed:" destination="69u-21-rJP" eventType="touchUpInside" id="er8-rp-rnB"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
                                 <rect key="frame" x="16" y="55" width="343" height="602"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Nature of Light" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
-                                        <rect key="frame" x="7.5" y="0.0" width="328" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="33"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The absence of all light is darkness." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
-                                        <rect key="frame" x="20" y="52" width="303.5" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="52" width="303.5" height="70.5"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
-                                        <rect key="frame" x="0.0" y="127.5" width="343" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="127.5" width="343" height="70"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All light is a composite of three primary colors: Red, Green, and Blue." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
-                                        <rect key="frame" x="16.5" y="203" width="310.5" height="106"/>
+                                        <rect key="frame" x="0.0" y="202.5" width="310.5" height="106"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
-                                        <rect key="frame" x="0.0" y="314" width="343" height="71"/>
+                                        <rect key="frame" x="0.0" y="313.5" width="343" height="70.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All colors can be described by the amount of each of the primary colors they contain." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
-                                        <rect key="frame" x="0.0" y="390" width="343" height="136.5"/>
+                                        <rect key="frame" x="0.0" y="389" width="343" height="138"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
-                                        <rect key="frame" x="0.0" y="531.5" width="343" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="532" width="343" height="70"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Wiu-SB-dya" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="GBj-Hl-iPh"/>
+                                    <constraint firstItem="Peo-TG-cdD" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="KZL-oU-leP"/>
                                     <constraint firstItem="AXb-Ip-QsM" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="R8W-Wg-eGV"/>
                                     <constraint firstItem="ez7-k0-ovo" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="d6t-dH-Hvm"/>
                                     <constraint firstItem="Wiu-SB-dya" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="fkv-gC-f2a"/>
