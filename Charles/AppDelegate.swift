@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
+import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObserver {
 
     var window: UIWindow?
     
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         stack.save()
+        
+        // Attach an observer to the payment queue.
+        SKPaymentQueue.default().add(self)
         
         return true
     }
@@ -47,8 +51,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         stack.save()
+        
+        // Remove the observer.
+        SKPaymentQueue.default().remove(self)
     }
 
+}
 
+/******************************************************/
+/*******************///MARK: SKPaymentTransactionObserver
+/******************************************************/
+extension AppDelegate {
+    
+    @available(iOS 3.0, *)
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                //update the UI to let user know it is happenening
+                //this will be done by the store
+                break
+            case .purchased:
+                //validate the purchase
+                //deliver the product
+                let productID = transaction.payment.productIdentifier
+                let aspd = getAppStoreProductDetail(fromProductID: productID)
+                aspd.givePointsToPlayer()
+                
+                //product is delivered.  Close the transaction.
+                queue.finishTransaction(transaction)
+                break
+            case .deferred:
+                //validate the purchase
+                //this could take some time before transaction is updated
+                break
+            case .failed:
+                //store will let use know what went wrong
+                //finish the transaction
+                queue.finishTransaction(transaction)
+                break
+            default:
+                break
+                
+            }
+        }
+    }
+    
+    ///finds the local details for the given SKProduct
+    func getAppStoreProductDetail(fromProductID productID:String) -> AppStoreProductDetail {
+        
+        //filter out ASPDs that don't match the product's identifier
+        let matchingASPDs: [AppStoreProductDetail] = AppStoreProductDetails.valid.filter{$0.productID == productID}
+        
+        //This should have only returned one
+        guard matchingASPDs.count == 1 else {
+            fatalError("Found more than one ASPD among \(AppStoreProductDetails.valid) for productID: \(productID)")
+        }
+        
+        return matchingASPDs[0]
+    }
 }
 

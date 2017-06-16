@@ -9,10 +9,16 @@
 import Foundation
 import CoreData
 import UIKit
+import StoreKit
 
-class PerkStoreCollectionViewController: StoreCollectionViewController {
+class PerkStoreCollectionViewController: StoreCollectionViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+    
+
     
     var perkCollectionViewData: [Perk]!
+    //var inAppPurchasesData: []!
+    var appStoreProductsRequest: SKProductsRequest!
+    var appStoreProducts: [SKProduct]!
     
     //CoreData FRC Keys
     let keyUnlockedPerk = "keyUnlockedPerk"
@@ -21,6 +27,15 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.appStoreProducts = [SKProduct]()
+        
+        //TODO: Check to see if user can buy things in app store.  if so, do load the products
+        if SKPaymentQueue.canMakePayments() {
+            displayInAppStoreProducts()
+        } else {
+            print("IAPs not enabled")
+        }
         
         
         //setup CoreData
@@ -42,9 +57,16 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         updateTimer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //get notified for queue events
+        SKPaymentQueue.default().add(self)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+        SKPaymentQueue.default().remove(self)
         
     }
     
@@ -60,100 +82,288 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //returns number of items in the collection
-        return perkCollectionViewData.count
+        
+        //number should also include in app purchases available
+        let count = perkCollectionViewData.count + self.appStoreProducts.count
+        
+        return count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
-        let perk = self.perkCollectionViewData[indexPath.row]
         
-        cell.characterNameLabel.text = perk.name
-        let price = perk.price
-        var priceLabelText = ""
-        if price! <= 0 {
-            priceLabelText = "Free!"
-        } else {
-            priceLabelText = String(describing: price!.formattedWithSeparator)
-        }
+        //store contains perk objects and products from app store
+        let perkItems: [Any] = self.perkCollectionViewData as [Any]
+        let appStoreItems: [Any] = self.appStoreProducts as [Any]
+        let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        cell.priceLabel.text = priceLabelText
+        let currentItem = allItemsInStore[indexPath.row]
         
-        
-        cell.loadAppearance(fromPerk: perk)
-        
-        //check if this perk requires a party member
-        if perk.requiredPartyMembers.isEmpty {
-            cell.setGotPerkFromCharacterIndicator(visible: false)
-        } else {
-            cell.setGotPerkFromCharacterIndicator(visible: true)
-        }
-        
-        
-        //set the status of this perk.  Is it unlocked or affordable?
-        
-        //start the progress pie as hidden
-        let expiryPie = cell.expirationStatusView as! PieTimerView
-        expiryPie.isHidden = true
-        cell.pieLockImageView.isHidden = true
-        
-        //if it is unlocked
-        if try! checkForUnlockFeature(featureKey: keyUnlockedPerk, featureId: perk.name) {
-            //it is unlocked, so set the status to unlocked
-            cell.setStatusUnlocked()
+        //now check the item to see if we have a perk or an app store item
+        switch currentItem {
+        case is Perk:
+            let perk = currentItem as! Perk
             
-            //if this character is unlockable and if we can get it
-            if let unlockedPerk = getUnlockedPerk(named: perk.name) {
-                
-                //calculate number of hours remaining and number of hours total
-                let hours = getHoursOfExpiry(forPerk: unlockedPerk)
-                
-                if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.2, let minutesUntilExpiry = hours.1 {
-                    //if there is only one hour left, show red in minutes
-                    if hoursUntilExpiry <= 1 {
-                        
-                        let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
-                        print("Expiry in \(minutesUntilExpiry) for \(perk.name) in minutes.  Percentage left is \(percentOfPieToFill)")
-                        //less than one minute, set color to red
-                        expiryPie.setProgressColor(color: UIColor.red)
-                        
-                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
-                        expiryPie.setProgress(percent: percentOfPieToFill)
-                        
-                    } else {
-                        
-                        let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
-                        
-                        //set the progress color to blue
-                        expiryPie.setProgressColor(color: UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1))
-                        
-                        //since it is unlocked, show the expiration status so the user will know if it is close to expiry
-                        expiryPie.setProgress(percent: percentOfPieToFill)
-                        
-                        
-                    }
-                    //able to populate the pie, so show it
-                    expiryPie.isHidden = false
-                    cell.pieLockImageView.isHidden = false
-                }
-                
+            cell.characterNameLabel.text = perk.name
+            let price = perk.price
+            var priceLabelText = ""
+            if price! <= 0 {
+                priceLabelText = "Free!"
+            } else {
+                priceLabelText = String(describing: price!.formattedWithSeparator)
+            }
+            
+            cell.priceLabel.text = priceLabelText
+            
+            
+            cell.loadAppearance(fromPerk: perk)
+            
+            //check if this perk requires a party member
+            if perk.requiredPartyMembers.isEmpty {
+                cell.setGotPerkFromCharacterIndicator(visible: false)
+            } else {
+                cell.setGotPerkFromCharacterIndicator(visible: true)
             }
             
             
-        } else if !isPerkRequiredCharacterPresent(perk: perk) {
-            //they are missing a party member to unlock this perk
-            cell.setStatusRequiredCharacterNotPresent()
-        } else if !isPerkAffordable(perk: perk) {  //check if it is affordable
-            cell.setStatusUnaffordable()
-        } else {  //the character is not unlocked and is affordable
-            cell.setStatusAffordable()
+            //set the status of this perk.  Is it unlocked or affordable?
+            
+            //start the progress pie as hidden
+            let expiryPie = cell.expirationStatusView as! PieTimerView
+            expiryPie.isHidden = true
+            cell.pieLockImageView.isHidden = true
+            
+            //if it is unlocked
+            if try! checkForUnlockFeature(featureKey: keyUnlockedPerk, featureId: perk.name) {
+                //it is unlocked, so set the status to unlocked
+                cell.setStatusUnlocked()
+                
+                //if this character is unlockable and if we can get it
+                if let unlockedPerk = getUnlockedPerk(named: perk.name) {
+                    
+                    //calculate number of hours remaining and number of hours total
+                    let hours = getHoursOfExpiry(forPerk: unlockedPerk)
+                    
+                    if let hoursUntilExpiry = hours.0, let totalHoursUnlocked = hours.2, let minutesUntilExpiry = hours.1 {
+                        //if there is only one hour left, show red in minutes
+                        if hoursUntilExpiry <= 1 {
+                            
+                            let percentOfPieToFill = Float(minutesUntilExpiry) / 60 * 100.0
+                            print("Expiry in \(minutesUntilExpiry) for \(perk.name) in minutes.  Percentage left is \(percentOfPieToFill)")
+                            //less than one minute, set color to red
+                            expiryPie.setProgressColor(color: UIColor.red)
+                            
+                            //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                            expiryPie.setProgress(percent: percentOfPieToFill)
+                            
+                        } else {
+                            
+                            let percentOfPieToFill = Float(hoursUntilExpiry) / Float(totalHoursUnlocked) * 100.0
+                            
+                            //set the progress color to blue
+                            expiryPie.setProgressColor(color: UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1))
+                            
+                            //since it is unlocked, show the expiration status so the user will know if it is close to expiry
+                            expiryPie.setProgress(percent: percentOfPieToFill)
+                            
+                            
+                        }
+                        //able to populate the pie, so show it
+                        expiryPie.isHidden = false
+                        cell.pieLockImageView.isHidden = false
+                    }
+                    
+                }
+                
+                
+            } else if !isPerkRequiredCharacterPresent(perk: perk) {
+                //they are missing a party member to unlock this perk
+                cell.setStatusRequiredCharacterNotPresent()
+            } else if !isPerkAffordable(perk: perk) {  //check if it is affordable
+                cell.setStatusUnaffordable()
+            } else {  //the character is not unlocked and is affordable
+                cell.setStatusAffordable()
+            }
+            //END OF CASE AS PERK
+        case is SKProduct:
+            
+            let product = currentItem as! SKProduct
+            //display as an app store product
+            cell.characterNameLabel.text = product.localizedTitle
+            
+            cell.priceLabel.text = priceStringForProduct(item: product) //localized price string
+            
+            //get the ASPD (AppStoreProductDetail object) which contains information about the purchase in the bundle
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let aspd = delegate.getAppStoreProductDetail(fromProductID: product.productIdentifier)
+            
+            cell.loadAppearance(fromAppStoreProduct: product, fromASPD: aspd)
+            
+            //check if this perk requires a party member
+            if aspd.requiredPartyMembers.isEmpty {
+                cell.setGotPerkFromCharacterIndicator(visible: false)
+            } else {
+                cell.setGotPerkFromCharacterIndicator(visible: true)
+            }
+
+        default:
+            //some other type of item has been shown, throw error
+            fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
+        
+        
         
         
         
         
         return cell
     }
+    
+    /******************************************************/
+    /*******************///MARK: IN APP PURCHASES
+    /******************************************************/
+    
+    
+    ///gets in app purchases from the local bundle
+    func getAppStoreProductsRequest() -> [String] {
+        
+        //Getting a List of Product Identifiers
+        let url: URL = Bundle.main.url(forResource: "InAppPurchases", withExtension: "plist")!
+        
+        let allProductIdentifiers: [String] = NSArray.init(contentsOf: url)! as! [String]
+        
+        //remove the products that are above the user's level
+        let userLevel = parentVC.getUserCurrentLevel().level
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        var applicableProductIdentifiers = [String]()
+        for productID in allProductIdentifiers {
+            let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
+            if aspd.levelEligibleAt == nil {
+                applicableProductIdentifiers.append(productID)
+            } else if userLevel >= aspd.levelEligibleAt! {
+                applicableProductIdentifiers.append(productID)
+            }
+        }
+        
+        return applicableProductIdentifiers
+    }
+    
+    ///gets a locally formatted string for the price.  Adapted from https://stackoverflow.com/questions/36794489/how-to-get-local-currency-for-skproduct-display-iap-price-in-swift
+    func priceStringForProduct(item: SKProduct) -> String? {
+        let price = item.price
+        if price == 0 {
+            return "Free!" //or whatever you like really... maybe 'Free'
+        } else {
+            let numberFormatter = NumberFormatter()
+            let locale = item.priceLocale
+            numberFormatter.numberStyle = .currency
+            numberFormatter.locale = locale
+            return numberFormatter.string(from: price)
+        }
+    }
+    
+    //Retrieving Product Information
+    ///retrieves product information from apple servers
+    func validateProductIdentifiers(productIdentifiers: [String]) {
+        
+        let setOfProductIdentifiers = Set(productIdentifiers)
+        
+        let productsRequest: SKProductsRequest = SKProductsRequest(productIdentifiers: setOfProductIdentifiers)
+        
+        //Keep a strong reference to the request
+        self.appStoreProductsRequest = productsRequest
+        productsRequest.delegate = self
+        
+        //send request to app store
+        productsRequest.start()
+    }
+    
+    ///determines if in app purchases should be displayed and if so loads, validates products and displays UI
+    func displayInAppStoreProducts() {
+        //TODO: Ensure user can make payments or don't go through any of this ribble rabble
+        
+        
+        let productIdentifiers = getAppStoreProductsRequest()
+        
+        validateProductIdentifiers(productIdentifiers: productIdentifiers)
+        
+        //when the response returns it will call productsRequest and set self.appStoreProducts
+        
+    }
+    
+    
+    
+    /******************************************************/
+    /*******************///MARK: SKProductsRequestDelegate
+    /******************************************************/
+
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        
+        if response.products.count > 0 {
+            var validProducts = response.products
+            var productsArray = [SKProduct]()
+            for i in 0 ..< validProducts.count
+            {
+                let product = validProducts[i]
+                productsArray.append(product)
+            }
+            productsArray.sort{(Double($0.price) < Double($1.price))}
+            self.appStoreProducts = productsArray
+            
+            for invalidIdentifier in response.invalidProductIdentifiers {
+                //handle any invalid product identifiers
+                print("Found an invalid product identifier: \(invalidIdentifier)")
+            }
+        }
+        
+        //now display the store's UI
+        //for me, this will mean to add products to the perk store
+        //this means I need to refresh the collectionview so that it can see if self.appStoreProducts contains something now.
+        
+        
+        //in app purchases have arrived so refresh the collection view
+        collectionView.reloadData()
+    }
+    
+    
+    /******************************************************/
+    /*******************///MARK: SKPaymentTransactionsObserverDelegate
+    /******************************************************/
+    @available(iOS 3.0, *)
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                //update the UI to let user know it is happenening
+                break
+            case .purchased:
+                //validate the purchase
+                //deduct the price
+                score = getCurrentScore()
+                updateScoreLabel()
+                break
+            case .failed:
+                //notify user in certain circumstances
+                //TODO: determine what those circumstances are
+                
+                let errorMessage = String(describing: transaction.error!.localizedDescription)
+                let productID = transaction.payment.productIdentifier
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
+                let productName = String(describing: aspd.name!)
+                
+                let alert = UIAlertController(title: "Purchase Failed", message: "Purchase of \(productName) failed: \(errorMessage).  Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            default:
+                break
+                
+            }
+        }
+    }
+    
+    
     
     /******************************************************/
     /*******************///MARK: Flow Layout
@@ -183,34 +393,62 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
     /******************************************************/
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
         
-        let perk = self.perkCollectionViewData[indexPath.row]
+        //check if this is a perk or an inAppPurchase
+        //store contains perk objects and products from app store
+        let perkItems: [Any] = self.perkCollectionViewData as [Any]
+        let appStoreItems: [Any] = self.appStoreProducts as [Any]
+        let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        guard isPerkAffordable(perk: perk) else {
-            print ("You cannot afford this item")
-            return
-        }
+        let currentItem = allItemsInStore[indexPath.row]
         
-        guard isPerkRequiredCharacterPresent(perk: perk) else {
-            print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
-            return
-        }
+        //now check the item to see if we have a perk or an app store item
+        switch currentItem {
+        case is Perk:
         
-        let newPerk = unlockPerk(named: perk.name)
-        
-        if newPerk != nil {
-            //deduct the price
-            score = score - perk.price!
-            updateScoreLabel()
+            let perk = currentItem as! Perk
             
-            //adjust the core data score
-            reconcileScoreFromPurchase(purchasePrice: perk.price!)
+            guard isPerkAffordable(perk: perk) else {
+                print ("You cannot afford this item")
+                return
+            }
             
-            collectionView.reloadData()
+            guard isPerkRequiredCharacterPresent(perk: perk) else {
+                print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
+                return
+            }
             
-            print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
+            let newPerk = unlockPerk(named: perk.name)
+            
+            if newPerk != nil {
+                //deduct the price
+                score = score - perk.price!
+                updateScoreLabel()
+                
+                //adjust the core data score
+                reconcileScoreFromPurchase(purchasePrice: perk.price!)
+                
+                collectionView.reloadData()
+                
+                print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
+            }
+        case is SKProduct:
+            //start the buying process from the app store.
+            let product = currentItem as! SKProduct
+            requestPayment(for:product)
+            
+        default:
+            //some other type of item has been shown, throw error
+            fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
+    }
         
+    ///Sends a payment request for the given product
+    func requestPayment(for product:SKProduct) {
+        let payment = SKMutablePayment(product: product)
+        payment.quantity = 1
         
+        //put the payment object in the payment queue
+        SKPaymentQueue.default().add(payment)
     }
     
     ///Checks the given CoreData set for the given FRCKey, for the given id of the feature to see if that feature is unlocked in the store or not.
@@ -433,6 +671,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController {
         
         return unlockedPerks
     }
+    
+    
+    
     
     
     //TODO: Go through all these functions and make them handle all types instead of repeatig them
