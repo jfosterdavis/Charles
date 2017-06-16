@@ -143,7 +143,7 @@ struct Perks {
         meta3: 0.35, //likelihood a good move option will prevail over a random
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "hex-key"),
-        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 10, //10
         requiredPartyMembers: []
     )
@@ -157,7 +157,7 @@ struct Perks {
         meta3: 0.40, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1440, //1 day, 1440
         icon: #imageLiteral(resourceName: "hex-key"),
-        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 20, //20
         requiredPartyMembers: []
     )
@@ -172,7 +172,7 @@ struct Perks {
         meta3: 0.45, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
-        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 56, //56
         requiredPartyMembers: []
     )
@@ -187,7 +187,7 @@ struct Perks {
         meta3: 0.50, //likelihood a good move option will prevail over a random
         minutesUnlocked: 20160, //14 days, 20160
         icon: #imageLiteral(resourceName: "hex-key"),
-        displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
+        displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 82, //82
         requiredPartyMembers: []
     )
