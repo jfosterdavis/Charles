@@ -16,7 +16,7 @@ import UIKit
 struct AppStoreProductDetails {
     
     static let valid: [AppStoreProductDetail] = [Coin_100000,
-                                                 Coin_300000]
+                                                 Coin_400000]
     
     static let Coin_1500 = AppStoreProductDetail(productID: "coin_1500",
                                                  icon: #imageLiteral(resourceName: "coin_1500Icon"),
@@ -36,8 +36,8 @@ struct AppStoreProductDetails {
                                                    levelEligibleAt: 4,
                                                    requiredPartyMembers: [])
     
-    static let Coin_300000 = AppStoreProductDetail(productID: "coin_300000",
-                                                   icon: #imageLiteral(resourceName: "coin_300000Icon"),
+    static let Coin_400000 = AppStoreProductDetail(productID: "coin_400000",
+                                                   icon: #imageLiteral(resourceName: "coin_400000Icon"),
                                                    value: 300000,
                                                    type: .givesPoints,
                                                    minutesLocked: 0,

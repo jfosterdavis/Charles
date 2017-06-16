@@ -86,6 +86,7 @@ extension AppDelegate {
                 break
             case .failed:
                 //finish the transaction
+                queue.finishTransaction(transaction)
                 break
             default:
                 break

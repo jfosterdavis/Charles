@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "coin_300000Icon.png",
+      "filename" : "coin_400000Icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "coin_300000Icon@2x.png",
+      "filename" : "coin_400000Icon@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "coin_300000Icon@3x.png",
+      "filename" : "coin_400000Icon@3x.png",
       "scale" : "3x"
     }
   ],

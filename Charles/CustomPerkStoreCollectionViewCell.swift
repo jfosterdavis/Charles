@@ -79,13 +79,13 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //perkIconImageView.backgroundColor = aspd.displayColor
         
         //color the border
-        perkColorFrame.layer.borderWidth = 4 //make distinct from perks
+        perkColorFrame.layer.borderWidth = 3 //make distinct from perks
         perkColorFrame.layer.borderColor = aspd.displayColor.cgColor
-        perkColorFrame.roundCorners(with: 3) //make frame distinct from perks
+        perkColorFrame.roundCorners(with: 4) //make frame distinct from perks
         
         //stackView.addArrangedSubview(imageView)
         
-        roundCorners(with: 3) //make corners distinct from perks
+        roundCorners(with: 4) //make corners distinct from perks
         
         perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupChecked")
         perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.95) //an off-white
@@ -106,6 +106,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         priceLabel.textColor = .white
         characterNameLabel.textColor = .white
+        statusShade.alpha = 0.0
         
     }
     
