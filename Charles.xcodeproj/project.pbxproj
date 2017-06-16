@@ -35,6 +35,9 @@
 		F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8C81EC3FA8800651FAD /* Characters.swift */; };
 		F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C8CE91EDA0FE900F15EF9 /* Levels.swift */; };
 		F60C8CEC1EDA0FF200F15EF9 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60C8CEB1EDA0FF200F15EF9 /* Level.swift */; };
+		F60D11591EF39C09008D38BE /* BasicClueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D11581EF39C09008D38BE /* BasicClueViewController.swift */; };
+		F60D115B1EF3A259008D38BE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D115A1EF3A259008D38BE /* Clue.swift */; };
+		F60D115D1EF3A37E008D38BE /* Clues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D115C1EF3A37E008D38BE /* Clues.swift */; };
 		F614075C1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */; };
 		F614075E1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F614075D1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift */; };
 		F61532301EE0F92200FCF1DC /* InsightColorStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */; };
@@ -119,6 +122,9 @@
 		F607C8C81EC3FA8800651FAD /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		F60C8CE91EDA0FE900F15EF9 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		F60C8CEB1EDA0FF200F15EF9 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		F60D11581EF39C09008D38BE /* BasicClueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicClueViewController.swift; sourceTree = "<group>"; };
+		F60D115A1EF3A259008D38BE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
+		F60D115C1EF3A37E008D38BE /* Clues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clues.swift; sourceTree = "<group>"; };
 		F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerkStoreCollectionViewController.swift; sourceTree = "<group>"; };
 		F614075D1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPerkStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightColorStickView.swift; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 				F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */,
 				F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */,
 				F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */,
+				F60D11581EF39C09008D38BE /* BasicClueViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,6 +316,8 @@
 				F615536D1EDCF5A5004BBCB6 /* Perks.swift */,
 				F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */,
 				F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */,
+				F60D115A1EF3A259008D38BE /* Clue.swift */,
+				F60D115C1EF3A37E008D38BE /* Clues.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -517,6 +526,7 @@
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F619A2651EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift in Sources */,
 				F61553681EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift in Sources */,
+				F60D115D1EF3A37E008D38BE /* Clues.swift in Sources */,
 				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F614075E1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift in Sources */,
 				F60327BC1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift in Sources */,
@@ -526,6 +536,7 @@
 				F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */,
 				F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */,
 				F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */,
+				F60D11591EF39C09008D38BE /* BasicClueViewController.swift in Sources */,
 				F607C87E1EBFC6E600651FAD /* AppDelegate.swift in Sources */,
 				F607C8BC1EBFD65F00651FAD /* Phrase.swift in Sources */,
 				F61553641EDCBF42004BBCB6 /* DataViewController+CoreGameLogic.swift in Sources */,
@@ -535,6 +546,7 @@
 				F60327B01EC51DDB00493DC3 /* Model.xcdatamodeld in Sources */,
 				F607C8BE1EBFD82700651FAD /* Subphrase.swift in Sources */,
 				F615536C1EDCF1A3004BBCB6 /* Perk.swift in Sources */,
+				F60D115B1EF3A259008D38BE /* Clue.swift in Sources */,
 				F615536E1EDCF5A5004BBCB6 /* Perks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

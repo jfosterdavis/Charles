@@ -160,13 +160,13 @@
                                 <rect key="frame" x="237" y="74" width="122" height="20"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-ak-3np">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="20"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4x!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-Jf-5wa">
-                                        <rect key="frame" x="0.0" y="0.0" width="102" height="20"/>
+                                        <rect key="frame" x="75.5" y="0.0" width="26.5" height="20"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -920,6 +920,106 @@
             </objects>
             <point key="canvasLocation" x="2090" y="-244"/>
         </scene>
+        <!--Basic Clue View Controller-->
+        <scene sceneID="Jcl-am-aPL">
+            <objects>
+                <viewController storyboardIdentifier="BasicClueViewController" modalTransitionStyle="crossDissolve" id="69u-21-rJP" customClass="BasicClueViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ph2-fT-AWG"/>
+                        <viewControllerLayoutGuide type="bottom" id="qix-oG-VnG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ovi-MD-1U6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-bc-ojY">
+                                <rect key="frame" x="16" y="10" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tM3-jL-8C8"/>
+                                </constraints>
+                                <state key="normal" image="x"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="69u-21-rJP" eventType="touchUpInside" id="er8-rp-rnB"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
+                                <rect key="frame" x="16" y="55" width="343" height="602"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Nature of Light" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
+                                        <rect key="frame" x="7.5" y="0.0" width="328" height="47"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="33"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The absence of all light is darkness." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
+                                        <rect key="frame" x="20" y="52" width="303.5" height="70.5"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
+                                        <rect key="frame" x="0.0" y="127.5" width="343" height="70.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All light is a composite of three primary colors: Red, Green, and Blue." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
+                                        <rect key="frame" x="16.5" y="203" width="310.5" height="106"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                        <rect key="frame" x="0.0" y="314" width="343" height="71"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All colors can be described by the amount of each of the primary colors they contain." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
+                                        <rect key="frame" x="0.0" y="390" width="343" height="136.5"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                        <rect key="frame" x="0.0" y="531.5" width="343" height="70.5"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Wiu-SB-dya" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="GBj-Hl-iPh"/>
+                                    <constraint firstItem="AXb-Ip-QsM" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="R8W-Wg-eGV"/>
+                                    <constraint firstItem="ez7-k0-ovo" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="d6t-dH-Hvm"/>
+                                    <constraint firstItem="Wiu-SB-dya" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="fkv-gC-f2a"/>
+                                    <constraint firstItem="AXb-Ip-QsM" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="lYd-XF-PQy"/>
+                                    <constraint firstItem="ez7-k0-ovo" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="tcf-wK-Jpo"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="zgc-bc-ojY" secondAttribute="bottom" constant="5" id="GPQ-fC-iYB"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="width" secondItem="zgc-bc-ojY" secondAttribute="height" id="Jj7-cE-d3h"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="LUL-pb-Rex"/>
+                            <constraint firstItem="qix-oG-VnG" firstAttribute="top" secondItem="6tJ-bn-DmN" secondAttribute="bottom" constant="10" id="QOV-zl-Eie"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6tJ-bn-DmN" secondAttribute="trailing" id="fZu-7p-5Gg"/>
+                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="jTQ-BY-X1Y"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="10" id="o5t-2Z-YDU"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="clueTitle" destination="Peo-TG-cdD" id="TFS-b3-Wrh"/>
+                        <outlet property="dismissButton" destination="zgc-bc-ojY" id="WS5-HU-UUK"/>
+                        <outlet property="part1" destination="LFY-gh-fO0" id="F3F-Ph-NlZ"/>
+                        <outlet property="part1ImageView" destination="ez7-k0-ovo" id="Td5-ij-taM"/>
+                        <outlet property="part2" destination="3Kd-Ho-fv8" id="A2U-kB-EYW"/>
+                        <outlet property="part2ImageView" destination="AXb-Ip-QsM" id="JUa-Hr-hac"/>
+                        <outlet property="part3" destination="By9-Ym-U5G" id="98H-PQ-KrK"/>
+                        <outlet property="part3ImageView" destination="Wiu-SB-dya" id="vun-OP-aJO"/>
+                        <outlet property="stackView" destination="6tJ-bn-DmN" id="BVE-H6-l6x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QoT-XH-FCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588" y="-892"/>
+        </scene>
         <!--Departing Characters View Controller-->
         <scene sceneID="juc-CW-sNf">
             <objects>
@@ -1467,6 +1567,7 @@
         <image name="Grid-4Selected" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
         <image name="bullseye" width="69" height="80"/>
+        <image name="coin_100000Icon" width="69" height="80"/>
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hex-key" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>

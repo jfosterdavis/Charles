@@ -192,10 +192,29 @@ extension DataViewController {
             
         }
         
+        checkIfClueShouldBePresentedAndPresent()
         
     }
     
-    //calculates the progress value for the progress meter based on the user's level and XP.  returns Float
+    ///checks if the user's new level warrants the presentation of a clue, and presents that clue
+    func checkIfClueShouldBePresentedAndPresent() {
+        let userXP = calculateUserXP()
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let userCurrentLevel = userLevelAndProgress.0.level
+        let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
+        
+        //if the user progressed to get to here (as opposed to lost a level) and there is a clue for this new level
+        if let clue = Clues.Lineup[userCurrentLevel], didPlayerProgressToGetHere  {
+            //there is a clue, so present this clue
+            let topVC = topMostController()
+            let clueVC = self.storyboard!.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+            clueVC.clue = clue
+            topVC.present(clueVC, animated: true, completion: nil)
+        }
+
+    }
+    
+    ///calculates the progress value for the progress meter based on the user's level and XP.  returns Float
     func calculateProgressValue() -> Float? {
         //get user's level and progress
         let userXP = calculateUserXP()
