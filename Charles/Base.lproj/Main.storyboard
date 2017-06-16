@@ -958,7 +958,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
                                         <rect key="frame" x="0.0" y="127.5" width="343" height="70"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All light is a composite of three primary colors: Red, Green, and Blue." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
@@ -967,16 +967,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
-                                        <rect key="frame" x="0.0" y="313.5" width="343" height="70.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ObjectiveCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                        <rect key="frame" x="0.0" y="313.5" width="343" height="71"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All colors can be described by the amount of each of the primary colors they contain." lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
-                                        <rect key="frame" x="0.0" y="389" width="343" height="138"/>
+                                        <rect key="frame" x="0.0" y="389.5" width="343" height="137.5"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
                                         <rect key="frame" x="0.0" y="532" width="343" height="70"/>
                                     </imageView>
                                 </subviews>
@@ -1567,8 +1567,10 @@
         <image name="Grid-4" width="28" height="24"/>
         <image name="Grid-4Selected" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
+        <image name="ObjectiveCurve" width="78" height="80"/>
+        <image name="StatusCurve" width="78" height="80"/>
+        <image name="WhiteOppositeBlack" width="78" height="80"/>
         <image name="bullseye" width="69" height="80"/>
-        <image name="coin_100000Icon" width="69" height="80"/>
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hex-key" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>
