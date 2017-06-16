@@ -4,5 +4,7 @@
 <array>
 	<string>coin_100000</string>
 	<string>coin_400000</string>
+	<string>coin_1M</string>
+	<string>coin_10M</string>
 </array>
 </plist>

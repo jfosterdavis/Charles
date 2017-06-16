@@ -25,6 +25,7 @@ class AppStoreProductDetail: CoreDataNSObject {
     let keyCurrentScore = "CurrentScore"
     
     var productID: String!
+    var name: String!
     var icon: UIImage!
     var value: Int!
     var type: AppStoreProductDetailType!
@@ -35,6 +36,7 @@ class AppStoreProductDetail: CoreDataNSObject {
     
     // MARK: Initializers
     init(productID: String,
+         name: String,
         icon: UIImage,
         value: Int,
         type: AppStoreProductDetailType,
@@ -46,6 +48,7 @@ class AppStoreProductDetail: CoreDataNSObject {
         super.init()
         
         self.productID = productID
+        self.name = name
         self.icon = icon
         self.value = value
         self.type = type

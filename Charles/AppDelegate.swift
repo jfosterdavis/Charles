@@ -69,6 +69,7 @@ extension AppDelegate {
             switch transaction.transactionState {
             case .purchasing:
                 //update the UI to let user know it is happenening
+                //this will be done by the store
                 break
             case .purchased:
                 //validate the purchase
@@ -85,6 +86,7 @@ extension AppDelegate {
                 //this could take some time before transaction is updated
                 break
             case .failed:
+                //store will let use know what went wrong
                 //finish the transaction
                 queue.finishTransaction(transaction)
                 break

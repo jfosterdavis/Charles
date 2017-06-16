@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 import StoreKit
 
-class PerkStoreCollectionViewController: StoreCollectionViewController, SKProductsRequestDelegate {
+class PerkStoreCollectionViewController: StoreCollectionViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
 
     
@@ -48,9 +48,16 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         lockAllExpiredPerks()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //get notified for queue events
+        SKPaymentQueue.default().add(self)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+        SKPaymentQueue.default().remove(self)
         
     }
     
@@ -272,11 +279,19 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
         if response.products.count > 0 {
-            self.appStoreProducts = response.products
+            var validProducts = response.products
+            var productsArray = [SKProduct]()
+            for i in 0 ..< validProducts.count
+            {
+                let product = validProducts[i]
+                productsArray.append(product)
+            }
+            productsArray.sort{(Double($0.price) < Double($1.price))}
+            self.appStoreProducts = productsArray
             
             for invalidIdentifier in response.invalidProductIdentifiers {
                 //handle any invalid product identifiers
-                print("Found an invalid product identifier")
+                print("Found an invalid product identifier: \(invalidIdentifier)")
             }
         }
         
@@ -289,6 +304,42 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         collectionView.reloadData()
     }
     
+    
+    /******************************************************/
+    /*******************///MARK: SKPaymentTransactionsObserverDelegate
+    /******************************************************/
+    @available(iOS 3.0, *)
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                //update the UI to let user know it is happenening
+                break
+            case .purchased:
+                //validate the purchase
+                //deduct the price
+                score = getCurrentScore()
+                updateScoreLabel()
+                break
+            case .failed:
+                //notify user in certain circumstances
+                //TODO: determine what those circumstances are
+                
+                let errorMessage = String(describing: transaction.error!.localizedDescription)
+                let productID = transaction.payment.productIdentifier
+                let delegate = UIApplication.shared.delegate as! AppDelegate
+                let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
+                let productName = String(describing: aspd.name!)
+                
+                let alert = UIAlertController(title: "Purchase Failed", message: "Purchase of \(productName) failed: \(errorMessage).  Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            default:
+                break
+                
+            }
+        }
+    }
     
     
     
