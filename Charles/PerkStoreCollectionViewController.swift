@@ -54,14 +54,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         super.viewWillAppear(animated)
         //get notified for queue events
         SKPaymentQueue.default().add(self)
+        
+        //updateTimer()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        updateTimer()
+//        
+//    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         updateTimer()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
