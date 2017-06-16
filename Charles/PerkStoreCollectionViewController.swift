@@ -50,18 +50,18 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         //updateTimer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //get notified for queue events
+        SKPaymentQueue.default().add(self)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    
         
         updateTimer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        //get notified for queue events
-        SKPaymentQueue.default().add(self)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -328,8 +328,22 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     
     
     /******************************************************/
+    /*******************///MARK: Flow Layout
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = storeCollectionView.bounds.size.width / 2 - 5
+        let height = width
+        return CGSize(width: CGFloat(width), height: CGFloat(height))
+    }
+    
+    
+    
+    
     /*******************///MARK: SKPaymentTransactionsObserverDelegate
     /******************************************************/
+    
     @available(iOS 3.0, *)
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
@@ -363,18 +377,6 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         }
     }
     
-    
-    
-    /******************************************************/
-    /*******************///MARK: Flow Layout
-    /******************************************************/
-    override func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = storeCollectionView.bounds.size.width / 2 - 5
-        let height = width
-        return CGSize(width: CGFloat(width), height: CGFloat(height))
-    }
     
     
     /******************************************************/
