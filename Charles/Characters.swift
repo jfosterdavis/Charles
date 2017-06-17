@@ -38,7 +38,7 @@ struct Characters {
                                    hoursUnlocked: 96,
                                    levelEligibleAt: 15,
                                    phrases: [Phrase(name: "I'm a pimp",
-                                                    likelihood: 60,
+                                                    likelihood: 50,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "pimp", audioFilePath: Bundle.main.path(forResource: "Pimp", ofType: "m4a", inDirectory: "Audio/Charles"))
@@ -48,7 +48,7 @@ struct Characters {
                                                             Slot(tone: -200, color: .green)
                                                 ]),
                                              Phrase(name: "I'm a playa",
-                                                    likelihood: 65,
+                                                    likelihood: 45,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "playa", audioFilePath: Bundle.main.path(forResource: "Playa", ofType: "m4a", inDirectory: "Audio/Charles"))
@@ -59,7 +59,7 @@ struct Characters {
                                                             Slot(tone: 600, color: .cyan)
                                                 ]),
                                              Phrase(name: "I'm a playa and a pimp",
-                                                    likelihood: 40,
+                                                    likelihood: 30,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "playa and a pimp", audioFilePath: Bundle.main.path(forResource: "Playa And A Pimp", ofType: "m4a", inDirectory: "Audio/Charles"))
@@ -140,7 +140,7 @@ struct Characters {
                                 hoursUnlocked: 96,
                                 levelEligibleAt: 15,
                                phrases: [Phrase(name: "You're not the boss of me.",
-                                                likelihood: 60,
+                                                likelihood: 50,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Not", audioFilePath: Bundle.main.path(forResource: "Not", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Dah", audioFilePath: Bundle.main.path(forResource: "Dah", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -156,7 +156,7 @@ struct Characters {
                                                         Slot(tone: 200, color: .blue)
                                 ]),
                                          Phrase(name: "You're not the boss of me.",
-                                                likelihood: 40,
+                                                likelihood: 30,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Not", audioFilePath: Bundle.main.path(forResource: "Not2", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Dah", audioFilePath: Bundle.main.path(forResource: "Dah", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -172,7 +172,7 @@ struct Characters {
                                                         Slot(tone: 400, color: .red)
                                             ]),
                                          Phrase(name: "I'm gonna call charter.",
-                                                likelihood: 60,
+                                                likelihood: 45,
                                                 subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Gonna", audioFilePath: Bundle.main.path(forResource: "Gonna", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Call", audioFilePath: Bundle.main.path(forResource: "Call", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -185,7 +185,7 @@ struct Characters {
                                                         Slot(tone: -300, color: .blue)
                                             ]),
                                          Phrase(name: "I'm gonna call charter.",
-                                                likelihood: 65,
+                                                likelihood: 45,
                                                 subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm2", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Gonna", audioFilePath: Bundle.main.path(forResource: "Gonna2", ofType: "m4a", inDirectory: "Audio/Fred")),
                                                              Subphrase(words: "Call", audioFilePath: Bundle.main.path(forResource: "Call", ofType: "m4a", inDirectory: "Audio/Fred")),
@@ -272,7 +272,7 @@ struct Characters {
                                   hoursUnlocked: 168,
                                   levelEligibleAt: 5,
                                   phrases: [Phrase(name: "Rookie",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "Rookie!", audioFilePath: Bundle.main.path(forResource: "Rookie", ofType: "m4a", inDirectory: "Audio/Laura"))
                                     ],
                                                    slots: [//Slot(tone: 700, color: .red),
@@ -283,7 +283,7 @@ struct Characters {
                                                            Slot(tone: 500, color: UIColor(red: 29/255, green: 101/255, blue: 145/255, alpha: 1))
                                     ]),
                                             Phrase(name: "Rookie Down 1",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "Rookie", audioFilePath: Bundle.main.path(forResource: "Rookie2", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Down!", audioFilePath: Bundle.main.path(forResource: "Down2", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
@@ -295,7 +295,7 @@ struct Characters {
                                                     Slot(tone: 300, color: UIColor(red: 92/255, green: 166/255, blue: 36/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "Rookie Down 2",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "Rookie", audioFilePath: Bundle.main.path(forResource: "Rookie3", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Down!", audioFilePath: Bundle.main.path(forResource: "Down3", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ],
@@ -308,7 +308,7 @@ struct Characters {
                                                     Slot(tone: 450, color: .white)
                                                 ]),
                                             Phrase(name: "I love you",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "I", audioFilePath: Bundle.main.path(forResource: "I", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Love", audioFilePath: Bundle.main.path(forResource: "Love", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You", ofType: "m4a", inDirectory: "Audio/Laura"))
@@ -322,7 +322,7 @@ struct Characters {
                                                            
                                                 ]),
                                             Phrase(name: "Thomas",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "Thomas!", audioFilePath: Bundle.main.path(forResource: "Thomas", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ], slots: [Slot(tone: 900, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
                                                            Slot(tone: 450, color: .white),
@@ -332,7 +332,7 @@ struct Characters {
                                                     
                                                 ]),
                                             Phrase(name: "Hellow Sweetheart",
-                                                   likelihood: 35,
+                                                   likelihood: 55,
                                                    subphrases: [Subphrase(words: "Hello", audioFilePath: Bundle.main.path(forResource: "Hello", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Sweetheart", audioFilePath: Bundle.main.path(forResource: "Sweetheart", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ], slots: [Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
@@ -343,7 +343,7 @@ struct Characters {
                                                            Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "BlahBlah",
-                                                   likelihood: 35,
+                                                   likelihood: 55,
                                                    subphrases: [Subphrase(words: "Blahlahlalhhdhhlalhlahlha", audioFilePath: Bundle.main.path(forResource: "BlahBlah", ofType: "m4a", inDirectory: "Audio/Laura"))
                                                 ], slots: [Slot(tone: 600, color: .black),
                                                            Slot(tone: 550, color: .red),
@@ -357,7 +357,7 @@ struct Characters {
                                                            Slot(tone: 575, color: .black)
                                                 ]),
                                             Phrase(name: "I'm Not Even Tired Zzzz",
-                                                   likelihood: 40,
+                                                   likelihood: 60,
                                                    subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Not", audioFilePath: Bundle.main.path(forResource: "Not", ofType: "m4a", inDirectory: "Audio/Laura")),
                                                                 Subphrase(words: "Even", audioFilePath: Bundle.main.path(forResource: "Even", ofType: "m4a", inDirectory: "Audio/Laura")),
@@ -647,7 +647,7 @@ struct Characters {
                                    hoursUnlocked: 72,
                                    levelEligibleAt: 64, //64
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off", //he will have his shirt off in the store!
-                                                    likelihood: 55,
+                                                    likelihood: 45,
                                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: Bundle.main.path(forResource: "Maybe", ofType: "m4a", inDirectory: "Audio/Matthew")),
                                                                  Subphrase(words: "I", audioFilePath: Bundle.main.path(forResource: "I", ofType: "m4a", inDirectory: "Audio/Matthew")),
                                                                  Subphrase(words: "Should", audioFilePath: Bundle.main.path(forResource: "Should", ofType: "m4a", inDirectory: "Audio/Matthew")),
@@ -666,7 +666,7 @@ struct Characters {
                                                         Slot(tone: -400, color: UIColor(red: 111/255, green: 147/255, blue: 232/255, alpha: 1))
                                     ]),
                                              Phrase(name: "All right all right all right 1",
-                                                    likelihood: 35,
+                                                    likelihood: 25,
                                                     subphrases: [Subphrase(words: "All right all right all right", audioFilePath: Bundle.main.path(forResource: "AllRightAllRight", ofType: "m4a", inDirectory: "Audio/Matthew"))
                                     ],
                                                     slots: [
@@ -678,7 +678,7 @@ struct Characters {
                                                         
                                     ]),
                                              Phrase(name: "All right",
-                                                    likelihood: 30,
+                                                    likelihood: 20,
                                                     subphrases: [Subphrase(words: "Alllll riiight", audioFilePath: Bundle.main.path(forResource: "AllRight", ofType: "m4a", inDirectory: "Audio/Matthew"))
                                     ],
                                                     slots: [
@@ -689,7 +689,7 @@ struct Characters {
                                     ]),
                                              
                                              Phrase(name: "All right all right all right 2",
-                                                    likelihood: 50,
+                                                    likelihood: 45,
                                                     subphrases: [Subphrase(words: "All right all right all right", audioFilePath: Bundle.main.path(forResource: "AllRightAllRight2", ofType: "m4a", inDirectory: "Audio/Matthew"))
                                                 ],
                                                     slots: [
@@ -820,7 +820,7 @@ struct Characters {
                                    hoursUnlocked: 7200, //300 days, 7200
                                    levelEligibleAt: 105, //105
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off",
-                                    likelihood: 30,
+                                    likelihood: 10,
                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),
                                                  Subphrase(words: "aye", audioFilePath: nil),
                                                  Subphrase(words: "Should", audioFilePath: nil),
@@ -853,7 +853,7 @@ struct Characters {
                                         Slot(tone: 0, color: UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1))
                                     ]),
                                              Phrase(name: "All right all right all right",
-                                                    likelihood: 50,
+                                                    likelihood: 15,
                                                     subphrases: [Subphrase(words: "All right.", audioFilePath: nil),
                                                                  Subphrase(words: "All right.", audioFilePath: nil),
                                                                  Subphrase(words: "All right!", audioFilePath: nil)
@@ -884,7 +884,7 @@ struct Characters {
                                     
                                     ,
                                              Phrase(name: "You're not the boss of me.",
-                                                    likelihood: 25,
+                                                    likelihood: 5,
                                                     subphrases: [Subphrase(words: "You're", audioFilePath: nil),
                                                                  Subphrase(words: "not", audioFilePath: nil),
                                                                  Subphrase(words: "the", audioFilePath: nil),
@@ -918,7 +918,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "I'm a player.",
-                                                    likelihood: 20,
+                                                    likelihood: 5,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: nil),
                                                                  Subphrase(words: "a", audioFilePath: nil),
                                                                  Subphrase(words: "playah?", audioFilePath: nil)
@@ -948,7 +948,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "Gee golly mister.",
-                                                    likelihood: 20,
+                                                    likelihood: 5,
                                                     subphrases: [Subphrase(words: "Gee", audioFilePath: nil),
                                                                  Subphrase(words: "golly", audioFilePath: nil),
                                                                  Subphrase(words: "mister!", audioFilePath: nil)
@@ -979,7 +979,7 @@ struct Characters {
 
                                     ,
                                              Phrase(name: "Mo money mo problems.",
-                                                    likelihood: 11,
+                                                    likelihood: 3,
                                                     subphrases: [Subphrase(words: "More money?", audioFilePath: nil),
                                                                  Subphrase(words: "More problems!", audioFilePath: nil)
                                                         
@@ -1008,7 +1008,7 @@ struct Characters {
                                                 ])
                                     ,
                                              Phrase(name: "What's the square root of this aparment",
-                                                    likelihood: 35,
+                                                    likelihood: 4,
                                                     subphrases: [Subphrase(words: "What's the square root of this apartment?", audioFilePath: nil)
                                                         
                                                 ],
