@@ -218,10 +218,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
         
-        
-        
-        
-        
+        self.collectionView.collectionViewLayout.invalidateLayout()
+        //self.collectionView?.reloadItems(at: [indexPath])
+        cell.layoutIfNeeded()
         
         return cell
     }
@@ -330,6 +329,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         
         //in app purchases have arrived so refresh the collection view
         collectionView.reloadData()
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -339,6 +339,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     override func collectionView(_ collectionView: UICollectionView,
                                  layout collectionViewLayout: UICollectionViewLayout,
                                  sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //self.collectionView.collectionViewLayout.invalidateLayout()
+        
         let width = storeCollectionView.bounds.size.width / 2 - 5
         let height = width
         return CGSize(width: CGFloat(width), height: CGFloat(height))
@@ -395,6 +397,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         lockAllExpiredPerks()
         
         collectionView.reloadData()
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     /******************************************************/
@@ -437,6 +440,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
                 reconcileScoreFromPurchase(purchasePrice: perk.price!)
                 
                 collectionView.reloadData()
+                self.collectionView.collectionViewLayout.invalidateLayout()
                 
                 print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
             }
