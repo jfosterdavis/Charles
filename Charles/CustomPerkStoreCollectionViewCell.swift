@@ -108,6 +108,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         characterNameLabel.textColor = .white
         statusShade.alpha = 0.0
         
+        //ensure font is not bold.
+        priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        
     }
     
     
