@@ -874,7 +874,7 @@ extension DataViewController {
         
         //give bonus for player's level
         let playerLevel = getUserCurrentLevel().level
-        let levelAdjustedScoreToAward = CGFloat(playerLevel * 4)
+        let levelAdjustedScoreToAward = scoreToAward + CGFloat(playerLevel * 4)
         
         return (Int(levelAdjustedScoreToAward), pointMessage, Float(Float(scorePercent)/100.0))
     }
