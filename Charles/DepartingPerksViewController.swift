@@ -55,4 +55,9 @@ class DepartingPerksViewController: PerkStoreCollectionViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    ///controls which IAPs are displayed.  Should be none
+    override func getAppStoreProductsRequest() -> [String] {
+        return [String]()
+    }
+    
 }
