@@ -484,9 +484,9 @@ extension DataViewController {
                     /******************************************************/
 
                     
-                    //if they got a perfect score, double the points earned
+                    //if they got a perfect score, triple the points earned
                     if scoreResults.2 == 1 {
-                        pointsJustScored = pointsJustScored * 2
+                        pointsJustScored = pointsJustScored * 3
                     }
                     
                     //award points
