@@ -367,15 +367,16 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
                 //notify user in certain circumstances
                 //TODO: determine what those circumstances are
                 
-                let errorMessage = String(describing: transaction.error!.localizedDescription)
-                let productID = transaction.payment.productIdentifier
-                let delegate = UIApplication.shared.delegate as! AppDelegate
-                let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
-                let productName = String(describing: aspd.name!)
-                
-                let alert = UIAlertController(title: "Purchase Failed", message: "Purchase of \(productName) failed: \(errorMessage).  Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+//                let errorMessage = String(describing: transaction.error!.localizedDescription)
+//                let productID = transaction.payment.productIdentifier
+//                let delegate = UIApplication.shared.delegate as! AppDelegate
+//                let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
+//                let productName = String(describing: aspd.name!)
+//                
+//                let alert = UIAlertController(title: "Purchase Failed", message: "Purchase of \(productName) failed: \(errorMessage).  Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+                break
             default:
                 break
                 
