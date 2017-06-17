@@ -199,7 +199,7 @@ extension DataViewController {
             //create a button
             let slotButton = self.createButton(from: slot)
             //slotButton.isHidden = true
-            slotButton.isEnabled = false
+            slotButton.isEnabled = true
             //add the button to the array of buttons
             self.currentButtons.append(slotButton)
             
@@ -268,9 +268,9 @@ extension DataViewController {
         
         characterInteractionEnabled = enabled
         
-        for button in currentButtons {
-            button.isEnabled = enabled
-        }
+//        for button in currentButtons {
+//            button.isEnabled = enabled
+//        }
         
         objectiveFeedbackView.isUserInteractionEnabled = enabled
         
