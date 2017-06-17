@@ -329,7 +329,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         
         //in app purchases have arrived so refresh the collection view
         collectionView.reloadData()
-        self.collectionView.collectionViewLayout.invalidateLayout()
+        //self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     
