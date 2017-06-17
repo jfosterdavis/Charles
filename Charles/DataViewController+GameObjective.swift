@@ -65,8 +65,13 @@ extension DataViewController {
         let applicableAdaptationPerks = getAllPerks(ofType: .adaptClothing, withStatus: .unlocked)
         
         if !applicableAdaptationPerks.isEmpty {
-            //for now, all levels of this perk reset progress ring to black
-            objectiveFeedbackView.progressRingColor = .black
+            //highest level of this perk reset progress ring to black
+            for perk in applicableAdaptationPerks {
+                if perk.0 === Perks.Adaptation4 {
+                    objectiveFeedbackView.progressRingColor = .black
+                }
+            }
+            
         
         }
         /******************************************************/

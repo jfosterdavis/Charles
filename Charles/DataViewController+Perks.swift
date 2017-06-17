@@ -213,9 +213,9 @@ extension DataViewController {
             //get a set of color solutions.  This should be replinished when it is depleted
             //make it random if it will be additive of subractive
             let randomAdditive = Utilities.random(range: 0...1)
-            var solutionTypeAdditive = true
+            var solutionTypeAdditive = false //start with a subtractive, this gives benefit to stacking perks.
             if randomAdditive == 0 {
-                solutionTypeAdditive = false
+                solutionTypeAdditive = true
             }
             var solutionSet = [UIColor]()
             
@@ -241,9 +241,9 @@ extension DataViewController {
                         }
                         
                         if solutionTypeAdditive {
-                            solutionSet = getColorSolutionSet(from: objectiveFeedbackView.objectiveRingColor, of: .additive, forks: numberOfTimesToForkAGoodAnswer)
+                            solutionSet = getColorSolutionSet(from: objectiveFeedbackView.mainColor, of: .additive, forks: numberOfTimesToForkAGoodAnswer)
                         } else {
-                            solutionSet = getColorSolutionSet(from: objectiveFeedbackView.objectiveRingColor, of: .subtractive, forks: numberOfTimesToForkAGoodAnswer)
+                            solutionSet = getColorSolutionSet(from: objectiveFeedbackView.mainColor, of: .subtractive, forks: numberOfTimesToForkAGoodAnswer)
                         }
                     }
                     
