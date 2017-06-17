@@ -221,9 +221,9 @@ extension DataViewController {
         setAllUserInteraction(enabled: false)
         
         //disable the buttons
-        for button in currentButtons {
-            button.isEnabled = false
-        }
+//        for button in currentButtons {
+//            button.isEnabled = false
+//        }
         
         //fade out the stack
         //        UIView.animate(withDuration: 1.4, animations: {
