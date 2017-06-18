@@ -28,6 +28,8 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelDescriptionTextLabel.isHidden = false
         levelDescriptionTextLabel.text = String(describing: levelData.levelDescription!)
         
+        clueButton.roundCorners(with: 5)
+        
         if self.clue != nil {
             //if there is a clue, make this visible, otherwise not
             clueButton.isHidden = false
@@ -63,6 +65,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             let topVC = topMostController()
             let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
             clueVC.clue = clue
+            clueVC.delayDismissButton = false
             topVC.present(clueVC, animated: true, completion: nil)
         }
     }

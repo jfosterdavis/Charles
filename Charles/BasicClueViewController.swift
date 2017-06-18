@@ -29,14 +29,22 @@ class BasicClueViewController: UIViewController {
     
     var clue: Clue!
     
+    var delayDismissButton = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadClue(clue: clue)
         
-        dismissButton.isHidden = true
-        dismissButton.isEnabled = true
-        dismissButton.alpha = 0
+        if delayDismissButton {
+            dismissButton.isHidden = true
+            dismissButton.isEnabled = true
+            dismissButton.alpha = 0
+        } else {
+            dismissButton.isHidden = false
+            dismissButton.isEnabled = true
+            dismissButton.alpha = 1
+        }
         
         
         
@@ -47,7 +55,9 @@ class BasicClueViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        dismissButton.fade(.in, withDuration: 3, delay: 5, completion: nil)
+        if delayDismissButton {
+            dismissButton.fade(.in, withDuration: 3, delay: 5, completion: nil)
+        }
     }
     
     func loadClue(clue: Clue) {

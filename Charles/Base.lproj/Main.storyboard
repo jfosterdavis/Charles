@@ -1518,10 +1518,11 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-IA-jw5">
                                                     <rect key="frame" x="215" y="123" width="33" height="33"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qed-IA-jw5" secondAttribute="height" id="dPJ-bM-CtE"/>
                                                     </constraints>
-                                                    <state key="normal" image="bullseye"/>
+                                                    <state key="normal" image="shipsWheel"/>
                                                     <connections>
                                                         <action selector="clueButtonPressed:" destination="jnp-Q9-7KO" eventType="touchUpInside" id="1if-Ko-MOw"/>
                                                     </connections>
@@ -1701,6 +1702,7 @@
         <image name="musicNote" width="69" height="80"/>
         <image name="pencil" width="69" height="80"/>
         <image name="rewind" width="28" height="28"/>
+        <image name="shipsWheel" width="28" height="28"/>
         <image name="shuffle" width="28" height="20"/>
         <image name="skip-back" width="28" height="28"/>
         <image name="unlocked" width="32" height="28"/>
