@@ -1474,19 +1474,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKt-Kb-uWF">
-                                <rect key="frame" x="6" y="10" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fLU-th-3kd"/>
-                                </constraints>
-                                <state key="normal" image="x"/>
-                                <connections>
-                                    <action selector="dismissButtonPressed:" destination="TdW-eX-uUB" eventType="touchUpInside" id="UKp-qO-ZoS"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rll-M8-sk7">
-                                <rect key="frame" x="16" y="60" width="343" height="607"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="10" id="Y2w-F4-gxs">
                                     <size key="itemSize" width="256" height="164"/>
@@ -1494,8 +1483,8 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="xw6-A7-Upq" customClass="MapLineView" customModule="Charles" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="607"/>
+                                <view key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" id="xw6-A7-Upq" customClass="MapLineView" customModule="Charles" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="667"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
@@ -1508,7 +1497,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MapCollectionViewCell" reuseIdentifier="MapCell" id="jnp-Q9-7KO" customClass="MapCollectionViewCell" customModule="Charles" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" restorationIdentifier="MapCollectionViewCell" reuseIdentifier="MapCell" id="jnp-Q9-7KO" customClass="MapCollectionViewCell" customModule="Charles" customModuleProvider="target">
                                         <rect key="frame" x="43.5" y="0.0" width="256" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1527,34 +1516,59 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-IA-jw5">
+                                                    <rect key="frame" x="215" y="123" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="qed-IA-jw5" secondAttribute="height" id="dPJ-bM-CtE"/>
+                                                    </constraints>
+                                                    <state key="normal" image="bullseye"/>
+                                                    <connections>
+                                                        <action selector="clueButtonPressed:" destination="jnp-Q9-7KO" eventType="touchUpInside" id="1if-Ko-MOw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.1079327162337016" green="0.1079327162337016" blue="0.1079327162337016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="top" secondItem="jnp-Q9-7KO" secondAttribute="topMargin" id="IYt-it-Wm5"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="qed-IA-jw5" secondAttribute="trailing" id="ODw-AO-z7x"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" id="dKk-hb-jyF"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="fGb-tQ-rp7"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="m01-F5-DUj"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="centerY" secondItem="jnp-Q9-7KO" secondAttribute="centerY" id="pW8-vQ-XFL"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" id="rcl-2l-i7E"/>
+                                            <constraint firstItem="qed-IA-jw5" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="usq-g0-kQk"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" id="xw5-TD-LvK"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="qed-IA-jw5" secondAttribute="bottom" id="zcP-yp-roo"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="clueButton" destination="qed-IA-jw5" id="bKH-Cf-KF6"/>
                                             <outlet property="levelDescriptionTextLabel" destination="SCN-Xl-qeU" id="TMj-tQ-Ffv"/>
                                             <outlet property="levelNumberTextLabel" destination="oTA-CU-jeS" id="7ZM-f8-QRB"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKt-Kb-uWF">
+                                <rect key="frame" x="6" y="10" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fLU-th-3kd"/>
+                                </constraints>
+                                <state key="normal" image="x"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="TdW-eX-uUB" eventType="touchUpInside" id="UKp-qO-ZoS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rll-M8-sk7" secondAttribute="trailing" id="7QF-Aa-cXr"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="EYo-d4-ZzN"/>
-                            <constraint firstItem="rll-M8-sk7" firstAttribute="top" secondItem="IKt-Kb-uWF" secondAttribute="bottom" constant="10" id="IKP-SR-UwA"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" constant="-10" id="IOj-ra-UgY"/>
                             <constraint firstItem="aKP-db-v3P" firstAttribute="top" secondItem="rll-M8-sk7" secondAttribute="bottom" id="TxU-dW-3CU"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="width" secondItem="IKt-Kb-uWF" secondAttribute="height" id="YwF-vv-2f3"/>
+                            <constraint firstItem="rll-M8-sk7" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" id="dL6-MM-YgU"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" id="lsN-cr-O7Q"/>
                         </constraints>
                     </view>

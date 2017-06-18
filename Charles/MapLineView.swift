@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@IBDesignable
+//@IBDesignable
 class MapLineView: UIView {
     
     @IBInspectable var lineColor: UIColor = UIColor.gray

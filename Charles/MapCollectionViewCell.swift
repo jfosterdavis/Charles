@@ -15,14 +15,27 @@ class MapCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var levelNumberTextLabel: UILabel!
     @IBOutlet weak var levelDescriptionTextLabel: UILabel!
     
+    @IBOutlet weak var clueButton: UIButton!
+    
+    var clue: Clue?
+    var storyboard: UIStoryboard?
 
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from levelData: Level) {
-        self.roundCorners(with: 5)
+        self.roundCorners(with: 8)
         levelNumberTextLabel.isHidden = false
         levelNumberTextLabel.text = String(describing: levelData.level)
         levelDescriptionTextLabel.isHidden = false
         levelDescriptionTextLabel.text = String(describing: levelData.levelDescription!)
+        
+        if self.clue != nil {
+            //if there is a clue, make this visible, otherwise not
+            clueButton.isHidden = false
+            clueButton.isEnabled = true
+        } else {
+            clueButton.isHidden = true
+            clueButton.isEnabled = false
+        }
         
     }
     
@@ -37,6 +50,20 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         levelNumberTextLabel.text = "?"
         levelDescriptionTextLabel.isHidden = true
+        
+        //hide the clue
+        clueButton.isHidden = true
+        clueButton.isEnabled = false
     }
     
+    @IBAction func clueButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+        
+        if let clue = self.clue, let storyboard = self.storyboard {
+            let topVC = topMostController()
+            let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+            clueVC.clue = clue
+            topVC.present(clueVC, animated: true, completion: nil)
+        }
+    }
 }

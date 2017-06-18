@@ -35,6 +35,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        dismissButton.roundCorners(with: 5)
         
         if !initialScrollDone {
             self.initialScrollDone = true
@@ -61,9 +62,21 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         //get the user currentlevel
         let userLevelJustPassed = initialLevelToScrollTo
         
+        //cells need the storyboard to launch clues
+        cell.storyboard = self.storyboard
+        
+        
+        
+        //check to see if a clue is applicable for this cell
+        if let clue = Clues.Lineup[level.level] {
+            cell.clue = clue
+        } else {
+            cell.clue = nil
+        }
         
         //based on the user level, populate the data but for those higher than current level set the appearance as setStatusNotAchieved
-         cell.loadAppearance(from: level)
+        cell.loadAppearance(from: level)
+        
         if level.level > userLevelJustPassed {
             cell.setStatusNotAchieved()
         }
@@ -78,13 +91,10 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         var levelsArray = [Level]()
         var indexOfInitialLevelToScrollTo = 0
         for (key, value) in Levels.Game {
-            //don't add levels 1 - 10
             
-            if key >= 11 {
+            if key >= 1 {
                 levelsArray.append(value)
-
             }
-        
         }
         
         //sort the array by level where lowest is last
