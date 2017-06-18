@@ -63,6 +63,7 @@
 		F64E74951ED9E43B000E99E1 /* PieTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E74941ED9E43B000E99E1 /* PieTimerView.swift */; };
 		F66DDE271EF64114003E925D /* MapCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE261EF64114003E925D /* MapCollectionViewController.swift */; };
 		F66DDE291EF644F8003E925D /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE281EF644F8003E925D /* MapCollectionViewCell.swift */; };
+		F66DDE2B1EF65CE5003E925D /* MapLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE2A1EF65CE5003E925D /* MapLineView.swift */; };
 		F6C1D0C91EF2296800A90286 /* InAppPurchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */; };
 		F6E6CBFD1EF2FB6600091CDF /* AppStoreProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */; };
 		F6E6CBFF1EF2FD1300091CDF /* AppStoreProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */; };
@@ -151,6 +152,7 @@
 		F64E74941ED9E43B000E99E1 /* PieTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieTimerView.swift; sourceTree = "<group>"; };
 		F66DDE261EF64114003E925D /* MapCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewController.swift; sourceTree = "<group>"; };
 		F66DDE281EF644F8003E925D /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		F66DDE2A1EF65CE5003E925D /* MapLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLineView.swift; sourceTree = "<group>"; };
 		F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
 		F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetail.swift; sourceTree = "<group>"; };
 		F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetails.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */,
 				F64E74941ED9E43B000E99E1 /* PieTimerView.swift */,
 				F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */,
+				F66DDE2A1EF65CE5003E925D /* MapLineView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				F607C8C91EC3FA8800651FAD /* Characters.swift in Sources */,
 				F619A2651EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift in Sources */,
 				F61553681EDCC137004BBCB6 /* DataViewController+CharacterPhrasesButtons.swift in Sources */,
+				F66DDE2B1EF65CE5003E925D /* MapLineView.swift in Sources */,
 				F60D115D1EF3A37E008D38BE /* Clues.swift in Sources */,
 				F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */,
 				F614075E1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift in Sources */,

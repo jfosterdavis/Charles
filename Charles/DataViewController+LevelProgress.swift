@@ -205,10 +205,10 @@ extension DataViewController {
         let userCurrentLevel = userLevelAndProgress.0.level
         let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
         
-        if didPlayerProgressToGetHere && userCurrentLevel >= 10 {
+        if didPlayerProgressToGetHere && userCurrentLevel >= 11 {
             let topVC = topMostController()
             let mapVC = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
-            mapVC.initialLevelToScrollTo = userCurrentLevel
+            mapVC.initialLevelToScrollTo = userCurrentLevel - 1 //initial level is the one just passed
             topVC.present(mapVC, animated: true, completion: nil)
         }
     }

@@ -22,7 +22,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelNumberTextLabel.isHidden = false
         levelNumberTextLabel.text = String(describing: levelData.level)
         levelDescriptionTextLabel.isHidden = false
-        levelDescriptionTextLabel.text = String(describing: levelData.levelDescription)
+        levelDescriptionTextLabel.text = String(describing: levelData.levelDescription!)
         
     }
     
@@ -35,7 +35,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     func setStatusNotAchieved() {
         //player has not achieved this yet so gray out important parts
         
-        levelNumberTextLabel.isHidden = true
+        levelNumberTextLabel.text = "?"
         levelDescriptionTextLabel.isHidden = true
     }
     

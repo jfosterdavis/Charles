@@ -57,12 +57,16 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MapCell", for: indexPath as IndexPath) as! MapCollectionViewCell
         let level = self.collectionViewData[indexPath.row]
-        //get the user level
+        
+        //get the user currentlevel
+        let userLevelJustPassed = initialLevelToScrollTo
+        
         
         //based on the user level, populate the data but for those higher than current level set the appearance as setStatusNotAchieved
-        
-        cell.levelNumberTextLabel.text = String(describing: level.level)
-        cell.levelDescriptionTextLabel.text = level.levelDescription
+         cell.loadAppearance(from: level)
+        if level.level > userLevelJustPassed {
+            cell.setStatusNotAchieved()
+        }
         
         return cell
     
@@ -78,11 +82,9 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             
             if key >= 11 {
                 levelsArray.append(value)
-                
-                
+
             }
-            
-            
+        
         }
         
         //sort the array by level where lowest is last
@@ -109,7 +111,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
                                  sizeForItemAt indexPath: IndexPath) -> CGSize {
         //self.collectionView.collectionViewLayout.invalidateLayout()
         
-        let width = 2 * mapCollectionView.bounds.size.width / 3
+        let width = 4 * mapCollectionView.bounds.size.width / 5
         let height = width / 1.618  //golden ratio
         return CGSize(width: CGFloat(width), height: CGFloat(height))
     }
