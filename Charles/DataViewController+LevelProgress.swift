@@ -192,8 +192,25 @@ extension DataViewController {
             
         }
         
-        checkIfClueShouldBePresentedAndPresent()
         
+        checkIfMapShouldBePresentedAndPresent()
+        
+        checkIfClueShouldBePresentedAndPresent()
+    }
+    
+    ///determines if the map should be presented
+    func checkIfMapShouldBePresentedAndPresent() {
+        let userXP = calculateUserXP()
+        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let userCurrentLevel = userLevelAndProgress.0.level
+        let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
+        
+        if didPlayerProgressToGetHere && userCurrentLevel >= 10 {
+            let topVC = topMostController()
+            let mapVC = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
+            mapVC.initialLevelToScrollTo = userCurrentLevel
+            topVC.present(mapVC, animated: true, completion: nil)
+        }
     }
     
     ///checks if the user's new level warrants the presentation of a clue, and presents that clue
