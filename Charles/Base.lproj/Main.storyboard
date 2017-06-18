@@ -933,76 +933,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-bc-ojY">
-                                <rect key="frame" x="16" y="10" width="40" height="40"/>
+                                <rect key="frame" x="6" y="9.5" width="44.5" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="tM3-jL-8C8"/>
-                                </constraints>
                                 <state key="normal" image="x"/>
                                 <connections>
                                     <action selector="dismissButtonPressed:" destination="69u-21-rJP" eventType="touchUpInside" id="er8-rp-rnB"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
-                                <rect key="frame" x="16" y="55" width="343" height="602"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soul" textAlignment="center" lineBreakMode="clip" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
+                                <rect key="frame" x="62.5" y="10" width="250" height="44.5"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
+                                <rect key="frame" x="16" y="59.5" width="343" height="597.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Nature of Light" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
-                                        <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="33"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The absence of all light is darkness." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
-                                        <rect key="frame" x="0.0" y="52" width="343" height="70.5"/>
-                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The soul is a fickle thing.  It's perspective determines the impact of our actions." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="94"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
-                                        <rect key="frame" x="0.0" y="127.5" width="343" height="70"/>
+                                        <rect key="frame" x="0.0" y="102" width="343" height="81"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All light is a composite of three primary colors: Red, Green, and Blue." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
-                                        <rect key="frame" x="0.0" y="202.5" width="343" height="106"/>
-                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When below, we absorb.  We catch that which acts upon us." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
+                                        <rect key="frame" x="0.0" y="191" width="343" height="63"/>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ObjectiveCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
-                                        <rect key="frame" x="0.0" y="313.5" width="343" height="71.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                        <rect key="frame" x="0.0" y="262" width="343" height="81.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All colors can be described by the amount of each of the primary colors they contain." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
-                                        <rect key="frame" x="0.0" y="390" width="343" height="137"/>
-                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
+                                        <rect key="frame" x="0.0" y="351.5" width="343" height="156"/>
+                                        <string key="text">Completely fail and lack everything.  Everything is maximum.  Maximum is White.  The circle is broken; the White burns at our core.</string>
+                                        <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
-                                        <rect key="frame" x="0.0" y="532" width="343" height="70"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                        <rect key="frame" x="0.0" y="515.5" width="343" height="82"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="By9-Ym-U5G" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="CDw-SE-ei3"/>
                                     <constraint firstItem="3Kd-Ho-fv8" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="CkA-oc-eKP"/>
                                     <constraint firstItem="Wiu-SB-dya" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="GBj-Hl-iPh"/>
-                                    <constraint firstItem="Peo-TG-cdD" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="KZL-oU-leP"/>
                                     <constraint firstItem="AXb-Ip-QsM" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="R8W-Wg-eGV"/>
                                     <constraint firstItem="LFY-gh-fO0" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="bJb-zm-DJM"/>
-                                    <constraint firstItem="ez7-k0-ovo" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="d6t-dH-Hvm"/>
-                                    <constraint firstItem="Wiu-SB-dya" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="fkv-gC-f2a"/>
-                                    <constraint firstItem="AXb-Ip-QsM" firstAttribute="height" secondItem="LFY-gh-fO0" secondAttribute="height" id="lYd-XF-PQy"/>
                                     <constraint firstItem="ez7-k0-ovo" firstAttribute="width" secondItem="6tJ-bn-DmN" secondAttribute="width" id="tcf-wK-Jpo"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="zgc-bc-ojY" secondAttribute="bottom" constant="5" id="GPQ-fC-iYB"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="centerX" secondItem="Ovi-MD-1U6" secondAttribute="centerX" id="5JL-Z8-md0"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="centerY" secondItem="Peo-TG-cdD" secondAttribute="centerY" id="8dh-JM-OmW"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="height" secondItem="Ovi-MD-1U6" secondAttribute="height" multiplier="1:15" id="BuK-aA-fRu"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="width" secondItem="Ovi-MD-1U6" secondAttribute="width" multiplier="2:3" id="EEN-1Q-hqY"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="width" secondItem="zgc-bc-ojY" secondAttribute="height" id="Jj7-cE-d3h"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="LUL-pb-Rex"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zgc-bc-ojY" secondAttribute="trailing" id="JuU-As-Q8k"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="10" id="KMb-BL-Okl"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" constant="-10" id="LUL-pb-Rex"/>
                             <constraint firstItem="qix-oG-VnG" firstAttribute="top" secondItem="6tJ-bn-DmN" secondAttribute="bottom" constant="10" id="QOV-zl-Eie"/>
+                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="Peo-TG-cdD" secondAttribute="bottom" constant="5" id="VHi-BX-JWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6tJ-bn-DmN" secondAttribute="trailing" id="fZu-7p-5Gg"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="jTQ-BY-X1Y"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="10" id="o5t-2Z-YDU"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="height" secondItem="Peo-TG-cdD" secondAttribute="height" priority="800" id="tx4-X5-Sff"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -1570,8 +1570,8 @@
         <image name="Grid-4" width="28" height="24"/>
         <image name="Grid-4Selected" width="28" height="24"/>
         <image name="GroupMissing" width="28" height="28"/>
-        <image name="ObjectiveCurve" width="78" height="80"/>
         <image name="StatusCurve" width="78" height="80"/>
+        <image name="WhenAbove" width="78" height="80"/>
         <image name="WhiteOppositeBlack" width="78" height="80"/>
         <image name="bullseye" width="69" height="80"/>
         <image name="hex-DollarSign" width="69" height="80"/>

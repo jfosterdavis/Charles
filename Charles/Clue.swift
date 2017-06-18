@@ -35,22 +35,16 @@ class Clue: NSObject {
          part3Image: UIImage? ) {
 
         self.clueTitle = clueTitle
+        
         self.part1 = part1
-        if let part1Image = part1Image {
-            self.part1Image = part1Image
-        }
-        if let part2 = part2 {
-            self.part2 = part2
-        }
-        if let part2Image = part2Image {
-            self.part2Image = part2Image
-        }
-        if let part3 = part3 {
-            self.part3 = part3
-        }
-        if let part3Image = part3Image {
-            self.part3Image = part3Image
-        }
+        self.part1Image = part1Image
+    
+        self.part2 = part2
+        self.part2Image = part2Image
+
+        self.part3 = part3
+        self.part3Image = part3Image
+        
         
          super.init()
     }

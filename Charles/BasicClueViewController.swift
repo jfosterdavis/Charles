@@ -35,13 +35,19 @@ class BasicClueViewController: UIViewController {
         loadClue(clue: clue)
         
         dismissButton.isHidden = true
-        dismissButton.isEnabled = false
+        dismissButton.isEnabled = true
         dismissButton.alpha = 0
+        
+        
         
     }
     
+    override func viewDidLayoutSubviews() {
+        dismissButton.roundCorners(with: 5)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        dismissButton.fade(.in, disable: false, withDuration: 14, delay: 7, completion: nil)
+        dismissButton.fade(.in, withDuration: 3, delay: 5, completion: nil)
     }
     
     func loadClue(clue: Clue) {
@@ -56,6 +62,7 @@ class BasicClueViewController: UIViewController {
         } else {
             stackView.removeArrangedSubview(self.part1ImageView)
             self.part1ImageView.removeFromSuperview()
+            self.part1ImageView.isHidden = true
         }
         
         if let part2 = clue.part2 {
@@ -64,6 +71,7 @@ class BasicClueViewController: UIViewController {
         } else {
             stackView.removeArrangedSubview(self.part2)
             self.part2.removeFromSuperview()
+            self.part2.isHidden = true
         }
         if let part2Image = clue.part2Image {
             self.part2ImageView.image = part2Image
@@ -71,6 +79,7 @@ class BasicClueViewController: UIViewController {
         } else {
             stackView.removeArrangedSubview(self.part2ImageView)
             self.part2ImageView.removeFromSuperview()
+            self.part2ImageView.isHidden = true
         }
         
         if let part3 = clue.part3 {
@@ -79,6 +88,7 @@ class BasicClueViewController: UIViewController {
         } else {
             stackView.removeArrangedSubview(self.part3)
             self.part3.removeFromSuperview()
+            self.part3.isHidden = true
         }
         if let part3Image = clue.part3Image {
             self.part3ImageView.image = part3Image
@@ -86,6 +96,7 @@ class BasicClueViewController: UIViewController {
         } else {
             stackView.removeArrangedSubview(self.part3ImageView)
             self.part3ImageView.removeFromSuperview()
+            self.part3ImageView.isHidden = true
         }
     }
     
