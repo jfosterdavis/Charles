@@ -151,7 +151,7 @@ struct Perks {
     static let Adaptation2 = Perk(     name: "Compensate",
                                         gameDescription: "Your tools adapt better to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 7000, //7000
+        price: 15000, //15000
         meta1: 0.35, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.40, //likelihood a good move option will prevail over a random
@@ -166,7 +166,7 @@ struct Perks {
     static let Adaptation3 = Perk(     name: "Adapt",
                                         gameDescription: "Your tools are suited to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 25000,//25000
+        price: 30000,//30000
         meta1: 0.4, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.45, //likelihood a good move option will prevail over a random
@@ -181,7 +181,7 @@ struct Perks {
     static let Adaptation4 = Perk(     name: "Evolve",
                                        gameDescription: "Your tools are inheriently well suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 12000, //12000
+        price: 120000, //120000
         meta1: 0.55, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
         meta3: 0.50, //likelihood a good move option will prevail over a random
