@@ -22,10 +22,16 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     
     @IBOutlet weak var dismissButton: UIButton!
     
+    //coreData keys
+    let keyXP = "keyXP"
+    
     override func viewDidLoad() {
         self.collectionView = mapCollectionView
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        //setupCoreData FRCs
+        _ = setupFetchedResultsController(frcKey: keyXP, entityName: "XP", sortDescriptors: [],  predicate: nil)
         
         loadCollectionViewData()
         
@@ -76,6 +82,11 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         //based on the user level, populate the data but for those higher than current level set the appearance as setStatusNotAchieved
         cell.loadAppearance(from: level)
+        
+        //load the stats
+        //total score
+        cell.scoreValueTextLabel.text = String(describing: getTotalPointsEarned(forLevel: level.level).formattedWithSeparator)
+        cell.puzzlesValueTextLabel.text = String(describing: getTotalPuzzlesCompleted(forLevel: level.level).formattedWithSeparator)
         
         if level.level > userLevelJustPassed {
             cell.setStatusNotAchieved()
@@ -130,5 +141,74 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     @IBAction func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    /******************************************************/
+    /*******************///MARK: Statistics Calculators
+    /******************************************************/
+    
+    ///calculates the total points the player earned, includes negative earns, for the given level
+    func getTotalPointsEarned(forLevel levelNum:Int) -> Int {
+        guard let fc = frcDict[keyXP] else {
+            //TODO: log error
+            fatalError("Counldn't get FRCDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            //TODO: log error
+            fatalError("Counldn't get XP")
+        }
+        
+        //create array of XP objects for the given level
+        let applicableXP = xps.filter{$0.level == Int64(levelNum)}
+        //sum the score attributes of each object
+        var scoreTally = 0
+        for xp in applicableXP {
+            scoreTally += Int(xp.score)
+        }
+        
+        return scoreTally
+    }
+    
+    ///calculates the total points the player earned, includes negative earns, for the given level
+    func getTotalPuzzlesCompleted(forLevel levelNum:Int) -> Int {
+        guard let fc = frcDict[keyXP] else {
+            //TODO: log error
+            fatalError("Counldn't get FRCDict")
+            
+        }
+        
+        guard let xps = fc.fetchedObjects as? [XP] else {
+            //TODO: log error
+            fatalError("Counldn't get XP")
+        }
+        
+        //create array of XP objects for the given level
+        let applicableXP = xps.filter{$0.level == Int64(levelNum)}
+        //sum the score attributes of each object
+        var recordsTally = 0
+        for xp in applicableXP {
+            //if the metaInt1 is nil or zero, count it once.  Otherwise use the number in metaInt1, which is supposed to be the number of records represented by the (consolidated) record
+//            if let numRecords = xp.metaInt1 {
+                let numRecords = xp.metaInt1
+                //records is not nil
+                //check if it is zero
+                if numRecords == 0 {
+                    recordsTally += 1 //just count this one record
+                } else {
+                    //this appears to be a consolidated record, so add the metaInt1
+                    recordsTally += Int(numRecords)
+                }
+                
+//            } else {
+//                recordsTally += 1
+//            }
+            
+            
+        }
+        
+        return recordsTally
+    }
+    
     
 }

@@ -357,6 +357,7 @@ extension DataViewController {
             for (levelKey, _) in Levels.Game {
                 var resultantValue:Int64 = 0
                 var resultantScore:Int64 = 0
+                var resultantRecordsCount: Int64 = 0
                 var found = false
                 var numFound = 0
                 
@@ -366,6 +367,7 @@ extension DataViewController {
                         //this xp record matches the level
                         resultantValue += xp.value
                         resultantScore += xp.score
+                        resultantRecordsCount += xp.metaInt1 //metaInt1 holds records counts
                         found = true
                         numFound += 1
                         
@@ -387,6 +389,7 @@ extension DataViewController {
                     newXP.earnedDatetime = Date() as NSDate
                     newXP.level = Int64(levelKey)
                     newXP.score = Int64(resultantScore)
+                    newXP.metaInt1 = resultantRecordsCount + Int64(numFound) //add the number of records consolidating to the count
                     print("Consolidated \(numFound) XP objects at level \(levelKey).  Resulting XP sum for this level is \(resultantValue).")
                 }
             }

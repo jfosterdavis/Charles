@@ -17,6 +17,18 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var clueButton: UIButton!
     
+    /******************************************************/
+    /*******************///MARK: Stats
+    /******************************************************/
+    
+    @IBOutlet weak var statsStackView: UIStackView!
+    
+    @IBOutlet weak var puzzlesTitleTextLabel: UILabel!
+    @IBOutlet weak var puzzlesValueTextLabel: UILabel!
+    
+    @IBOutlet weak var scoreTitleTextLabel: UILabel!
+    @IBOutlet weak var scoreValueTextLabel: UILabel!
+    
     var clue: Clue?
     var storyboard: UIStoryboard?
 
@@ -39,6 +51,9 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueButton.isEnabled = false
         }
         
+        //show the stats
+        statsStackView.isHidden = false
+        
     }
     
     
@@ -56,6 +71,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         //hide the clue
         clueButton.isHidden = true
         clueButton.isEnabled = false
+        
+        //hide the stats
+        statsStackView.isHidden = true
     }
     
     @IBAction func clueButtonPressed(_ sender: Any) {
