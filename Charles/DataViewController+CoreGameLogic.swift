@@ -599,6 +599,11 @@ extension DataViewController {
                     /*******************///MARK: END PERK INCREASEDSCORE
                     /******************************************************/
                     
+                    //give an XP object of 0 to keep track of stats
+                    giveXP(value: 0, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    
+                    
+                    
                     //award points
                     setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                     
