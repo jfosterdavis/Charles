@@ -97,24 +97,25 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             
             //now check to see if any future levels have look-aheads
             //can the player see that there is a clue
-            if level.level >= userLevelJustPassed + lookAheadClue {
+            if level.level > userLevelJustPassed && level.level <= userLevelJustPassed + lookAheadClue {
                 cell.setStatusNotAchievedButCluesOnly()
             }
             
             //can the player read the clue if present
-            if level.level >= userLevelJustPassed + lookAheadClueRead {
+            if level.level > userLevelJustPassed && level.level <= userLevelJustPassed + lookAheadClueRead {
                 cell.setStatusNotAchievedButCluesOnly(enabled: true)
             }
             
             //can the player see the success and failure stats
-            if level.level >= userLevelJustPassed + lookAheadClue {
-                cell.replaceStatsLabelsWithCriteriaAndShow()
+            if level.level > userLevelJustPassed && level.level <= userLevelJustPassed + lookAheadSuccessFailureCriteria {
+                cell.replaceStatsLabelsWithCriteriaAndShow(from: level)
                 
                 //set the statistics
                 let successPercent = Int(level.successThreshold * 100)
                 cell.puzzlesValueTextLabel.text = String(describing: "\(successPercent)%")
                 let failurePercent = Int(level.punishThreshold * 100)
                 cell.scoreValueTextLabel.text = String(describing: "\(failurePercent)%")
+                
             }
             
         }

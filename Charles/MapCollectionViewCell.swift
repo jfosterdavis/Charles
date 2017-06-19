@@ -31,7 +31,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     var clue: Clue?
     var storyboard: UIStoryboard?
-
+    
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from levelData: Level) {
         self.roundCorners(with: 8)
@@ -85,19 +85,33 @@ class MapCollectionViewCell: UICollectionViewCell {
         setStatusNotAchieved()
         
         //show the clue
-        clueButton.isHidden = false
+        
+        if self.clue != nil {
+            //if there is a clue, make this visible, otherwise not
+            clueButton.isHidden = false
+        } else {
+            clueButton.isHidden = true
+        }
+        
         clueButton.isEnabled = enabled
     }
     
     ///replaces the statistics with the success and failure criteria
-    func replaceStatsLabelsWithCriteriaAndShow() {
+    func replaceStatsLabelsWithCriteriaAndShow(from levelData: Level) {
         
         //load stats labels
         puzzlesTitleTextLabel.text = "Success"
         scoreTitleTextLabel.text = "Failure"
         
+        //title label
+        //levelDescriptionTextLabel.isHidden = false
+        //levelDescriptionTextLabel.text = "Upcoming"
+        
         //show the stats
         statsStackView.isHidden = false
+        
+        //also show the level number
+        levelNumberTextLabel.text = String(describing: levelData.level)
         
     }
     
