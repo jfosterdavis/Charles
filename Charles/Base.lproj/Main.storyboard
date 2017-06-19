@@ -1511,19 +1511,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="existence exists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-Xl-qeU">
-                                                    <rect key="frame" x="-0.5" y="8" width="256" height="35"/>
-                                                    <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="25"/>
+                                                    <rect key="frame" x="-0.5" y="8" width="256" height="38"/>
+                                                    <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="27"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h7N-S4-Igi">
-                                                    <rect key="frame" x="28" y="48" width="200" height="70"/>
+                                                    <rect key="frame" x="28" y="51" width="200" height="67"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86L-pi-Eai">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86L-pi-Eai">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="33.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rounds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-rK-42l">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="28"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rounds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-rK-42l">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="28"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="V7f-V8-0Z2"/>
                                                                     </constraints>
@@ -1532,7 +1532,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-wp-3KI">
-                                                                    <rect key="frame" x="150" y="0.0" width="50" height="28"/>
+                                                                    <rect key="frame" x="105" y="0.0" width="95" height="28"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="dmp-PT-YFk"/>
                                                                     </constraints>
@@ -1543,11 +1543,11 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.35977157360000001" green="0.35977157360000001" blue="0.35977157360000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
-                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqF-v7-seP">
-                                                            <rect key="frame" x="0.0" y="35" width="200" height="35"/>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqF-v7-seP">
+                                                            <rect key="frame" x="0.0" y="33.5" width="200" height="33.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Net Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-vS-IvP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="118.5" height="28"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Net" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-vS-IvP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="28"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ZVr-Id-Rga"/>
                                                                     </constraints>
@@ -1556,7 +1556,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="56,243" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jbc-vt-F8F">
-                                                                    <rect key="frame" x="128.5" y="0.0" width="71.5" height="28"/>
+                                                                    <rect key="frame" x="105" y="0.0" width="95" height="28"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="VKo-uW-uFl"/>
                                                                     </constraints>

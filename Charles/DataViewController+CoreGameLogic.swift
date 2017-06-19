@@ -390,6 +390,18 @@ extension DataViewController {
                     
                     
                     /******************************************************/
+                    /*******************///MARK: Perfect Score Bonus
+                    /******************************************************/
+
+                    //if they got a perfect score, triple the points earned
+                    if scoreResults.2 == 1 {
+                        pointsJustScored = pointsJustScored * 3
+                    }
+                    
+                    
+                    
+                    
+                    /******************************************************/
                     /*******************///MARK: PERK INCREASEDSCORE
                     /******************************************************/
                     
@@ -483,12 +495,6 @@ extension DataViewController {
                     /*******************///MARK: END  PERK INCREASEDXP
                     /******************************************************/
 
-                    
-                    //if they got a perfect score, triple the points earned
-                    if scoreResults.2 == 1 {
-                        pointsJustScored = pointsJustScored * 3
-                    }
-                    
                     //award points
                     setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                     
@@ -496,14 +502,8 @@ extension DataViewController {
                         presentJustScoredMessageFeedback(message: scoreMessage)
                     }
                     
-                } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
                     
-                    //only give negative XP if the sum of their XP is greater than zero.
-                    //This prevents them from going below level 1
-                    let playerXP = calculateUserXP()
-                    if playerXP > 0 {
-                        giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
-                    }
+                } else if scoreResults.2 <= (level.punishThreshold + successThresholdPerkPrecisionAdjustmentModifier) {  //if the score was so low that use must lose XP
                     
                     //penalty points!
                     //penalty is negative the amount you would have scored
@@ -515,6 +515,14 @@ extension DataViewController {
                     }
                     
                     setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
+                    
+                    //only give negative XP if the sum of their XP is greater than zero.
+                    //This prevents them from going below level 1
+                    //also, player's points (score) should be negative here.
+                    let playerXP = calculateUserXP()
+                    if playerXP > 0 {
+                        giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    }
                     
                     //give them a message so they know how bad they did
                     if let scoreMessage = scoreResults.1{
