@@ -321,16 +321,16 @@ struct Characters {
                                                            Slot(tone: 300, color: UIColor(red: 166/255, green: 73/255, blue: 36/255, alpha: 1))
                                                            
                                                 ]),
-                                            Phrase(name: "Thomas",
-                                                   likelihood: 60,
-                                                   subphrases: [Subphrase(words: "Thomas!", audioFilePath: Bundle.main.path(forResource: "Thomas", ofType: "m4a", inDirectory: "Audio/Laura"))
-                                                ], slots: [Slot(tone: 900, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
-                                                           Slot(tone: 450, color: .white),
-                                                           Slot(tone: 400, color: UIColor(red: 43/255, green: 145/255, blue: 29/255, alpha: 1)),
-                                                           Slot(tone: 350, color: .white),
-                                                           Slot(tone: 300, color: UIColor(red: 29/255, green: 43/255, blue: 145/255, alpha: 1))
-                                                    
-                                                ]),
+//                                            Phrase(name: "Thomas",
+//                                                   likelihood: 60,
+//                                                   subphrases: [Subphrase(words: "Thomas!", audioFilePath: Bundle.main.path(forResource: "Thomas", ofType: "m4a", inDirectory: "Audio/Laura"))
+//                                                ], slots: [Slot(tone: 900, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
+//                                                           Slot(tone: 450, color: .white),
+//                                                           Slot(tone: 400, color: UIColor(red: 43/255, green: 145/255, blue: 29/255, alpha: 1)),
+//                                                           Slot(tone: 350, color: .white),
+//                                                           Slot(tone: 300, color: UIColor(red: 29/255, green: 43/255, blue: 145/255, alpha: 1))
+//                                                    
+//                                                ]),
                                             Phrase(name: "Hellow Sweetheart",
                                                    likelihood: 55,
                                                    subphrases: [Subphrase(words: "Hello", audioFilePath: Bundle.main.path(forResource: "Hello", ofType: "m4a", inDirectory: "Audio/Laura")),
