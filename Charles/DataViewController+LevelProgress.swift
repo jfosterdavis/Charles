@@ -165,9 +165,7 @@ extension DataViewController {
                                     self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
                                     self.nextLevelLabel.textColor = nextLevelColor
                                     
-                                    //level label
-                                    self.levelDescriptionLabel.alpha = 1
-                                    self.levelDescriptionLabel.text = currentLevel.levelDescription
+                                    
                                     
                                     
                                     
@@ -177,6 +175,11 @@ extension DataViewController {
                         
                         
                         self.levelProgressView.setProgress(progress, animated: shouldAnimate)
+                        
+                        //level label
+                        self.levelDescriptionLabel.alpha = 1
+                        
+                        self.levelDescriptionLabel.text = currentLevel.levelDescription
                     })
                     
                     
@@ -184,7 +187,9 @@ extension DataViewController {
                
                 
             } else {
+                //no progress value returned (some sort of problem)
                 levelProgressView.setProgress(0.0, animated: true)
+                //TODO: log problem
             }
             
             //play sounds if needed
