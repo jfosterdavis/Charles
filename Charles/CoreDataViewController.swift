@@ -104,17 +104,17 @@ extension CoreDataViewController: NSFetchedResultsControllerDelegate {
                 //from apple documentation
                 //self.tableView.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.automatic)
                 
-                //print("case delete")
+                print("case delete")
                 break
             case .update:
                 //from apple documentation
                 
                 //nothing is needed here because when data is updated the tableView displays datas current state
-                //print("case update")
+                print("case update")
                 break
             case .move:
                 //TODO: move a cell... this may not be needed
-                //print("case move")
+                print("case move")
                 break
             }
             

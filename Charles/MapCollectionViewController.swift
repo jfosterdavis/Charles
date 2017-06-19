@@ -22,6 +22,10 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     
     @IBOutlet weak var dismissButton: UIButton!
     
+    let lookAheadClue = 10 //How many levels ahead can the player know a clue will be given
+    let lookAheadClueRead = 1 //How many levels ahead can the player read the clue
+    let lookAheadSuccessFailureCriteria = 3 //How many levels ahead acn the player see the success and failure criteria
+    
     //coreData keys
     let keyXP = "keyXP"
     
@@ -90,6 +94,29 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         if level.level > userLevelJustPassed {
             cell.setStatusNotAchieved()
+            
+            //now check to see if any future levels have look-aheads
+            //can the player see that there is a clue
+            if level.level >= userLevelJustPassed + lookAheadClue {
+                cell.setStatusNotAchievedButCluesOnly()
+            }
+            
+            //can the player read the clue if present
+            if level.level >= userLevelJustPassed + lookAheadClueRead {
+                cell.setStatusNotAchievedButCluesOnly(enabled: true)
+            }
+            
+            //can the player see the success and failure stats
+            if level.level >= userLevelJustPassed + lookAheadClue {
+                cell.replaceStatsLabelsWithCriteriaAndShow()
+                
+                //set the statistics
+                let successPercent = Int(level.successThreshold * 100)
+                cell.puzzlesValueTextLabel.text = String(describing: "\(successPercent)%")
+                let failurePercent = Int(level.punishThreshold * 100)
+                cell.scoreValueTextLabel.text = String(describing: "\(failurePercent)%")
+            }
+            
         }
         
         return cell
@@ -188,15 +215,15 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         //sum the score attributes of each object
         var recordsTally = 0
         for xp in applicableXP {
-            //if the metaInt1 is nil or zero, count it once.  Otherwise use the number in metaInt1, which is supposed to be the number of records represented by the (consolidated) record
-//            if let numRecords = xp.metaInt1 {
-                let numRecords = xp.metaInt1
+            //if the consolidatedRecords is nil or zero, count it once.  Otherwise use the number in consolidatedRecords, which is supposed to be the number of records represented by the (consolidated) record
+//            if let numRecords = xp.consolidatedRecords {
+                let numRecords = xp.consolidatedRecords
                 //records is not nil
                 //check if it is zero
                 if numRecords == 0 {
                     recordsTally += 1 //just count this one record
                 } else {
-                    //this appears to be a consolidated record, so add the metaInt1
+                    //this appears to be a consolidated record, so add the consolidatedRecords
                     recordsTally += Int(numRecords)
                 }
                 

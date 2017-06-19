@@ -51,6 +51,10 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueButton.isEnabled = false
         }
         
+        //load stats labels
+        puzzlesTitleTextLabel.text = "Rounds"
+        scoreTitleTextLabel.text = "Net"
+        
         //show the stats
         statsStackView.isHidden = false
         
@@ -74,6 +78,27 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         //hide the stats
         statsStackView.isHidden = true
+    }
+    
+    ///sets the status to not achieved, but will then allow clues to be shown.  Clue will be enabled if flag is set to true
+    func setStatusNotAchievedButCluesOnly(enabled: Bool = false) {
+        setStatusNotAchieved()
+        
+        //show the clue
+        clueButton.isHidden = false
+        clueButton.isEnabled = enabled
+    }
+    
+    ///replaces the statistics with the success and failure criteria
+    func replaceStatsLabelsWithCriteriaAndShow() {
+        
+        //load stats labels
+        puzzlesTitleTextLabel.text = "Success"
+        scoreTitleTextLabel.text = "Failure"
+        
+        //show the stats
+        statsStackView.isHidden = false
+        
     }
     
     @IBAction func clueButtonPressed(_ sender: Any) {

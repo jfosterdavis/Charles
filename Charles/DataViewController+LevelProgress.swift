@@ -304,7 +304,7 @@ extension DataViewController {
     /******************************************************/
     
     /// sets the current score, returns the newly set score
-    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil, dontExceedHighestLevel: Bool = true) {
+    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil, consolidatedRecords: Int? = nil, dontExceedHighestLevel: Bool = true) {
         guard let fc = frcDict[keyXP] else {
             return
             
@@ -339,6 +339,10 @@ extension DataViewController {
         newXP.metaString1 = metaString1
         newXP.metaString2 = metaString2
         
+        if let records = consolidatedRecords {
+            newXP.consolidatedRecords = Int64(records)
+        }
+        
         //save this right away
         stack.save()
         
@@ -372,7 +376,7 @@ extension DataViewController {
                         //this xp record matches the level
                         resultantValue += xp.value
                         resultantScore += xp.score
-                        resultantRecordsCount += xp.metaInt1 //metaInt1 holds records counts
+                        resultantRecordsCount += xp.consolidatedRecords //consolidatedRecords holds records counts
                         found = true
                         numFound += 1
                         
@@ -394,7 +398,7 @@ extension DataViewController {
                     newXP.earnedDatetime = Date() as NSDate
                     newXP.level = Int64(levelKey)
                     newXP.score = Int64(resultantScore)
-                    newXP.metaInt1 = resultantRecordsCount + Int64(numFound) //add the number of records consolidating to the count
+                    newXP.consolidatedRecords = resultantRecordsCount + Int64(numFound) //add the number of records consolidating to the count
                     print("Consolidated \(numFound) XP objects at level \(levelKey).  Resulting XP sum for this level is \(resultantValue).")
                 }
             }

@@ -78,7 +78,7 @@ struct CoreDataStack {
     // MARK: Utils
     
     func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
-        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
+        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
     }
 }
 
@@ -134,7 +134,7 @@ extension CoreDataStack {
                     try self.context.save()
                 } catch {
                     //assume was just trying to save something that was already saved
-                    print("Attempted to save something that was already saved.")
+                    print("Error: \(error)")
                     //fatalError("Error while saving main context: \(error)")
                 }
                 
