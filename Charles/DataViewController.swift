@@ -116,8 +116,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
     var pointsToLoseEachCycle = 20
     
     //constants
-    let minimumScoreToUnlockObjective = 1000
-    let minimumScoreToUnlockStore = 500
+    let minimumScoreToUnlockObjective = 600
+    let minimumScoreToUnlockStore = 300
     let minimumLevelToUnlockPerkStore = 5
     
     //color stick view for Insight
