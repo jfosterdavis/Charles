@@ -421,7 +421,22 @@ extension DataViewController {
                         sumOfSuccessScores += successScore
                     }
                     
-                    let averageSuccessScore = sumOfSuccessScores / Float(resultantRecordsCount)
+                    let averageSuccessScore: Float
+                    
+                    switch (Int(resultantRecordsCount), rawSuccessScores.count) {
+                    case (0, 1):
+                        //there is only a single record, this one is not consolidated, so it is the average
+                        averageSuccessScore = sumOfSuccessScores
+                    case (0, let y) where y > 1:
+                        //there are multiple records but none of them is a consolidated one
+                        averageSuccessScore = sumOfSuccessScores / Float(rawSuccessScores.count)
+                    case (let x, _) where x > 0:
+                        //there are multiple records but none of them is a consolidated one
+                        averageSuccessScore = sumOfSuccessScores / Float(resultantRecordsCount)
+                    default:
+                        //TODO: Make this a log entry
+                        fatalError("Unexpected case for consolidating a successScore. \(Int(resultantRecordsCount), rawSuccessScores.count))")
+                    }
                     
                     newXP.successScore = averageSuccessScore
                     

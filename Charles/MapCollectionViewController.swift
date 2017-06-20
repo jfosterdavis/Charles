@@ -279,7 +279,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             }
             
         }
-        
+                
         if applicableXP.count > 0 {
             let avgSuccessScore = successScoreSum / Float(recordsTally)
         
