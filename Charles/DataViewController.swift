@@ -230,7 +230,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
         
         //housekeeping
-        checkXPAndConsolidateIfNeccessary(consolidateAt: 100)
+        checkXPAndConsolidateIfNeccessary(consolidateAt: 300)  //with 144 levels, should be plenty to prevent too much of this.
     }
 
     override func didReceiveMemoryWarning() {
