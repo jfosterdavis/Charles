@@ -29,6 +29,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var scoreTitleTextLabel: UILabel!
     @IBOutlet weak var scoreValueTextLabel: UILabel!
     
+    @IBOutlet weak var matchRateStackView: UIStackView!
     @IBOutlet weak var matchRateTitleTextLabel: UILabel!
     @IBOutlet weak var matchRateValueTextLabel: UILabel!
     
@@ -59,14 +60,13 @@ class MapCollectionViewCell: UICollectionViewCell {
         //load stats labels
         puzzlesTitleTextLabel.text = "Rounds"
         scoreTitleTextLabel.text = "Net"
-        matchRateTitleTextLabel.text = "Avg Match"
+        matchRateTitleTextLabel.text = "Accuracy"
         
         //show the stats
         statsStackView.isHidden = false
         
-        //show avg match
-        matchRateTitleTextLabel.isHidden = false
-        matchRateValueTextLabel.isHidden = false
+        //keep avg match hidden
+        matchRateStackView.isHidden = false
         
     }
     
@@ -124,8 +124,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelNumberTextLabel.text = String(describing: levelData.level)
         
         //keep avg match hidden
-        matchRateTitleTextLabel.isHidden = true
-        matchRateValueTextLabel.isHidden = true
+        matchRateStackView.isHidden = true
         
     }
     

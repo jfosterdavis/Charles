@@ -1568,10 +1568,10 @@
                                                             <color key="backgroundColor" red="0.35977157360406087" green="0.35977157360406087" blue="0.35977157360406087" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
                                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-Q5-gZ3">
-                                                            <rect key="frame" x="0.0" y="44.5" width="200" height="22.5"/>
+                                                            <rect key="frame" x="0.5" y="44.5" width="199" height="22.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Avg Match" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sPs-LP-InQ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="22.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Accuracy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sPs-LP-InQ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="94.5" height="22.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="v5s-ZU-jcQ"/>
                                                                     </constraints>
@@ -1580,7 +1580,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="56%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c3c-Yi-OMf">
-                                                                    <rect key="frame" x="105" y="0.0" width="95" height="22.5"/>
+                                                                    <rect key="frame" x="104.5" y="0.0" width="94.5" height="22.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="rfY-Rq-m4d"/>
                                                                     </constraints>
@@ -1634,6 +1634,7 @@
                                             <outlet property="clueButton" destination="qed-IA-jw5" id="bKH-Cf-KF6"/>
                                             <outlet property="levelDescriptionTextLabel" destination="SCN-Xl-qeU" id="TMj-tQ-Ffv"/>
                                             <outlet property="levelNumberTextLabel" destination="oTA-CU-jeS" id="7ZM-f8-QRB"/>
+                                            <outlet property="matchRateStackView" destination="Ak8-Q5-gZ3" id="2Gp-ev-0IM"/>
                                             <outlet property="matchRateTitleTextLabel" destination="sPs-LP-InQ" id="U3y-L8-Mz1"/>
                                             <outlet property="matchRateValueTextLabel" destination="c3c-Yi-OMf" id="UZw-St-LNq"/>
                                             <outlet property="puzzlesTitleTextLabel" destination="O2N-rK-42l" id="wKB-Q1-MPF"/>
