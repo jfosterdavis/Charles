@@ -1613,7 +1613,7 @@
                                                 </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.1079327162337016" green="0.1079327162337016" blue="0.1079327162337016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1079327162" green="0.1079327162" blue="0.1079327162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="h7N-S4-Igi" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="20" id="BUf-aj-YRU"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="top" secondItem="jnp-Q9-7KO" secondAttribute="topMargin" id="IYt-it-Wm5"/>

@@ -68,6 +68,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         //keep avg match hidden
         matchRateStackView.isHidden = false
         
+        //background color
+        backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 1)
+        
     }
     
     
@@ -88,6 +91,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         //hide the stats
         statsStackView.isHidden = true
+        
+        //background color
+        backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 1)
     }
     
     ///sets the status to not achieved, but will then allow clues to be shown.  Clue will be enabled if flag is set to true

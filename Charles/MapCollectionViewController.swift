@@ -90,7 +90,8 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         //load the stats
         //total score
         cell.scoreValueTextLabel.text = String(describing: getTotalPointsEarned(forLevel: level.level).formattedWithSeparator)
-        cell.puzzlesValueTextLabel.text = String(describing: getTotalPuzzlesCompleted(forLevel: level.level).formattedWithSeparator)
+        let totalPuzzlesCompleted = getTotalPuzzlesCompleted(forLevel: level.level)
+        cell.puzzlesValueTextLabel.text = String(describing: totalPuzzlesCompleted.formattedWithSeparator)
         let avgMatchScore = getAvgMatchScore(forLevel: level.level)
         let formattedMatchScore = Float(Int(avgMatchScore * 1000)) / 10.0
         cell.matchRateValueTextLabel.text = String(describing: "\(formattedMatchScore)%")
@@ -121,6 +122,10 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
                 
             }
             
+        } else {
+            //set the color of this cell because user has completed this level
+            
+            cell.backgroundColor = getColorFromStats(forLevel: level.level, avgMatchScore: avgMatchScore, numPuzzlesCompleted: totalPuzzlesCompleted)
         }
         
         return cell
@@ -282,6 +287,37 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         } else {
             return 0
         }
+    }
+    
+    ///calculates the color of the cell based on two stats: accuracy and number of puzzles completed
+    func getColorFromStats(forLevel levelNum: Int, avgMatchScore: Float, numPuzzlesCompleted: Int) -> UIColor {
+        //match score (accuracy) will be red dimension.  100% red is for 0% match rate, 0% red for 100% match rate
+        let redComponent:CGFloat
+        if avgMatchScore == 0 {
+            //in case there is a 0% match score, which should never happen really
+            redComponent = 255
+            
+        } else {
+            redComponent = CGFloat(255 - Int(255.0 * avgMatchScore))
+        }
+        
+        //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 10x number of steps for that level
+        let levelSteps = Levels.Game[levelNum]!.xPRequired!
+        let levelStepsx5 = levelSteps * 5
+        let levelStepsDifference = levelStepsx5 - levelSteps
+        
+        let greenComponent: CGFloat
+        if numPuzzlesCompleted <= levelSteps {
+            greenComponent = 255
+        } else if numPuzzlesCompleted >= levelStepsx5 {
+            greenComponent = 0
+        } else {
+            greenComponent = CGFloat(255 - (255 * Int(CGFloat(numPuzzlesCompleted - levelSteps) / CGFloat(levelStepsDifference))))
+        }
+        
+        let resultantColor = UIColor(red: redComponent/255.0, green: greenComponent/255.0, blue: 0, alpha: 1)
+        
+        return resultantColor
     }
     
 }
