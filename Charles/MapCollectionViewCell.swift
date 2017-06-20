@@ -19,6 +19,9 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var readableShadedRegionView: UIView!
     
+    @IBOutlet weak var infoTextLabel: UILabel!
+    
+    
     /******************************************************/
     /*******************///MARK: Stats
     /******************************************************/
@@ -81,6 +84,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         //don't pulse
         stopPulse()
         
+        //hide info label
+        infoTextLabel.isHidden = true
+        
     }
     
     
@@ -105,6 +111,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         //background color
         backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 1)
         
+        //hide info label
+        infoTextLabel.isHidden = true
+        
     }
     
     ///sets the status to not achieved, but will then allow clues to be shown.  Clue will be enabled if flag is set to true
@@ -116,6 +125,8 @@ class MapCollectionViewCell: UICollectionViewCell {
         if self.clue != nil {
             //if there is a clue, make this visible, otherwise not
             clueButton.isHidden = false
+            //show info label
+            showInfoLabel()
         } else {
             clueButton.isHidden = true
         }
@@ -130,8 +141,10 @@ class MapCollectionViewCell: UICollectionViewCell {
     func replaceStatsLabelsWithCriteriaAndShow(from levelData: Level) {
         
         //load stats labels
-        puzzlesTitleTextLabel.text = "Success"
-        scoreTitleTextLabel.text = "Failure"
+        let greaterThanOrEqualTo = "\u{2265}"
+        let lessThanOrEqualTo = "\u{2264}"
+        puzzlesTitleTextLabel.text = "Success \(greaterThanOrEqualTo)"
+        scoreTitleTextLabel.text = "Failure \(lessThanOrEqualTo)"
         
         //title label
         //levelDescriptionTextLabel.isHidden = false
@@ -146,6 +159,15 @@ class MapCollectionViewCell: UICollectionViewCell {
         //keep avg match hidden
         matchRateStackView.isHidden = true
         
+        //show info label
+        showInfoLabel()
+        
+    }
+    
+    ///shows the info label
+    func showInfoLabel(withMessage message: String = "Info:"){
+        infoTextLabel.text = message
+        infoTextLabel.isHidden = false
     }
     
     ///pulses the shader to draw attention to itself
