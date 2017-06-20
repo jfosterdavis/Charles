@@ -184,7 +184,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         if pulseToggle {
             
             //fade in
-            let newAlpha = shadedRegionBaselineAlpha
+            let newAlpha = shadedRegionBaselineAlpha + (0.75 * (1 - shadedRegionBaselineAlpha)) //the base plus most the distance to full
             readableShadedRegionView.fade(.inOrOut,
                                           resultAlpha: newAlpha,
                                           withDuration: 1,
@@ -194,7 +194,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             pulseToggle = false
         } else {
             //fade out
-            let newAlpha = shadedRegionBaselineAlpha / 3 * 2
+            let newAlpha = shadedRegionBaselineAlpha / 4 * 3
             readableShadedRegionView.fade(.inOrOut,
                                           resultAlpha: newAlpha,
                                           withDuration: 0.5,
