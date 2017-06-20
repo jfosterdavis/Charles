@@ -17,6 +17,9 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var clueButton: UIButton!
     
+    @IBOutlet weak var readableShadedRegionView: UIView!
+    
+    
     /******************************************************/
     /*******************///MARK: Stats
     /******************************************************/
@@ -41,6 +44,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from levelData: Level) {
         self.roundCorners(with: 8)
+        readableShadedRegionView.roundCorners(with: 6)
         levelNumberTextLabel.isHidden = false
         levelNumberTextLabel.text = String(describing: levelData.level)
         levelDescriptionTextLabel.isHidden = false

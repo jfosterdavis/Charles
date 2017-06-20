@@ -1504,6 +1504,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="256" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-8K-Vml">
+                                                    <rect key="frame" x="4.5" y="5" width="246" height="154"/>
+                                                    <color key="backgroundColor" red="0.1079327162" green="0.1079327162" blue="0.1079327162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="142" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="oTA-CU-jeS">
                                                     <rect key="frame" x="0.0" y="0.0" width="256" height="164"/>
                                                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="150"/>
@@ -1511,7 +1515,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="800" text="existence exists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-Xl-qeU">
-                                                    <rect key="frame" x="-0.5" y="8" width="256" height="38"/>
+                                                    <rect key="frame" x="8" y="8" width="240" height="38"/>
                                                     <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="27"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1613,13 +1617,16 @@
                                                 </button>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.1079327162" green="0.1079327162" blue="0.1079327162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.58015493842222221" green="0.70515493842222221" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="h7N-S4-Igi" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="20" id="BUf-aj-YRU"/>
+                                            <constraint firstItem="4TQ-8K-Vml" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="CHN-VQ-INp"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="top" secondItem="jnp-Q9-7KO" secondAttribute="topMargin" id="IYt-it-Wm5"/>
+                                            <constraint firstItem="4TQ-8K-Vml" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" constant="-10" id="JyN-5F-8NP"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="qed-IA-jw5" secondAttribute="trailing" id="ODw-AO-z7x"/>
-                                            <constraint firstItem="SCN-Xl-qeU" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" id="dKk-hb-jyF"/>
+                                            <constraint firstItem="4TQ-8K-Vml" firstAttribute="centerY" secondItem="jnp-Q9-7KO" secondAttribute="centerY" id="TgV-LK-dDW"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="fGb-tQ-rp7"/>
+                                            <constraint firstItem="4TQ-8K-Vml" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" constant="-10" id="kww-vS-JBG"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="m01-F5-DUj"/>
                                             <constraint firstItem="qed-IA-jw5" firstAttribute="top" secondItem="h7N-S4-Igi" secondAttribute="bottom" constant="5" id="nTv-JM-eML"/>
                                             <constraint firstItem="h7N-S4-Igi" firstAttribute="top" secondItem="SCN-Xl-qeU" secondAttribute="bottom" constant="5" id="pFU-9A-Mxp"/>
@@ -1627,6 +1634,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="h7N-S4-Igi" secondAttribute="trailing" constant="20" id="pmq-fj-J6y"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" id="rcl-2l-i7E"/>
                                             <constraint firstItem="qed-IA-jw5" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="usq-g0-kQk"/>
+                                            <constraint firstItem="SCN-Xl-qeU" firstAttribute="width" secondItem="4TQ-8K-Vml" secondAttribute="width" constant="-6" id="wgt-83-miZ"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" id="xw5-TD-LvK"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="qed-IA-jw5" secondAttribute="bottom" id="zcP-yp-roo"/>
                                         </constraints>
@@ -1639,6 +1647,7 @@
                                             <outlet property="matchRateValueTextLabel" destination="c3c-Yi-OMf" id="UZw-St-LNq"/>
                                             <outlet property="puzzlesTitleTextLabel" destination="O2N-rK-42l" id="wKB-Q1-MPF"/>
                                             <outlet property="puzzlesValueTextLabel" destination="V9X-wp-3KI" id="EPz-HZ-Sm0"/>
+                                            <outlet property="readableShadedRegionView" destination="4TQ-8K-Vml" id="Cky-fH-VhC"/>
                                             <outlet property="scoreTitleTextLabel" destination="Jaz-vS-IvP" id="xIX-ec-rn3"/>
                                             <outlet property="scoreValueTextLabel" destination="jbc-vt-F8F" id="mHj-Ib-2GB"/>
                                             <outlet property="statsStackView" destination="h7N-S4-Igi" id="dy2-lZ-RnA"/>
