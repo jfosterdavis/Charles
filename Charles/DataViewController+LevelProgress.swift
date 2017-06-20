@@ -304,13 +304,18 @@ extension DataViewController {
     /******************************************************/
     
     /// sets the current score, returns the newly set score
-    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil, consolidatedRecords: Int? = nil, dontExceedHighestLevel: Bool = true) {
+    func giveXP(value: Int = 1, earnedDatetime: Date = Date(), level: Int, score: Int, successScore: Float, time: Int, toggles: Int, metaInt1: Int? = nil, metaInt2: Int? = nil, metaString1: String? = nil, metaString2: String? = nil, consolidatedRecords: Int? = nil, dontExceedHighestLevel: Bool = true) {
         guard let fc = frcDict[keyXP] else {
             return
             
         }
         
         guard (fc.fetchedObjects as? [XP]) != nil else {
+            return
+        }
+        
+        guard successScore >= 0 && successScore <= 1 else {
+            //TODO: log error
             return
         }
         
@@ -324,6 +329,7 @@ extension DataViewController {
         //create a new score object
         let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
         newXP.value = Int64(xpToAward)
+        newXP.successScore = successScore
         newXP.earnedDatetime = earnedDatetime as NSDate
         newXP.level = Int64(level)
         newXP.score = Int64(score)
@@ -367,6 +373,7 @@ extension DataViewController {
                 var resultantValue:Int64 = 0
                 var resultantScore:Int64 = 0
                 var resultantRecordsCount: Int64 = 0
+                var rawSuccessScores: [Float] = [Float]()
                 var found = false
                 var numFound = 0
                 
@@ -377,6 +384,15 @@ extension DataViewController {
                         resultantValue += xp.value
                         resultantScore += xp.score
                         resultantRecordsCount += xp.consolidatedRecords //consolidatedRecords holds records counts
+                        
+                        if resultantRecordsCount == 0 {
+                            //this is a single record so weigh it as 1
+                            rawSuccessScores.append(xp.successScore) //weight of 1
+                        } else {
+                            //this is a consolidated record so weigh it
+                            rawSuccessScores.append(xp.successScore * Float(xp.consolidatedRecords)) //weighted scores
+                        }
+                        
                         found = true
                         numFound += 1
                         
@@ -398,6 +414,17 @@ extension DataViewController {
                     newXP.earnedDatetime = Date() as NSDate
                     newXP.level = Int64(levelKey)
                     newXP.score = Int64(resultantScore)
+                    
+                    //calculate the average success
+                    var sumOfSuccessScores: Float = 0
+                    for successScore in rawSuccessScores {
+                        sumOfSuccessScores += successScore
+                    }
+                    
+                    let averageSuccessScore = sumOfSuccessScores / Float(resultantRecordsCount)
+                    
+                    newXP.successScore = averageSuccessScore
+                    
                     newXP.consolidatedRecords = resultantRecordsCount + Int64(numFound) //add the number of records consolidating to the count
                     print("Consolidated \(numFound) XP objects at level \(levelKey).  Resulting XP sum for this level is \(resultantValue).")
                 }

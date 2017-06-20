@@ -154,6 +154,7 @@
 		F66DDE281EF644F8003E925D /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		F66DDE2A1EF65CE5003E925D /* MapLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLineView.swift; sourceTree = "<group>"; };
 		F6993FC11EF868AF00225FCD /* Modelv2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelv2.xcdatamodel; sourceTree = "<group>"; };
+		F6993FC21EF8C5B900225FCD /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
 		F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetail.swift; sourceTree = "<group>"; };
 		F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetails.swift; sourceTree = "<group>"; };
@@ -843,10 +844,11 @@
 		F60327AE1EC51DDB00493DC3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F6993FC21EF8C5B900225FCD /* Model 3.xcdatamodel */,
 				F6993FC11EF868AF00225FCD /* Modelv2.xcdatamodel */,
 				F60327AF1EC51DDB00493DC3 /* Model.xcdatamodel */,
 			);
-			currentVersion = F6993FC11EF868AF00225FCD /* Modelv2.xcdatamodel */;
+			currentVersion = F6993FC21EF8C5B900225FCD /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

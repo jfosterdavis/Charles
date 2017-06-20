@@ -462,7 +462,7 @@ extension DataViewController {
                     
                     if applicablePerksAndUnlockedPerkObjects.isEmpty {
                         //its empty so there are no applicable perks.  Give the normal amount of XP.
-                        giveXP(level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        giveXP(level: level.level, score: pointsJustScored, successScore: scoreResults.2, time: 0, toggles: 0)
                     } else {
                         //there is a modifier.  This is located in meta1
                         var mult = 1
@@ -475,7 +475,7 @@ extension DataViewController {
                         }
         
                         // award xp
-                        giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        giveXP(value: 1 * mult, level: level.level, score: pointsJustScored, successScore: scoreResults.2, time: 0, toggles: 0)
                         
                         
                         /******************************************************/
@@ -521,7 +521,7 @@ extension DataViewController {
                     //also, player's points (score) should be negative here.
                     let playerXP = calculateUserXP()
                     if playerXP > 0 {
-                        giveXP(value: -1, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                        giveXP(value: -1, level: level.level, score: pointsJustScored, successScore: scoreResults.2, time: 0, toggles: 0)
                     }
                     
                     //give them a message so they know how bad they did
@@ -600,7 +600,7 @@ extension DataViewController {
                     /******************************************************/
                     
                     //give an XP object of 0 to keep track of stats
-                    giveXP(value: 0, level: level.level, score: pointsJustScored, time: 0, toggles: 0)
+                    giveXP(value: 0, level: level.level, score: pointsJustScored, successScore: scoreResults.2, time: 0, toggles: 0)
                     
                     
                     
