@@ -306,7 +306,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             redComponent = CGFloat(255 - Int(255.0 * avgMatchScore))
         }
         
-        //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 10x number of steps for that level
+        //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 3x number of steps for that level
         let levelSteps = Levels.Game[levelNum]!.xPRequired!
         let levelStepsx5 = levelSteps * 5
         let levelStepsDifference = levelStepsx5 - levelSteps
@@ -317,7 +317,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         } else if numPuzzlesCompleted >= levelStepsx5 {
             greenComponent = 0
         } else {
-            greenComponent = CGFloat(255 - (255 * Int(CGFloat(numPuzzlesCompleted - levelSteps) / CGFloat(levelStepsDifference))))
+            greenComponent = CGFloat(255 - Int(255 * (CGFloat(numPuzzlesCompleted - levelSteps) / CGFloat(levelStepsDifference))))
         }
         
         let resultantColor = UIColor(red: redComponent/255.0, green: greenComponent/255.0, blue: 0, alpha: 1)

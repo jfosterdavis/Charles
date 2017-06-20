@@ -87,6 +87,10 @@ class MapCollectionViewCell: UICollectionViewCell {
         //hide info label
         infoTextLabel.isHidden = true
         
+        //reset stats colors
+        puzzlesValueTextLabel.textColor = UIColor(red: 255/255, green: 126/255, blue: 55/255, alpha: 1)
+        scoreValueTextLabel.textColor = UIColor(red: 255/255, green: 126/255, blue: 55/255, alpha: 1)
+        
     }
     
     
@@ -158,6 +162,10 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         //keep avg match hidden
         matchRateStackView.isHidden = true
+        
+        //color success green and failure red
+        puzzlesValueTextLabel.textColor = .green
+        scoreValueTextLabel.textColor = .red
         
         //show info label
         showInfoLabel()
