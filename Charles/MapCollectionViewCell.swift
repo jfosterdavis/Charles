@@ -19,7 +19,6 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var readableShadedRegionView: UIView!
     
-    
     /******************************************************/
     /*******************///MARK: Stats
     /******************************************************/
@@ -40,11 +39,15 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     var clue: Clue?
     var storyboard: UIStoryboard?
+    var pulseToggle = false
+    let shadedRegionBaselineAlpha:CGFloat = 0.7
+    var timer = Timer()
     
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from levelData: Level) {
         self.roundCorners(with: 8)
         readableShadedRegionView.roundCorners(with: 6)
+        readableShadedRegionView.alpha = shadedRegionBaselineAlpha
         levelNumberTextLabel.isHidden = false
         levelNumberTextLabel.text = String(describing: levelData.level)
         levelDescriptionTextLabel.isHidden = false
@@ -75,6 +78,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         //background color
         backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 1)
         
+        //don't pulse
+        stopPulse()
+        
     }
     
     
@@ -98,6 +104,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         //background color
         backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 28/255, alpha: 1)
+        
     }
     
     ///sets the status to not achieved, but will then allow clues to be shown.  Clue will be enabled if flag is set to true
@@ -114,6 +121,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         }
         
         clueButton.isEnabled = enabled
+        
+        levelDescriptionTextLabel.isHidden = true
+        levelDescriptionTextLabel.text = "Expect:"
     }
     
     ///replaces the statistics with the success and failure criteria
@@ -136,6 +146,48 @@ class MapCollectionViewCell: UICollectionViewCell {
         //keep avg match hidden
         matchRateStackView.isHidden = true
         
+    }
+    
+    ///pulses the shader to draw attention to itself
+    func pulse() {
+        
+        if pulseToggle {
+            
+            //fade in
+            let newAlpha = shadedRegionBaselineAlpha
+            readableShadedRegionView.fade(.inOrOut,
+                                          resultAlpha: newAlpha,
+                                          withDuration: 1,
+                                          delay: 0,
+                                          completion: nil)
+            
+            pulseToggle = false
+        } else {
+            //fade out
+            let newAlpha = shadedRegionBaselineAlpha / 3 * 2
+            readableShadedRegionView.fade(.inOrOut,
+                                          resultAlpha: newAlpha,
+                                          withDuration: 0.5,
+                                          delay: 0,
+                                          completion: nil)
+            pulseToggle = true
+        }
+        
+        //set a timer to call this again
+        
+    }
+    
+    ///starts the pulse timer
+    func startPulse() {
+        //start the timer
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(pulse), userInfo: nil, repeats: true)
+    }
+    
+    ///stops the pulse timer
+    func stopPulse() {
+        //stop timer
+        timer.invalidate()
     }
     
     @IBAction func clueButtonPressed(_ sender: Any) {

@@ -128,6 +128,11 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             cell.backgroundColor = getColorFromStats(forLevel: level.level, avgMatchScore: avgMatchScore, numPuzzlesCompleted: totalPuzzlesCompleted)
         }
         
+        //if the cell just passed, pulse
+        if level.level == userLevelJustPassed {
+            cell.startPulse()
+        }
+        
         return cell
     
     }
