@@ -1475,7 +1475,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-2d-AKR" customClass="PerformanceMosaicView" customModule="Charles" customModuleProvider="target">
-                                <rect key="frame" x="39.5" y="39.5" width="295" height="587"/>
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="tileSpacing">
@@ -1495,7 +1495,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rll-M8-sk7">
                                 <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="10" id="Y2w-F4-gxs">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="60" minimumInteritemSpacing="10" id="Y2w-F4-gxs">
                                     <size key="itemSize" width="256" height="164"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1704,9 +1704,9 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rll-M8-sk7" secondAttribute="trailing" id="7QF-Aa-cXr"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="EYo-d4-ZzN"/>
-                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="height" secondItem="5Au-H7-BzN" secondAttribute="height" constant="-80" id="Gvz-QN-jY8"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="height" secondItem="5Au-H7-BzN" secondAttribute="height" id="Gvz-QN-jY8"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" constant="-10" id="IOj-ra-UgY"/>
-                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="width" secondItem="5Au-H7-BzN" secondAttribute="width" constant="-80" id="M1h-y3-Sjv"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="width" secondItem="5Au-H7-BzN" secondAttribute="width" id="M1h-y3-Sjv"/>
                             <constraint firstItem="aZJ-2d-AKR" firstAttribute="centerY" secondItem="5Au-H7-BzN" secondAttribute="centerY" id="MvG-NQ-K2Q"/>
                             <constraint firstItem="aKP-db-v3P" firstAttribute="top" secondItem="rll-M8-sk7" secondAttribute="bottom" id="TxU-dW-3CU"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="width" secondItem="IKt-Kb-uWF" secondAttribute="height" id="YwF-vv-2f3"/>

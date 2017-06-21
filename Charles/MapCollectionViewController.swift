@@ -341,7 +341,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         let levelUserJustPassed = initialLevelToScrollTo
         
         let dictionaryOfLevelsToColor = Levels.Game.filter{$0.value.level <= levelUserJustPassed}
-        let dictionaryOfLevelsToNotColor = Levels.Game.filter{$0.value.level > levelUserJustPassed}
+        //let dictionaryOfLevelsToNotColor = Levels.Game.filter{$0.value.level > levelUserJustPassed}
         
         var mosaicData = [Int:UIColor]()
         for (key, level) in dictionaryOfLevelsToColor {
@@ -361,18 +361,18 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         //now add the tiles to not color
         
-        for (key, _) in dictionaryOfLevelsToNotColor {
-            
-            let tileNumber = key - 1
-            
-            //set these to clear
-            
-            let tileColor:UIColor = .clear
-            
-            //add the tile number and color to the data
-            mosaicData[tileNumber] = tileColor
-            
-        }
+//        for (key, _) in dictionaryOfLevelsToNotColor {
+//            
+//            let tileNumber = key - 1
+//            
+//            //set these to clear
+//            
+//            let tileColor:UIColor = .clear
+//            
+//            //add the tile number and color to the data
+//            mosaicData[tileNumber] = tileColor
+//            
+//        }
         
         return mosaicData
     }
