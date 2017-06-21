@@ -1519,10 +1519,10 @@
                                         <rect key="frame" x="43.5" y="0.0" width="256" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="257" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-8K-Vml">
+                                                <view userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-8K-Vml">
                                                     <rect key="frame" x="4.5" y="5" width="246" height="154"/>
                                                     <color key="backgroundColor" red="0.1079327162" green="0.1079327162" blue="0.1079327162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
