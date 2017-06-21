@@ -1474,9 +1474,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-2d-AKR" customClass="PerformanceMosaicView" customModule="Charles" customModuleProvider="target">
+                                <rect key="frame" x="39.5" y="39.5" width="295" height="587"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="tileSpacing">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="margin">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tileBorderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="tileBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rll-M8-sk7">
                                 <rect key="frame" x="16" y="0.0" width="343" height="667"/>
-                                <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="10" id="Y2w-F4-gxs">
                                     <size key="itemSize" width="256" height="164"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1686,11 +1704,15 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rll-M8-sk7" secondAttribute="trailing" id="7QF-Aa-cXr"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="EYo-d4-ZzN"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="height" secondItem="5Au-H7-BzN" secondAttribute="height" constant="-80" id="Gvz-QN-jY8"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" constant="-10" id="IOj-ra-UgY"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="width" secondItem="5Au-H7-BzN" secondAttribute="width" constant="-80" id="M1h-y3-Sjv"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="centerY" secondItem="5Au-H7-BzN" secondAttribute="centerY" id="MvG-NQ-K2Q"/>
                             <constraint firstItem="aKP-db-v3P" firstAttribute="top" secondItem="rll-M8-sk7" secondAttribute="bottom" id="TxU-dW-3CU"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="width" secondItem="IKt-Kb-uWF" secondAttribute="height" id="YwF-vv-2f3"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" id="dL6-MM-YgU"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" id="lsN-cr-O7Q"/>
+                            <constraint firstItem="aZJ-2d-AKR" firstAttribute="centerX" secondItem="5Au-H7-BzN" secondAttribute="centerX" id="uLA-7F-EhQ"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
