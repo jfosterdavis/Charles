@@ -54,7 +54,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         if !initialScrollDone {
             self.initialScrollDone = true
             
-            self.collectionView.scrollToItem(at: initialIndexPath, at: UICollectionViewScrollPosition.centeredVertically, animated: true)
+            self.collectionView.scrollToItem(at: initialIndexPath, at: UICollectionViewScrollPosition.centeredVertically, animated: false)
         }
     }
     
