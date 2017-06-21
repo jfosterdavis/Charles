@@ -1719,6 +1719,7 @@
                     <connections>
                         <outlet property="dismissButton" destination="IKt-Kb-uWF" id="00Q-ql-MOf"/>
                         <outlet property="mapCollectionView" destination="rll-M8-sk7" id="w8a-W6-IJz"/>
+                        <outlet property="performanceMosaicView" destination="aZJ-2d-AKR" id="jKm-bU-N3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSF-F4-jho" userLabel="First Responder" sceneMemberID="firstResponder"/>

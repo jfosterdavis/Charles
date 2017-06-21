@@ -15,6 +15,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     
     @IBOutlet weak var mapCollectionView: UICollectionView!
     var collectionViewData: [Level]!
+    @IBOutlet weak var performanceMosaicView: PerformanceMosaicView!
     
     var initialScrollDone = false
     var initialIndexPath: IndexPath!
@@ -39,6 +40,9 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         loadCollectionViewData()
         
+        //load the mosaic
+        performanceMosaicView.tileData = getMosaicData()
+        performanceMosaicView.setNeedsDisplay()
         
     }
     
@@ -328,6 +332,49 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         let resultantColor = UIColor(red: redComponent/255.0, green: greenComponent/255.0, blue: 0, alpha: 1)
         
         return resultantColor
+    }
+    
+    ///generates a dictionary of ints and uicolors from the levels the player has done to give the performanceMosaicView some data
+    func getMosaicData() -> [Int:UIColor] {
+        
+        //go through each level the player has completed
+        let levelUserJustPassed = initialLevelToScrollTo
+        
+        let dictionaryOfLevelsToColor = Levels.Game.filter{$0.value.level <= levelUserJustPassed}
+        let dictionaryOfLevelsToNotColor = Levels.Game.filter{$0.value.level > levelUserJustPassed}
+        
+        var mosaicData = [Int:UIColor]()
+        for (key, level) in dictionaryOfLevelsToColor {
+            
+            let tileNumber = key - 1
+            
+            //get the color of the tile
+            let level = level.level
+            let totalPuzzlesCompleted = getTotalPuzzlesCompleted(forLevel: level)
+            let avgMatchScore = getAvgMatchScore(forLevel: level)
+            let tileColor = getColorFromStats(forLevel: level, avgMatchScore: avgMatchScore, numPuzzlesCompleted: totalPuzzlesCompleted)
+            
+            //add the tile number and color to the data
+            mosaicData[tileNumber] = tileColor
+            
+        }
+        
+        //now add the tiles to not color
+        
+        for (key, _) in dictionaryOfLevelsToNotColor {
+            
+            let tileNumber = key - 1
+            
+            //set these to clear
+            
+            let tileColor:UIColor = .clear
+            
+            //add the tile number and color to the data
+            mosaicData[tileNumber] = tileColor
+            
+        }
+        
+        return mosaicData
     }
     
 }

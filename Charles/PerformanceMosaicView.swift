@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@IBDesignable
+//@IBDesignable
 
 /******************************************************/
 /*******************///MARK: PerformanceMosaic has 144 tiles in a 24x6 (HxW) arrangement
@@ -26,12 +26,18 @@ class PerformanceMosaicView:UIView
         didSet {}
     }
     
+    
     @IBInspectable var tileSpacing: CGFloat = 3
         {
         didSet {}
     }
-    
     @IBInspectable var margin: CGFloat = 5
+        {
+        didSet {}
+    }
+    
+    
+    @IBInspectable var cornerRadius: CGFloat = 3
         {
         didSet {}
     }
@@ -40,12 +46,15 @@ class PerformanceMosaicView:UIView
     let tilesTall = 24
     let tilesWide = 6
     
+    var tileData: [Int:UIColor]?
     
     override func draw(_ rect: CGRect)
     {
-        drawTile(number: 0, withColor: .white)
-        drawTile(number: 6, withColor: .black)
-        drawTile(number: 143, withColor: .red)
+        if let tileData = tileData {
+            for (tileNum, tileColor) in tileData {
+                drawTile(number: tileNum, withColor: tileColor)
+            }
+        }
     }
     
     ///draws a single tile with the given fill color at the given order.
@@ -83,7 +92,7 @@ class PerformanceMosaicView:UIView
         
         //path
         let rectangle = CGRect(origin: startPoint, size: rectangleSize)
-        let tilePath = UIBezierPath(roundedRect: rectangle, cornerRadius: 4)
+        let tilePath = UIBezierPath(roundedRect: rectangle, cornerRadius: self.cornerRadius)
         
         //line width
         //tilePath.lineWidth = tileBorderWidth
@@ -100,7 +109,7 @@ class PerformanceMosaicView:UIView
         color.setFill()
         tilePath.fill()
         
-        
+        self.setNeedsDisplay()
     }
     
     ///returns the row for the given tile number
