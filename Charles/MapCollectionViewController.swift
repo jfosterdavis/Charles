@@ -44,6 +44,12 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         performanceMosaicView.tileData = getMosaicData()
         performanceMosaicView.setNeedsDisplay()
         
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.collectionView.layoutIfNeeded()
+        }
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -136,6 +142,12 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         if level.level == userLevelJustPassed {
             cell.startPulse()
         }
+        
+        DispatchQueue.main.async {
+            self.collectionView.layoutSubviews()
+            cell.layoutIfNeeded()
+        }
+        
         
         return cell
     
