@@ -42,9 +42,15 @@ class PerformanceMosaicView:UIView
         didSet {}
     }
     
+    @IBInspectable var tilesTall: Int = 24
+    {
+        didSet {}
+    }
+    @IBInspectable var tilesWide: Int = 6
+        {
+        didSet {}
+    }
     
-    let tilesTall = 24
-    let tilesWide = 6
     
     var tileData: [Int:UIColor]?
     
@@ -87,7 +93,7 @@ class PerformanceMosaicView:UIView
         
         //create points from components
         let startPoint = CGPoint(x: xStart, y: yStart)
-        let stopPoint = CGPoint(x: xStop, y: yStop)
+        //let stopPoint = CGPoint(x: xStop, y: yStop)
         let rectangleSize = CGSize(width: tileWidth, height: tileHeight)
         
         //path
@@ -95,7 +101,7 @@ class PerformanceMosaicView:UIView
         let tilePath = UIBezierPath(roundedRect: rectangle, cornerRadius: self.cornerRadius)
         
         //line width
-        //tilePath.lineWidth = tileBorderWidth
+        tilePath.lineWidth = tileBorderWidth
         
         //set the line
         //tilePath.move(to: startPoint)
@@ -126,7 +132,7 @@ class PerformanceMosaicView:UIView
     func getColumn(forTileNumber tileNumber: Int) -> Int {
         //assumes first column is 0
         //in a 24x6, column is tileNum % 6
-        let columnNum = tileNumber % 6
+        let columnNum = tileNumber % tilesWide
         
         return columnNum
     }
