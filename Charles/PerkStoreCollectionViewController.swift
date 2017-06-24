@@ -97,7 +97,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
+        //let cell: UICollectionViewCell
         
         //store contains perk objects and products from app store
         let perkItems: [Any] = self.perkCollectionViewData as [Any]
@@ -109,6 +109,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         //now check the item to see if we have a perk or an app store item
         switch currentItem {
         case is Perk:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
+            
             let perk = currentItem as! Perk
             
             cell.characterNameLabel.text = perk.name
@@ -191,8 +193,19 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             } else {  //the character is not unlocked and is affordable
                 cell.setStatusAffordable()
             }
+            
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            //self.collectionView?.reloadItems(at: [indexPath])
+            cell.layoutIfNeeded()
+            
+            return cell
+            
             //END OF CASE AS PERK
+            
+            
         case is SKProduct:
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IAPCell", for: indexPath as IndexPath) as! InAppPurchaseCollectionViewCell
             
             let product = currentItem as! SKProduct
             //display as an app store product
@@ -212,17 +225,19 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             } else {
                 cell.setGotPerkFromCharacterIndicator(visible: true)
             }
+            
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            //self.collectionView?.reloadItems(at: [indexPath])
+            cell.layoutIfNeeded()
+            
+            return cell
 
         default:
             //some other type of item has been shown, throw error
             fatalError("Found unexpected item type in Perk store: \(currentItem)")
         }
         
-        self.collectionView.collectionViewLayout.invalidateLayout()
-        //self.collectionView?.reloadItems(at: [indexPath])
-        cell.layoutIfNeeded()
         
-        return cell
     }
     
     /******************************************************/
