@@ -12,6 +12,11 @@ import StoreKit
 
 class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
     
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var transactionPending: Bool = false
+    
     func loadAppearance(fromAppStoreProduct product: SKProduct, fromASPD aspd: AppStoreProductDetail) {
         
         //empty all, don't use the stackview
@@ -56,10 +61,23 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
         
         priceLabel.textColor = .white
         characterNameLabel.textColor = .white
-        statusShade.alpha = 0.0
+        
         
         //ensure font is not bold.
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        
+        //check the activity indicator
+        if transactionPending {
+            activityIndicator.startAnimating()
+            statusShade.isHidden = false
+            statusShade.alpha = 0.4
+            self.isUserInteractionEnabled = false
+        } else {
+            activityIndicator.stopAnimating()
+            statusShade.isHidden = true
+            statusShade.alpha = 0.0
+            self.isUserInteractionEnabled = true
+        }
         
     }
     

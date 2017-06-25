@@ -20,6 +20,8 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     var appStoreProductsRequest: SKProductsRequest!
     var appStoreProducts: [SKProduct]!
     
+    var pendingTransactions = [SKPaymentTransaction]()
+    
     //CoreData FRC Keys
     let keyUnlockedPerk = "keyUnlockedPerk"
     
@@ -46,8 +48,6 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         
         //lock all expired characters
         lockAllExpiredPerks()
-        
-        //updateTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -268,6 +268,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             let delegate = UIApplication.shared.delegate as! AppDelegate
             let aspd = delegate.getAppStoreProductDetail(fromProductID: product.productIdentifier)
             
+            //determine if this cell has a pending transaction, and flag appropriately
+            var foundApplicableTransaction = false
+            for transaction in pendingTransactions {
+                if transaction.payment.productIdentifier == aspd.productID {
+                    foundApplicableTransaction = true
+                }
+            }
+            
+            if foundApplicableTransaction {
+                cell.transactionPending = true
+            } else {
+                cell.transactionPending = false
+            }
+            
             cell.loadAppearance(fromAppStoreProduct: product, fromASPD: aspd)
             
             //check if this perk requires a party member
@@ -392,9 +406,20 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         //for me, this will mean to add products to the perk store
         //this means I need to refresh the collectionview so that it can see if self.appStoreProducts contains something now.
         
+        //make sure the pending transactions is updated
+        reloadPendingTransactions()
         
         //in app purchases have arrived so refresh the collection view
         collectionView.reloadData()
+//        let section = 1 //section 1 is IAPs here
+//        let indexSet = IndexSet(integer: section)
+//        collectionView.reloadSections(indexSet)
+//        
+//        //check the payment queue and update UI
+//        let queue = SKPaymentQueue.default()
+//        if queue.transactions.count > 0 {
+//            updateUIFromTransactions(transactions: queue.transactions)
+//        }
         //self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
@@ -420,30 +445,158 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     
     @available(iOS 3.0, *)
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        updateUIFromTransactions(transactions: transactions)
+    }
+    
+    ///only reloads the pendingTransactions array from scratch.  no UI Updates
+    func reloadPendingTransactions() {
+        pendingTransactions = [SKPaymentTransaction]()
+        
+        let queue = SKPaymentQueue.default()
+        
+        for transaction in queue.transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                //update the UI to let user know it is happenening
+                pendingTransactions.append(transaction)
+                
+                break
+            case .purchased:
+                
+                break
+            case .failed:
+                
+                break
+                
+            case .deferred:
+                //this could take some time before transaction is updated
+            
+                pendingTransactions.append(transaction)
+                
+                break
+            default:
+                break
+                
+            }
+        }
+        
+        
+    }
+    
+    ///takes an array of SKPaymentTransactions and updates cells appropriately.  Call upon initial load of cells and when queue updates.
+    func updateUIFromTransactions(transactions:[SKPaymentTransaction]) {
+        //reinitilize the local transactions array
+        //pendingTransactions = [SKPaymentTransaction]()
+        
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchasing:
                 //update the UI to let user know it is happenening
+                pendingTransactions.append(transaction)
+                
+                //determine the indexPath of this payment
+                //go through the data source array and look for the payment ID
+                var index = 0
+                for product in appStoreProducts {
+                    if product.productIdentifier == transaction.payment.productIdentifier {
+                        
+                        let section = 1 //section 1 is IAPs here
+                        let indexPath = IndexPath(item: index, section: section)
+                        
+                        //reload this cell, it will check for this when reloading
+                        collectionView.reloadItems(at: [indexPath])
+                        break
+                    }
+                    index += 1
+                }
+                
+//                let section = 1 //section 1 is IAPs here
+//                let indexSet = IndexSet(integer: section)
+//                collectionView.reloadSections(indexSet)
+                
                 break
             case .purchased:
                 //validate the purchase
                 //deduct the price
                 score = getCurrentScore()
                 updateScoreLabel()
+                
+                //update the UI to let user know it is happenening
+                let transactionIndex = pendingTransactions.index(of: transaction)
+                if let transactionIndex = transactionIndex {
+                    pendingTransactions.remove(at: transactionIndex)
+                }
+                
+                
+                //determine the indexPath of this payment
+                //go through the data source array and look for the payment ID
+                var index = 0
+                for product in appStoreProducts {
+                    if product.productIdentifier == transaction.payment.productIdentifier {
+                        
+                        let section = 1 //section 1 is IAPs here
+                        let indexPath = IndexPath(item: index, section: section)
+                        
+                        //reload this cell, it will check for this when reloading
+                        collectionView.reloadItems(at: [indexPath])
+                        break
+                    }
+                    index += 1
+                }
+                
                 break
             case .failed:
-                //notify user in certain circumstances
-                //TODO: determine what those circumstances are
                 
-//                let errorMessage = String(describing: transaction.error!.localizedDescription)
-//                let productID = transaction.payment.productIdentifier
-//                let delegate = UIApplication.shared.delegate as! AppDelegate
-//                let aspd = delegate.getAppStoreProductDetail(fromProductID: productID)
-//                let productName = String(describing: aspd.name!)
-//                
-//                let alert = UIAlertController(title: "Purchase Failed", message: "Purchase of \(productName) failed: \(errorMessage).  Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
+                //update the UI to let user know it is happenening
+                let transactionIndex = pendingTransactions.index(of: transaction)
+                if let transactionIndex = transactionIndex {
+                    pendingTransactions.remove(at: transactionIndex)
+                }
+                
+                
+                //determine the indexPath of this payment
+                //go through the data source array and look for the payment ID
+                var index = 0
+                for product in appStoreProducts {
+                    if product.productIdentifier == transaction.payment.productIdentifier {
+                        
+                        let section = 1 //section 1 is IAPs here
+                        let indexPath = IndexPath(item: index, section: section)
+                        
+                        //reload this cell, it will check for this when reloading
+                        collectionView.reloadItems(at: [indexPath])
+                        break
+                    }
+                    index += 1
+                }
+                
+                break
+                
+            case .deferred:
+                
+                //this could take some time before transaction is updated
+                
+                //update the UI to let user know it is happenening
+                //for deferred cases, transaction is pending.
+                pendingTransactions.append(transaction)
+                
+                //determine the indexPath of this payment
+                //go through the data source array and look for the payment ID
+                var index = 0
+                for product in appStoreProducts {
+                    if product.productIdentifier == transaction.payment.productIdentifier {
+                        
+                        let section = 1 //section 1 is IAPs here
+                        let indexPath = IndexPath(item: index, section: section)
+                        
+                        //reload this cell, it will check for this when reloading
+                        collectionView.reloadItems(at: [indexPath])
+                        break
+                    }
+                    index += 1
+                }
+                
                 break
             default:
                 break
@@ -451,7 +604,6 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             }
         }
     }
-    
     
     
     /******************************************************/
@@ -477,12 +629,15 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         let appStoreItems: [Any] = self.appStoreProducts as [Any]
         let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        let currentItem = allItemsInStore[indexPath.row]
+        
+        
+        let section = indexPath.section
         
         //now check the item to see if we have a perk or an app store item
-        switch currentItem {
-        case is Perk:
-        
+        switch section {
+        case 0: //Perk
+            let currentItem = perkItems[indexPath.row]
+            
             let perk = currentItem as! Perk
             
             guard isPerkAffordable(perk: perk) else {
@@ -510,14 +665,17 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
                 
                 print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
             }
-        case is SKProduct:
+        case 1:  //SKProduct
+            let currentItem = appStoreItems[indexPath.row]
+            
             //start the buying process from the app store.
             let product = currentItem as! SKProduct
+                        
             requestPayment(for:product)
             
         default:
             //some other type of item has been shown, throw error
-            fatalError("Found unexpected item type in Perk store: \(currentItem)")
+            fatalError("Found unexpected section in Perk store: \(section)")
         }
     }
         

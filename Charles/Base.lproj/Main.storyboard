@@ -928,13 +928,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Uu-Kat">
-                                                    <rect key="frame" x="8" y="44" width="119" height="59"/>
-                                                </stackView>
-                                                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHS-Ct-Ewi">
-                                                    <rect key="frame" x="10" y="40" width="115" height="69"/>
-                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </view>
                                                 <view hidden="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-im-zGv">
                                                     <rect key="frame" x="-0.5" y="0.0" width="135" height="135"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -990,6 +983,16 @@
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlocked" translatesAutoresizingMaskIntoConstraints="NO" id="Bt3-HM-jtH">
                                                     <rect key="frame" x="14" y="102" width="20" height="19"/>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ord-cM-Jzt">
+                                                    <rect key="frame" x="10" y="40" width="115" height="69"/>
+                                                </activityIndicatorView>
+                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Uu-Kat">
+                                                    <rect key="frame" x="8" y="44" width="119" height="59"/>
+                                                </stackView>
+                                                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHS-Ct-Ewi">
+                                                    <rect key="frame" x="10" y="40" width="115" height="69"/>
+                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.10196078431372549" green="0.35686274509803922" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1004,10 +1007,12 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="JAc-WP-Cf9" secondAttribute="trailing" id="9zO-uC-gCk"/>
                                             <constraint firstItem="gkH-im-zGv" firstAttribute="height" secondItem="uTo-Xc-X3I" secondAttribute="height" id="Eo3-8o-ExX"/>
                                             <constraint firstItem="gkH-im-zGv" firstAttribute="centerY" secondItem="uTo-Xc-X3I" secondAttribute="centerY" id="FHn-pM-Utk"/>
+                                            <constraint firstItem="ord-cM-Jzt" firstAttribute="height" secondItem="W0M-qY-69M" secondAttribute="height" id="FVN-n0-Ef4"/>
                                             <constraint firstItem="eHS-Ct-Ewi" firstAttribute="width" secondItem="W0M-qY-69M" secondAttribute="width" id="FlG-Ms-z3S"/>
                                             <constraint firstItem="gkH-im-zGv" firstAttribute="centerX" secondItem="uTo-Xc-X3I" secondAttribute="centerX" id="ILd-qv-mTx"/>
                                             <constraint firstItem="sAN-2F-M5I" firstAttribute="width" secondItem="haf-Uu-Kat" secondAttribute="width" multiplier="2:6" id="J1k-FH-oWQ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Oh1-xc-3xY" secondAttribute="bottom" constant="-8" id="L9k-B6-7le"/>
+                                            <constraint firstItem="ord-cM-Jzt" firstAttribute="centerX" secondItem="W0M-qY-69M" secondAttribute="centerX" id="Mho-mc-0Mb"/>
                                             <constraint firstItem="Bt3-HM-jtH" firstAttribute="width" secondItem="sAN-2F-M5I" secondAttribute="width" multiplier="1:2" id="NX4-aM-CW8"/>
                                             <constraint firstItem="Bt3-HM-jtH" firstAttribute="centerY" secondItem="sAN-2F-M5I" secondAttribute="centerY" id="Obt-nn-d8X"/>
                                             <constraint firstItem="haf-Uu-Kat" firstAttribute="leading" secondItem="uTo-Xc-X3I" secondAttribute="leadingMargin" id="SXK-jl-rQA"/>
@@ -1032,17 +1037,18 @@
                                             <constraint firstItem="sAN-2F-M5I" firstAttribute="baseline" secondItem="e9C-Cg-lpP" secondAttribute="baseline" id="tpH-Jq-sOh"/>
                                             <constraint firstItem="JAc-WP-Cf9" firstAttribute="top" secondItem="W0M-qY-69M" secondAttribute="bottom" constant="-1" id="uUA-Q9-keA"/>
                                             <constraint firstItem="Oh1-xc-3xY" firstAttribute="width" secondItem="uTo-Xc-X3I" secondAttribute="width" multiplier="1:4" id="v38-rQ-4jv"/>
+                                            <constraint firstItem="ord-cM-Jzt" firstAttribute="width" secondItem="W0M-qY-69M" secondAttribute="width" id="xgq-gg-tS5"/>
+                                            <constraint firstItem="ord-cM-Jzt" firstAttribute="centerY" secondItem="W0M-qY-69M" secondAttribute="centerY" id="yAA-m8-3Pq"/>
                                             <constraint firstItem="gkH-im-zGv" firstAttribute="width" secondItem="uTo-Xc-X3I" secondAttribute="width" id="z1Z-58-Eoo"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="Oh1-xc-3xY"/>
-                                                <exclude reference="haf-Uu-Kat"/>
-                                                <exclude reference="eHS-Ct-Ewi"/>
-                                                <exclude reference="gkH-im-zGv"/>
                                                 <exclude reference="JU7-ob-I1j"/>
                                                 <exclude reference="sAN-2F-M5I"/>
                                                 <exclude reference="Bt3-HM-jtH"/>
+                                                <exclude reference="haf-Uu-Kat"/>
+                                                <exclude reference="eHS-Ct-Ewi"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="7My-1W-P96"/>
@@ -1062,16 +1068,13 @@
                                                 <exclude reference="J1k-FH-oWQ"/>
                                                 <exclude reference="rL0-1H-rWw"/>
                                                 <exclude reference="tpH-Jq-sOh"/>
-                                                <exclude reference="Eo3-8o-ExX"/>
-                                                <exclude reference="FHn-pM-Utk"/>
-                                                <exclude reference="ILd-qv-mTx"/>
-                                                <exclude reference="z1Z-58-Eoo"/>
                                                 <exclude reference="L9k-B6-7le"/>
                                                 <exclude reference="kV4-Fk-pzq"/>
                                                 <exclude reference="v38-rQ-4jv"/>
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="ord-cM-Jzt" id="96R-QR-JhR"/>
                                             <outlet property="characterNameLabel" destination="Zy5-oY-WOG" id="2x3-Mv-M6B"/>
                                             <outlet property="expirationStatusView" destination="sAN-2F-M5I" id="62U-Yc-dWV"/>
                                             <outlet property="perkColorFrame" destination="e9C-Cg-lpP" id="61S-8u-rTR"/>
