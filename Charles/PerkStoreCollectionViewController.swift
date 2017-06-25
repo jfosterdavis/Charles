@@ -86,13 +86,57 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
     /*******************///MARK: UICollectionViewDataSource
     /******************************************************/
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+            
+        case "UICollectionElementKindSectionHeader":
+            
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "storeSectionHeader", for: indexPath) as! SectionHeaderCollectionReusableView
+            
+            let section = indexPath.section
+            
+            switch section {
+            case 0:
+                headerView.headerTitleLabel.text = "Tools"
+            case 1:
+                headerView.headerTitleLabel.text = "In-App Purchases"
+            default:
+                headerView.headerTitleLabel.text = "Unknown Section"
+            }
+        
+            return headerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        //if there are inapp purchases to be displayed, return 2
+        
+        let iapCount = self.appStoreProducts.count
+        
+        if iapCount > 0 {
+            return 2
+        } else {
+            return 1
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //returns number of items in the collection
         
-        //number should also include in app purchases available
-        let count = perkCollectionViewData.count + self.appStoreProducts.count
-        
-        return count
+        //perk section
+        switch section{
+        case 0:
+            return perkCollectionViewData.count
+        case 1:
+            return self.appStoreProducts.count
+        default:
+            assert(false, "Unexpected section.")
+        }
+
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -104,11 +148,16 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
         let appStoreItems: [Any] = self.appStoreProducts as [Any]
         let allItemsInStore: [Any] = perkItems + appStoreItems
         
-        let currentItem = allItemsInStore[indexPath.row]
+        
+        
+        let section = indexPath.section
         
         //now check the item to see if we have a perk or an app store item
-        switch currentItem {
-        case is Perk:
+        switch section {
+        case 0: //section 0 should be
+            let currentItem = perkItems[indexPath.row]
+            
+            
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
             
             let perk = currentItem as! Perk
@@ -203,7 +252,9 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
             //END OF CASE AS PERK
             
             
-        case is SKProduct:
+        case 1:  //section 1 should be SKProduct type
+            
+            let currentItem = appStoreItems[indexPath.row]
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IAPCell", for: indexPath as IndexPath) as! InAppPurchaseCollectionViewCell
             
@@ -234,7 +285,7 @@ class PerkStoreCollectionViewController: StoreCollectionViewController, SKProduc
 
         default:
             //some other type of item has been shown, throw error
-            fatalError("Found unexpected item type in Perk store: \(currentItem)")
+            fatalError("Found unexpected section in Perk store: \(section)")
         }
         
         

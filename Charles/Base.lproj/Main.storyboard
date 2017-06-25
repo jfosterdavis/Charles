@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -717,13 +718,13 @@
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="eW4-3R-gkr">
                                     <size key="itemSize" width="135" height="135"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="perkCell" id="dC0-o6-wh5" customClass="CustomPerkStoreCollectionViewCell" customModule="Charles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                        <rect key="frame" x="0.0" y="50" width="135" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
@@ -874,7 +875,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IAPCell" id="uTo-Xc-X3I" customClass="InAppPurchaseCollectionViewCell" customModule="Charles" customModuleProvider="target">
-                                        <rect key="frame" x="208" y="0.0" width="135" height="135"/>
+                                        <rect key="frame" x="208" y="50" width="135" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
@@ -1044,27 +1045,27 @@
                                                 <exclude reference="Bt3-HM-jtH"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="Eo3-8o-ExX"/>
-                                                <exclude reference="FHn-pM-Utk"/>
-                                                <exclude reference="ILd-qv-mTx"/>
-                                                <exclude reference="z1Z-58-Eoo"/>
+                                                <exclude reference="7My-1W-P96"/>
+                                                <exclude reference="7xZ-HC-Vor"/>
+                                                <exclude reference="hCX-py-yWQ"/>
+                                                <exclude reference="SXK-jl-rQA"/>
+                                                <exclude reference="imN-NP-flb"/>
+                                                <exclude reference="sST-qm-BEL"/>
                                                 <exclude reference="8d5-KM-VJH"/>
                                                 <exclude reference="FlG-Ms-z3S"/>
                                                 <exclude reference="Z1o-cM-sIC"/>
                                                 <exclude reference="pxp-0K-hoN"/>
-                                                <exclude reference="SXK-jl-rQA"/>
-                                                <exclude reference="imN-NP-flb"/>
-                                                <exclude reference="sST-qm-BEL"/>
-                                                <exclude reference="7My-1W-P96"/>
-                                                <exclude reference="7xZ-HC-Vor"/>
-                                                <exclude reference="hCX-py-yWQ"/>
-                                                <exclude reference="J1k-FH-oWQ"/>
-                                                <exclude reference="rL0-1H-rWw"/>
-                                                <exclude reference="tpH-Jq-sOh"/>
                                                 <exclude reference="01n-aR-rpj"/>
                                                 <exclude reference="2yz-5a-utk"/>
                                                 <exclude reference="NX4-aM-CW8"/>
                                                 <exclude reference="Obt-nn-d8X"/>
+                                                <exclude reference="J1k-FH-oWQ"/>
+                                                <exclude reference="rL0-1H-rWw"/>
+                                                <exclude reference="tpH-Jq-sOh"/>
+                                                <exclude reference="Eo3-8o-ExX"/>
+                                                <exclude reference="FHn-pM-Utk"/>
+                                                <exclude reference="ILd-qv-mTx"/>
+                                                <exclude reference="z1Z-58-Eoo"/>
                                                 <exclude reference="L9k-B6-7le"/>
                                                 <exclude reference="kV4-Fk-pzq"/>
                                                 <exclude reference="v38-rQ-4jv"/>
@@ -1085,6 +1086,27 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="storeSectionHeader" id="DMX-4j-B0s" customClass="SectionHeaderCollectionReusableView" customModule="Charles" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tools" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="wpi-XV-LdR">
+                                            <rect key="frame" x="-0.5" y="-0.5" width="343" height="50"/>
+                                            <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wpi-XV-LdR" firstAttribute="centerY" secondItem="DMX-4j-B0s" secondAttribute="centerY" id="6ao-Hk-Thj"/>
+                                        <constraint firstItem="wpi-XV-LdR" firstAttribute="height" secondItem="DMX-4j-B0s" secondAttribute="height" id="712-uu-TR7"/>
+                                        <constraint firstItem="wpi-XV-LdR" firstAttribute="centerX" secondItem="DMX-4j-B0s" secondAttribute="centerX" id="WkD-eJ-ip1"/>
+                                        <constraint firstItem="wpi-XV-LdR" firstAttribute="width" secondItem="DMX-4j-B0s" secondAttribute="width" id="b0m-78-UmS"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerTitleLabel" destination="wpi-XV-LdR" id="tEj-AT-S31"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJt-RL-m4Y">
                                 <rect key="frame" x="16" y="27" width="41" height="41"/>
