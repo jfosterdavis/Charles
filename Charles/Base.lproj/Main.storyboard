@@ -880,10 +880,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-Cg-lpP">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9C-Cg-lpP">
                                                     <rect key="frame" x="4" y="4" width="127" height="127"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hex-DollarSign" translatesAutoresizingMaskIntoConstraints="NO" id="W0M-qY-69M">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin_100000Icon" translatesAutoresizingMaskIntoConstraints="NO" id="W0M-qY-69M">
                                                     <rect key="frame" x="10" y="40" width="115" height="69"/>
                                                 </imageView>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupMissing" translatesAutoresizingMaskIntoConstraints="NO" id="Oh1-xc-3xY">
@@ -892,8 +900,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Oh1-xc-3xY" secondAttribute="height" multiplier="1:1" id="elk-DV-zx0"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="elk-DV-zx0"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insight" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zy5-oY-WOG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 100,000" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zy5-oY-WOG">
                                                     <rect key="frame" x="11" y="7" width="113" height="32"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -902,7 +915,7 @@
                                                         <constraint firstAttribute="height" constant="32" id="TSv-aj-SXC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="25"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JAc-WP-Cf9">
@@ -911,21 +924,21 @@
                                                         <constraint firstAttribute="height" constant="19" id="hjb-bA-yl2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Uu-Kat">
+                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Uu-Kat">
                                                     <rect key="frame" x="8" y="44" width="119" height="59"/>
                                                 </stackView>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHS-Ct-Ewi">
+                                                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHS-Ct-Ewi">
                                                     <rect key="frame" x="10" y="40" width="115" height="69"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <view userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-im-zGv">
+                                                <view hidden="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-im-zGv">
                                                     <rect key="frame" x="-0.5" y="0.0" width="135" height="135"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlocked" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JU7-ob-I1j">
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlocked" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JU7-ob-I1j">
                                                     <rect key="frame" x="-0.5" y="50" width="135" height="35"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -934,8 +947,13 @@
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="30"/>
                                                     <color key="textColor" red="0.94646256350000002" green="0.92207050160000004" blue="0.87399090729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="fOq-Zo-Tb2"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
-                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAN-2F-M5I" customClass="PieTimerView" customModule="Charles" customModuleProvider="target">
+                                                <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAN-2F-M5I" customClass="PieTimerView" customModule="Charles" customModuleProvider="target">
                                                     <rect key="frame" x="4" y="92" width="39" height="39"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -962,13 +980,18 @@
                                                             <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="47E-Hf-jCh"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlocked" translatesAutoresizingMaskIntoConstraints="NO" id="Bt3-HM-jtH">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unlocked" translatesAutoresizingMaskIntoConstraints="NO" id="Bt3-HM-jtH">
                                                     <rect key="frame" x="14" y="102" width="20" height="19"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.97459822890000003" green="0.91639262440000002" blue="0.73575562240000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.35686274509803922" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Bt3-HM-jtH" firstAttribute="centerX" secondItem="sAN-2F-M5I" secondAttribute="centerX" id="01n-aR-rpj"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="W0M-qY-69M" secondAttribute="trailing" constant="2" id="1kZ-9g-NRb"/>
@@ -1010,6 +1033,43 @@
                                             <constraint firstItem="Oh1-xc-3xY" firstAttribute="width" secondItem="uTo-Xc-X3I" secondAttribute="width" multiplier="1:4" id="v38-rQ-4jv"/>
                                             <constraint firstItem="gkH-im-zGv" firstAttribute="width" secondItem="uTo-Xc-X3I" secondAttribute="width" id="z1Z-58-Eoo"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="Oh1-xc-3xY"/>
+                                                <exclude reference="haf-Uu-Kat"/>
+                                                <exclude reference="eHS-Ct-Ewi"/>
+                                                <exclude reference="gkH-im-zGv"/>
+                                                <exclude reference="JU7-ob-I1j"/>
+                                                <exclude reference="sAN-2F-M5I"/>
+                                                <exclude reference="Bt3-HM-jtH"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="Eo3-8o-ExX"/>
+                                                <exclude reference="FHn-pM-Utk"/>
+                                                <exclude reference="ILd-qv-mTx"/>
+                                                <exclude reference="z1Z-58-Eoo"/>
+                                                <exclude reference="8d5-KM-VJH"/>
+                                                <exclude reference="FlG-Ms-z3S"/>
+                                                <exclude reference="Z1o-cM-sIC"/>
+                                                <exclude reference="pxp-0K-hoN"/>
+                                                <exclude reference="SXK-jl-rQA"/>
+                                                <exclude reference="imN-NP-flb"/>
+                                                <exclude reference="sST-qm-BEL"/>
+                                                <exclude reference="7My-1W-P96"/>
+                                                <exclude reference="7xZ-HC-Vor"/>
+                                                <exclude reference="hCX-py-yWQ"/>
+                                                <exclude reference="J1k-FH-oWQ"/>
+                                                <exclude reference="rL0-1H-rWw"/>
+                                                <exclude reference="tpH-Jq-sOh"/>
+                                                <exclude reference="01n-aR-rpj"/>
+                                                <exclude reference="2yz-5a-utk"/>
+                                                <exclude reference="NX4-aM-CW8"/>
+                                                <exclude reference="Obt-nn-d8X"/>
+                                                <exclude reference="L9k-B6-7le"/>
+                                                <exclude reference="kV4-Fk-pzq"/>
+                                                <exclude reference="v38-rQ-4jv"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Zy5-oY-WOG" id="2x3-Mv-M6B"/>
                                             <outlet property="expirationStatusView" destination="sAN-2F-M5I" id="62U-Yc-dWV"/>
@@ -1976,6 +2036,7 @@
         <image name="WhenAbove" width="78" height="80"/>
         <image name="WhiteOppositeBlack" width="78" height="80"/>
         <image name="bullseye" width="69" height="80"/>
+        <image name="coin_100000Icon" width="69" height="80"/>
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hex-key" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>
