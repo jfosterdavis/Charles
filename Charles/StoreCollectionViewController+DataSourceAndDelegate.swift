@@ -321,4 +321,25 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             fatalError("Found unexpected section in Perk store: \(section)")
         }
     }
+    
+    /******************************************************/
+    /*******************///MARK: Flow Layout
+    /******************************************************/
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let section = indexPath.section
+        
+        switch section {
+        case 0: //Characters
+            let width = storeCollectionView.bounds.size.width / 2 - 5
+            let height = width * 180 / 135
+            return CGSize(width: CGFloat(width), height: CGFloat(height))
+        default:
+            let width = storeCollectionView.bounds.size.width / 2 - 5
+            let height = width
+            return CGSize(width: CGFloat(width), height: CGFloat(height))
+        }
+    }
 }

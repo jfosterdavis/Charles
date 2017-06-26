@@ -53,6 +53,7 @@
 		F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */; };
 		F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
 		F61CC1E31F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */; };
+		F61CC1E51F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E41F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift */; };
 		F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038261EE399750059F946 /* InvestmentCrashViewController.swift */; };
 		F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */; };
 		F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */; };
@@ -145,6 +146,7 @@
 		F619A2631EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedPerk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+Perks.swift"; sourceTree = "<group>"; };
 		F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+DataSourceAndDelegate.swift"; sourceTree = "<group>"; };
+		F61CC1E41F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+InAppPurchases.swift"; sourceTree = "<group>"; };
 		F62038261EE399750059F946 /* InvestmentCrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCrashViewController.swift; sourceTree = "<group>"; };
 		F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingCharactersViewController.swift; sourceTree = "<group>"; };
 		F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingPerksViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */,
+				F61CC1E41F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift */,
 			);
 			name = "Store Extensions";
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				F6B1398D1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift in Sources */,
 				F615536C1EDCF1A3004BBCB6 /* Perk.swift in Sources */,
 				F60D115B1EF3A259008D38BE /* Clue.swift in Sources */,
+				F61CC1E51F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift in Sources */,
 				F615536E1EDCF5A5004BBCB6 /* Perks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
