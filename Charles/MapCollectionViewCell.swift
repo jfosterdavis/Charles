@@ -81,6 +81,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         //perk clue
         if self.perkClue != nil {
             //if there is a clue, make this visible, otherwise not
+            perkClueButton.setImage(perkClue?.icon, for: .normal)
             perkClueButton.isHidden = false
             perkClueButton.isEnabled = true
         } else {
@@ -136,7 +137,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelNumberTextLabel.text = "?"
         levelDescriptionTextLabel.isHidden = true
         
-        //hide the clues        
+        //hide the clues
         clueButton.isHidden = true
         clueButton.isEnabled = false
         
@@ -179,6 +180,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         if self.perkClue != nil {
             //if there is a clue, make this visible, otherwise not
             perkClueButton.isHidden = false
+            perkClueButton.setImage(perkClue?.icon, for: .normal)
             //show info label
             showInfoLabel()
         } else {
@@ -233,7 +235,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         showInfoLabel(withMessage: "Up Next:")
         
     }
-    
+        
     ///shows the info label
     func showInfoLabel(withMessage message: String = "Info:"){
         infoTextLabel.text = message
