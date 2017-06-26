@@ -171,7 +171,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             //if there is a clue, make this visible, otherwise not
             clueButton.isHidden = false
             //show info label
-            showInfoLabel()
+            //showInfoLabel()
         } else {
             clueButton.isHidden = true
         }
@@ -182,7 +182,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             perkClueButton.isHidden = false
             perkClueButton.setImage(perkClue?.icon, for: .normal)
             //show info label
-            showInfoLabel()
+            //showInfoLabel()
         } else {
             perkClueButton.isHidden = true
         }
@@ -192,7 +192,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             //if there is a clue, make this visible, otherwise not
             characterClueButton.isHidden = false
             //show info label
-            showInfoLabel()
+            //showInfoLabel()
         } else {
             characterClueButton.isHidden = true
         }

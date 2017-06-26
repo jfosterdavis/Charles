@@ -53,33 +53,33 @@ struct Perks {
                                     Insight3,
                                     Synesthesia3,
                                     Adaptation4,
-                                    Study4,
                                     Closeenough4,
+                                    Study4,
                                     Study3]
     
     static let UnlockablePerks:[Perk] = [
-                                         Stacks,
-                                         Synesthesia,
-                                         Study,
-                                         Insight,
-                                         Closeenough,
-                                         Adaptation,
-                                         Synesthesia2,
-                                         Adaptation2,
-                                         Insight2,
-                                         Closeenough2,
-                                         Stacks2,
-                                         Study2,
-                                         Stacks3,
-                                         Closeenough3,
-                                         Adaptation3,
-                                         Stacks4,
-                                         Insight3,
-                                         Synesthesia3,
-                                         Adaptation4,
-                                         Study4,
-                                         Closeenough4,
-                                         Study3]
+                                    Stacks,
+                                    Synesthesia,
+                                    Study,
+                                    Insight,
+                                    Closeenough,
+                                    Adaptation,
+                                    Synesthesia2,
+                                    Adaptation2,
+                                    Insight2,
+                                    Closeenough2,
+                                    Stacks2,
+                                    Study2,
+                                    Stacks3,
+                                    Closeenough3,
+                                    Adaptation3,
+                                    Stacks4,
+                                    Insight3,
+                                    Synesthesia3,
+                                    Adaptation4,
+                                    Closeenough4,
+                                    Study4,
+                                    Study3]
     
     /******************************************************/
     /*******************///MARK: Synesthesia
@@ -297,7 +297,7 @@ struct Perks {
                                     minutesUnlocked: 45,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: Characters.John.levelEligibleAt,
+                                    levelEligibleAt: Characters.John.levelEligibleAt + 5,
                                     requiredPartyMembers: [Characters.John]
     )
     
