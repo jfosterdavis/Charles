@@ -712,19 +712,6 @@ extension DataViewController {
                                  withDuration: 0.3,
                                  delay: 0.6)
             
-//            
-//            UIView.animate(withDuration: 0.3,
-//                           delay: 0.6,
-//                animations: {
-//                
-//                self.storeButton.alpha = 2*newAlpha - 1 //this makes store button visible at 500 and solid at 1000. y=mx+b
-//                if self.storeButton.alpha == 0 {
-//                    self.storeButton.isEnabled = false
-//                } else {
-//                    self.storeButton.isEnabled = true
-//                }
-//            }, completion: nil)
-            
         }
         
         //fade out and in the score
@@ -740,16 +727,16 @@ extension DataViewController {
         
         
         
-        //fading in and out the perk store. based on user's level
+        //fading in and out the map. based on user's level
         let userLevel = getUserCurrentLevel()
-        //store will fade in over 5 levels
+        //map will fade in over 2 levels
         if userLevel.level >= minimumLevelToUnlockMap && userLevel.level <= (minimumLevelToUnlockMap + 2) {
             //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
             
             
-            let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
+            let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 2))
             
-            //fade in the perk store
+            //fade in the map
             //this should automatically disable if it fades to 0 or enable if it is > 0
             self.mapButton.fade(.inOrOut,
                                       resultAlpha: newAlpha,
@@ -757,6 +744,7 @@ extension DataViewController {
                                       delay: 0.6)
             
         } else  if currentScore <= minimumScoreToUnlockObjective {
+            //don't show map if score is below minimum for objective
             //fade to zero
             //fade in the perk store
             

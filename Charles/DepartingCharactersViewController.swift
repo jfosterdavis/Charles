@@ -30,6 +30,8 @@ class DepartingCharactersViewController: StoreCollectionViewController {
 //        //round corners of the dismiss button
 //        dismissButton.roundCorners()
         
+        perkCollectionViewData = [Perk]()
+        
         collectionViewData = departingCharacters
     }
     

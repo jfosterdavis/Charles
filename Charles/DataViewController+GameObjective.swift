@@ -27,14 +27,14 @@ extension DataViewController {
         if !self.objectiveFeedbackView.orientationUp {
             self.objectiveFeedbackView.toggleOrientationAndAnimate()
         }
-        
-        //allow user to access the stores for a few seconds
-        fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 10.3)
-        
-        //only control the perk store if the player level is above minimum + 2
-        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockMap + 2) {
-            fadeViewInThenOut(view: self.mapButton, fadeOutAfterSeconds: 10.3)
-        }
+//        
+//        //allow user to access the stores for a few seconds
+//        fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 10.3)
+//        
+//        //only control the perk store if the player level is above minimum + 2
+//        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockMap + 2) {
+//            fadeViewInThenOut(view: self.mapButton, fadeOutAfterSeconds: 10.3)
+//        }
         
         //fade out the objective
         objectiveFeedbackView.fade(.out,

@@ -27,6 +27,8 @@ class DepartingPerksViewController: StoreCollectionViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
+        collectionViewData = [Character]()
+        
         perkCollectionViewData = departingPerks
     }
     
