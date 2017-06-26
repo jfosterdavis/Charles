@@ -697,8 +697,10 @@ extension DataViewController {
         if currentScore >= minimumScoreToUnlockStore + 500 {
             scoreAlpha = 1.0
             //scoreLabel.alpha = scoreAlpha
-            //storeButton.alpha = 1.0
-            //self.storeButton.isEnabled = true
+            self.storeButton.fade(.inOrOut,
+                                resultAlpha: 1.0,
+                                withDuration: 0.3,
+                                delay: 0.6)
             
         } else if currentScore <= minimumScoreToUnlockObjective {
             //before the player can use objectives, the alpha of the store button is controled by the player's score
@@ -743,15 +745,22 @@ extension DataViewController {
                                       withDuration: 0.3,
                                       delay: 0.6)
             
-        } else  if currentScore <= minimumScoreToUnlockObjective {
+        } else if currentScore <= minimumScoreToUnlockObjective {
             //don't show map if score is below minimum for objective
             //fade to zero
             //fade in the perk store
             
             self.mapButton.fade(.out,
-                                      withDuration: 0.3,
-                                      delay: 0.6)
+                                withDuration: 0.3,
+                                delay: 0.6)
+        } else {
+            //user is below the map button reveal
+            self.mapButton.fade(.out,
+                                withDuration: 0.3,
+                                delay: 0.6)
         }
+        
+        
     
         //score housekeeping.
         //if the score is below the thresholds where the user would see an objective, make sure the timer penalty is low enough to allow them to recover.  But once it is high enough, increase the penalty to make it more challenging once objectives are in play.
