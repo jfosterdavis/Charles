@@ -43,6 +43,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             
         default:
             assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     
@@ -52,11 +53,19 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         let iapCount = self.appStoreProducts.count
         
+        let toolsCount = perkCollectionViewData.count
+        
+        var sectionCount = 1 //start with the characters section
+        
         if iapCount > 0 {
-            return 3
-        } else {
-            return 2
+            sectionCount += 1
         }
+        
+        if toolsCount > 0 {
+            sectionCount += 1
+        }
+        
+        return sectionCount
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,6 +81,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             return self.appStoreProducts.count
         default:
             assert(false, "Unexpected section.")
+            return 0
         }
     }
     
@@ -325,99 +335,6 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
     /******************************************************/
     /*******************///MARK: UIcollectionViewDelegate
     /******************************************************/
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
-        
-        
-        //check if this is a perk or an inAppPurchase
-        //store contains perk objects and products from app store
-        let characterItems: [Any] = self.collectionViewData as [Any]
-        let perkItems: [Any] = self.perkCollectionViewData as [Any]
-        let appStoreItems: [Any] = self.appStoreProducts as [Any]
-        let allItemsInStore: [Any] = perkItems + appStoreItems
-        
-        let section = indexPath.section
-        
-        //now check the item to see if we have a perk or an app store item
-        switch section {
-            
-        case 0: //Character
-            let character = characterItems[indexPath.row] as! Character
-            
-            guard isCharacterAffordable(character: character) else {
-                print ("You cannot afford this item")
-                return
-            }
-            
-            guard isPlayerLevelRequirementMet(character: character) else {
-                print ("You must be a certain level to hire this character. \(character.levelEligibleAt)")
-                return
-            }
-            
-            let newCharacter = unlockCharacter(named: character.name)
-            
-            if newCharacter != nil {
-                //deduct the price
-                score = score - character.price!
-                updateScoreLabel()
-                
-                //adjust the core data score
-                reconcileScoreFromPurchase(purchasePrice: character.price!)
-                
-                //remove from the store
-                //collectionViewData.remove(at: indexPath.row)
-                //don't remove, instead shade it differently
-                
-                collectionView.reloadData()
-                
-                print("Character \(String(describing: newCharacter!.name)) has been unlocked!")
-            }
-            
-        case 1: //Perk
-            let currentItem = perkItems[indexPath.row]
-            
-            let perk = currentItem as! Perk
-            
-            guard isPerkAffordable(perk: perk) else {
-                print ("You cannot afford this item")
-                return
-            }
-            
-            guard isPerkRequiredCharacterPresent(perk: perk) else {
-                print ("You need a certain party member to unlock this. \(perk.requiredPartyMembers)")
-                return
-            }
-            
-            let newPerk = unlockPerk(named: perk.name)
-            
-            if newPerk != nil {
-                //deduct the price
-                score = score - perk.price!
-                updateScoreLabel()
-                
-                //adjust the core data score
-                reconcileScoreFromPurchase(purchasePrice: perk.price!)
-                
-                collectionView.reloadData()
-                self.collectionView.collectionViewLayout.invalidateLayout()
-                
-                print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
-            }
-        case 2:  //SKProduct
-            let currentItem = appStoreItems[indexPath.row]
-            
-            //start the buying process from the app store.
-            let product = currentItem as! SKProduct
-            
-            requestPayment(for:product)
-            
-        default:
-            //some other type of item has been shown, throw error
-            fatalError("Found unexpected section in Perk store: \(section)")
-        }
-        
-        
-        
-    }
     
     /******************************************************/
     /*******************///MARK: Flow Layout

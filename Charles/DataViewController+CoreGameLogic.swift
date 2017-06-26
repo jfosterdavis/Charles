@@ -732,7 +732,15 @@ extension DataViewController {
         //fading in and out the map. based on user's level
         let userLevel = getUserCurrentLevel()
         //map will fade in over 2 levels
-        if userLevel.level >= (minimumLevelToUnlockMap + 5) {
+        if currentScore <= minimumScoreToUnlockObjective {
+            //don't show map if score is below minimum for objective
+            //fade to zero
+            //fade in the perk store
+            
+            self.mapButton.fade(.out,
+                                withDuration: 0.3,
+                                delay: 0.6)
+        } else if userLevel.level >= (minimumLevelToUnlockMap + 5) {
             
             let newAlpha:CGFloat = 1.0
             
@@ -754,14 +762,6 @@ extension DataViewController {
                                       withDuration: 0.3,
                                       delay: 0.6)
             
-        } else if currentScore <= minimumScoreToUnlockObjective {
-            //don't show map if score is below minimum for objective
-            //fade to zero
-            //fade in the perk store
-            
-            self.mapButton.fade(.out,
-                                withDuration: 0.3,
-                                delay: 0.6)
         } else {
             //user is below the map button reveal
             self.mapButton.fade(.out,
