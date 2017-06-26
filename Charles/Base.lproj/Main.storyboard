@@ -1704,7 +1704,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="departingSectionHeader" id="gEk-c3-16y" customClass="SectionHeaderCollectionReusableView" customModule="Charles" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="departingSectionHeader" id="gEk-c3-16y" customClass="SectionHeaderCollectionReusableView" customModule="Charles" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -1721,6 +1721,9 @@
                                         <constraint firstItem="P7f-Wa-f7w" firstAttribute="height" secondItem="gEk-c3-16y" secondAttribute="height" id="ifZ-kB-Q1H"/>
                                         <constraint firstItem="P7f-Wa-f7w" firstAttribute="centerY" secondItem="gEk-c3-16y" secondAttribute="centerY" id="ovF-jQ-lVW"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="headerTitleLabel" destination="P7f-Wa-f7w" id="7az-lI-8OD"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8g-uH-TvU">
