@@ -27,7 +27,7 @@ extension DataViewController {
     func getAllPerks(ofType type: PerkType, withStatus status: UnlockableFeatureStatus) -> [(Perk, UnlockedPerk?)] {
         
         //The perkstore has all the info we need.
-        let perkStore = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+        let perkStore = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
         
         switch status {
         case .unlocked:
@@ -122,7 +122,7 @@ extension DataViewController {
     func checkForAndRemoveExpiredPerks() -> [Perk]? {
         
         //create a store object to use its functions for checking if perks have expired
-        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
         let expiredPerks: [UnlockedPerk] = perkStoreVC.getExpiredPerks()
         
         if !expiredPerks.isEmpty {
@@ -433,7 +433,7 @@ extension DataViewController {
         
         //lock all perks
         //create a store object to use its functions for checking if perks have expired
-        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+        let perkStoreVC = self.storyboard!.instantiateViewController(withIdentifier: "Store") as! StoreCollectionViewController
         let activePerks = perkStoreVC.getAllUnlockedPerks()
         for activePerk in activePerks {
             perkStoreVC.lockPerk(unlockedPerk: activePerk)

@@ -389,27 +389,27 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     }
     
-    @IBAction func perkStoreButtonPressed(_ sender: Any) {
-        
-        //stop the timer
-        timer.invalidate()
-        
-        
-        // Create a new view controller and pass suitable data.
-        let perkStoreViewController = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
-        
-        //link this VC
-        perkStoreViewController.parentVC = self
-        
-        //pass the score
-        perkStoreViewController.score = getCurrentScore()
-        
-        //if this was called without the button, slide it in from bottom
-        if sender as? DataViewController == self {
-            perkStoreViewController.modalTransitionStyle = .coverVertical
-        }
-        
-        present(perkStoreViewController, animated: true, completion: nil)
-    }
+//    @IBAction func perkStoreButtonPressed(_ sender: Any) {
+//        
+//        //stop the timer
+//        timer.invalidate()
+//        
+//        
+//        // Create a new view controller and pass suitable data.
+//        let perkStoreViewController = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
+//        
+//        //link this VC
+//        perkStoreViewController.parentVC = self
+//        
+//        //pass the score
+//        perkStoreViewController.score = getCurrentScore()
+//        
+//        //if this was called without the button, slide it in from bottom
+//        if sender as? DataViewController == self {
+//            perkStoreViewController.modalTransitionStyle = .coverVertical
+//        }
+//        
+//        present(perkStoreViewController, animated: true, completion: nil)
+//    }
     
 }

@@ -38,7 +38,6 @@
 		F60D11591EF39C09008D38BE /* BasicClueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D11581EF39C09008D38BE /* BasicClueViewController.swift */; };
 		F60D115B1EF3A259008D38BE /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D115A1EF3A259008D38BE /* Clue.swift */; };
 		F60D115D1EF3A37E008D38BE /* Clues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60D115C1EF3A37E008D38BE /* Clues.swift */; };
-		F614075C1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */; };
 		F614075E1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F614075D1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift */; };
 		F61532301EE0F92200FCF1DC /* InsightColorStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */; };
 		F61553561EDC9E88004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61553551EDC9E87004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift */; };
@@ -131,7 +130,6 @@
 		F60D11581EF39C09008D38BE /* BasicClueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicClueViewController.swift; sourceTree = "<group>"; };
 		F60D115A1EF3A259008D38BE /* Clue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		F60D115C1EF3A37E008D38BE /* Clues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clues.swift; sourceTree = "<group>"; };
-		F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerkStoreCollectionViewController.swift; sourceTree = "<group>"; };
 		F614075D1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPerkStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightColorStickView.swift; sourceTree = "<group>"; };
 		F61553551EDC9E87004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+GameSoundsAndFeedback.swift"; sourceTree = "<group>"; };
@@ -306,7 +304,7 @@
 				F607C8811EBFC6E600651FAD /* DataViewController.swift */,
 				F61553621EDCBE29004BBCB6 /* DVC Extensions */,
 				F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */,
-				F614075B1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift */,
+				F61CC1E11F00A04200B47678 /* Store Extensions */,
 				F62038261EE399750059F946 /* InvestmentCrashViewController.swift */,
 				F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */,
 				F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */,
@@ -375,6 +373,13 @@
 				F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */,
 			);
 			name = "DVC Extensions";
+			sourceTree = "<group>";
+		};
+		F61CC1E11F00A04200B47678 /* Store Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Store Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,7 +536,6 @@
 				F61553561EDC9E88004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift in Sources */,
 				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
 				F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */,
-				F614075C1EDCFD4F00C6B642 /* PerkStoreCollectionViewController.swift in Sources */,
 				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
 				F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class DepartingPerksViewController: PerkStoreCollectionViewController {
+class DepartingPerksViewController: StoreCollectionViewController {
     
     @IBOutlet weak var explainationLabel: UILabel!
     
