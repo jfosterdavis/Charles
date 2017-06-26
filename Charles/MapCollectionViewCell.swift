@@ -16,10 +16,15 @@ class MapCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var levelDescriptionTextLabel: UILabel!
     
     @IBOutlet weak var clueButton: UIButton!
+    @IBOutlet weak var perkClueButton: UIButton!
+    @IBOutlet weak var characterClueButton: UIButton!
     
     @IBOutlet weak var readableShadedRegionView: UIView!
     
     @IBOutlet weak var infoTextLabel: UILabel!
+    
+    @IBOutlet weak var infoButtonsStackView: UIStackView!
+    
     
     
     /******************************************************/
@@ -41,6 +46,8 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     
     var clue: Clue?
+    var perkClue: Perk?
+    var characterClue: Character?
     var storyboard: UIStoryboard?
     var pulseToggle = false
     let shadedRegionBaselineAlpha:CGFloat = 0.7
@@ -57,7 +64,11 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelDescriptionTextLabel.text = String(describing: levelData.levelDescription!)
         
         clueButton.roundCorners(with: 5)
+        perkClueButton.roundCorners(with: 5)
+        characterClueButton.roundCorners(with: 5)
         
+        //clues
+        infoButtonsStackView.isHidden = false
         if self.clue != nil {
             //if there is a clue, make this visible, otherwise not
             clueButton.isHidden = false
@@ -65,6 +76,26 @@ class MapCollectionViewCell: UICollectionViewCell {
         } else {
             clueButton.isHidden = true
             clueButton.isEnabled = false
+        }
+        
+        //perk clue
+        if self.perkClue != nil {
+            //if there is a clue, make this visible, otherwise not
+            perkClueButton.isHidden = false
+            perkClueButton.isEnabled = true
+        } else {
+            perkClueButton.isHidden = true
+            perkClueButton.isEnabled = false
+        }
+        
+        //character clue
+        if self.characterClue != nil {
+            //if there is a clue, make this visible, otherwise not
+            characterClueButton.isHidden = false
+            characterClueButton.isEnabled = true
+        } else {
+            characterClueButton.isHidden = true
+            characterClueButton.isEnabled = false
         }
         
         //load stats labels
@@ -105,9 +136,17 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelNumberTextLabel.text = "?"
         levelDescriptionTextLabel.isHidden = true
         
-        //hide the clue
+        //hide the clues        
         clueButton.isHidden = true
         clueButton.isEnabled = false
+        
+        //hide the characterClue
+        perkClueButton.isHidden = true
+        perkClueButton.isEnabled = false
+        
+        //hide the perkClue
+        characterClueButton.isHidden = true
+        characterClueButton.isEnabled = false
         
         //hide the stats
         statsStackView.isHidden = true
@@ -124,8 +163,9 @@ class MapCollectionViewCell: UICollectionViewCell {
     func setStatusNotAchievedButCluesOnly(enabled: Bool = false) {
         setStatusNotAchieved()
         
-        //show the clue
-        
+        //show the clues
+        infoButtonsStackView.isHidden = false
+        //clue
         if self.clue != nil {
             //if there is a clue, make this visible, otherwise not
             clueButton.isHidden = false
@@ -135,10 +175,32 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueButton.isHidden = true
         }
         
-        clueButton.isEnabled = enabled
+        //perk clue
+        if self.perkClue != nil {
+            //if there is a clue, make this visible, otherwise not
+            perkClueButton.isHidden = false
+            //show info label
+            showInfoLabel()
+        } else {
+            perkClueButton.isHidden = true
+        }
         
-        levelDescriptionTextLabel.isHidden = true
-        levelDescriptionTextLabel.text = "Expect:"
+        //character clue
+        if self.characterClue != nil {
+            //if there is a clue, make this visible, otherwise not
+            characterClueButton.isHidden = false
+            //show info label
+            showInfoLabel()
+        } else {
+            characterClueButton.isHidden = true
+        }
+        
+        clueButton.isEnabled = enabled
+        perkClueButton.isEnabled = enabled
+        characterClueButton.isEnabled = enabled
+        
+        //levelDescriptionTextLabel.isHidden = true
+        //levelDescriptionTextLabel.text = "Expect:"
     }
     
     ///replaces the statistics with the success and failure criteria
@@ -230,5 +292,31 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueVC.delayDismissButton = false
             topVC.present(clueVC, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func perkClueButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+
+        print("perk clue button pressed")
+//        if let clue = self.clue, let storyboard = self.storyboard {
+//            let topVC = topMostController()
+//            let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+//            clueVC.clue = clue
+//            clueVC.delayDismissButton = false
+//            topVC.present(clueVC, animated: true, completion: nil)
+//        }
+    }
+    
+    @IBAction func characterClueButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+
+        print("character clue button pressed")
+//        if let clue = self.clue, let storyboard = self.storyboard {
+//            let topVC = topMostController()
+//            let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+//            clueVC.clue = clue
+//            clueVC.delayDismissButton = false
+//            topVC.present(clueVC, animated: true, completion: nil)
+//        }
     }
 }

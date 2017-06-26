@@ -1881,19 +1881,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="h7N-S4-Igi">
-                                                    <rect key="frame" x="18" y="48" width="199" height="73"/>
+                                                    <rect key="frame" x="18" y="48" width="199" height="72"/>
                                                     <subviews>
                                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86L-pi-Eai">
-                                                            <rect key="frame" x="21" y="0.0" width="157" height="23"/>
+                                                            <rect key="frame" x="21" y="0.0" width="157" height="22.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rounds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-rK-42l">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="73.5" height="23"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="73.5" height="22.5"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-wp-3KI">
-                                                                    <rect key="frame" x="83.5" y="0.0" width="73.5" height="23"/>
+                                                                    <rect key="frame" x="83.5" y="0.0" width="73.5" height="22.5"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="0.4934422376" blue="0.2156158769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1902,7 +1902,7 @@
                                                             <color key="backgroundColor" red="0.35977157360000001" green="0.35977157360000001" blue="0.35977157360000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
                                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqF-v7-seP">
-                                                            <rect key="frame" x="31.5" y="25" width="136" height="23"/>
+                                                            <rect key="frame" x="31.5" y="24.5" width="136" height="23"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Net" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-vS-IvP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="63" height="23"/>
@@ -1920,16 +1920,16 @@
                                                             <color key="backgroundColor" red="0.35977157360406087" green="0.35977157360406087" blue="0.35977157360406087" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
                                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-Q5-gZ3">
-                                                            <rect key="frame" x="0.0" y="50" width="199" height="23"/>
+                                                            <rect key="frame" x="0.0" y="49.5" width="199" height="22.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Accuracy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sPs-LP-InQ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="94.5" height="23"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="94.5" height="22.5"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="56%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c3c-Yi-OMf">
-                                                                    <rect key="frame" x="104.5" y="0.0" width="94.5" height="23"/>
+                                                                    <rect key="frame" x="104.5" y="0.0" width="94.5" height="22.5"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="0.4934422376" blue="0.2156158769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1940,52 +1940,101 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMR-Ad-J1M">
+                                                    <rect key="frame" x="18" y="123" width="33" height="33"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="gMR-Ad-J1M" secondAttribute="height" id="eIH-Ta-yBS"/>
+                                                    </constraints>
+                                                    <state key="normal" image="companion-add"/>
+                                                    <state key="highlighted" image="companion-add-selected"/>
+                                                    <connections>
+                                                        <action selector="characterClueButtonPressed:" destination="jnp-Q9-7KO" eventType="touchUpInside" id="XQW-qt-a8z"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxz-Q3-L2P">
+                                                    <rect key="frame" x="113.5" y="123" width="28" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Dxz-Q3-L2P" secondAttribute="height" multiplier="69:80" id="aS4-Ok-LJj"/>
+                                                    </constraints>
+                                                    <state key="normal" image="hex-DollarSign"/>
+                                                    <connections>
+                                                        <action selector="perkClueButtonPressed:" destination="jnp-Q9-7KO" eventType="touchUpInside" id="BH7-9k-h5A"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-IA-jw5">
-                                                    <rect key="frame" x="215" y="123" width="33" height="33"/>
-                                                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="204.5" y="123" width="33" height="33"/>
+                                                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qed-IA-jw5" secondAttribute="height" id="dPJ-bM-CtE"/>
                                                     </constraints>
                                                     <state key="normal" image="shipsWheel"/>
+                                                    <state key="highlighted" image="shipsWheel-selected"/>
                                                     <connections>
                                                         <action selector="clueButtonPressed:" destination="jnp-Q9-7KO" eventType="touchUpInside" id="1if-Ko-MOw"/>
                                                     </connections>
                                                 </button>
+                                                <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJr-yB-AUt">
+                                                    <rect key="frame" x="18" y="126" width="220" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="6zj-uX-NpA"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.56437908496732025" green="0.95686274509803915" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="4TQ-8K-Vml" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="-3" id="1SV-KC-72k"/>
                                             <constraint firstItem="gxq-jR-atK" firstAttribute="height" secondItem="SCN-Xl-qeU" secondAttribute="height" id="2sk-MZ-oTf"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Dxz-Q3-L2P" secondAttribute="bottom" id="5SY-Sd-cQ1"/>
                                             <constraint firstItem="gxq-jR-atK" firstAttribute="centerY" secondItem="SCN-Xl-qeU" secondAttribute="centerY" id="5nf-yf-Mxq"/>
                                             <constraint firstItem="gxq-jR-atK" firstAttribute="centerX" secondItem="SCN-Xl-qeU" secondAttribute="centerX" id="Dib-ma-5qs"/>
                                             <constraint firstItem="gxq-jR-atK" firstAttribute="width" secondItem="SCN-Xl-qeU" secondAttribute="width" id="Fb8-uR-SCp"/>
                                             <constraint firstItem="h7N-S4-Igi" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="10" id="Hur-h9-xko"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="top" secondItem="jnp-Q9-7KO" secondAttribute="topMargin" id="IYt-it-Wm5"/>
                                             <constraint firstItem="4TQ-8K-Vml" firstAttribute="top" secondItem="jnp-Q9-7KO" secondAttribute="topMargin" constant="-3" id="Nw0-5L-iHd"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="qed-IA-jw5" secondAttribute="trailing" id="ODw-AO-z7x"/>
+                                            <constraint firstItem="h7N-S4-Igi" firstAttribute="bottom" secondItem="nJr-yB-AUt" secondAttribute="top" id="ReP-Jb-X0H"/>
                                             <constraint firstItem="h7N-S4-Igi" firstAttribute="top" secondItem="SCN-Xl-qeU" secondAttribute="bottom" constant="5" id="V5T-Fz-EUu"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="nJr-yB-AUt" secondAttribute="bottom" id="W9N-7W-Y9U"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="4TQ-8K-Vml" secondAttribute="trailing" constant="-3" id="Xq5-oR-2Mq"/>
+                                            <constraint firstItem="gMR-Ad-J1M" firstAttribute="top" secondItem="h7N-S4-Igi" secondAttribute="bottom" constant="3" id="aJi-AW-j2K"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="fGb-tQ-rp7"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="4TQ-8K-Vml" secondAttribute="bottom" constant="-3" id="gnR-Od-XMp"/>
+                                            <constraint firstItem="Dxz-Q3-L2P" firstAttribute="top" secondItem="h7N-S4-Igi" secondAttribute="bottom" constant="3" id="gxe-B9-SxH"/>
+                                            <constraint firstItem="qed-IA-jw5" firstAttribute="top" secondItem="h7N-S4-Igi" secondAttribute="bottom" constant="3" id="kzE-Uh-yaR"/>
+                                            <constraint firstItem="Dxz-Q3-L2P" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="l9F-O9-yfU"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="m01-F5-DUj"/>
-                                            <constraint firstItem="qed-IA-jw5" firstAttribute="top" secondItem="h7N-S4-Igi" secondAttribute="bottom" constant="2" id="nTv-JM-eML"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="gMR-Ad-J1M" secondAttribute="bottom" id="ma3-NU-ooM"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="qed-IA-jw5" secondAttribute="trailing" constant="10" id="nWO-tD-eYf"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="nJr-yB-AUt" secondAttribute="trailing" constant="10" id="oPe-H1-FmJ"/>
+                                            <constraint firstItem="qed-IA-jw5" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="oRs-Yd-uh7"/>
+                                            <constraint firstItem="gMR-Ad-J1M" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="oeD-1R-JBJ"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="centerY" secondItem="jnp-Q9-7KO" secondAttribute="centerY" id="pW8-vQ-XFL"/>
+                                            <constraint firstItem="gMR-Ad-J1M" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="10" id="pql-Ss-IOD"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" id="rcl-2l-i7E"/>
+                                            <constraint firstItem="nJr-yB-AUt" firstAttribute="leading" secondItem="jnp-Q9-7KO" secondAttribute="leadingMargin" constant="10" id="tP9-An-JVt"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="h7N-S4-Igi" secondAttribute="trailing" constant="31" id="tai-Lb-P94"/>
-                                            <constraint firstItem="qed-IA-jw5" firstAttribute="height" secondItem="jnp-Q9-7KO" secondAttribute="height" multiplier="1:5" id="usq-g0-kQk"/>
+                                            <constraint firstItem="Dxz-Q3-L2P" firstAttribute="centerX" secondItem="jnp-Q9-7KO" secondAttribute="centerX" id="uwZ-2g-ZA2"/>
                                             <constraint firstItem="SCN-Xl-qeU" firstAttribute="width" secondItem="4TQ-8K-Vml" secondAttribute="width" constant="-6" id="wgt-83-miZ"/>
                                             <constraint firstItem="oTA-CU-jeS" firstAttribute="width" secondItem="jnp-Q9-7KO" secondAttribute="width" id="xw5-TD-LvK"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="qed-IA-jw5" secondAttribute="bottom" id="zcP-yp-roo"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="qed-IA-jw5" secondAttribute="bottom" id="yxS-EE-8j1"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="nJr-yB-AUt"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
+                                            <outlet property="characterClueButton" destination="gMR-Ad-J1M" id="tFq-Dr-Q0z"/>
                                             <outlet property="clueButton" destination="qed-IA-jw5" id="bKH-Cf-KF6"/>
+                                            <outlet property="infoButtonsStackView" destination="nJr-yB-AUt" id="JMH-mA-nBh"/>
                                             <outlet property="infoTextLabel" destination="gxq-jR-atK" id="4TR-re-vwH"/>
                                             <outlet property="levelDescriptionTextLabel" destination="SCN-Xl-qeU" id="TMj-tQ-Ffv"/>
                                             <outlet property="levelNumberTextLabel" destination="oTA-CU-jeS" id="7ZM-f8-QRB"/>
                                             <outlet property="matchRateStackView" destination="Ak8-Q5-gZ3" id="2Gp-ev-0IM"/>
                                             <outlet property="matchRateTitleTextLabel" destination="sPs-LP-InQ" id="U3y-L8-Mz1"/>
                                             <outlet property="matchRateValueTextLabel" destination="c3c-Yi-OMf" id="UZw-St-LNq"/>
+                                            <outlet property="perkClueButton" destination="Dxz-Q3-L2P" id="qXd-eH-bNM"/>
                                             <outlet property="puzzlesTitleTextLabel" destination="O2N-rK-42l" id="wKB-Q1-MPF"/>
                                             <outlet property="puzzlesValueTextLabel" destination="V9X-wp-3KI" id="EPz-HZ-Sm0"/>
                                             <outlet property="readableShadedRegionView" destination="4TQ-8K-Vml" id="Cky-fH-VhC"/>
@@ -2144,6 +2193,8 @@
         <image name="WhiteOppositeBlack" width="78" height="80"/>
         <image name="bullseye" width="69" height="80"/>
         <image name="coin_100000Icon" width="69" height="80"/>
+        <image name="companion-add" width="24" height="28"/>
+        <image name="companion-add-selected" width="24" height="28"/>
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hex-key" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>
@@ -2154,6 +2205,7 @@
         <image name="pencil" width="69" height="80"/>
         <image name="rewind" width="28" height="28"/>
         <image name="shipsWheel" width="28" height="28"/>
+        <image name="shipsWheel-selected" width="28" height="28"/>
         <image name="shuffle" width="28" height="20"/>
         <image name="skip-back" width="28" height="28"/>
         <image name="unlocked" width="32" height="28"/>

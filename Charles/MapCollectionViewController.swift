@@ -94,6 +94,32 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             cell.clue = nil
         }
         
+        //check to see if a perk will be unlocked at this level
+        let perksUnlockedThisLevel = Perks.ValidPerks.filter{$0.levelEligibleAt == level.level}
+        if perksUnlockedThisLevel.count == 1 {
+            cell.perkClue = perksUnlockedThisLevel[0]
+        } else if perksUnlockedThisLevel.count > 1 {
+            //there is more than one perk unlocked this level
+            cell.perkClue = perksUnlockedThisLevel[0]
+        }
+        else {
+            //no perks unlocked this level
+            cell.perkClue = nil
+        }
+        
+        //check to see if a character will be unlocked at this level
+        let charactersUnlockedThisLevel = Characters.ValidCharacters.filter{$0.levelEligibleAt == level.level}
+        if charactersUnlockedThisLevel.count == 1 {
+            cell.characterClue = charactersUnlockedThisLevel[0]
+        } else if charactersUnlockedThisLevel.count > 1 {
+            //there is more than one character unlocked this level
+            cell.characterClue = charactersUnlockedThisLevel[0]
+        }
+        else {
+            //no characters unlocked this level
+            cell.characterClue = nil
+        }
+        
         //based on the user level, populate the data but for those higher than current level set the appearance as setStatusNotAchieved
         cell.loadAppearance(from: level)
         
