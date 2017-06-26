@@ -25,7 +25,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     
     let lookAheadClue = 10 //How many levels ahead can the player know a clue will be given
     let lookAheadClueRead = 1 //How many levels ahead can the player read the clue
-    let lookAheadSuccessFailureCriteria = 3 //How many levels ahead acn the player see the success and failure criteria
+    let lookAheadSuccessFailureCriteria = 1 //How many levels ahead acn the player see the success and failure criteria
     
     //coreData keys
     let keyXP = "keyXP"

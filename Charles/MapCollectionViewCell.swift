@@ -168,7 +168,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         scoreValueTextLabel.textColor = .red
         
         //show info label
-        showInfoLabel()
+        showInfoLabel(withMessage: "Up Next:")
         
     }
     
