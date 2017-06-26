@@ -33,8 +33,9 @@ struct Perks {
     /******************************************************/
 
     
-    static let ValidPerks:[Perk] = [Synesthesia,
+    static let ValidPerks:[Perk] = [
                                     Stacks,
+                                    Synesthesia,
                                     Study,
                                     Insight,
                                     Closeenough,
@@ -56,8 +57,9 @@ struct Perks {
                                     Closeenough4,
                                     Study3]
     
-    static let UnlockablePerks:[Perk] = [Synesthesia,
+    static let UnlockablePerks:[Perk] = [
                                          Stacks,
+                                         Synesthesia,
                                          Study,
                                          Insight,
                                          Closeenough,
@@ -95,7 +97,7 @@ struct Perks {
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
-        levelEligibleAt: 5, //5
+        levelEligibleAt: 6, //6
         requiredPartyMembers: [Characters.Laura]
     )
     
@@ -315,7 +317,7 @@ struct Perks {
                                         minutesUnlocked: 30, //30
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
-                                        levelEligibleAt: 6, //6
+                                        levelEligibleAt: 5, //5
                                         requiredPartyMembers: []
     )
     
