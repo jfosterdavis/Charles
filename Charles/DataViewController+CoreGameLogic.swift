@@ -732,11 +732,20 @@ extension DataViewController {
         //fading in and out the map. based on user's level
         let userLevel = getUserCurrentLevel()
         //map will fade in over 2 levels
-        if userLevel.level >= minimumLevelToUnlockMap && userLevel.level <= (minimumLevelToUnlockMap + 2) {
-            //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
+        if userLevel.level >= (minimumLevelToUnlockMap + 5) {
+            
+            let newAlpha:CGFloat = 1.0
+            
+            self.mapButton.fade(.inOrOut,
+                                resultAlpha: newAlpha,
+                                withDuration: 0.3,
+                                delay: 0.6)
+            
+        } else if userLevel.level >= minimumLevelToUnlockMap && userLevel.level <= (minimumLevelToUnlockMap + 5) {
+            //slowly introduce the map over 5 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
             
             
-            let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 2))
+            let newAlpha: CGFloat = CGFloat(Float(userLevel.level) / Float(userLevel.level + 5))
             
             //fade in the map
             //this should automatically disable if it fades to 0 or enable if it is > 0

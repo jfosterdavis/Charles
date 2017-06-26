@@ -205,9 +205,9 @@ extension DataViewController {
     
     ///determines if the map should be presented
     func checkIfMapShouldBePresentedAndPresent() {
-        let userXP = calculateUserXP()
-        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
-        let userCurrentLevel = userLevelAndProgress.0.level
+//        let userXP = calculateUserXP()
+//        let userLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
+        let userCurrentLevel = getUserCurrentLevel().level
         let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
         
         if didPlayerProgressToGetHere && userCurrentLevel >= 11 {

@@ -346,10 +346,15 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //allow user to access the stores for a few seconds
         //fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 6.3)
-        
-        //only control the perk store if the player level is above minimum + 2
-//        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockPerkStore + 2) {
-//            fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 6.3)
+//        self.storeButton.fade(.inOrOut, resultAlpha: 0.3,
+//                              withDuration: 1,
+//                              delay: 3)
+//        
+//        //only control the perk store if the player level is above minimum + 2
+//        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockMap + 2) {
+//            self.mapButton.fade(.inOrOut, resultAlpha: 0.3,
+//                                  withDuration: 1,
+//                                  delay: 3)
 //        }
         
     }
@@ -397,6 +402,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         // Create a new view controller and pass suitable data.
         let mapViewController = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
 
+        let currentLevel = getUserCurrentLevel().level
+        mapViewController.initialLevelToScrollTo = currentLevel
+        
         present(mapViewController, animated: true, completion: nil)
         
     }
