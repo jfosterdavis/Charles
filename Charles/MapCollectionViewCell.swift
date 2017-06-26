@@ -292,6 +292,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
             clueVC.clue = clue
             clueVC.delayDismissButton = false
+            //clueVC.modalPresentationStyle = .pageSheet
             topVC.present(clueVC, animated: true, completion: nil)
         }
     }

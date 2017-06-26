@@ -31,6 +31,8 @@ class BasicClueViewController: UIViewController {
     
     var delayDismissButton = true
     
+    var didLayout = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,15 +48,45 @@ class BasicClueViewController: UIViewController {
             dismissButton.alpha = 1
         }
         
+        //view.backgroundColor = .clear
+        //view.isOpaque = false
         
+        
+        
+        //self.preferredContentSize = CGSize(width: 100, height: 150)
         
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if !didLayout {
+            
+            let width:CGFloat = self.view.bounds.width * 0.92
+            let height:CGFloat = width * 1.618 //golden ratio
+            
+            self.view.superview!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75) //dim the background to focus on the modal
+            let screen = self.view.superview!.bounds
+            let frame = CGRect(x: 0, y: 0, width: width, height: height)
+            let x = (screen.size.width - frame.size.width) * 0.5
+            let y = (screen.size.height - frame.size.height) * 0.5
+            let bigFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
+            
+            self.view.frame = bigFrame
+            self.view.roundCorners()
+            
+            didLayout = true
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.view.roundCorners()
         dismissButton.roundCorners(with: 5)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if delayDismissButton {
             dismissButton.fade(.in, withDuration: 3, delay: 5, completion: nil)
         }

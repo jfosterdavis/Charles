@@ -1090,12 +1090,12 @@
         <!--Basic Clue View Controller-->
         <scene sceneID="Jcl-am-aPL">
             <objects>
-                <viewController storyboardIdentifier="BasicClueViewController" modalTransitionStyle="crossDissolve" id="69u-21-rJP" customClass="BasicClueViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BasicClueViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="69u-21-rJP" customClass="BasicClueViewController" customModule="Charles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ph2-fT-AWG"/>
                         <viewControllerLayoutGuide type="bottom" id="qix-oG-VnG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ovi-MD-1U6">
+                    <view key="view" opaque="NO" alpha="0.97999999999999998" contentMode="scaleToFill" id="Ovi-MD-1U6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1172,6 +1172,7 @@
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="height" secondItem="Peo-TG-cdD" secondAttribute="height" priority="800" id="tx4-X5-Sff"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
