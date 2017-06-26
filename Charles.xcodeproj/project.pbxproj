@@ -52,6 +52,7 @@
 		F619A2651EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2631EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift */; };
 		F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */; };
 		F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F607C8811EBFC6E600651FAD /* DataViewController.swift */; };
+		F61CC1E31F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */; };
 		F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038261EE399750059F946 /* InvestmentCrashViewController.swift */; };
 		F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */; };
 		F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */; };
@@ -143,6 +144,7 @@
 		F619A2621EDD0BE300493E0E /* UnlockedPerk+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedPerk+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F619A2631EDD0BE300493E0E /* UnlockedPerk+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedPerk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F619A2661EDE44B700493E0E /* DataViewController+Perks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataViewController+Perks.swift"; sourceTree = "<group>"; };
+		F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+DataSourceAndDelegate.swift"; sourceTree = "<group>"; };
 		F62038261EE399750059F946 /* InvestmentCrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCrashViewController.swift; sourceTree = "<group>"; };
 		F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingCharactersViewController.swift; sourceTree = "<group>"; };
 		F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingPerksViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 		F61CC1E11F00A04200B47678 /* Store Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F61CC1E21F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift */,
 			);
 			name = "Store Extensions";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */,
 				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,
+				F61CC1E31F00AD8500B47678 /* StoreCollectionViewController+DataSourceAndDelegate.swift in Sources */,
 				F60327B71EC54B8100493DC3 /* StoreCollectionViewController.swift in Sources */,
 				F60327B91EC54BF600493DC3 /* CoreDataCollectionViewController.swift in Sources */,
 				F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */,
