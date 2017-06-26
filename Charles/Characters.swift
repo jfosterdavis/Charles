@@ -38,7 +38,7 @@ struct Characters {
                                    hoursUnlocked: 96,
                                    levelEligibleAt: 15,
                                    phrases: [Phrase(name: "I'm a pimp",
-                                                    likelihood: 50,
+                                                    likelihood: 30,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "pimp", audioFilePath: Bundle.main.path(forResource: "Pimp", ofType: "m4a", inDirectory: "Audio/Charles"))
@@ -48,7 +48,7 @@ struct Characters {
                                                             Slot(tone: -200, color: .green)
                                                 ]),
                                              Phrase(name: "I'm a playa",
-                                                    likelihood: 45,
+                                                    likelihood: 25,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "playa", audioFilePath: Bundle.main.path(forResource: "Playa", ofType: "m4a", inDirectory: "Audio/Charles"))
@@ -59,7 +59,7 @@ struct Characters {
                                                             Slot(tone: 600, color: .cyan)
                                                 ]),
                                              Phrase(name: "I'm a playa and a pimp",
-                                                    likelihood: 30,
+                                                    likelihood: 10,
                                                     subphrases: [Subphrase(words: "I'm", audioFilePath: Bundle.main.path(forResource: "I'm", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "a", audioFilePath: Bundle.main.path(forResource: "A", ofType: "m4a", inDirectory: "Audio/Charles")),
                                                                  Subphrase(words: "playa and a pimp", audioFilePath: Bundle.main.path(forResource: "Playa And A Pimp", ofType: "m4a", inDirectory: "Audio/Charles"))
