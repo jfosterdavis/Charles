@@ -743,7 +743,7 @@ extension DataViewController {
         //fading in and out the perk store. based on user's level
         let userLevel = getUserCurrentLevel()
         //store will fade in over 5 levels
-        if userLevel.level >= minimumLevelToUnlockPerkStore && userLevel.level <= (minimumLevelToUnlockPerkStore + 2) {
+        if userLevel.level >= minimumLevelToUnlockMap && userLevel.level <= (minimumLevelToUnlockMap + 2) {
             //slowly introduce the perk store over 2 levels.  Above this the function loadAndFadeInFeedbackObjective manages the perk store
             
             
@@ -751,43 +751,18 @@ extension DataViewController {
             
             //fade in the perk store
             //this should automatically disable if it fades to 0 or enable if it is > 0
-            self.perkStoreButton.fade(.inOrOut,
+            self.mapButton.fade(.inOrOut,
                                       resultAlpha: newAlpha,
                                       withDuration: 0.3,
                                       delay: 0.6)
-            //only disable if it is invisible
-//                if self.perkStoreButton.alpha == 0 {
-//                    self.perkStoreButton.isEnabled = false
-//                } else {
-//                    self.perkStoreButton.isEnabled = true
-//                }
-//                UIView.animate(withDuration: 0.3,
-//                               delay: 0.6,
-//                               animations: {
-//                                
-//                                self.perkStoreButton.alpha = newAlpha
-//                                if self.perkStoreButton.alpha == 0 {
-//                                    self.perkStoreButton.isEnabled = false
-//                                } else {
-//                                    self.perkStoreButton.isEnabled = true
-//                                }
-//                }, completion: nil)
             
         } else  if currentScore <= minimumScoreToUnlockObjective {
             //fade to zero
             //fade in the perk store
             
-            self.perkStoreButton.fade(.out,
+            self.mapButton.fade(.out,
                                       withDuration: 0.3,
                                       delay: 0.6)
-            
-//                UIView.animate(withDuration: 0.3,
-//                               delay: 0.6,
-//                               animations: {
-//                                
-//                                self.perkStoreButton.alpha = 0
-//                                    self.perkStoreButton.isEnabled = false
-//                }, completion: nil)
         }
     
         //score housekeeping.

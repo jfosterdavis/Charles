@@ -118,7 +118,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     //constants
     let minimumScoreToUnlockObjective = 600
     let minimumScoreToUnlockStore = 300
-    let minimumLevelToUnlockPerkStore = 5
+    let minimumLevelToUnlockMap = 11
     
     //color stick view for Insight
     @IBOutlet weak var perkStickViewDeviation: InsightColorStickView!
@@ -127,7 +127,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     //Store
     @IBOutlet weak var storeButton: UIButton!
-    @IBOutlet weak var perkStoreButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
     
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -196,8 +196,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         thisLevelLabel.alpha = 0.0
         nextLevelLabel.alpha = 0
         scoreLabel.alpha = 0
-        perkStoreButton.alpha = 0
-        perkStoreButton.isEnabled = false
+        mapButton.alpha = 0
+        mapButton.isEnabled = false
         perkIncreasedScoreUserFeedback.alpha = 0
         perkPrecisionAdjustmentUserFeedback.alpha = 0
         perkStickViewDeviation.alpha = 0
@@ -348,9 +348,9 @@ class DataViewController: CoreDataViewController, StoreReactor {
         fadeViewInThenOut(view: self.storeButton, fadeOutAfterSeconds: 6.3)
         
         //only control the perk store if the player level is above minimum + 2
-        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockPerkStore + 2) {
-            fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 6.3)
-        }
+//        if self.getUserCurrentLevel().level > (self.minimumLevelToUnlockPerkStore + 2) {
+//            fadeViewInThenOut(view: self.perkStoreButton, fadeOutAfterSeconds: 6.3)
+//        }
         
     }
     
@@ -389,27 +389,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     }
     
-//    @IBAction func perkStoreButtonPressed(_ sender: Any) {
-//        
-//        //stop the timer
-//        timer.invalidate()
-//        
-//        
-//        // Create a new view controller and pass suitable data.
-//        let perkStoreViewController = self.storyboard!.instantiateViewController(withIdentifier: "PerkStore") as! PerkStoreCollectionViewController
-//        
-//        //link this VC
-//        perkStoreViewController.parentVC = self
-//        
-//        //pass the score
-//        perkStoreViewController.score = getCurrentScore()
-//        
-//        //if this was called without the button, slide it in from bottom
-//        if sender as? DataViewController == self {
-//            perkStoreViewController.modalTransitionStyle = .coverVertical
-//        }
-//        
-//        present(perkStoreViewController, animated: true, completion: nil)
-//    }
+    @IBAction func mapButtonPressed(_ sender: Any) {
+        //stop the timer
+        timer.invalidate()
+        
+        
+        // Create a new view controller and pass suitable data.
+        let mapViewController = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
+
+        present(mapViewController, animated: true, completion: nil)
+        
+    }
     
 }
