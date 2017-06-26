@@ -74,7 +74,7 @@ extension DataViewController {
         switch (departingCharacters, expiredPerks) {
         case let x where x.0 != nil && x.1 == nil: //Characters have expired
             //present the view to the player to let them know
-            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingItems") as! DepartingItemsViewController
             departingVC.departingCharacters = departingCharacters!
             departingVC.score = getCurrentScore()
             departingVC.parentVC = self
@@ -82,7 +82,7 @@ extension DataViewController {
             
         case let x where x.0 == nil && x.1 != nil: //Perks have expired
             //present the view to the player to let them know
-            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingItems") as! DepartingItemsViewController
             departingVC.departingPerks = expiredPerks!
             departingVC.score = getCurrentScore()
             departingVC.parentVC = self
@@ -90,24 +90,15 @@ extension DataViewController {
             
         case let x where x.0 != nil && x.1 != nil: //Both Characters and Perks have expired
             //create the Characters VC
-            let departingCharactersVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingCharacters") as! DepartingCharactersViewController
-            departingCharactersVC.score = getCurrentScore()
-            departingCharactersVC.departingCharacters = departingCharacters!
-            departingCharactersVC.parentVC = self
+            let departingVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingItems") as! DepartingItemsViewController
+            departingVC.score = getCurrentScore()
+            departingVC.departingCharacters = departingCharacters!
+            departingVC.parentVC = self
             
-            //create the Perks VC
-            let departingPerksVC = self.storyboard!.instantiateViewController(withIdentifier: "DepartingPerks") as! DepartingPerksViewController
-            departingPerksVC.departingPerks = expiredPerks!
-            departingPerksVC.parentVC = self
+            //add the Perks VC
+            departingVC.departingPerks = expiredPerks!
             
-            //Present the perks, then have that VC present the characters
-            //That way when characters expire, the player knows in the next screen why their perks are missing character requirements
-            //when characters closes pass the new score to the perks VC
-            
-            topVC.present(departingCharactersVC, animated: true, completion: {
-                departingPerksVC.score = self.getCurrentScore()
-                topVC.present(departingPerksVC, animated: true, completion: nil)
-            })
+            topVC.present(departingVC, animated: true, completion: nil)
             
         default: //none are expired, do nothing
             break

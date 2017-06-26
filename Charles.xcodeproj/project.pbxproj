@@ -57,8 +57,7 @@
 		F61CC1E71F00B0E500B47678 /* StoreCollectionViewController+Perks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E61F00B0E500B47678 /* StoreCollectionViewController+Perks.swift */; };
 		F61CC1E91F00B27900B47678 /* StoreCollectionViewController+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E81F00B27900B47678 /* StoreCollectionViewController+Characters.swift */; };
 		F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038261EE399750059F946 /* InvestmentCrashViewController.swift */; };
-		F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */; };
-		F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */; };
+		F62038291EE3C4530059F946 /* DepartingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingItemsViewController.swift */; };
 		F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */; };
 		F62F65AC1ED8DE1A00A5EBF5 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */; };
 		F63F0D061ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */; };
@@ -152,8 +151,7 @@
 		F61CC1E61F00B0E500B47678 /* StoreCollectionViewController+Perks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+Perks.swift"; sourceTree = "<group>"; };
 		F61CC1E81F00B27900B47678 /* StoreCollectionViewController+Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+Characters.swift"; sourceTree = "<group>"; };
 		F62038261EE399750059F946 /* InvestmentCrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCrashViewController.swift; sourceTree = "<group>"; };
-		F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingCharactersViewController.swift; sourceTree = "<group>"; };
-		F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingPerksViewController.swift; sourceTree = "<group>"; };
+		F62038281EE3C4530059F946 /* DepartingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingItemsViewController.swift; sourceTree = "<group>"; };
 		F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWinnerViewController.swift; sourceTree = "<group>"; };
 		F62F65AB1ED8DE1A00A5EBF5 /* ColorLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
 		F63F0D041ED9CF4A001B2720 /* UnlockedCharacter+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnlockedCharacter+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -314,8 +312,7 @@
 				F60327B61EC54B8100493DC3 /* StoreCollectionViewController.swift */,
 				F61CC1E11F00A04200B47678 /* Store Extensions */,
 				F62038261EE399750059F946 /* InvestmentCrashViewController.swift */,
-				F62038281EE3C4530059F946 /* DepartingCharactersViewController.swift */,
-				F620382A1EE3C8730059F946 /* DepartingPerksViewController.swift */,
+				F62038281EE3C4530059F946 /* DepartingItemsViewController.swift */,
 				F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */,
 				F60D11581EF39C09008D38BE /* BasicClueViewController.swift */,
 				F66DDE261EF64114003E925D /* MapCollectionViewController.swift */,
@@ -537,7 +534,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F60327B41EC51F3200493DC3 /* CoreDataStack.swift in Sources */,
-				F620382B1EE3C8730059F946 /* DepartingPerksViewController.swift in Sources */,
 				F619A2681EDF9DEF00493E0E /* DataViewController.swift in Sources */,
 				F66DDE291EF644F8003E925D /* MapCollectionViewCell.swift in Sources */,
 				F6E6CBFD1EF2FB6600091CDF /* AppStoreProductDetail.swift in Sources */,
@@ -577,7 +573,7 @@
 				F61532301EE0F92200FCF1DC /* InsightColorStickView.swift in Sources */,
 				F619A2671EDE44B700493E0E /* DataViewController+Perks.swift in Sources */,
 				F6FD50741ED4FDF70087F461 /* Protocols.swift in Sources */,
-				F62038291EE3C4530059F946 /* DepartingCharactersViewController.swift in Sources */,
+				F62038291EE3C4530059F946 /* DepartingItemsViewController.swift in Sources */,
 				F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */,
 				F63F0D071ED9CF4A001B2720 /* UnlockedCharacter+CoreDataProperties.swift in Sources */,
 				F60D11591EF39C09008D38BE /* BasicClueViewController.swift in Sources */,
