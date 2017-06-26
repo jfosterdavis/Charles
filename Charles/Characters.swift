@@ -207,7 +207,7 @@ struct Characters {
                                   hoursUnlocked: 4,
                                   levelEligibleAt: 2,
                                 phrases: [Phrase(name: "Oh Tessa You're So Cute",
-                                                 likelihood: 90,
+                                                 likelihood: 92,
                                                  subphrases: [Subphrase(words: "Oh", audioFilePath: Bundle.main.path(forResource: "Oh", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "Tessa", audioFilePath: Bundle.main.path(forResource: "Tessa", ofType: "m4a", inDirectory: "Audio/Benton")),
                                                               Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're2", ofType: "m4a", inDirectory: "Audio/Benton")),
@@ -242,14 +242,10 @@ struct Characters {
                                                  likelihood: 100,
                                                  subphrases: [Subphrase(words: "Ha Ha Ha Ha", audioFilePath: Bundle.main.path(forResource: "Laugh", ofType: "m4a", inDirectory: "Audio/Benton"))
                                             ], slots: [
-                                                       Slot(tone: -550, color: .red),
-                                                       Slot(tone: -550, color: .yellow),
-                                                       Slot(tone: -550, color: .green),
-                                                       Slot(tone: -300, color: .cyan),
-                                                       Slot(tone: -300, color: .blue),
-                                                       Slot(tone: -300, color: .magenta),
-                                                       Slot(tone: -250, color: .red),
-                                                       Slot(tone: -250, color: .white)
+                                                Slot(tone: -550, color: .white),
+                                                Slot(tone: -450, color: .white),
+                                                Slot(tone: -350, color: .white),
+                                                Slot(tone: -250, color: .white)
                                             ]),
                                           Phrase(name: "You're So Cute",
                                                  likelihood: 95,
@@ -388,15 +384,15 @@ struct Characters {
                                                                 Subphrase(words: "Golly", audioFilePath: Bundle.main.path(forResource: "Golly!", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
                                                                 Subphrase(words: "Mister", audioFilePath: Bundle.main.path(forResource: "Mister", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
                                     ],
-                                                   slots: [Slot(tone: 150, color: .black),
-                                                           Slot(tone: 150, color: .red),
-                                                           Slot(tone: 150, color: .red),
+                                                   slots: [Slot(tone: 200, color: .black),
+                                                           Slot(tone: 220, color: .red),
+                                                           Slot(tone: 240, color: .red),
                                                            Slot(tone: 200, color: .blue),
                                                            Slot(tone: 200, color: .blue),
                                                            Slot(tone: 300, color: .red),
                                                            Slot(tone: 300, color: .red),
-                                                           Slot(tone: 175, color: .blue),
-                                                           Slot(tone: 175, color: .blue)
+                                                           Slot(tone: 280, color: .blue),
+                                                           Slot(tone: 320, color: .blue)
                                     ]),
                                             Phrase(name: "Bang Bang You're Dead",
                                                    likelihood: 75,
@@ -405,14 +401,13 @@ struct Characters {
                                                                 Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
                                                                 Subphrase(words: "Dead", audioFilePath: Bundle.main.path(forResource: "Dead", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
                                                 ],
-                                                   slots: [Slot(tone: 237, color: .black),
-                                                           Slot(tone: 550, color: .yellow),
-                                                           Slot(tone: 550, color: .green),
-                                                           Slot(tone: 300, color: .cyan),
-                                                           Slot(tone: 300, color: .blue),
+                                                   slots: [Slot(tone: 200, color: .black),
+                                                           Slot(tone: 210, color: .green),
+                                                           Slot(tone: 210, color: .green),
                                                            Slot(tone: 300, color: .magenta),
-                                                           Slot(tone: 250, color: .red),
-                                                           Slot(tone: 250, color: .white)
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue)
                                                     
                                                 ]),
                                             Phrase(name: "Ouch that really hurt",
@@ -438,18 +433,13 @@ struct Characters {
                                                                 Subphrase(words: "Some", audioFilePath: Bundle.main.path(forResource: "Some", ofType: "m4a", inDirectory: "Audio/LittleJimmy")),
                                                                 Subphrase(words: "Ice Cream?", audioFilePath: Bundle.main.path(forResource: "IceCream?", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
                                                 ],
-                                                   slots: [Slot(tone: 450, color: .white),
-                                                           Slot(tone: 600, color: .black),
-                                                           Slot(tone: 550, color: .red),
-                                                           Slot(tone: 550, color: .yellow),
-                                                           Slot(tone: 550, color: .green),
-                                                           Slot(tone: 450, color: .white),
+                                                   slots: [Slot(tone: 200, color: .black),
+                                                           Slot(tone: 210, color: .green),
+                                                           Slot(tone: 210, color: .green),
                                                            Slot(tone: 300, color: .cyan),
-                                                           Slot(tone: 300, color: .blue),
-                                                           Slot(tone: 300, color: .magenta),
-                                                           Slot(tone: -250, color: .red),
-                                                           Slot(tone: 575, color: .white)
-                                                ]),
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue),
+                                                           Slot(tone: 475, color: .blue)                                                ]),
                                             Phrase(name: "Wooo hooo",
                                                    likelihood: 80,
                                                    subphrases: [Subphrase(words: "Wooooo   Hoooooooo!", audioFilePath: Bundle.main.path(forResource: "Whoohoo", ofType: "m4a", inDirectory: "Audio/LittleJimmy"))
