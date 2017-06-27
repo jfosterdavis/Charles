@@ -91,9 +91,9 @@ class BasicClueViewController: UIViewController {
 //        }
         //stackView.roundCorners(with: 4)
        
-        
-        self.view.roundCorners(with: 20)
-        dismissButton.roundCorners(with: 20)
+        let radius = dismissButton.bounds.width / 2
+        self.view.roundCorners(with: radius)
+        dismissButton.roundCorners(with: radius)
     }
     
     override func viewDidAppear(_ animated: Bool) {
