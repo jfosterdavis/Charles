@@ -18,7 +18,7 @@ class CharacterView:UIView
         didSet {}
     }
     
-    @IBInspectable var cornerRadius: CGFloat = 5.0
+    @IBInspectable var cornerRadius: CGFloat = 8.0
         {
         didSet {}
     }

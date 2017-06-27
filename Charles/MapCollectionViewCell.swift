@@ -348,12 +348,33 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         if let character = self.characterClue {
             
+            //create an image from the CharacterView to display
+            //define the frame (size) for the view
+            let screen = self.superview!.bounds
+            let width = screen.width / 3.6 //make image 1/3 size of CV
+            let height = width
+            let frame = CGRect(x: 0, y: 0, width: width, height: height)
+            let x = (screen.size.width - frame.size.width) * 0.5
+            let y = (screen.size.height - frame.size.height) * 0.5
+            let mainFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
+            
+            //setup the paramaters for it to draw
+            let characterView = CharacterView()
+            characterView.frame = mainFrame
+            characterView.phrase = character.phrases![0]
+            characterView.setNeedsDisplay()
+            
+            let characterViewImage = characterView.asImage()
+            
             //create a clue based on the perk that was pressed
             let characterClue = Clue(clueTitle: character.name,
                                 part1: nil,
-                                part1Image: nil,
-                                part2: nil
+                                part1Image: characterViewImage,
+                                part2: "Character Description will go here."
             )
+            
+            
+            
             
             
             if let storyboard = self.storyboard {
