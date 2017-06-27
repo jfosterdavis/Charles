@@ -44,18 +44,19 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         performanceMosaicView.tileData = getMosaicData()
         performanceMosaicView.setNeedsDisplay()
         
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-            self.collectionView.layoutIfNeeded()
-        }
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//            self.collectionView.layoutIfNeeded()
+//        }
         
+        dismissButton.roundCorners(with: 5)
         
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        dismissButton.roundCorners(with: 5)
+        
         
         if !initialScrollDone {
             self.initialScrollDone = true
