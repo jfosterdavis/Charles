@@ -123,6 +123,8 @@ class MapCollectionViewCell: UICollectionViewCell {
         puzzlesValueTextLabel.textColor = UIColor(red: 255/255, green: 126/255, blue: 55/255, alpha: 1)
         scoreValueTextLabel.textColor = UIColor(red: 255/255, green: 126/255, blue: 55/255, alpha: 1)
         
+        self.setNeedsLayout()
+        
     }
     
     

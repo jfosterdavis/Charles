@@ -23,15 +23,15 @@ struct Utilities {
 /*******************///MARK: Round Buttons
 /******************************************************/
 
-extension UIButton
-{
-    func roundCorners(corners:UIRectCorner, radius: CGFloat)
-    {
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
-        self.layer.mask = maskLayer
-    }
-}
+//extension UIButton
+//{
+//    func roundCorners(corners:UIRectCorner, radius: CGFloat)
+//    {
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
+//        self.layer.mask = maskLayer
+//    }
+//}
 
 /******************************************************/
 /*******************///MARK: UIColor Overloading Operators
@@ -307,14 +307,28 @@ extension UIView {
 
 extension UIView {
     
-        func roundCorners(with radius: Int = 10) {
-            self.layer.masksToBounds = true
-            let maskLayer = CAShapeLayer()
+        func roundCorners(with radius: CGFloat = 10) {
+            self.layoutIfNeeded()
+            self.layer.cornerRadius = radius
             
-            maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: radius, height: radius)).cgPath
-            self.layer.mask = maskLayer
+            self.layer.masksToBounds = true
+            //let maskLayer = CAShapeLayer()
+            
+            //maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: radius, height: radius)).cgPath
+            //self.layer.mask = maskLayer
         }
     
+}
+
+extension UIView {
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        self.layoutIfNeeded()
+        
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
 }
 
 /******************************************************/

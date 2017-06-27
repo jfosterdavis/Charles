@@ -1100,7 +1100,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-bc-ojY">
-                                <rect key="frame" x="6" y="9.5" width="44.5" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="44.5" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="x"/>
                                 <connections>
@@ -1164,18 +1164,18 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="centerX" secondItem="Ovi-MD-1U6" secondAttribute="centerX" id="5JL-Z8-md0"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="centerY" secondItem="Peo-TG-cdD" secondAttribute="centerY" id="8dh-JM-OmW"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="height" secondItem="Ovi-MD-1U6" secondAttribute="height" multiplier="1:15" id="BuK-aA-fRu"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="width" secondItem="Ovi-MD-1U6" secondAttribute="width" multiplier="2:3" id="EEN-1Q-hqY"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="width" secondItem="zgc-bc-ojY" secondAttribute="height" id="Jj7-cE-d3h"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zgc-bc-ojY" secondAttribute="trailing" id="JuU-As-Q8k"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="10" id="KMb-BL-Okl"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" constant="-10" id="LUL-pb-Rex"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leading" id="LUL-pb-Rex"/>
                             <constraint firstItem="qix-oG-VnG" firstAttribute="top" secondItem="6tJ-bn-DmN" secondAttribute="bottom" constant="5" id="QOV-zl-Eie"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="Peo-TG-cdD" secondAttribute="bottom" id="VHi-BX-JWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6tJ-bn-DmN" secondAttribute="trailing" id="fZu-7p-5Gg"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="jTQ-BY-X1Y"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="height" secondItem="Peo-TG-cdD" secondAttribute="height" priority="800" id="tx4-X5-Sff"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" id="xwN-Hd-r87"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
