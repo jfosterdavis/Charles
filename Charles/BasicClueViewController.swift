@@ -61,10 +61,10 @@ class BasicClueViewController: UIViewController {
         super.viewWillLayoutSubviews()
         if !didLayout {
             
-            let width:CGFloat = self.view.bounds.width * 0.92
+            let width:CGFloat = self.view.bounds.width * 0.95
             let height:CGFloat = width * 1.618 //golden ratio
             
-            self.view.superview!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75) //dim the background to focus on the modal
+            self.view.superview!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15) //slightly dim the background to focus on the modal
             let screen = self.view.superview!.bounds
             let frame = CGRect(x: 0, y: 0, width: width, height: height)
             let x = (screen.size.width - frame.size.width) * 0.5
@@ -72,7 +72,7 @@ class BasicClueViewController: UIViewController {
             let bigFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
             
             self.view.frame = bigFrame
-            self.view.roundCorners()
+            
             
             didLayout = true
         }
@@ -80,8 +80,19 @@ class BasicClueViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+//        if let part1Image = part1ImageView {
+//            part1Image.roundCorners(with: 3)
+//        }
+//        if let part2Image = part2ImageView {
+//            part2Image.roundCorners(with: 3)
+//        }
+//        if let part3Image = part3ImageView {
+//            part3Image.roundCorners(with: 3)
+//        }
+        //stackView.roundCorners(with: 4)
+       
         
-        self.view.roundCorners()
+        self.view.roundCorners(with: 4)
         dismissButton.roundCorners(with: 5)
     }
     
