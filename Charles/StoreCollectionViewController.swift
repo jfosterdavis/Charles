@@ -184,7 +184,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 //collectionViewData.remove(at: indexPath.row)
                 //don't remove, instead shade it differently
                 
-                collectionView.reloadData()
+                //collectionView.reloadData()
                 
                 print("Character \(String(describing: newCharacter!.name)) has been unlocked!")
             }
@@ -214,7 +214,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 //adjust the core data score
                 reconcileScoreFromPurchase(purchasePrice: perk.price!)
                 
-                collectionView.reloadData()
+                //collectionView.reloadData()
                 self.collectionView.collectionViewLayout.invalidateLayout()
                 
                 print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
