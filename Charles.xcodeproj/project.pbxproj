@@ -56,6 +56,7 @@
 		F61CC1E51F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E41F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift */; };
 		F61CC1E71F00B0E500B47678 /* StoreCollectionViewController+Perks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E61F00B0E500B47678 /* StoreCollectionViewController+Perks.swift */; };
 		F61CC1E91F00B27900B47678 /* StoreCollectionViewController+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1E81F00B27900B47678 /* StoreCollectionViewController+Characters.swift */; };
+		F61CC1EB1F02EAD000B47678 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61CC1EA1F02EAD000B47678 /* CharacterView.swift */; };
 		F62038271EE399750059F946 /* InvestmentCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038261EE399750059F946 /* InvestmentCrashViewController.swift */; };
 		F62038291EE3C4530059F946 /* DepartingItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62038281EE3C4530059F946 /* DepartingItemsViewController.swift */; };
 		F620382D1EE4A6A40059F946 /* GameWinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */; };
@@ -150,6 +151,7 @@
 		F61CC1E41F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+InAppPurchases.swift"; sourceTree = "<group>"; };
 		F61CC1E61F00B0E500B47678 /* StoreCollectionViewController+Perks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+Perks.swift"; sourceTree = "<group>"; };
 		F61CC1E81F00B27900B47678 /* StoreCollectionViewController+Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoreCollectionViewController+Characters.swift"; sourceTree = "<group>"; };
+		F61CC1EA1F02EAD000B47678 /* CharacterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		F62038261EE399750059F946 /* InvestmentCrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestmentCrashViewController.swift; sourceTree = "<group>"; };
 		F62038281EE3C4530059F946 /* DepartingItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartingItemsViewController.swift; sourceTree = "<group>"; };
 		F620382C1EE4A6A40059F946 /* GameWinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWinnerViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				F60327BD1EC54CEB00493DC3 /* Collection View Cells */,
 				F6FD50751ED8BAFB0087F461 /* ColorMatchFeedbackView.swift */,
 				F64E74941ED9E43B000E99E1 /* PieTimerView.swift */,
+				F61CC1EA1F02EAD000B47678 /* CharacterView.swift */,
 				F615322F1EE0F92200FCF1DC /* InsightColorStickView.swift */,
 				F66DDE2A1EF65CE5003E925D /* MapLineView.swift */,
 				F6993FC31EF9DF3900225FCD /* PerformanceMosaicView.swift */,
@@ -543,6 +546,7 @@
 				F60C8CEC1EDA0FF200F15EF9 /* Level.swift in Sources */,
 				F61553561EDC9E88004BBCB6 /* DataViewController+GameSoundsAndFeedback.swift in Sources */,
 				F607C8C71EC250BA00651FAD /* Utilities.swift in Sources */,
+				F61CC1EB1F02EAD000B47678 /* CharacterView.swift in Sources */,
 				F60C8CEA1EDA0FE900F15EF9 /* Levels.swift in Sources */,
 				F60327B21EC51E5600493DC3 /* CoreDataViewController.swift in Sources */,
 				F607C8841EBFC6E600651FAD /* ModelController.swift in Sources */,

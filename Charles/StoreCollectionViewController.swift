@@ -125,7 +125,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateTimer()
+        //updateTimer()
         
     }
     
