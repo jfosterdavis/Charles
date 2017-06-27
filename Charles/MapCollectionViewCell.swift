@@ -315,25 +315,59 @@ class MapCollectionViewCell: UICollectionViewCell {
         //launch the clue if it exists
 
         print("perk clue button pressed")
-//        if let clue = self.clue, let storyboard = self.storyboard {
-//            let topVC = topMostController()
-//            let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
-//            clueVC.clue = clue
-//            clueVC.delayDismissButton = false
-//            topVC.present(clueVC, animated: true, completion: nil)
-//        }
+        
+        if let perk = self.perkClue {
+        
+            //create a clue based on the perk that was pressed
+            let perkClue = Clue(clueTitle: perk.name,
+                                part1: nil,
+                                part1Image: perk.icon,
+                                part2: perk.gameDescription
+                                )
+        
+        
+            if let storyboard = self.storyboard {
+                let topVC = topMostController()
+                let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+                clueVC.clue = perkClue
+                clueVC.delayDismissButton = false
+                //set the background
+                clueVC.view.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1) //store background color
+                clueVC.overrideTextColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
+                clueVC.overrideGoldenRatio = true
+                
+                topVC.present(clueVC, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func characterClueButtonPressed(_ sender: Any) {
         //launch the clue if it exists
 
         print("character clue button pressed")
-//        if let clue = self.clue, let storyboard = self.storyboard {
-//            let topVC = topMostController()
-//            let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
-//            clueVC.clue = clue
-//            clueVC.delayDismissButton = false
-//            topVC.present(clueVC, animated: true, completion: nil)
-//        }
+        
+        if let character = self.characterClue {
+            
+            //create a clue based on the perk that was pressed
+            let characterClue = Clue(clueTitle: character.name,
+                                part1: nil,
+                                part1Image: nil,
+                                part2: nil
+            )
+            
+            
+            if let storyboard = self.storyboard {
+                let topVC = topMostController()
+                let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+                clueVC.clue = characterClue
+                clueVC.delayDismissButton = false
+                //set the background to paper color
+                clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
+                clueVC.overrideTextColor = .black
+                clueVC.overrideGoldenRatio = true
+                
+                topVC.present(clueVC, animated: true, completion: nil)
+            }
+        }
     }
 }

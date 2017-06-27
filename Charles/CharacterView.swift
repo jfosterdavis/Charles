@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@IBDesignable
+//@IBDesignable
 
 ///Used to get the character's appearance for display purposes (not interaction)
 class CharacterView:UIView

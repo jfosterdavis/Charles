@@ -456,7 +456,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-Ji-aIm">
-                                <rect key="frame" x="16" y="78" width="343" height="589"/>
+                                <rect key="frame" x="16" y="58" width="343" height="609"/>
                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="b56-5Z-Lbi">
                                     <size key="itemSize" width="135" height="180"/>
@@ -979,7 +979,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-sP-u8Y">
-                                <rect key="frame" x="16" y="27" width="41" height="41"/>
+                                <rect key="frame" x="16" y="7" width="41" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925204784848" blue="0.93021490035323318" alpha="0.89726027397260277" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XXC-sP-u8Y" secondAttribute="height" id="2OX-qV-o3R"/>
@@ -990,7 +990,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-A2-nRg">
-                                <rect key="frame" x="66" y="30" width="243" height="35"/>
+                                <rect key="frame" x="66" y="10" width="243" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3gh-fn-n8m"/>
                                 </constraints>
@@ -1013,6 +1013,7 @@
                             <constraint firstItem="XXC-sP-u8Y" firstAttribute="centerY" secondItem="8BW-A2-nRg" secondAttribute="centerY" id="zlc-XR-9yR"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="dismissButton" destination="XXC-sP-u8Y" id="H0Q-1X-LrO"/>
                         <outlet property="playerScoreLabel" destination="8BW-A2-nRg" id="ppX-9S-Ahs"/>
@@ -1043,7 +1044,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5123" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGj-WO-CtR">
-                                <rect key="frame" x="0.0" y="70" width="375" height="35"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ujp-lX-1fB"/>
                                 </constraints>
@@ -1052,7 +1053,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXU-nM-bIE">
-                                <rect key="frame" x="16" y="20" width="50" height="50"/>
+                                <rect key="frame" x="16" y="0.0" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wXU-nM-bIE" secondAttribute="height" id="RWS-2x-PgN"/>
@@ -1077,6 +1078,7 @@
                             <constraint firstItem="sGj-WO-CtR" firstAttribute="top" secondItem="2Wn-yg-5VP" secondAttribute="bottom" constant="50" id="vIm-C9-HXS"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="dismissButton" destination="wXU-nM-bIE" id="TZ9-f9-JK5"/>
                         <outlet property="hexDollarImageView" destination="7Jc-Sd-aYv" id="kBM-b7-DJL"/>
@@ -1100,54 +1102,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-bc-ojY">
-                                <rect key="frame" x="5" y="5" width="44.5" height="44"/>
+                                <rect key="frame" x="5" y="5" width="50" height="49.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="x"/>
                                 <connections>
                                     <action selector="dismissButtonPressed:" destination="69u-21-rJP" eventType="touchUpInside" id="er8-rp-rnB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soul" textAlignment="center" lineBreakMode="clip" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
-                                <rect key="frame" x="62.5" y="10" width="250" height="44.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soul" textAlignment="center" lineBreakMode="clip" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-TG-cdD">
+                                <rect key="frame" x="62.5" y="5" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pwl-zU-sQT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="33"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
-                                <rect key="frame" x="16" y="54.5" width="343" height="607.5"/>
+                                <rect key="frame" x="16" y="60" width="343" height="602"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The soul is a fickle thing.  It's perspective determines the impact of our actions." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="98"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
-                                        <rect key="frame" x="0.0" y="102" width="343" height="98.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
+                                        <rect key="frame" x="0.0" y="101" width="343" height="97.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When below, we absorb.  We catch that which acts upon us." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
-                                        <rect key="frame" x="0.0" y="203.5" width="343" height="99"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="343" height="98"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
-                                        <rect key="frame" x="0.0" y="305.5" width="343" height="98.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                        <rect key="frame" x="0.0" y="302.5" width="343" height="98"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
-                                        <rect key="frame" x="0.0" y="407" width="343" height="99"/>
+                                        <rect key="frame" x="0.0" y="403.5" width="343" height="97.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Completely fail and lack everything.  Everything is maximum.  Maximum is White.  The circle is broken; the White burns at our core.</string>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
-                                        <rect key="frame" x="0.0" y="509" width="343" height="98.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                        <rect key="frame" x="0.0" y="504" width="343" height="98"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
@@ -1164,14 +1169,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="centerX" secondItem="Ovi-MD-1U6" secondAttribute="centerX" id="5JL-Z8-md0"/>
-                            <constraint firstItem="Peo-TG-cdD" firstAttribute="height" secondItem="Ovi-MD-1U6" secondAttribute="height" multiplier="1:15" id="BuK-aA-fRu"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="width" secondItem="Ovi-MD-1U6" secondAttribute="width" multiplier="2:3" id="EEN-1Q-hqY"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="width" secondItem="zgc-bc-ojY" secondAttribute="height" id="Jj7-cE-d3h"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zgc-bc-ojY" secondAttribute="trailing" id="JuU-As-Q8k"/>
-                            <constraint firstItem="Peo-TG-cdD" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="10" id="KMb-BL-Okl"/>
+                            <constraint firstItem="Peo-TG-cdD" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="5" id="KMb-BL-Okl"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leading" constant="5" id="LUL-pb-Rex"/>
                             <constraint firstItem="qix-oG-VnG" firstAttribute="top" secondItem="6tJ-bn-DmN" secondAttribute="bottom" constant="5" id="QOV-zl-Eie"/>
-                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="Peo-TG-cdD" secondAttribute="bottom" id="VHi-BX-JWs"/>
+                            <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="Peo-TG-cdD" secondAttribute="bottom" constant="5" id="VHi-BX-JWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6tJ-bn-DmN" secondAttribute="trailing" id="fZu-7p-5Gg"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="jTQ-BY-X1Y"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="height" secondItem="Peo-TG-cdD" secondAttribute="height" priority="800" id="tx4-X5-Sff"/>

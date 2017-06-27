@@ -17,7 +17,7 @@ import UIKit
 class Clue: NSObject {
     
     var clueTitle: String
-    var part1: String
+    var part1: String?
     var part1Image: UIImage?
     var part2: String?
     var part2Image: UIImage?
@@ -27,12 +27,12 @@ class Clue: NSObject {
     
     // MARK: Initializers
     init(clueTitle: String,
-         part1: String,
-         part1Image: UIImage?,
-         part2: String?,
-         part2Image: UIImage?,
-         part3: String?,
-         part3Image: UIImage? ) {
+         part1: String? = nil,
+         part1Image: UIImage? = nil,
+         part2: String? = nil,
+         part2Image: UIImage? = nil,
+         part3: String? = nil,
+         part3Image: UIImage? = nil ) {
 
         self.clueTitle = clueTitle
         
