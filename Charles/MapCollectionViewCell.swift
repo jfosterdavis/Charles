@@ -17,6 +17,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var clueButton: UIButton!
     @IBOutlet weak var perkClueButton: UIButton!
+    @IBOutlet weak var characterView: CharacterView!
     @IBOutlet weak var characterClueButton: UIButton!
     
     @IBOutlet weak var readableShadedRegionView: UIView!
@@ -65,7 +66,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         clueButton.roundCorners(with: 5)
         perkClueButton.roundCorners(with: 5)
-        characterClueButton.roundCorners(with: 5)
+        characterClueButton.roundCorners(with: 8)
         
         //clues
         infoButtonsStackView.isHidden = false
@@ -94,9 +95,17 @@ class MapCollectionViewCell: UICollectionViewCell {
             //if there is a clue, make this visible, otherwise not
             characterClueButton.isHidden = false
             characterClueButton.isEnabled = true
+            
+            //draw the character
+            let phrase = characterClue!.phrases![0]
+            characterView.phrase = phrase
+            characterView.setNeedsDisplay()
+            characterView.isHidden = false
         } else {
             characterClueButton.isHidden = true
             characterClueButton.isEnabled = false
+            
+            characterView.isHidden = true
         }
         
         //load stats labels
@@ -146,6 +155,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         //hide the characterClue
         perkClueButton.isHidden = true
         perkClueButton.isEnabled = false
+        characterView.isHidden = true
         
         //hide the perkClue
         characterClueButton.isHidden = true
@@ -193,10 +203,12 @@ class MapCollectionViewCell: UICollectionViewCell {
         if self.characterClue != nil {
             //if there is a clue, make this visible, otherwise not
             characterClueButton.isHidden = false
+            characterView.isHidden = false
             //show info label
             //showInfoLabel()
         } else {
             characterClueButton.isHidden = true
+            characterView.isHidden = true
         }
         
         clueButton.isEnabled = enabled

@@ -8,12 +8,17 @@
 
 import Foundation
 import UIKit
-//@IBDesignable
+@IBDesignable
 
 ///Used to get the character's appearance for display purposes (not interaction)
 class CharacterView:UIView
 {
     @IBInspectable var roundCorners: Bool = true
+        {
+        didSet {}
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 5.0
         {
         didSet {}
     }
@@ -34,43 +39,43 @@ class CharacterView:UIView
                                          Slot(tone: -300, color: .red),
                                          Slot(tone: -375, color: .black),
                                          ])
-    var stackView: UIStackView? = nil
+    var stackView: UIStackView = UIStackView()
     
     override func draw(_ rect: CGRect)
     {
         //remove all subviews to start with clean slate
-//        for subView in self.subviews {
-//            
-//            //remove button from heirarchy
-//            subView.removeFromSuperview()
-//        }
-        
-        if stackView == nil {
-            //create fresh stackView
-            stackView = UIStackView()
-            stackView!.axis = .vertical
-            stackView!.distribution = .fillEqually
-            stackView!.alignment = .center
-            stackView!.spacing = 0
-            stackView!.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(stackView!)
+        for subView in self.subviews {
             
-            //autolayout the stackview
-            let viewsDictionary = ["stackView":stackView!]
-            let stackView_H = NSLayoutConstraint.constraints(
-                withVisualFormat: "H:|-0-[stackView]-0-|",  //horizontal constraint 0 points from left and right side
-                options: NSLayoutFormatOptions(rawValue: 0),
-                metrics: nil,
-                views: viewsDictionary)
-
-            let stackView_V = NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|-0-[stackView]-0-|", //vertical constraint 0 points from top and bottom
-                options: NSLayoutFormatOptions(rawValue:0),
-                metrics: nil,
-                views: viewsDictionary)
-            self.addConstraints(stackView_H)
-            self.addConstraints(stackView_V)
+            //remove button from heirarchy
+            subView.removeFromSuperview()
         }
+        
+        
+        //create fresh stackView
+        stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.spacing = 0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(stackView)
+        
+        //autolayout the stackview
+        let viewsDictionary = ["stackView":stackView]
+        let stackView_H = NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[stackView]-0-|",  //horizontal constraint 0 points from left and right side
+            options: NSLayoutFormatOptions(rawValue: 0),
+            metrics: nil,
+            views: viewsDictionary)
+
+        let stackView_V = NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[stackView]-0-|", //vertical constraint 0 points from top and bottom
+            options: NSLayoutFormatOptions(rawValue:0),
+            metrics: nil,
+            views: viewsDictionary)
+        self.addConstraints(stackView_H)
+        self.addConstraints(stackView_V)
+        
         
         
         //create the outfit
@@ -82,8 +87,8 @@ class CharacterView:UIView
             }
             
             //empty all buttons
-            for subView in stackView!.subviews {
-                stackView!.removeArrangedSubview(subView)
+            for subView in stackView.subviews {
+                stackView.removeArrangedSubview(subView)
                 
                 //remove button from heirarchy
                 subView.removeFromSuperview()
@@ -99,21 +104,22 @@ class CharacterView:UIView
                 //currentButtons.append(slotButton)
                 
                 //add the button to the stackview
-                stackView!.addArrangedSubview(slotButton)
+                stackView.addArrangedSubview(slotButton)
                 
                 //create layout constraints for the button
                 let widthConstraint = NSLayoutConstraint(item: slotButton, attribute: .width, relatedBy: .equal, toItem: stackView, attribute: .width, multiplier: 1, constant: 0)
                 widthConstraint.isActive = true
-                stackView!.addConstraint(widthConstraint)
+                stackView.addConstraint(widthConstraint)
                 
                 counter += 1
             }
             
-            //roundCorners()
-            
-            //characterOutfitBlocker.isHidden = true
             
             self.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1)
+        }
+        
+        if roundCorners {
+            self.roundCorners(with: cornerRadius)
         }
         
     }
@@ -126,6 +132,7 @@ class CharacterView:UIView
         
         //disable buttons in this interface
         newButton.isEnabled = false
+        newButton.isUserInteractionEnabled = false
         return newButton
     }
     
