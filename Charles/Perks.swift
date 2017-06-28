@@ -245,7 +245,7 @@ struct Perks {
     /******************************************************/
     
     static let Study = Perk(     name: "Quick Study",
-                                   gameDescription: "You get more out of each encounter.",
+                                   gameDescription: "You learn more at each encounter.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 50000, //50000
                                     meta1: 1,
@@ -259,7 +259,7 @@ struct Perks {
     )
     
     static let Study2 = Perk(     name: "Study Buddy",
-                                  gameDescription: "You get more out of each encounter with the help of a friend.",
+                                  gameDescription: "You learn more at each encounter with the help of a friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 85000,
         meta1: 1,
@@ -273,7 +273,7 @@ struct Perks {
     )
     
     static let Study3 = Perk(     name: "Number Crunch",
-                                  gameDescription: "You get more out of each encounter with the help of a mechanical friend.",
+                                  gameDescription: "You learn more at each encounter with the help of a mechanical friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 101010,
         meta1: 1,
@@ -288,7 +288,7 @@ struct Perks {
     
     
     static let Study4 = Perk(     name: "Emeritus",
-                                      gameDescription: "You get significantly more out of each encounter with the help of a lost friend.",
+                                      gameDescription: "You learn significantly more at each encounter with the help of a lost friend.",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 20070000,
                                     meta1: 3,
