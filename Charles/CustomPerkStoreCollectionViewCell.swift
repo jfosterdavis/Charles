@@ -127,10 +127,10 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         //put to black and white
         self.backgroundColor = .white
-        perkIconBlocker.isHidden = false
+        perkIconBlocker.isHidden = true
         perkColorFrame.layer.borderColor = UIColor.black.cgColor
         
-        statusShade.alpha = 0.80
+        statusShade.alpha = 0.85
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         setStatusVisibility(label: false, shade: true)
         
@@ -138,9 +138,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
-        self.canUserHighlight = false
-        self.isUserInteractionEnabled = false
-        self.canShowInfo = false
+        self.canUserHighlight = true
+        self.isUserInteractionEnabled = true
+        self.canShowInfo = true
     }
 
     ///sets the visual status to affordable and ready for purchase
