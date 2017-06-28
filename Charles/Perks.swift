@@ -88,7 +88,7 @@ struct Perks {
     
     
     static let Synesthesia = Perk(     name: "Synesthesia",
-                                       gameDescription: "In a moment of stress, when others hear words, you hear music.",
+                                       gameDescription: "When others hear words, you hear music.",
                                        type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 750,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -288,7 +288,7 @@ struct Perks {
     
     
     static let Study4 = Perk(     name: "Emeritus",
-                                      gameDescription: "You get more out of each encounter with the help of a lost friend.",
+                                      gameDescription: "You get significantly more out of each encounter with the help of a lost friend.",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 20070000,
                                     meta1: 3,
@@ -322,7 +322,7 @@ struct Perks {
     )
     
     static let Stacks2 = Perk(     name: "Create",
-                                      gameDescription: "You find a way to walk away with more from each encounter with the help of a friend.",
+                                      gameDescription: "You find a way to earn more from each encounter with the help of a friend.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
                                         meta1: 2,
@@ -336,7 +336,7 @@ struct Perks {
     )
     
     static let Stacks3 = Perk(     name: "Produce",
-                                   gameDescription: "You find a way to walk away with much more from each encounter with the help of a friend.",
+                                   gameDescription: "Your hard work allows you to earn much more from each encounter with the help of a friend.",
                                    type: .increasedScore, //types are strings that the game will look for when determining how to behave
         price: 60000,
         meta1: 2,
@@ -350,7 +350,7 @@ struct Perks {
     )
     
     static let Stacks4 = Perk(     name: "Invent",
-                                        gameDescription: "You find a way to walk away with much more from each encounter.",
+                                        gameDescription: "Your creations culminate and produce much, much more from each encounter.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 100000,
                                             meta1: 3,
@@ -368,7 +368,7 @@ struct Perks {
     /******************************************************/
     
     static let Closeenough = Perk(     name: "Close Enough",
-                                        gameDescription: "You are able to squeak by where others would fail.",
+                                        gameDescription: "Your good manners enable you to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
                                         meta1: -0.015,
@@ -382,7 +382,7 @@ struct Perks {
     )
     
     static let Closeenough2 = Perk(     name: "Just About",
-                                       gameDescription: "You are able to get by where others would fail.",
+                                       gameDescription: "Your reputation allow you to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
                                         meta1: -0.025,
@@ -396,7 +396,7 @@ struct Perks {
     )
     
     static let Closeenough3 = Perk(     name: "Ballpark",
-                                     gameDescription: "When you are almost there, you are.",
+                                     gameDescription: "People like you.  When you are almost there, you are.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
         meta1: -0.04,
