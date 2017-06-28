@@ -355,7 +355,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         }
         
         //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 3x number of steps for that level
-        let levelSteps = Levels.Game[levelNum]!.xPRequired!
+        let levelSteps = Levels.Game[levelNum]!.xPRequired
         let levelStepsHigh = levelSteps * 3
         let levelStepsDifference = levelStepsHigh - levelSteps
         

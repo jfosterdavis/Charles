@@ -25,11 +25,11 @@ import UIKit
 class Level: NSObject {
     
     var level: Int
-    var name: String!
-    var xPRequired: Int! //an array of phrase objects
-    var successThreshold: Float!
-    var punishThreshold: Float!
-    var canBeLost: Bool! //radius of the corners on top
+    var name: String
+    var xPRequired: Int //an array of phrase objects
+    var successThreshold: Float
+    var punishThreshold: Float
+    var canBeLost: Bool //radius of the corners on top
     var eligiblePredefinedObjectives: [[UIColor]]?
     var eligibleRandomColorPrecision: Int?
     
