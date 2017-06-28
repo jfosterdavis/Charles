@@ -174,11 +174,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             
             if newCharacter != nil {
                 //deduct the price
-                score = score - character.price!
+                score = score - character.price
                 updateScoreLabel()
                 
                 //adjust the core data score
-                reconcileScoreFromPurchase(purchasePrice: character.price!)
+                reconcileScoreFromPurchase(purchasePrice: character.price)
                 
                 //remove from the store
                 //collectionViewData.remove(at: indexPath.row)

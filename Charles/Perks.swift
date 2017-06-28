@@ -98,7 +98,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
         levelEligibleAt: 6, //6
-        requiredPartyMembers: [Characters.Laura]
+        requiredPartyMembers: [Characters.Laura, Characters.R0berte]
     )
     
     static let Synesthesia2 = Perk(     name: "Synesthetic",
@@ -112,7 +112,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
         levelEligibleAt: 18,
-        requiredPartyMembers: [Characters.Laura]
+        requiredPartyMembers: [Characters.Laura, Characters.R0berte]
     )
     
     static let Synesthesia3 = Perk(     name: "Synesthete",
@@ -126,7 +126,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "musicNote"),
         displayColor: UIColor(red: 255/255.0, green: 182/255.0, blue: 249/255.0, alpha: 0.75),
         levelEligibleAt: 75, //75
-        requiredPartyMembers: [Characters.Laura]
+        requiredPartyMembers: [Characters.Laura, Characters.R0berte]
     )
     
     /******************************************************/
@@ -332,7 +332,7 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 33, //33
-                                        requiredPartyMembers: [Characters.Charles, Characters.Laura]
+                                        requiredPartyMembers: [Characters.Charles, Characters.Laura, Characters.R0berte]
     )
     
     static let Stacks3 = Perk(     name: "Produce",

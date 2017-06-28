@@ -109,10 +109,10 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             cell.characterNameLabel.text = character.name
             let price = character.price
             var priceLabelText = ""
-            if price! <= 0 {
+            if price <= 0 {
                 priceLabelText = "Free!"
             } else {
-                priceLabelText = String(describing: price!.formattedWithSeparator)
+                priceLabelText = String(describing: price.formattedWithSeparator)
             }
             
             cell.priceLabel.text = priceLabelText

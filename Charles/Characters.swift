@@ -32,6 +32,7 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
+                                   gameDescription: "Perhaps the oldest soul in this Universe.  A charismatic do-gooder with a flare for the expensive and flashy who operates under the facade of a smooth-talking flirt.  Twin to Fred.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -72,6 +73,7 @@ struct Characters {
     
     /// MARK: Dan
     static let Dan = Character(name: "Dan",
+                               gameDescription: "Professor Emeritus and headmaster of the Nubal Academy, Dan welcomes all new arrivals with cryptic lessons and sharp rebukes.",
                                topRadius: 20,
                                bottomRadius: 10,
                                price: 0,
@@ -134,6 +136,7 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
+                                gameDescription: "A stubborn young male who can't help but be dramatic, yet an estudious and hard working producer.  He is both infant and adult simultaneously. Twin to Charles.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
@@ -201,6 +204,7 @@ struct Characters {
         ])
     
     static let Benton = Character(name: "Benton",
+                                  gameDescription: "The nicest guy you will ever meet has a big heart and bigger dagger to cut you real deep.",
                                   topRadius: 20,
                                   bottomRadius: 30,
                                   price: 0,
@@ -262,6 +266,7 @@ struct Characters {
         ])
     
     static let Laura = Character(name: "Laura",
+                                 gameDescription: "A siren who's unmatched beauty can make the most unbearable sounds melt away into a serene hypersensational alternative after prolonged exposure and application of the correct implements.",
                                   topRadius: 50,
                                   bottomRadius: 25,
                                   price: 5000,
@@ -373,6 +378,7 @@ struct Characters {
     
     
     static let LittleJimmy = Character(name: "Little Jimmy",
+                                       gameDescription: "A rambuncious youth that lives a whimsicle and innocent life.",
                                   topRadius: 111,
                                   bottomRadius: 5,
                                   price: 250,
@@ -457,6 +463,7 @@ struct Characters {
         ])
     
     static let StanleyJr = Character(name: "Stanley Jr.",
+                                     gameDescription: "Son of Stanley, with an eye for how to get things done efficiently and with great returns.  He wears the garbs of this father.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
@@ -544,6 +551,7 @@ struct Characters {
         ])
     
     static let Stanley = Character(name: "Stanley",
+                                   gameDescription: "Although some mock him for his drab and dreary appearancy, none can deny his usefullness in any situation.",
                                    topRadius: 80,
                                    bottomRadius: 50,
                                    price: 19000,
@@ -631,6 +639,7 @@ struct Characters {
         ])
     
     static let Matthew = Character(name: "Matthew",
+                                   gameDescription: "His priorities are encounters with those of the opposite gender, cars, and the benefits gained from natural substances.",
                                    topRadius: 10,
                                    bottomRadius: 10,
                                    price: 75000,
@@ -694,6 +703,7 @@ struct Characters {
         ])
     
     static let John = Character(name: "John",
+                                gameDescription: "An unremakable laborer.",
                                    topRadius: 15,
                                    bottomRadius: 15,
                                    price: 5, //5
@@ -749,6 +759,7 @@ struct Characters {
         ])
     
     static let Francisco = Character(name: "Francisco",
+                                     gameDescription: "A debonair playboy of expensive tastes and greed, but a sure bet when it comes to investing your money.",
                                 topRadius: 20,
                                 bottomRadius: 20,
                                 price: 0,
@@ -804,6 +815,7 @@ struct Characters {
                   ])
     
     static let R0berte = Character(name: "R0berte",
+                                   gameDescription: "Quite the tool.",
                                    topRadius: 2,
                                    bottomRadius: 2,
                                    price: 10101010, //10101010

@@ -14,7 +14,7 @@ extension StoreCollectionViewController {
     
     func isCharacterAffordable(character: Character) -> Bool {
         
-        let price = character.price!
+        let price = character.price
         
         if price > score {
             //print ("You cannot afford this item")

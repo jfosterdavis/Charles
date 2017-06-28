@@ -370,7 +370,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             let characterClue = Clue(clueTitle: character.name,
                                 part1: nil,
                                 part1Image: characterViewImage,
-                                part2: "Character Description will go here."
+                                part2: character.gameDescription
             )
             
             

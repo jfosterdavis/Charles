@@ -18,32 +18,36 @@ import Foundation
  */
 class Character: NSObject {
     
-    var name: String! //the name of the character (will be displayed)
-    
+    var name: String //the name of the character (will be displayed)
+    var gameDescription: String // some background on the character
     var phrases: [Phrase]? //an array of phrase objects
-    var topRadius: Int! //radius of the corners on top
-    var bottomRadius: Int! //radius of the corners on bottom
-    var price: Int! //price to buy this character in the store
-    var hoursUnlocked: Int!
-    var levelEligibleAt: Int!
+    var topRadius: Int //radius of the corners on top
+    var bottomRadius: Int //radius of the corners on bottom
+    var price: Int //price to buy this character in the store
+    var hoursUnlocked: Int
+    var levelEligibleAt: Int
     
     // MARK: Initializers
     init(name: String,
+         gameDescription: String,
          topRadius: Int,
          bottomRadius: Int,
          price: Int,
-         hoursUnlocked: Int!,
-         levelEligibleAt: Int!,
+         hoursUnlocked: Int,
+         levelEligibleAt: Int,
          phrases: [Phrase]?) {
-        super.init()
+        
         
         self.name = name
+        self.gameDescription = gameDescription
         self.phrases = phrases
         self.topRadius = topRadius
         self.bottomRadius = bottomRadius
         self.price = price
         self.hoursUnlocked = hoursUnlocked
         self.levelEligibleAt = levelEligibleAt
+        
+        super.init()
     }
     
     /// returns a phrase from the list of phrases based on the given liklihoods contined within the object
