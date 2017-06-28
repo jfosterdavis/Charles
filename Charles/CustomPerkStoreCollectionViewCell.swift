@@ -180,7 +180,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 107/255, green: 12/255, blue: 0/255, alpha: 1) //expired perks background color
                 clueVC.overrideTextColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideGoldenRatio = true
-                clueVC.overrideStackViewDistribution = .fillProportionally
+                //clueVC.overrideStackViewDistribution = .fillProportionally
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }

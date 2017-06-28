@@ -307,7 +307,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueVC.clue = clue
             clueVC.delayDismissButton = false
             //clueVC.modalPresentationStyle = .pageSheet
-            clueVC.overrideStackViewDistribution = .fillEqually
+            //clueVC.overrideStackViewDistribution = .fillEqually
             
             topVC.present(clueVC, animated: true, completion: nil)
         }
@@ -337,7 +337,7 @@ class MapCollectionViewCell: UICollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 107/255, green: 12/255, blue: 0/255, alpha: 1) //expired perks background color
                 clueVC.overrideTextColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideGoldenRatio = true
-                clueVC.overrideStackViewDistribution = .fillProportionally
+                //clueVC.overrideStackViewDistribution = .fillProportionally
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }
@@ -354,7 +354,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             //create an image from the CharacterView to display
             //define the frame (size) for the view
             let screen = self.superview!.bounds
-            let width = screen.width / 3.6 //make image 1/3 size of CV
+            let width = screen.width / 2 //make image 1/3 size of CV
             let height = width
             let frame = CGRect(x: 0, y: 0, width: width, height: height)
             let x = (screen.size.width - frame.size.width) * 0.5
@@ -404,7 +404,7 @@ class MapCollectionViewCell: UICollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideTextColor = .black
                 clueVC.overrideGoldenRatio = true
-                clueVC.overrideStackViewDistribution = .fillProportionally
+                //clueVC.overrideStackViewDistribution = .fillProportionally
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }
