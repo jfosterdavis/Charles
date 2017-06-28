@@ -101,6 +101,9 @@ class DepartingItemsViewController: StoreCollectionViewController {
     
     
     @IBAction override func dismissButtonPressed(_ sender: Any) {
+        //close the store so the view will refresh with characters just bought
+        let pVC = self.parentVC
+        pVC?.storeClosed()
         self.dismiss(animated: true, completion: nil)
     }
     
