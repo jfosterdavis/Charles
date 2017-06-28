@@ -90,7 +90,7 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         
         self.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1)
         
-        
+        self.isUserInteractionEnabled = true
         
     }
     
@@ -123,6 +123,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        
+        self.isUserInteractionEnabled = true
     }
     
     func setStatusVisibility(label: Bool, shade: Bool){
@@ -137,6 +139,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Employed"
+        
+        self.isUserInteractionEnabled = false
     }
     
     func setStatusUnaffordable() {
@@ -154,6 +158,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+        
+        self.isUserInteractionEnabled = false
     }
     
     func setStatusLevelRequirementNotMet(levelRequired: Int) {
@@ -171,6 +177,8 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.text = ""
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+        
+        self.isUserInteractionEnabled = false
     }
 
 }

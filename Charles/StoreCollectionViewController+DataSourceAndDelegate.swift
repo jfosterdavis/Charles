@@ -93,6 +93,19 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
+    /******************************************************/
+    /*******************///MARK: Highlighting on touch
+    /******************************************************/
+
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.9) //soft green
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        collectionView.reloadItems(at: [indexPath])
+    }
+    
     /*******************///MARK: Cells
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

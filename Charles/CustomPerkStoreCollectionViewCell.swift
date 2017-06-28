@@ -58,6 +58,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         characterNameLabel.textColor = .black
         
+        self.isUserInteractionEnabled = true
+        
     }
     
     func setGotPerkFromCharacterIndicator(visible: Bool) {
@@ -77,6 +79,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
+        
+        self.isUserInteractionEnabled = true
     }
     
     override func setStatusUnaffordable() {
@@ -94,6 +98,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+        
+        self.isUserInteractionEnabled = false
     }
     
     func setStatusRequiredCharacterNotPresent() {
@@ -120,6 +126,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.text = ""
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
+        
+        self.isUserInteractionEnabled = false
     }
 
     ///sets the visual status to affordable and ready for purchase
@@ -129,6 +137,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Active"
+        
+        self.isUserInteractionEnabled = false
     }
     
 }
