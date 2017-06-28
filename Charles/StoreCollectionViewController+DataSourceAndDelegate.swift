@@ -337,6 +337,8 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let delegate = UIApplication.shared.delegate as! AppDelegate
             let aspd = delegate.getAppStoreProductDetail(fromProductID: product.productIdentifier)
             
+            cell.iapClue = aspd
+            
             //determine if this cell has a pending transaction, and flag appropriately
             var foundApplicableTransaction = false
             for transaction in pendingTransactions {

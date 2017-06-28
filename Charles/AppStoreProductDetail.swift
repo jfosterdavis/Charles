@@ -24,19 +24,21 @@ class AppStoreProductDetail: CoreDataNSObject {
     //CoreData
     let keyCurrentScore = "CurrentScore"
     
-    var productID: String!
-    var name: String!
-    var icon: UIImage!
-    var value: Int!
-    var type: AppStoreProductDetailType!
-    var minutesLocked: Int! //once player buys this, how many minutes will this be locked
-    var displayColor: UIColor!
+    var productID: String
+    var name: String
+    var gameDescription: String
+    var icon: UIImage
+    var value: Int
+    var type: AppStoreProductDetailType
+    var minutesLocked: Int //once player buys this, how many minutes will this be locked
+    var displayColor: UIColor
     var levelEligibleAt: Int? //nil if there is no level requirement
-    var requiredPartyMembers: [Character]!
+    var requiredPartyMembers: [Character]
     
     // MARK: Initializers
     init(productID: String,
          name: String,
+         description: String,
         icon: UIImage,
         value: Int,
         type: AppStoreProductDetailType,
@@ -45,10 +47,9 @@ class AppStoreProductDetail: CoreDataNSObject {
         levelEligibleAt: Int?,
         requiredPartyMembers: [Character] ) {
         
-        super.init()
-        
         self.productID = productID
         self.name = name
+        self.gameDescription = description
         self.icon = icon
         self.value = value
         self.type = type
@@ -56,6 +57,8 @@ class AppStoreProductDetail: CoreDataNSObject {
         self.displayColor = displayColor
         self.levelEligibleAt = levelEligibleAt
         self.requiredPartyMembers = requiredPartyMembers
+        
+        super.init()
     }
     
     //TODO: Impliment a more general function for in apps
@@ -81,7 +84,7 @@ class AppStoreProductDetail: CoreDataNSObject {
             fatalError("Could not get array of currentScores")
         }
         
-        let purchasedScorePoints = self.value!
+        let purchasedScorePoints = self.value
         
         if (currentScores.count) == 0  {
             print("No CurrentScore exists.  Creating.")

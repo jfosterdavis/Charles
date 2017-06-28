@@ -17,6 +17,8 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
     
     var transactionPending: Bool = false
     
+    var iapClue: AppStoreProductDetail? = nil
+    
     func loadAppearance(fromAppStoreProduct product: SKProduct, fromASPD aspd: AppStoreProductDetail) {
         
         //empty all, don't use the stackview
@@ -79,6 +81,38 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
             self.isUserInteractionEnabled = true
         }
         
+    }
+    
+    @IBAction override func infoButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+        
+        print("IAP clue button pressed")
+        
+        if let aspd = self.iapClue {
+            
+            //create a clue based on the perk that was pressed
+            let clue = Clue(clueTitle: aspd.name,
+                                part1: nil,
+                                part1Image: aspd.icon,
+                                part2: aspd.gameDescription,
+                                part3: "Points are used to hire companions and activate tools."
+            )
+            
+            
+            if let storyboard = self.storyboard {
+                let topVC = topMostController()
+                let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+                clueVC.clue = clue
+                clueVC.delayDismissButton = false
+                //set the background
+                clueVC.view.backgroundColor = UIColor(red: 26/255, green: 91/255, blue: 238/255, alpha: 1) //in app blue
+                clueVC.overrideTextColor = .white
+                clueVC.overrideGoldenRatio = true
+                clueVC.overrideStackViewDistribution = .fillProportionally
+                
+                topVC.present(clueVC, animated: true, completion: nil)
+            }
+        }
     }
     
 }
