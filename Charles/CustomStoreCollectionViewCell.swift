@@ -146,7 +146,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Employed"
         
-        self.canUserHighlight = false
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
         self.infoButton.isEnabled = true
     }
@@ -167,7 +167,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
-        self.canUserHighlight = false
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
         self.infoButton.isEnabled = true
     }

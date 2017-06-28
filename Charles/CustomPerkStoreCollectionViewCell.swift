@@ -108,7 +108,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
-        self.canUserHighlight = false
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
         self.infoButton.isEnabled = true
     }
@@ -151,7 +151,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Active"
         
-        self.canUserHighlight = false
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
         self.infoButton.isEnabled = true
     }
