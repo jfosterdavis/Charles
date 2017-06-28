@@ -142,7 +142,7 @@ struct Perks {
         price: 1000, //1000
         meta1: 0.15, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.35, //likelihood a good move option will prevail over a random
+        meta3: 0.20, //likelihood a good move option will prevail over a random
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -154,9 +154,9 @@ struct Perks {
                                         gameDescription: "Your companions adapt better to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 15000, //15000
-        meta1: 0.35, //portion of slots to adjust
+        meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.40, //likelihood a good move option will prevail over a random
+        meta3: 0.30, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1440, //1 day, 1440
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -168,10 +168,10 @@ struct Perks {
     static let Adaptation3 = Perk(     name: "Adapt",
                                         gameDescription: "Your companions are a good match for the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 30000,//30000
-        meta1: 0.4, //portion of slots to adjust
+        price: 90000,//90000
+        meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.45, //likelihood a good move option will prevail over a random
+        meta3: 0.35, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -183,8 +183,8 @@ struct Perks {
     static let Adaptation4 = Perk(     name: "Evolve",
                                        gameDescription: "Your companions are naturally suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 120000, //120000
-        meta1: 0.55, //portion of slots to adjust
+        price: 620000, //620000
+        meta1: 0.35, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
         meta3: 0.50, //likelihood a good move option will prevail over a random
         minutesUnlocked: 20160, //14 days, 20160

@@ -83,13 +83,13 @@ class PerformanceMosaicView:UIView
         let yTileHeightComponent = ((yConstant - CGFloat(row)) * tileHeight)
         let yTileSpacingComponent = ((yConstant - CGFloat(row)) * tileSpacing)
         let yStart = margin + yTileHeightComponent + yTileSpacingComponent
-        let yStop = yStart + tileHeight
+        //let yStop = yStart + tileHeight
         //x = 1x margin + columnNum x width + columnNum x spacing
         let column = getColumn(forTileNumber: number)
         let xTileWidthComponent = (CGFloat(column) * tileWidth)
         let xTileSpacingComponent = (CGFloat(column) * tileSpacing)
         let xStart = margin + xTileWidthComponent + xTileSpacingComponent
-        let xStop = xStart + tileWidth
+        //let xStop = xStart + tileWidth
         
         //create points from components
         let startPoint = CGPoint(x: xStart, y: yStart)

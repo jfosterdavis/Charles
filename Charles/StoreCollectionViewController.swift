@@ -164,7 +164,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         let characterItems: [Any] = self.collectionViewData as [Any]
         let perkItems: [Any] = self.perkCollectionViewData as [Any]
         let appStoreItems: [Any] = self.appStoreProducts as [Any]
-        let allItemsInStore: [Any] = perkItems + appStoreItems
+        //let allItemsInStore: [Any] = perkItems + appStoreItems
         
         let section = indexPath.section
         

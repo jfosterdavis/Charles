@@ -370,7 +370,7 @@ class MapCollectionViewCell: UICollectionViewCell {
             let characterViewImage = characterView.asImage()
             
             //check how long the description is and split in two
-            let wordCount = Utilities.wordCount(character.gameDescription)
+            //let wordCount = Utilities.wordCount(character.gameDescription)
             
             let part1 = character.gameDescription
             let part2 = ""

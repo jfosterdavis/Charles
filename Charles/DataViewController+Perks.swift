@@ -275,9 +275,9 @@ extension DataViewController {
     ///for the given color, returns an array of colors that could be combined to create the given objective color
     func getColorSolutionSet(from objectiveColor: UIColor, of type: ColorSolutionSetType, forks: Int = 1) -> [UIColor] {
         var onlyPickLowerNumber = true
-        var onlyAdd = true
-        var onlySubtract = false
-        var composite = false
+        //var onlyAdd = true
+        //var onlySubtract = false
+        //var composite = false
         
         var rgb = [CGFloat](repeating: 0.0, count: 4)
         var alpha = [CGFloat](repeating: 0.0, count: 4)
