@@ -140,7 +140,7 @@ struct Perks {
                                        gameDescription: "Your tools adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
-        meta1: 0.3, //portion of slots to adjust
+        meta1: 0.15, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
         meta3: 0.35, //likelihood a good move option will prevail over a random
         minutesUnlocked: 30, //30
