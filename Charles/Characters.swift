@@ -73,7 +73,7 @@ struct Characters {
     
     /// MARK: Dan
     static let Dan = Character(name: "Dan",
-                               gameDescription: "Professor Emeritus and headmaster of the Nubal Academy, Dan welcomes all new arrivals with cryptic lessons and sharp rebukes.",
+                               gameDescription: "Professor Emeritus and Headmaster of the Nubal Academy, Dan welcomes all new arrivals with cryptic lessons and sharp rebukes.",
                                topRadius: 20,
                                bottomRadius: 10,
                                price: 0,
