@@ -62,7 +62,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     let keyUnlockedPerk = "keyUnlockedPerk"
     
     let enforcePerkLevel = true //helpful when testing.  When only perks with a level at or below the user current level are displayed in store.
-
+    let enforceCharacterLevel = true
     
     /******************************************************/
     /*******************///MARK: Standard UIView Functions

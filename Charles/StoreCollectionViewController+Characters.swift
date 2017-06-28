@@ -205,7 +205,27 @@ extension StoreCollectionViewController {
     
     func getAllCharactersDisplayableInStore() -> [Character] {
         
-        return Characters.ValidCharacters
+        if enforceCharacterLevel {
+            var applicableCharacters = [Character]()
+            
+            let userLevel = parentVC.getUserCurrentLevel()
+            
+            for character in Characters.ValidCharacters {
+                //only characters with a level to be enforced are non-optional
+                if let characterLevel = character.levelEligibleAt {
+                    if characterLevel <= userLevel.level {
+                        applicableCharacters.append(character)
+                    }
+                } else { //no enforcement neccessary, add to store
+                    applicableCharacters.append(character)
+                }
+            }
+            return applicableCharacters
+        } else {
+            return Characters.ValidCharacters
+        }
+        
+        
         
     }
     
@@ -240,10 +260,15 @@ extension StoreCollectionViewController {
         let userXP = parentVC.calculateUserXP()
         let currentLevelAndProgress = Levels.getLevelAndProgress(from: userXP)
         let playerLevel = currentLevelAndProgress.0.level
-        if playerLevel >= character.levelEligibleAt {
-            return true
+        
+        if let characterLevel = character.levelEligibleAt, enforceCharacterLevel {
+            if playerLevel >= characterLevel {
+                return true
+            } else {
+                return false
+            }
         } else {
-            return false
+            return true
         }
         
         

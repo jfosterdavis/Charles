@@ -25,7 +25,7 @@ class Character: NSObject {
     var bottomRadius: Int //radius of the corners on bottom
     var price: Int //price to buy this character in the store
     var hoursUnlocked: Int
-    var levelEligibleAt: Int
+    var levelEligibleAt: Int? //nil if there is no level requirement
     
     // MARK: Initializers
     init(name: String,

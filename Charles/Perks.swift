@@ -297,7 +297,7 @@ struct Perks {
                                     minutesUnlocked: 45,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: Characters.John.levelEligibleAt + 5,
+                                    levelEligibleAt: Characters.John.levelEligibleAt! + 5,
                                     requiredPartyMembers: [Characters.John]
     )
     

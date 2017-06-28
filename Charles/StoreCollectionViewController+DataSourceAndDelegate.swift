@@ -210,7 +210,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
                 
                 
             } else if !isPlayerLevelRequirementMet(character: character){
-                cell.setStatusLevelRequirementNotMet(levelRequired: character.levelEligibleAt)
+                cell.setStatusLevelRequirementNotMet(levelRequired: character.levelEligibleAt!)
             } else if !isCharacterAffordable(character: character) {  //check if it is affordable
                 cell.setStatusUnaffordable()
             } else {  //the character is not unlocked and is affordable
