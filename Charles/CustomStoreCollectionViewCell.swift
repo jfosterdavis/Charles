@@ -23,7 +23,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
     @IBOutlet weak var pieLockImageView: UIImageView!
     @IBOutlet weak var characterOutfitBlocker: UIView!
     
-    @IBOutlet weak var infoButton: UIButton!
+    var canShowInfo = true
     
     //expiration timer
     @IBOutlet weak var expirationStatusView: UIView!
@@ -86,7 +86,6 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         }
         
         roundCorners()
-        infoButton.roundCorners(with: infoButton.bounds.width / 2)
         
         characterOutfitBlocker.isHidden = true
         
@@ -94,7 +93,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
         
     }
     
@@ -130,7 +129,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
     func setStatusVisibility(label: Bool, shade: Bool){
@@ -148,7 +147,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
     func setStatusUnaffordable() {
@@ -169,7 +168,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
     func setStatusLevelRequirementNotMet(levelRequired: Int) {
@@ -190,16 +189,16 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         self.canUserHighlight = false
         self.isUserInteractionEnabled = false
-        self.infoButton.isEnabled = false
+        self.canShowInfo = false
     }
     
 
-    @IBAction override func infoButtonPressed(_ sender: Any) {
+    override func showInfo() {
         //launch the clue if it exists
         
         print("character clue button pressed")
         
-        if let character = self.characterClue, infoButton.isEnabled {
+        if let character = self.characterClue, canShowInfo {
             
             //create an image from the CharacterView to display
             //define the frame (size) for the view

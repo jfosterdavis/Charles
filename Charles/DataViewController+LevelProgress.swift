@@ -132,7 +132,7 @@ extension DataViewController {
                                 
                                 //level label
                                 self.levelDescriptionLabel.alpha = 1
-                                self.levelDescriptionLabel.text = previousLevel.levelDescription
+                                self.levelDescriptionLabel.text = previousLevel.name
                                 
                     })
                     
@@ -179,7 +179,7 @@ extension DataViewController {
                         //level label
                         self.levelDescriptionLabel.alpha = 1
                         
-                        self.levelDescriptionLabel.text = currentLevel.levelDescription
+                        self.levelDescriptionLabel.text = currentLevel.name
                     })
                     
                     

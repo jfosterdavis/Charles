@@ -14,7 +14,7 @@ class CommonStoreCollectionViewCell: UICollectionViewCell {
     var storyboard: UIStoryboard? = nil
     var canUserHighlight = true
     
-    @IBAction func infoButtonPressed(_ sender: Any) {
+    func showInfo() {
     
         print("override infoButtonPressed in sublcass")
     }

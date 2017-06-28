@@ -83,12 +83,12 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
         
     }
     
-    @IBAction override func infoButtonPressed(_ sender: Any) {
+    override func showInfo() {
         //launch the clue if it exists
         
         print("IAP clue button pressed")
         
-        if let aspd = self.iapClue {
+        if let aspd = self.iapClue, canShowInfo  {
             
             //create a clue based on the perk that was pressed
             let clue = Clue(clueTitle: aspd.name,

@@ -440,7 +440,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             // get the cell at indexPath (the one you long pressed)
             let cell = self.collectionView.cellForItem(at: indexPath) as! CommonStoreCollectionViewCell
             
-            cell.infoButtonPressed(sender: self)
+            cell.showInfo()
             
         } else {
             print("couldn't find index path")

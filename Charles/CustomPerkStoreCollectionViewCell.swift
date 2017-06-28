@@ -46,7 +46,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //stackView.addArrangedSubview(imageView)
                 
         roundCorners()
-        infoButton.roundCorners(with: infoButton.bounds.width / 2)
+        //infoButton.roundCorners(with: infoButton.bounds.width / 2)
         
         perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupChecked")
         perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.95) //an off-white
@@ -65,7 +65,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
         
     }
     
@@ -89,7 +89,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
     override func setStatusUnaffordable() {
@@ -110,7 +110,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
     func setStatusRequiredCharacterNotPresent() {
@@ -140,7 +140,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         self.canUserHighlight = false
         self.isUserInteractionEnabled = false
-        self.infoButton.isEnabled = false
+        self.canShowInfo = false
     }
 
     ///sets the visual status to affordable and ready for purchase
@@ -153,15 +153,15 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
-        self.infoButton.isEnabled = true
+        self.canShowInfo = true
     }
     
-    @IBAction override func infoButtonPressed(_ sender: Any) {
+    override func showInfo() {
         //launch the clue if it exists
         
         print("perk clue button pressed")
         
-        if let perk = self.perkClue, infoButton.isEnabled {
+        if let perk = self.perkClue, canShowInfo {
             
             //create a clue based on the perk that was pressed
             let perkClue = Clue(clueTitle: perk.name,

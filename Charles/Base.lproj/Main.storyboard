@@ -496,18 +496,6 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JC-GMq">
                                                     <rect key="frame" x="8" y="33" width="119" height="119"/>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVm-Rm-AOb">
-                                                    <rect key="frame" x="8" y="33" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="mVm-Rm-AOb" secondAttribute="height" id="XrS-Ve-06J"/>
-                                                    </constraints>
-                                                    <state key="normal" image="info"/>
-                                                    <state key="highlighted" image="info-selected"/>
-                                                    <connections>
-                                                        <action selector="infoButtonPressed:" destination="IY4-mC-g1J" eventType="touchUpInside" id="8ns-eY-eX5"/>
-                                                    </connections>
-                                                </button>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NoL-mU-opA">
                                                     <rect key="frame" x="8" y="33" width="119" height="119"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -575,10 +563,8 @@
                                             <constraint firstItem="NoL-mU-opA" firstAttribute="height" secondItem="VMi-JC-GMq" secondAttribute="height" id="CBp-Ak-S5s"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="height" secondItem="IY4-mC-g1J" secondAttribute="height" id="Clh-no-VDH"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="Kb1-00-WTk" secondAttribute="trailing" id="Kqg-xz-sZm"/>
-                                            <constraint firstItem="mVm-Rm-AOb" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" multiplier="1:4" id="Le9-AP-QLK"/>
                                             <constraint firstItem="Ap7-zq-s1c" firstAttribute="width" secondItem="IY4-mC-g1J" secondAttribute="width" id="NBe-xN-5zh"/>
                                             <constraint firstItem="AuP-bE-VU4" firstAttribute="height" secondItem="dCl-FR-QLN" secondAttribute="height" multiplier="1:2" id="NDf-h7-5e0"/>
-                                            <constraint firstItem="mVm-Rm-AOb" firstAttribute="leading" secondItem="VMi-JC-GMq" secondAttribute="leading" id="Nvr-7s-yVz"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="OHf-aq-kj6"/>
                                             <constraint firstItem="Kb1-00-WTk" firstAttribute="top" secondItem="IY4-mC-g1J" secondAttribute="topMargin" constant="-9" id="QaQ-vy-gbD"/>
                                             <constraint firstItem="dCl-FR-QLN" firstAttribute="centerY" secondItem="VMi-JC-GMq" secondAttribute="centerY" id="Wy1-A6-Kfn"/>
@@ -592,23 +578,11 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="v4J-ln-O4Z" secondAttribute="bottom" constant="-4" id="s2b-Hq-OwS"/>
                                             <constraint firstItem="VMi-JC-GMq" firstAttribute="leading" secondItem="IY4-mC-g1J" secondAttribute="leadingMargin" id="uDA-ld-juI"/>
                                             <constraint firstItem="NoL-mU-opA" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" id="w87-St-mgy"/>
-                                            <constraint firstItem="mVm-Rm-AOb" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="top" id="zJc-rc-RkV"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="mVm-Rm-AOb"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="Le9-AP-QLK"/>
-                                                <exclude reference="Nvr-7s-yVz"/>
-                                                <exclude reference="zJc-rc-RkV"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
                                             <outlet property="characterOutfitBlocker" destination="NoL-mU-opA" id="zrA-G8-saq"/>
                                             <outlet property="expirationStatusView" destination="dCl-FR-QLN" id="h8P-C8-iN4"/>
-                                            <outlet property="infoButton" destination="mVm-Rm-AOb" id="0lp-R9-Hae"/>
                                             <outlet property="pieLockImageView" destination="AuP-bE-VU4" id="Zxq-Wb-zdL"/>
                                             <outlet property="priceLabel" destination="v4J-ln-O4Z" id="2PK-Qa-KvG"/>
                                             <outlet property="stackView" destination="VMi-JC-GMq" id="Ftr-BB-IOl"/>
@@ -660,18 +634,6 @@
                                                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ccB-Sz-b9v">
                                                     <rect key="frame" x="8" y="44" width="119" height="104"/>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4v-f8-nz6">
-                                                    <rect key="frame" x="10" y="40" width="25.5" height="25.5"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="H4v-f8-nz6" secondAttribute="height" id="lnK-su-eFh"/>
-                                                    </constraints>
-                                                    <state key="normal" image="info"/>
-                                                    <state key="highlighted" image="info-selected"/>
-                                                    <connections>
-                                                        <action selector="infoButtonPressed:" destination="YOE-Fd-HL0" eventType="touchUpInside" id="vmJ-8l-W6q"/>
-                                                    </connections>
-                                                </button>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yy-RU-Opb">
                                                     <rect key="frame" x="10" y="40" width="115" height="114"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -756,32 +718,18 @@
                                             <constraint firstItem="42y-nE-kIk" firstAttribute="top" secondItem="YOE-Fd-HL0" secondAttribute="topMargin" constant="-4" id="l4d-iI-U7y"/>
                                             <constraint firstItem="zlN-JT-M6Q" firstAttribute="leading" secondItem="YOE-Fd-HL0" secondAttribute="leadingMargin" constant="3" id="lio-qc-GCd"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="gV8-8q-psI" secondAttribute="trailing" constant="2" id="nbD-7C-T0t"/>
-                                            <constraint firstItem="H4v-f8-nz6" firstAttribute="width" secondItem="6yy-RU-Opb" secondAttribute="width" multiplier="1:4.5" id="oYQ-jv-uRJ"/>
                                             <constraint firstItem="aDx-gt-3dG" firstAttribute="height" secondItem="YOE-Fd-HL0" secondAttribute="height" id="odi-pz-idj"/>
                                             <constraint firstItem="Mdb-KP-tgE" firstAttribute="width" secondItem="ccB-Sz-b9v" secondAttribute="width" multiplier="2:6" id="sTq-D9-ewg"/>
                                             <constraint firstItem="Mdb-KP-tgE" firstAttribute="baseline" secondItem="42y-nE-kIk" secondAttribute="baseline" id="sUo-DX-dy2"/>
-                                            <constraint firstItem="H4v-f8-nz6" firstAttribute="leading" secondItem="6yy-RU-Opb" secondAttribute="leading" id="sV1-ys-ViQ"/>
-                                            <constraint firstItem="H4v-f8-nz6" firstAttribute="top" secondItem="gV8-8q-psI" secondAttribute="top" id="uem-2g-Gr3"/>
                                             <constraint firstItem="EWo-ye-sqA" firstAttribute="centerX" secondItem="Mdb-KP-tgE" secondAttribute="centerX" id="xRx-o1-2Pb"/>
                                             <constraint firstItem="6yy-RU-Opb" firstAttribute="height" secondItem="gV8-8q-psI" secondAttribute="height" id="xZa-ck-Xsp"/>
                                             <constraint firstItem="aDx-gt-3dG" firstAttribute="centerX" secondItem="YOE-Fd-HL0" secondAttribute="centerX" id="xZq-qa-ZWt"/>
                                             <constraint firstItem="ccB-Sz-b9v" firstAttribute="leading" secondItem="YOE-Fd-HL0" secondAttribute="leadingMargin" id="yX1-2R-5VJ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="E5c-h8-LYL" secondAttribute="bottom" id="zwl-TG-29w"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="H4v-f8-nz6"/>
-                                            </mask>
-                                            <mask key="constraints">
-                                                <exclude reference="oYQ-jv-uRJ"/>
-                                                <exclude reference="sV1-ys-ViQ"/>
-                                                <exclude reference="uem-2g-Gr3"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="zlN-JT-M6Q" id="WEL-Q8-cfZ"/>
                                             <outlet property="expirationStatusView" destination="Mdb-KP-tgE" id="DOH-X2-cSX"/>
-                                            <outlet property="infoButton" destination="H4v-f8-nz6" id="HRD-oz-ILb"/>
                                             <outlet property="perkColorFrame" destination="42y-nE-kIk" id="kwz-aS-pbZ"/>
                                             <outlet property="perkGotFromCharacterIndicator" destination="s0n-cz-Fb3" id="bsk-Zl-ZmD"/>
                                             <outlet property="perkIconBlocker" destination="6yy-RU-Opb" id="SHq-QN-8cd"/>
@@ -2276,8 +2224,6 @@
         <image name="hex-DollarSign" width="69" height="80"/>
         <image name="hex-key" width="69" height="80"/>
         <image name="hexDollarLarge175" width="175" height="202"/>
-        <image name="info" width="28" height="28"/>
-        <image name="info-selected" width="28" height="28"/>
         <image name="lightbulb" width="69" height="80"/>
         <image name="map" width="28" height="24"/>
         <image name="map-selected" width="28" height="24"/>

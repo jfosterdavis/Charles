@@ -62,7 +62,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         levelNumberTextLabel.isHidden = false
         levelNumberTextLabel.text = String(describing: levelData.level)
         levelDescriptionTextLabel.isHidden = false
-        levelDescriptionTextLabel.text = String(describing: levelData.levelDescription!)
+        levelDescriptionTextLabel.text = String(describing: levelData.name!)
         
         clueButton.roundCorners(with: 5)
         perkClueButton.roundCorners(with: 5)
