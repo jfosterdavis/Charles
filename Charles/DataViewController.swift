@@ -364,7 +364,14 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     ///to be called by the entered background observer.  presses the store button.
     func appEnteredBackground(notification : NSNotification) {
-        storeButtonPressed(self)
+        let characterLevel = getUserCurrentLevel()
+        
+        if characterLevel.level > 10 {
+            mapButtonPressed(self)
+        } else {
+            storeButtonPressed(self)
+        }
+        
     }
     
     /******************************************************/
