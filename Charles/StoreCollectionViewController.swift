@@ -39,6 +39,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         case characterAlreadyUnlocked
     }
     
+    //collection view sections
+    var charactersSection:Int = -1
+    var toolsSection:Int = -1
+    var iapsSection:Int = -1
+    
     
     /******************************************************/
     /*******************///MARK: Perk Store and IAP properties
@@ -157,7 +162,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         //now check the item to see if we have a perk or an app store item
         switch section {
             
-        case 0: //Character
+        case charactersSection: //Character
             let character = characterItems[indexPath.row] as! Character
             
             guard isCharacterAffordable(character: character) else {
@@ -189,7 +194,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 print("Character \(String(describing: newCharacter!.name)) has been unlocked!")
             }
             
-        case 1: //Perk
+        case toolsSection: //Perk
             let currentItem = perkItems[indexPath.row]
             
             let perk = currentItem as! Perk
@@ -219,7 +224,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
                 
                 print("Perk \(String(describing: newPerk!.name)) has been unlocked!")
             }
-        case 2:  //SKProduct
+        case iapsSection:  //SKProduct
             let currentItem = appStoreItems[indexPath.row]
             
             //start the buying process from the app store.
@@ -231,8 +236,6 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             //some other type of item has been shown, throw error
             fatalError("Found unexpected section in Perk store: \(section)")
         }
-        
-        
         
     }
     

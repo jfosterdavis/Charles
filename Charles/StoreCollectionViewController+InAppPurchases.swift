@@ -190,7 +190,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                 for product in appStoreProducts {
                     if product.productIdentifier == transaction.payment.productIdentifier {
                         
-                        let section = 2 //section 2 is IAPs here
+                        let section = iapsSection //section IAPs here
                         let indexPath = IndexPath(item: index, section: section)
                         
                         //reload this cell, it will check for this when reloading
@@ -199,10 +199,6 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                     }
                     index += 1
                 }
-                
-                //                let section = 1 //section 1 is IAPs here
-                //                let indexSet = IndexSet(integer: section)
-                //                collectionView.reloadSections(indexSet)
                 
                 break
             case .purchased:
@@ -224,7 +220,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                 for product in appStoreProducts {
                     if product.productIdentifier == transaction.payment.productIdentifier {
                         
-                        let section = 2 //section 2 is IAPs here
+                        let section = iapsSection //section 2 is IAPs here
                         let indexPath = IndexPath(item: index, section: section)
                         
                         //reload this cell, it will check for this when reloading
@@ -250,7 +246,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                 for product in appStoreProducts {
                     if product.productIdentifier == transaction.payment.productIdentifier {
                         
-                        let section = 2 //section 2 is IAPs here
+                        let section = iapsSection //section 2 is IAPs here
                         let indexPath = IndexPath(item: index, section: section)
                         
                         //reload this cell, it will check for this when reloading
@@ -276,7 +272,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                 for product in appStoreProducts {
                     if product.productIdentifier == transaction.payment.productIdentifier {
                         
-                        let section = 2 //section 2 is IAPs here
+                        let section = iapsSection //section 2 is IAPs here
                         let indexPath = IndexPath(item: index, section: section)
                         
                         //reload this cell, it will check for this when reloading

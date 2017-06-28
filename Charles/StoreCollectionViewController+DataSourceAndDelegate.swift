@@ -29,11 +29,11 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let section = indexPath.section
             
             switch section {
-            case 0:
+            case charactersSection:
                 headerView.headerTitleLabel.text = "Companions"
-            case 1:
+            case toolsSection:
                 headerView.headerTitleLabel.text = "Tools"
-            case 2:
+            case iapsSection:
                 headerView.headerTitleLabel.text = "In-App Purchases"
             default:
                 headerView.headerTitleLabel.text = "Unknown Section"
@@ -55,14 +55,22 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         let toolsCount = perkCollectionViewData.count
         
+        charactersSection = 0 //there will always be characters.
         var sectionCount = 1 //start with the characters section
         
-        if iapCount > 0 {
+        if toolsCount > 0 {
+            toolsSection = sectionCount
             sectionCount += 1
+            
+        } else {
+            toolsSection = -1
         }
         
-        if toolsCount > 0 {
+        if iapCount > 0 {
+            iapsSection = sectionCount
             sectionCount += 1
+        } else {
+            iapsSection = -1
         }
         
         return sectionCount
@@ -73,11 +81,11 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         //perk section
         switch section{
-        case 0:
+        case charactersSection:
             return collectionViewData.count
-        case 1:
+        case toolsSection:
             return perkCollectionViewData.count
-        case 2:
+        case iapsSection:
             return self.appStoreProducts.count
         default:
             assert(false, "Unexpected section.")
@@ -99,7 +107,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         //now check the item to see if we have a perk or an app store item
         switch section {
-        case 0: //Characters
+        case charactersSection: //Characters
             //        switch segmentedControl.selectedSegmentIndex {
             //        case 0:
             //TODO: replace as! UITAbleViewCell witha  custom cell
@@ -183,7 +191,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             
             return cell
             
-        case 1: //Perks
+        case toolsSection: //Perks
             let currentItem = perkItems[indexPath.row]
             
             
@@ -281,7 +289,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             //END OF CASE AS PERK
             
             
-        case 2:  //section 1 should be SKProduct type
+        case iapsSection:  //section 1 should be SKProduct type
             
             let currentItem = appStoreItems[indexPath.row]
             
@@ -346,7 +354,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
         let section = indexPath.section
         
         switch section {
-        case 0: //Characters
+        case charactersSection: //Characters
             let width = storeCollectionView.bounds.size.width / 2 - 5
             let height = width * 180 / 135
             return CGSize(width: CGFloat(width), height: CGFloat(height))

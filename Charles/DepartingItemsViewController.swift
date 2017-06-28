@@ -47,11 +47,11 @@ class DepartingItemsViewController: StoreCollectionViewController {
             let section = indexPath.section
             
             switch section {
-            case 0:
+            case charactersSection:
                 headerView.headerTitleLabel.text = "Departing Companions"
-            case 1:
+            case toolsSection:
                 headerView.headerTitleLabel.text = "Expiring Tools"
-            case 2:
+            case iapsSection:
                 headerView.headerTitleLabel.text = "Available In-App Purchases"
             default:
                 headerView.headerTitleLabel.text = "Unknown Section"
@@ -75,16 +75,25 @@ class DepartingItemsViewController: StoreCollectionViewController {
         
         var sectionCount = 0 //start with 0
         
-        if iapCount > 0 {
+        if characterCount > 0 {
+            charactersSection = sectionCount
             sectionCount += 1
+        } else {
+            charactersSection = -1
         }
         
         if toolsCount > 0 {
+            toolsSection = sectionCount
             sectionCount += 1
+        } else {
+            toolsSection = -1
         }
         
-        if characterCount > 0 {
+        if iapCount > 0 {
+            iapsSection = sectionCount
             sectionCount += 1
+        } else {
+            iapsSection = -1
         }
         
         return sectionCount
