@@ -229,7 +229,7 @@ struct Perks {
     static let Insight3 = Perk(     name: "Epiphany",
                                     gameDescription: "You see many things others might not with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
-        price: 65000,
+        price: 250000, //250,000
         meta1: 3,
         meta2: nil,
         meta3: nil,
