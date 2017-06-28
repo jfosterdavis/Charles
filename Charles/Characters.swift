@@ -136,7 +136,7 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
-                                gameDescription: "A dramatic, yet an estudious and hard working producer.  He is both child and adult simultaneously. Twin to Charles.",
+                                gameDescription: "A dramatic yet estudious and hard working producer.  He is both child and adult simultaneously. Twin to Charles.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
