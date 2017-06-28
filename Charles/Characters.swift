@@ -32,7 +32,7 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
-                                   gameDescription: "Perhaps the oldest soul in this Universe.  A charismatic do-gooder with a flare for the expensive and flashy who operates under the facade of a smooth-talking flirt.  Twin to Fred.",
+                                   gameDescription: "A charismatic, fashionable, and particularly productive do-gooder with a flare for the expensive, operating under a smooth-talking facade.  Twin to Fred.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -136,7 +136,7 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
-                                gameDescription: "A stubborn young male who can't help but be dramatic, yet an estudious and hard working producer.  He is both infant and adult simultaneously. Twin to Charles.",
+                                gameDescription: "A dramatic, yet an estudious and hard working producer.  He is both child and adult simultaneously. Twin to Charles.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
@@ -204,7 +204,7 @@ struct Characters {
         ])
     
     static let Benton = Character(name: "Benton",
-                                  gameDescription: "The nicest guy you will ever meet has a big heart and bigger dagger to cut you real deep.",
+                                  gameDescription: "He's the nicest guy you will ever meet.  He has a big heart and is always quick with a compliment.",
                                   topRadius: 20,
                                   bottomRadius: 30,
                                   price: 0,
@@ -266,7 +266,7 @@ struct Characters {
         ])
     
     static let Laura = Character(name: "Laura",
-                                 gameDescription: "A siren who's unmatched beauty can make the most unbearable sounds melt away into a serene hypersensational alternative after prolonged exposure and application of the correct implements.",
+                                 gameDescription: "A siren who's unmatched beauty can make the most unbearable sounds melt away into a serene hypersensational alternative - after application of the appropriate implement.",
                                   topRadius: 50,
                                   bottomRadius: 25,
                                   price: 5000,
@@ -463,7 +463,7 @@ struct Characters {
         ])
     
     static let StanleyJr = Character(name: "Stanley Jr.",
-                                     gameDescription: "Son of Stanley, with an eye for how to get things done efficiently and with great returns.  He wears the garbs of this father.",
+                                     gameDescription: "Son of Stanley, with an eye for how to get things done with great returns.  He dons the garbs of this father.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
@@ -551,7 +551,7 @@ struct Characters {
         ])
     
     static let Stanley = Character(name: "Stanley",
-                                   gameDescription: "Although some mock him for his drab and dreary appearancy, none can deny his usefullness in any situation.",
+                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his usefullness in most any situation.",
                                    topRadius: 80,
                                    bottomRadius: 50,
                                    price: 19000,

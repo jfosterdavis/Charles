@@ -307,6 +307,8 @@ class MapCollectionViewCell: UICollectionViewCell {
             clueVC.clue = clue
             clueVC.delayDismissButton = false
             //clueVC.modalPresentationStyle = .pageSheet
+            clueVC.overrideStackViewDistribution = .fillEqually
+            
             topVC.present(clueVC, animated: true, completion: nil)
         }
     }
@@ -332,9 +334,10 @@ class MapCollectionViewCell: UICollectionViewCell {
                 clueVC.clue = perkClue
                 clueVC.delayDismissButton = false
                 //set the background
-                clueVC.view.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1) //store background color
+                clueVC.view.backgroundColor = UIColor(red: 107/255, green: 12/255, blue: 0/255, alpha: 1) //expired perks background color
                 clueVC.overrideTextColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideGoldenRatio = true
+                clueVC.overrideStackViewDistribution = .fillProportionally
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }
@@ -366,11 +369,26 @@ class MapCollectionViewCell: UICollectionViewCell {
             
             let characterViewImage = characterView.asImage()
             
+            //check how long the description is and split in two
+            let wordCount = Utilities.wordCount(character.gameDescription)
+            
+            let part1 = character.gameDescription
+            let part2 = ""
+            
+//            if wordCount.count > 30 {
+//                let twoHalves = Utilities.getTwoStringsFromOne(character.gameDescription)
+//                part1 = twoHalves.0
+//                part2 = twoHalves.1
+//            } else {
+//                
+//            }
+            
             //create a clue based on the perk that was pressed
             let characterClue = Clue(clueTitle: character.name,
                                 part1: nil,
                                 part1Image: characterViewImage,
-                                part2: character.gameDescription
+                                part2: part1,
+                                part3: part2
             )
             
             
@@ -386,6 +404,7 @@ class MapCollectionViewCell: UICollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideTextColor = .black
                 clueVC.overrideGoldenRatio = true
+                clueVC.overrideStackViewDistribution = .fillProportionally
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }

@@ -35,6 +35,7 @@ class BasicClueViewController: UIViewController {
     
     var overrideTextColor: UIColor? = nil
     var overrideGoldenRatio = false
+    var overrideStackViewDistribution: UIStackViewDistribution? = nil
     
     var numNilSections = 0
     
@@ -64,6 +65,10 @@ class BasicClueViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
+        if let newDistribution = overrideStackViewDistribution {
+            stackView.distribution = newDistribution
+        }
         
         loadClue(clue: clue)
         

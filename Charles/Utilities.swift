@@ -16,7 +16,50 @@ struct Utilities {
     static func random(range: CountableClosedRange<Int>) -> Int {
         return Int(UInt32(range.lowerBound) + arc4random_uniform(UInt32(range.upperBound) - UInt32(range.lowerBound) + UInt32(1)))
     }
+    
+    
+    /******************************************************/
+    /*******************///MARK: Word count a string
+    /******************************************************/
+    static func wordCount(_ s: String) -> Dictionary<String, Int> {
+        let words = s.components(separatedBy: NSCharacterSet.whitespaces)
+        var wordDictionary = Dictionary<String, Int>()
+        for word in words {
+            if let count = wordDictionary[word] {
+                wordDictionary[word] = count + 1
+            } else {
+                wordDictionary[word] = 1
+            }
+        }
+        return wordDictionary
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Break a string in half, word aware
+    /******************************************************/
+    static func getTwoStringsFromOne(_ input: String) -> (String, String) {
+        let str = input
+        let words = str.components(separatedBy: NSCharacterSet.whitespaces)
+        
+        let halfLength = words.count / 2
+        let firstHalf = words[0..<halfLength].joined(separator: " ")
+        let secondHalf = words[halfLength..<words.count].joined(separator: " ")
+        
+        return (firstHalf, secondHalf)
+    }
 
+}
+
+/******************************************************/
+/*******************///MARK: Getting topmost viewcontroller
+/******************************************************/
+
+func topMostController() -> UIViewController {
+    var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+    while (topController.presentedViewController != nil) {
+        topController = topController.presentedViewController!
+    }
+    return topController
 }
 
 /******************************************************/
@@ -300,6 +343,8 @@ extension UIView {
     
 }
 
+
+
 /******************************************************/
 /*******************///MARK: Converting UIViews to UIImages
 /******************************************************/
@@ -396,14 +441,4 @@ extension Integer {
     }
 }
 
-/******************************************************/
-/*******************///MARK: Getting topmost viewcontroller
-/******************************************************/
 
-func topMostController() -> UIViewController {
-    var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
-    while (topController.presentedViewController != nil) {
-        topController = topController.presentedViewController!
-    }
-    return topController
-}

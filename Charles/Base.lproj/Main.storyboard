@@ -1118,33 +1118,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
                                 <rect key="frame" x="16" y="60" width="343" height="602"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The soul is a fickle thing.  It's perspective determines the impact of our actions." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="98"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="99"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
-                                        <rect key="frame" x="0.0" y="101" width="343" height="97.5"/>
+                                        <rect key="frame" x="0.0" y="102" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When below, we absorb.  We catch that which acts upon us." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-Ho-fv8">
-                                        <rect key="frame" x="0.0" y="201.5" width="343" height="98"/>
+                                        <rect key="frame" x="0.0" y="190.5" width="343" height="66"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
-                                        <rect key="frame" x="0.0" y="302.5" width="343" height="98"/>
+                                        <rect key="frame" x="0.0" y="259.5" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="By9-Ym-U5G">
-                                        <rect key="frame" x="0.0" y="403.5" width="343" height="97.5"/>
+                                        <rect key="frame" x="0.0" y="348" width="343" height="164.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Completely fail and lack everything.  Everything is maximum.  Maximum is White.  The circle is broken; the White burns at our core.</string>
                                         <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="22"/>
@@ -1152,7 +1152,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
-                                        <rect key="frame" x="0.0" y="504" width="343" height="98"/>
+                                        <rect key="frame" x="0.0" y="515.5" width="343" height="86.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
