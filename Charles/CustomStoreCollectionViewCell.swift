@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CustomStoreCollectionViewCell: UICollectionViewCell {
+class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
     
     //label
     @IBOutlet weak var characterNameLabel: UILabel!
@@ -23,12 +23,12 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pieLockImageView: UIImageView!
     @IBOutlet weak var characterOutfitBlocker: UIView!
     
+    @IBOutlet weak var infoButton: UIButton!
     
     //expiration timer
     @IBOutlet weak var expirationStatusView: UIView!
     
-    
-    
+    var characterClue: Character? = nil
     
     /******************************************************/
     /*******************///MARK: Appearance
@@ -85,12 +85,15 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         }
         
         roundCorners()
+        infoButton.roundCorners(with: infoButton.bounds.width / 2)
         
         characterOutfitBlocker.isHidden = true
         
         self.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1)
         
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
         
     }
     
@@ -124,7 +127,9 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
     func setStatusVisibility(label: Bool, shade: Bool){
@@ -140,7 +145,9 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Employed"
         
-        self.isUserInteractionEnabled = false
+        self.canUserHighlight = false
+        self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
     func setStatusUnaffordable() {
@@ -159,7 +166,9 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
-        self.isUserInteractionEnabled = false
+        self.canUserHighlight = false
+        self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
     func setStatusLevelRequirementNotMet(levelRequired: Int) {
@@ -178,7 +187,72 @@ class CustomStoreCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
+        self.canUserHighlight = false
         self.isUserInteractionEnabled = false
+        self.infoButton.isEnabled = false
     }
 
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+        
+        print("character clue button pressed")
+        
+        if let character = self.characterClue {
+            
+            //create an image from the CharacterView to display
+            //define the frame (size) for the view
+            let screen = self.superview!.bounds
+            let width = screen.width / 3.6 //make image 1/3 size of CV
+            let height = width
+            let frame = CGRect(x: 0, y: 0, width: width, height: height)
+            let x = (screen.size.width - frame.size.width) * 0.5
+            let y = (screen.size.height - frame.size.height) * 0.5
+            let mainFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
+            
+            //setup the paramaters for it to draw
+            let characterView = CharacterView()
+            characterView.frame = mainFrame
+            characterView.phrase = character.phrases![0]
+            characterView.setNeedsDisplay()
+            
+            let characterViewImage = characterView.asImage()
+            
+            //check how long the description is and split in two
+            let wordCount = Utilities.wordCount(character.gameDescription)
+            
+            let part1 = character.gameDescription
+            let part2 = ""
+            
+            //            if wordCount.count > 30 {
+            //                let twoHalves = Utilities.getTwoStringsFromOne(character.gameDescription)
+            //                part1 = twoHalves.0
+            //                part2 = twoHalves.1
+            //            } else {
+            //
+            //            }
+            
+            //create a clue based on the perk that was pressed
+            let characterClue = Clue(clueTitle: character.name,
+                                     part1: nil,
+                                     part1Image: characterViewImage,
+                                     part2: part1,
+                                     part3: part2
+            )
+            
+            if let storyboard = self.storyboard {
+                let topVC = topMostController()
+                let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+                clueVC.clue = characterClue
+                clueVC.delayDismissButton = false
+                //set the background to paper color
+                clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
+                clueVC.overrideTextColor = .black
+                clueVC.overrideGoldenRatio = true
+                clueVC.overrideStackViewDistribution = .fillProportionally
+                
+                topVC.present(clueVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
 }

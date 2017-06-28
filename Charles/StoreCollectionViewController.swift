@@ -237,6 +237,10 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             fatalError("Found unexpected section in Perk store: \(section)")
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+            self.collectionView.reloadItems(at: [indexPath])
+        })
+        
     }
     
     

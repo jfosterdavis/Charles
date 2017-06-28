@@ -18,6 +18,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
     @IBOutlet weak var perkGotFromCharacterIndicator: UIImageView!
     @IBOutlet weak var perkIconBlocker: UIView!
     
+    var perkClue: Perk? = nil
+    
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(fromPerk perk: Perk) {
         
@@ -28,6 +30,8 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
             //remove button from heirarchy
             subView.removeFromSuperview()
         }
+        
+        self.perkClue = perk
         
         //create the ImageView
         perkIconImageView.image = perk.icon
@@ -42,6 +46,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //stackView.addArrangedSubview(imageView)
                 
         roundCorners()
+        infoButton.roundCorners(with: infoButton.bounds.width / 2)
         
         perkGotFromCharacterIndicator.image = #imageLiteral(resourceName: "GroupChecked")
         perkGotFromCharacterIndicator.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 0.95) //an off-white
@@ -58,7 +63,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         characterNameLabel.textColor = .black
         
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
         
     }
     
@@ -80,7 +87,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         
+        self.canUserHighlight = true
         self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
     override func setStatusUnaffordable() {
@@ -99,7 +108,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = .red
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
-        self.isUserInteractionEnabled = false
+        self.canUserHighlight = false
+        self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
     func setStatusRequiredCharacterNotPresent() {
@@ -127,7 +138,9 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN-Bold", size: 15.0)
         
+        self.canUserHighlight = false
         self.isUserInteractionEnabled = false
+        self.infoButton.isEnabled = false
     }
 
     ///sets the visual status to affordable and ready for purchase
@@ -138,7 +151,39 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
         priceLabel.text = "Active"
         
-        self.isUserInteractionEnabled = false
+        self.canUserHighlight = false
+        self.isUserInteractionEnabled = true
+        self.infoButton.isEnabled = true
     }
     
+    @IBAction override func infoButtonPressed(_ sender: Any) {
+        //launch the clue if it exists
+        
+        print("perk clue button pressed")
+        
+        if let perk = self.perkClue {
+            
+            //create a clue based on the perk that was pressed
+            let perkClue = Clue(clueTitle: perk.name,
+                                part1: nil,
+                                part1Image: perk.icon,
+                                part2: perk.gameDescription
+            )
+            
+            
+            if let storyboard = self.storyboard {
+                let topVC = topMostController()
+                let clueVC = storyboard.instantiateViewController(withIdentifier: "BasicClueViewController") as! BasicClueViewController
+                clueVC.clue = perkClue
+                clueVC.delayDismissButton = false
+                //set the background
+                clueVC.view.backgroundColor = UIColor(red: 107/255, green: 12/255, blue: 0/255, alpha: 1) //expired perks background color
+                clueVC.overrideTextColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
+                clueVC.overrideGoldenRatio = true
+                clueVC.overrideStackViewDistribution = .fillProportionally
+                
+                topVC.present(clueVC, animated: true, completion: nil)
+            }
+        }
+    }
 }

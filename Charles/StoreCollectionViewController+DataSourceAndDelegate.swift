@@ -98,12 +98,23 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
     /******************************************************/
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.9) //soft green
+        let cell = collectionView.cellForItem(at: indexPath) as! CommonStoreCollectionViewCell
+        if cell.canUserHighlight {
+            cell.backgroundColor = UIColor(red: 102/255, green: 255/255, blue: 102/255, alpha: 0.9) //soft green
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        collectionView.reloadItems(at: [indexPath])
+        let cell = collectionView.cellForItem(at: indexPath) as! CommonStoreCollectionViewCell
+        if cell.canUserHighlight {
+            if let appCell = cell as? InAppPurchaseCollectionViewCell {
+                //cell is an in app purchase cell so restore color
+                appCell.backgroundColor = UIColor(red: 26/255, green: 91/255, blue: 238/255, alpha: 1) //in app blue
+            } else {
+                //cell is a regular paper colored cell
+                cell.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper
+            }
+        }
     }
     
     /*******************///MARK: Cells
@@ -126,6 +137,10 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             //TODO: replace as! UITAbleViewCell witha  custom cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "characterCell", for: indexPath as IndexPath) as! CustomStoreCollectionViewCell
             let character = characterItems[indexPath.row] as! Character
+            
+            //give the character object and storyboard
+            cell.characterClue = character
+            cell.storyboard = self.storyboard
             
             cell.characterNameLabel.text = character.name
             let price = character.price
@@ -209,6 +224,8 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "perkCell", for: indexPath as IndexPath) as! CustomPerkStoreCollectionViewCell
+            
+            cell.storyboard = self.storyboard
             
             let perk = currentItem as! Perk
             
@@ -307,6 +324,8 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let currentItem = appStoreItems[indexPath.row]
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IAPCell", for: indexPath as IndexPath) as! InAppPurchaseCollectionViewCell
+            
+            cell.storyboard = self.storyboard
             
             let product = currentItem as! SKProduct
             //display as an app store product

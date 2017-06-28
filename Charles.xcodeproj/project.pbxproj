@@ -67,6 +67,7 @@
 		F66DDE271EF64114003E925D /* MapCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE261EF64114003E925D /* MapCollectionViewController.swift */; };
 		F66DDE291EF644F8003E925D /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE281EF644F8003E925D /* MapCollectionViewCell.swift */; };
 		F66DDE2B1EF65CE5003E925D /* MapLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DDE2A1EF65CE5003E925D /* MapLineView.swift */; };
+		F66EBFB41F03F76F002A4DE9 /* CommonStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EBFB31F03F76F002A4DE9 /* CommonStoreCollectionViewCell.swift */; };
 		F6993FC41EF9DF3900225FCD /* PerformanceMosaicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6993FC31EF9DF3900225FCD /* PerformanceMosaicView.swift */; };
 		F6B1398D1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1398C1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift */; };
 		F6B1398F1F003C5000BC376A /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1398E1F003C5000BC376A /* SectionHeaderCollectionReusableView.swift */; };
@@ -162,6 +163,7 @@
 		F66DDE261EF64114003E925D /* MapCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewController.swift; sourceTree = "<group>"; };
 		F66DDE281EF644F8003E925D /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		F66DDE2A1EF65CE5003E925D /* MapLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLineView.swift; sourceTree = "<group>"; };
+		F66EBFB31F03F76F002A4DE9 /* CommonStoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6993FC11EF868AF00225FCD /* Modelv2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelv2.xcdatamodel; sourceTree = "<group>"; };
 		F6993FC21EF8C5B900225FCD /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		F6993FC31EF9DF3900225FCD /* PerformanceMosaicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMosaicView.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		F60327BD1EC54CEB00493DC3 /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F66EBFB31F03F76F002A4DE9 /* CommonStoreCollectionViewCell.swift */,
 				F60327BB1EC54CE200493DC3 /* CustomStoreCollectionViewCell.swift */,
 				F614075D1EDD007A00C6B642 /* CustomPerkStoreCollectionViewCell.swift */,
 				F6B1398C1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift */,
@@ -594,6 +597,7 @@
 				F60D115B1EF3A259008D38BE /* Clue.swift in Sources */,
 				F61CC1E51F00AFCA00B47678 /* StoreCollectionViewController+InAppPurchases.swift in Sources */,
 				F615536E1EDCF5A5004BBCB6 /* Perks.swift in Sources */,
+				F66EBFB41F03F76F002A4DE9 /* CommonStoreCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
