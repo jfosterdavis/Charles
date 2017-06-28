@@ -25,7 +25,7 @@ struct Levels {
     
     //static let valid: [Level] = []
     ///All levels in the order for the game
-    static let HighestLevel = Game[142]!  //everything that determines level or winning the game references this as the highest level
+    static let HighestLevel = Game[144]!  //everything that determines level or winning the game references this as the highest level
    
     
     static let TrainingLevelFirst = Game[1]!
@@ -198,7 +198,7 @@ struct Levels {
    110 : Level(level: 110, name: "sacrifice",               xPRequired: 11, successThreshold: 0.71, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    111 : Level(level: 111, name: "subjugation",             xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    112 : Level(level: 112, name: "extermination",           xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.61, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   113 : Level(level: 113, name: "unearned material",       xPRequired: 30, successThreshold: 0.30, punishThreshold: 0.25, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
+   113 : Level(level: 113, name: "unearned material",       xPRequired: 30, successThreshold: 0.10, punishThreshold: 0.0 , canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
    114 : Level(level: 114, name: "parasite",                xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    115 : Level(level: 115, name: "moocher",                 xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    116 : Level(level: 116, name: "looter",                  xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
@@ -228,10 +228,12 @@ struct Levels {
    136 : Level(level: 136, name: "individualism",           xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.58, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
    137 : Level(level: 137, name: "objectivism",             xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.56, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
    138 : Level(level: 138, name: "clear the way",           xPRequired: 11, successThreshold: 0.97, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   139 : Level(level: 139, name: "production",              xPRequired: 15, successThreshold: 0.91, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   140 : Level(level: 140, name: "wealth",                  xPRequired: 15, successThreshold: 0.93, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   141 : Level(level: 141, name: "thrive",                  xPRequired: 15, successThreshold: 0.95, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   142 : Level(level: 142, name: "flourish",                xPRequired: 15, successThreshold: 0.95, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3)
+   139 : Level(level: 139, name: "remember",              xPRequired: 15, successThreshold: 0.89, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   140 : Level(level: 140, name: "production",                  xPRequired: 15, successThreshold: 0.91, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   141 : Level(level: 141, name: "wealth",                  xPRequired: 15, successThreshold: 0.92, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   142 : Level(level: 142, name: "thrive",                xPRequired: 15, successThreshold: 0.93, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   143 : Level(level: 143, name: "flourish",                xPRequired: 15, successThreshold: 0.94, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   144 : Level(level: 144, name: "forget?",                xPRequired: 15, successThreshold: 0.95, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3)
     ]
     
     //given an amount of XP the player has, return the level the player is on. (currentLevel, xp towards this level) Returns nil if the player's level is off the charts
