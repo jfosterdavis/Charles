@@ -137,7 +137,7 @@ struct Perks {
     
     
     static let Adaptation = Perk(     name: "Adjust",
-                                       gameDescription: "Your tools adapt to the challenge at hand.",
+                                       gameDescription: "Your companions adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
         meta1: 0.15, //portion of slots to adjust
@@ -151,7 +151,7 @@ struct Perks {
     )
     
     static let Adaptation2 = Perk(     name: "Compensate",
-                                        gameDescription: "Your tools adapt better to the challenge at hand.",
+                                        gameDescription: "Your companions adapt better to the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 15000, //15000
         meta1: 0.35, //portion of slots to adjust
@@ -166,7 +166,7 @@ struct Perks {
     
     //Adaptation 3 also considers the color of the player's initial progress color
     static let Adaptation3 = Perk(     name: "Adapt",
-                                        gameDescription: "Your tools are suited to the challenge at hand.",
+                                        gameDescription: "Your companions are a good match for the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 30000,//30000
         meta1: 0.4, //portion of slots to adjust
@@ -181,7 +181,7 @@ struct Perks {
     
     //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
     static let Adaptation4 = Perk(     name: "Evolve",
-                                       gameDescription: "Your tools are inheriently well suited to the challenge at hand.",
+                                       gameDescription: "Your companions are naturally suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 120000, //120000
         meta1: 0.55, //portion of slots to adjust

@@ -70,6 +70,7 @@ extension DataViewController {
         let topVC = topMostController()
         print("The top VC is \(topVC)")
         
+        //TODO: remove redundancy fromthis section
         //present a series of Departing and Expired VCs depending on what is expired
         switch (departingCharacters, expiredPerks) {
         case let x where x.0 != nil && x.1 == nil: //Characters have expired
