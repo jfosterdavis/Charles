@@ -81,7 +81,7 @@ class BasicClueViewController: UIViewController {
             
             if overrideGoldenRatio {
             
-            let heightToRemove = CGFloat(numNilSections) * (height * (1.0/6.0)) - 60
+            let heightToRemove = CGFloat(numNilSections) * (height * (1.0/6.0)) - 100
                 //allows some versions to get smaller
                 //remove 1/6 - height of title and top bottom margins of the height for every nil section
                 adjustedHeight = height - heightToRemove

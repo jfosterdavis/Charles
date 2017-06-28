@@ -68,7 +68,7 @@ struct Clues {
                            part1Image: #imageLiteral(resourceName: "BeginningOfJourney"),
                            part2: "Achieve, and lack nothing.  Nothing is zero.  Zero is Black.  The circle is complete.",
                            part2Image: #imageLiteral(resourceName: "WeLackNothing"),
-                            part3: "Completely fail, and lack everything.  Everything is maximum.  Maximum is White.  The circle is broken; the White burns at our core.",
+                            part3: "Completely fail, and lack everything.  Everything is maximum.  Maximum is White.  The circle is broken.",
                             part3Image: #imageLiteral(resourceName: "OppositesIcon"))
     
     static let Mathematics1 = Clue(clueTitle: "White",

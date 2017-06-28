@@ -1102,7 +1102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-bc-ojY">
-                                <rect key="frame" x="5" y="5" width="50" height="49.5"/>
+                                <rect key="frame" x="3" y="3" width="50" height="49.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.52611925199999998" blue="0.93021490039999999" alpha="0.89726027399999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="x"/>
                                 <connections>
@@ -1118,7 +1118,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="200" verticalCompressionResistancePriority="800" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-bn-DmN">
                                 <rect key="frame" x="16" y="60" width="343" height="602"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The soul is a fickle thing.  It's perspective determines the impact of our actions." textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-gh-fO0">
@@ -1128,7 +1128,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
                                         <rect key="frame" x="0.0" y="102" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -1139,7 +1139,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
                                         <rect key="frame" x="0.0" y="259.5" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -1151,7 +1151,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
                                         <rect key="frame" x="0.0" y="515.5" width="343" height="86.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -1173,13 +1173,13 @@
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="width" secondItem="zgc-bc-ojY" secondAttribute="height" id="Jj7-cE-d3h"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zgc-bc-ojY" secondAttribute="trailing" id="JuU-As-Q8k"/>
                             <constraint firstItem="Peo-TG-cdD" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="5" id="KMb-BL-Okl"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leading" constant="5" id="LUL-pb-Rex"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leading" constant="3" id="LUL-pb-Rex"/>
                             <constraint firstItem="qix-oG-VnG" firstAttribute="top" secondItem="6tJ-bn-DmN" secondAttribute="bottom" constant="5" id="QOV-zl-Eie"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="top" secondItem="Peo-TG-cdD" secondAttribute="bottom" constant="5" id="VHi-BX-JWs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6tJ-bn-DmN" secondAttribute="trailing" id="fZu-7p-5Gg"/>
                             <constraint firstItem="6tJ-bn-DmN" firstAttribute="leading" secondItem="Ovi-MD-1U6" secondAttribute="leadingMargin" id="jTQ-BY-X1Y"/>
                             <constraint firstItem="zgc-bc-ojY" firstAttribute="height" secondItem="Peo-TG-cdD" secondAttribute="height" priority="800" id="tx4-X5-Sff"/>
-                            <constraint firstItem="zgc-bc-ojY" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="5" id="xwN-Hd-r87"/>
+                            <constraint firstItem="zgc-bc-ojY" firstAttribute="top" secondItem="Ph2-fT-AWG" secondAttribute="bottom" constant="3" id="xwN-Hd-r87"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -1894,8 +1894,8 @@
                                                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="h7N-S4-Igi">
                                                     <rect key="frame" x="18" y="41" width="199" height="79"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86L-pi-Eai">
-                                                            <rect key="frame" x="21" y="0.0" width="157" height="25"/>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86L-pi-Eai">
+                                                            <rect key="frame" x="46" y="0.0" width="107" height="25"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rounds" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O2N-rK-42l">
                                                                     <rect key="frame" x="0.0" y="0.0" width="73.5" height="25"/>
@@ -1904,7 +1904,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="11" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="V9X-wp-3KI">
-                                                                    <rect key="frame" x="83.5" y="0.0" width="73.5" height="25"/>
+                                                                    <rect key="frame" x="83.5" y="0.0" width="23.5" height="25"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="0.4934422376" blue="0.2156158769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1912,17 +1912,17 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.35977157360000001" green="0.35977157360000001" blue="0.35977157360000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
-                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqF-v7-seP">
-                                                            <rect key="frame" x="31.5" y="27" width="136" height="25"/>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqF-v7-seP">
+                                                            <rect key="frame" x="45" y="27" width="109.5" height="25"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Net" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-vS-IvP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="25"/>
+                                                                    <rect key="frame" x="0.5" y="0.0" width="36.5" height="25"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="56,243" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jbc-vt-F8F">
-                                                                    <rect key="frame" x="73" y="0.0" width="63" height="25"/>
+                                                                    <rect key="frame" x="47" y="0.0" width="63" height="25"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="0.4934422376" blue="0.2156158769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1930,17 +1930,17 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.35977157360406087" green="0.35977157360406087" blue="0.35977157360406087" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </stackView>
-                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-Q5-gZ3">
-                                                            <rect key="frame" x="0.0" y="54" width="199" height="25"/>
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-Q5-gZ3">
+                                                            <rect key="frame" x="27" y="54" width="145" height="25"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Accuracy" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sPs-LP-InQ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Accuracy" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sPs-LP-InQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="94.5" height="25"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN-Bold" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="56%" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c3c-Yi-OMf">
-                                                                    <rect key="frame" x="104.5" y="0.0" width="94.5" height="25"/>
+                                                                    <rect key="frame" x="104.5" y="0.0" width="40.5" height="25"/>
                                                                     <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="0.4934422376" blue="0.2156158769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
