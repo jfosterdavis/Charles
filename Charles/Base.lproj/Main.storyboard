@@ -594,6 +594,16 @@
                                             <constraint firstItem="NoL-mU-opA" firstAttribute="width" secondItem="VMi-JC-GMq" secondAttribute="width" id="w87-St-mgy"/>
                                             <constraint firstItem="mVm-Rm-AOb" firstAttribute="top" secondItem="VMi-JC-GMq" secondAttribute="top" id="zJc-rc-RkV"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="mVm-Rm-AOb"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="Le9-AP-QLK"/>
+                                                <exclude reference="Nvr-7s-yVz"/>
+                                                <exclude reference="zJc-rc-RkV"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="Kb1-00-WTk" id="nFY-bT-7Wn"/>
                                             <outlet property="characterOutfitBlocker" destination="NoL-mU-opA" id="zrA-G8-saq"/>
@@ -758,6 +768,16 @@
                                             <constraint firstItem="ccB-Sz-b9v" firstAttribute="leading" secondItem="YOE-Fd-HL0" secondAttribute="leadingMargin" id="yX1-2R-5VJ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="E5c-h8-LYL" secondAttribute="bottom" id="zwl-TG-29w"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="H4v-f8-nz6"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="oYQ-jv-uRJ"/>
+                                                <exclude reference="sV1-ys-ViQ"/>
+                                                <exclude reference="uem-2g-Gr3"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="characterNameLabel" destination="zlN-JT-M6Q" id="WEL-Q8-cfZ"/>
                                             <outlet property="expirationStatusView" destination="Mdb-KP-tgE" id="DOH-X2-cSX"/>

@@ -47,6 +47,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
 //
 //    }
     
+    
     /// Adds buttons from the given phrase to the stackview
     func loadAppearance(from phrase: Phrase) {
         
@@ -191,13 +192,14 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         self.isUserInteractionEnabled = false
         self.infoButton.isEnabled = false
     }
+    
 
-    @IBAction func infoButtonPressed(_ sender: Any) {
+    @IBAction override func infoButtonPressed(_ sender: Any) {
         //launch the clue if it exists
         
         print("character clue button pressed")
         
-        if let character = self.characterClue {
+        if let character = self.characterClue, infoButton.isEnabled {
             
             //create an image from the CharacterView to display
             //define the frame (size) for the view

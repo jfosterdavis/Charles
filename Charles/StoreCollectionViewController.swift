@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 import StoreKit
 
-class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource {
+class StoreCollectionViewController: CoreDataCollectionViewController, UICollectionViewDataSource, UIGestureRecognizerDelegate {
 
     var parentVC: DataViewController!
     var collectionViewData: [Character]!
@@ -43,6 +43,8 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     var charactersSection:Int = -1
     var toolsSection:Int = -1
     var iapsSection:Int = -1
+    
+    
     
     
     /******************************************************/
@@ -119,6 +121,13 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         //lock all expired characters
         lockAllExpiredPerks()
+        
+        //register the long press
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.5
+        lpgr.delaysTouchesBegan = false
+        lpgr.delegate = self
+        self.collectionView.addGestureRecognizer(lpgr)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -411,6 +420,30 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         default:
             throw StoreError.invalidFeatureKey(key: featureKey)
             
+        }
+    }
+    
+    /******************************************************/
+    /*******************///MARK: Long press gesture
+    /******************************************************/
+
+    
+    func handleLongPress(gesture : UILongPressGestureRecognizer!) {
+        print("Recieved a long press")
+        
+        if gesture.state != .began {
+            return
+        }
+        let p = gesture.location(in: self.collectionView)
+        
+        if let indexPath = self.collectionView.indexPathForItem(at: p) {
+            // get the cell at indexPath (the one you long pressed)
+            let cell = self.collectionView.cellForItem(at: indexPath) as! CommonStoreCollectionViewCell
+            
+            cell.infoButtonPressed(sender: self)
+            
+        } else {
+            print("couldn't find index path")
         }
     }
 }

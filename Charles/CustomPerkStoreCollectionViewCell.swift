@@ -161,7 +161,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         print("perk clue button pressed")
         
-        if let perk = self.perkClue {
+        if let perk = self.perkClue, infoButton.isEnabled {
             
             //create a clue based on the perk that was pressed
             let perkClue = Clue(clueTitle: perk.name,
