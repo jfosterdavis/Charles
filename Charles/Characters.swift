@@ -463,7 +463,7 @@ struct Characters {
         ])
     
     static let StanleyJr = Character(name: "Stanley Jr.",
-                                     gameDescription: "Son of Stanley, with an eye for how to get things done with great returns.  He dons the garbs of this father.",
+                                     gameDescription: "Son of Stanley, with an eye for how to get things done with great returns.  He dons the garbs of his father.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
