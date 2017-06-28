@@ -141,7 +141,7 @@ struct Characters {
                                 bottomRadius: 15,
                                 price: 10200,
                                 hoursUnlocked: 96,
-                                levelEligibleAt: 15,
+                                levelEligibleAt: 16, //16, one after charles
                                phrases: [Phrase(name: "You're not the boss of me.",
                                                 likelihood: 50,
                                                 subphrases: [Subphrase(words: "You're", audioFilePath: Bundle.main.path(forResource: "You're", ofType: "m4a", inDirectory: "Audio/Fred")),
