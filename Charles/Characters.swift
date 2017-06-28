@@ -32,7 +32,7 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
-                                   gameDescription: "A charismatic, fashionable, and particularly productive do-gooder with a flare for the expensive, operating under a smooth-talking facade.  Twin to Fred.",
+                                   gameDescription: "A charismatic, fashionable, and particularly productive do-gooder with a flare for the expensive - operating under a smooth-talking facade.  Twin to Fred.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -266,7 +266,7 @@ struct Characters {
         ])
     
     static let Laura = Character(name: "Laura",
-                                 gameDescription: "A siren who's unmatched beauty can make the most unbearable sounds melt away into a serene hypersensational alternative - after application of the appropriate implement.",
+                                 gameDescription: "Her beauty can make the most unbearable sounds melt away into a serene hypersensational alternative - if using the proper implement.",
                                   topRadius: 50,
                                   bottomRadius: 25,
                                   price: 5000,
@@ -463,7 +463,7 @@ struct Characters {
         ])
     
     static let StanleyJr = Character(name: "Stanley Jr.",
-                                     gameDescription: "Son of Stanley, with an eye for how to get things done with great returns.  He dons the garbs of his father.",
+                                     gameDescription: "Son of Stanley, but able to reap greater returns.  He wears his father's clothes but isn't as charismatic or insightful.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
@@ -551,7 +551,7 @@ struct Characters {
         ])
     
     static let Stanley = Character(name: "Stanley",
-                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his usefullness in most any situation.",
+                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his usefullness and insight in most any situation.",
                                    topRadius: 80,
                                    bottomRadius: 50,
                                    price: 19000,
