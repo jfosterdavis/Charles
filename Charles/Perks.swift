@@ -392,7 +392,7 @@ struct Perks {
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: 30,
-                                        requiredPartyMembers: [Characters.Matthew, Characters.StanleyJr, Characters.R0berte]
+                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
     )
     
     static let Closeenough3 = Perk(     name: "Ballpark",
@@ -406,7 +406,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
         levelEligibleAt: 50, //50
-        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
+        requiredPartyMembers: [Characters.Matthew, Characters.R0berte]
     )
     
     static let Closeenough4 = Perk(     name: "Out of My Way",
