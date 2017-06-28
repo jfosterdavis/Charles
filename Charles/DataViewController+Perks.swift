@@ -290,20 +290,20 @@ extension DataViewController {
         switch type {
         case .additive:
             onlyPickLowerNumber = true
-            onlyAdd = true
-            onlySubtract = false
-            composite = false
+            //onlyAdd = true
+            //onlySubtract = false
+            //composite = false
             
         case .subtractive:
             onlyPickLowerNumber = false
-            onlyAdd = false
-            onlySubtract = true
-            composite = false
+            //onlyAdd = false
+            //onlySubtract = true
+            //composite = false
         case .composite:
             onlyPickLowerNumber = false
-            onlyAdd = false
-            onlySubtract = false
-            composite = true
+            //onlyAdd = false
+            //onlySubtract = false
+            //composite = true
         }
         
         //for additive or subtractive
