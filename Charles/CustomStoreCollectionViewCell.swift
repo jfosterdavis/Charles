@@ -249,7 +249,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideTextColor = .black
                 clueVC.overrideGoldenRatio = true
-                //clueVC.overrideStackViewDistribution = .fillProportionally
+                clueVC.overrideStackViewDistribution = .fill
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }
