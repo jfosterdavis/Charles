@@ -1807,7 +1807,7 @@
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-2d-AKR" customClass="PerformanceMosaicView" customModule="Charles" customModuleProvider="target">
                                 <rect key="frame" x="15" y="55" width="344" height="556"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aZJ-2d-AKR" secondAttribute="height" multiplier="1:1.618" id="YQR-FA-TFv"/>
                                 </constraints>
@@ -2082,14 +2082,29 @@
                                     <action selector="dismissButtonPressed:" destination="TdW-eX-uUB" eventType="touchUpInside" id="UKp-qO-ZoS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqQ-sL-dyC">
+                                <rect key="frame" x="329" y="10" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.40065817636986301" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FqQ-sL-dyC" secondAttribute="height" id="lXt-62-M4k"/>
+                                </constraints>
+                                <state key="normal" image="share"/>
+                                <state key="highlighted" image="share-selected"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="TdW-eX-uUB" eventType="touchUpInside" id="Mer-tv-wQB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FqQ-sL-dyC" firstAttribute="height" secondItem="IKt-Kb-uWF" secondAttribute="height" id="0eb-PA-QQc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rll-M8-sk7" secondAttribute="trailing" id="7QF-Aa-cXr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FqQ-sL-dyC" secondAttribute="trailing" constant="-10" id="ASL-LP-WyG"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="EYo-d4-ZzN"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" constant="-10" id="IOj-ra-UgY"/>
                             <constraint firstItem="aZJ-2d-AKR" firstAttribute="width" secondItem="5Au-H7-BzN" secondAttribute="width" multiplier="11:12" id="M1h-y3-Sjv"/>
                             <constraint firstItem="aZJ-2d-AKR" firstAttribute="centerY" secondItem="5Au-H7-BzN" secondAttribute="centerY" id="MvG-NQ-K2Q"/>
+                            <constraint firstItem="FqQ-sL-dyC" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="SBA-Eq-2em"/>
                             <constraint firstItem="aKP-db-v3P" firstAttribute="top" secondItem="rll-M8-sk7" secondAttribute="bottom" id="TxU-dW-3CU"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="width" secondItem="IKt-Kb-uWF" secondAttribute="height" id="YwF-vv-2f3"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" id="dL6-MM-YgU"/>
@@ -2102,6 +2117,7 @@
                         <outlet property="dismissButton" destination="IKt-Kb-uWF" id="00Q-ql-MOf"/>
                         <outlet property="mapCollectionView" destination="rll-M8-sk7" id="w8a-W6-IJz"/>
                         <outlet property="performanceMosaicView" destination="aZJ-2d-AKR" id="jKm-bU-N3X"/>
+                        <outlet property="shareButton" destination="FqQ-sL-dyC" id="J8p-47-9rB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSF-F4-jho" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2230,6 +2246,8 @@
         <image name="musicNote" width="69" height="80"/>
         <image name="pencil" width="69" height="80"/>
         <image name="rewind" width="28" height="28"/>
+        <image name="share" width="21" height="28"/>
+        <image name="share-selected" width="21" height="28"/>
         <image name="shipsWheel" width="28" height="28"/>
         <image name="shipsWheel-selected" width="28" height="28"/>
         <image name="shuffle" width="28" height="20"/>

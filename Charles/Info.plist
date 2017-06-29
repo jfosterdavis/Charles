@@ -22,6 +22,10 @@
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSContactsUsageDescription</key>
+	<string>Allows Blendn to save performance mosaic images to your Contacts.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allows Blendn to save performance mosaics to your device.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

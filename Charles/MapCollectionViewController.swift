@@ -22,6 +22,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     var initialLevelToScrollTo = 11
     
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     let lookAheadClue = 10 //How many levels ahead can the player know a clue will be given
     let lookAheadClueRead = 1 //How many levels ahead can the player read the clue
@@ -50,6 +51,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
 //        }
         
         dismissButton.roundCorners(with: 5)
+        shareButton.roundCorners(with: 5)
         
     }
     
@@ -221,9 +223,38 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         return CGSize(width: CGFloat(width), height: CGFloat(height))
     }
     
+    /******************************************************/
+    /*******************///MARK: Button Actions
+    /******************************************************/
+
+    
     ///dismiss button
     @IBAction func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        let imageToShare = getMosaicImage()
+        
+        let objectsToShare = [imageToShare] as [Any]
+        
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        //Excluded Activities
+        activityVC.excludedActivityTypes = [.addToReadingList, .openInIBooks, .postToVimeo, .postToWeibo, .postToTencentWeibo]
+        
+        
+        activityVC.popoverPresentationController?.sourceView = self as? UIView
+        self.present(activityVC, animated: true, completion: nil)
+        
+    }
+    
+    ///creates an image of the mosaic imageview
+    func getMosaicImage() -> UIImage {
+        let mosaicCopy = performanceMosaicView!
+        //mosaicCopy.roundCorners(with: 8)
+        
+        return mosaicCopy.asImage()
     }
     
     /******************************************************/
