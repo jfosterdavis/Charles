@@ -142,7 +142,7 @@ struct Perks {
         price: 1000, //1000
         meta1: 0.15, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.20, //likelihood a good move option will prevail over a random
+        meta3: 0.30, //likelihood a good move option will prevail over a random
         minutesUnlocked: 30, //30
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -156,7 +156,7 @@ struct Perks {
         price: 15000, //15000
         meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.30, //likelihood a good move option will prevail over a random
+        meta3: 0.35, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1440, //1 day, 1440
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -171,7 +171,7 @@ struct Perks {
         price: 90000,//90000
         meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.35, //likelihood a good move option will prevail over a random
+        meta3: 0.40, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
