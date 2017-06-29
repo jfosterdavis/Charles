@@ -17,27 +17,27 @@ import UIKit
 class PerformanceMosaicView:UIView
 {
     
-    @IBInspectable var tileBorderWidth: CGFloat = 1.0
+    @IBInspectable var tileBorderWidth: CGFloat = 0.0
         {
         didSet {}
     }
-    @IBInspectable var tileBorderColor: UIColor = .white
-        {
-        didSet {}
-    }
-    
-    
-    @IBInspectable var tileSpacing: CGFloat = 3
-        {
-        didSet {}
-    }
-    @IBInspectable var margin: CGFloat = 5
+    @IBInspectable var tileBorderColor: UIColor = .black
         {
         didSet {}
     }
     
     
-    @IBInspectable var cornerRadius: CGFloat = 3
+    @IBInspectable var tileSpacing: CGFloat = 1
+        {
+        didSet {}
+    }
+    @IBInspectable var margin: CGFloat = 0
+        {
+        didSet {}
+    }
+    
+    
+    @IBInspectable var cornerRadius: CGFloat = 1
         {
         didSet {}
     }

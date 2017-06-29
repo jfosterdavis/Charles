@@ -234,7 +234,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let imageToShare = getMosaicImage()
+        let imageToShare = getSharabaleMosaicImage()
         
         let objectsToShare = [imageToShare] as [Any]
         
@@ -244,17 +244,36 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         activityVC.excludedActivityTypes = [.addToReadingList, .openInIBooks, .postToVimeo, .postToWeibo, .postToTencentWeibo]
         
         
-        activityVC.popoverPresentationController?.sourceView = self as? UIView
+        //activityVC.popoverPresentationController?.sourceView = self as? UIView
         self.present(activityVC, animated: true, completion: nil)
         
     }
     
     ///creates an image of the mosaic imageview
-    func getMosaicImage() -> UIImage {
-        let mosaicCopy = performanceMosaicView!
-        //mosaicCopy.roundCorners(with: 8)
+    func getSharabaleMosaicImage() -> UIImage {
+        let mosaicView = PerformanceMosaicView()
+        let mosaicData = getMosaicData()
         
-        return mosaicCopy.asImage()
+        //size the mosaic
+        let screen = self.view.bounds
+        
+        let height:CGFloat = 512
+        let width:CGFloat = height / 1.618 //GR
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        let x = (screen.size.width - frame.size.width) * 0.5
+        let y = (screen.size.height - frame.size.height) * 0.5
+        let mainFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
+        
+        //setup the paramaters for it to draw
+        
+        mosaicView.frame = mainFrame
+        mosaicView.backgroundColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)//map view gray
+        mosaicView.tileData = mosaicData
+        mosaicView.setNeedsDisplay()
+        
+        //mosaicView.roundCorners(with: 8)
+        
+        return mosaicView.asImage()
     }
     
     /******************************************************/
