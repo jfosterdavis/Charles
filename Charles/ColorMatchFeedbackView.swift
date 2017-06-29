@@ -83,6 +83,44 @@ class ColorMatchFeedbackView:UIView
         color1.getRed(&color1RGBA[0], green: &color1RGBA[1], blue: &color1RGBA[2], alpha: &color1RGBA[3])
         color2.getRed(&color2RGBA[0], green: &color2RGBA[1], blue: &color2RGBA[2], alpha: &color2RGBA[3])
         
+        //ensure values are between 0 and 1
+        //color 1
+        if color1RGBA[0] > 1 {
+            color1RGBA[0] = 1
+        } else if color1RGBA[0] < 0 {
+            color1RGBA[0] = 0
+        }
+        
+        if color1RGBA[1] > 1 {
+            color1RGBA[1] = 1
+        } else if color1RGBA[0] < 0 {
+            color1RGBA[1] = 0
+        }
+        
+        if color1RGBA[2] > 1 {
+            color1RGBA[2] = 1
+        } else if color1RGBA[0] < 0 {
+            color1RGBA[2] = 0
+        }
+        
+        //color 2
+        if color2RGBA[0] > 1 {
+            color2RGBA[0] = 1
+        } else if color1RGBA[0] < 0 {
+            color2RGBA[0] = 0
+        }
+        
+        if color2RGBA[1] > 1 {
+            color2RGBA[1] = 1
+        } else if color1RGBA[0] < 0 {
+            color2RGBA[1] = 0
+        }
+        
+        if color2RGBA[2] > 1 {
+            color2RGBA[2] = 1
+        } else if color1RGBA[0] < 0 {
+            color2RGBA[2] = 0
+        }
         
         let newColorR = abs(color1RGBA[0] - color2RGBA[0])
         let newColorG = abs(color1RGBA[1] - color2RGBA[1])

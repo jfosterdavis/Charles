@@ -838,13 +838,18 @@ extension DataViewController {
         var deviationRGBA = [CGFloat](repeating: 0.0, count: 4)
         
         deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
-        let redRaw = Int(magnitude - deviationRGBA[0] * magnitude)
-        let greenRaw = Int(magnitude - deviationRGBA[1] * magnitude)
-        let blueRaw = Int(magnitude - deviationRGBA[2] * magnitude)
+        let redRaw = Int(magnitude - (deviationRGBA[0] * magnitude))
+        let greenRaw = Int(magnitude - (deviationRGBA[1] * magnitude))
+        let blueRaw = Int(magnitude - (deviationRGBA[2] * magnitude))
         
         let unadjustedScore =  redRaw + greenRaw + blueRaw
         let multiplier: CGFloat = 4.0
-        let scoreToAward = CGFloat(unadjustedScore) * multiplier
+        var scoreToAward = CGFloat(unadjustedScore) * multiplier
+        
+        //ensure raw scores can't be negative
+        if scoreToAward < 0 {
+            scoreToAward = 0
+        }
         
         
         
