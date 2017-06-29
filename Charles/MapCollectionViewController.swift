@@ -258,22 +258,26 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         let screen = self.view.bounds
         
         let height:CGFloat = 512
-        let width:CGFloat = height / 1.618 //GR
+        let width = height
+        //let width:CGFloat = height / 1.618 //GR
         let frame = CGRect(x: 0, y: 0, width: width, height: height)
         let x = (screen.size.width - frame.size.width) * 0.5
         let y = (screen.size.height - frame.size.height) * 0.5
         let mainFrame = CGRect(x: x, y: y, width: frame.size.width, height: frame.size.height)
         
         //setup the paramaters for it to draw
-        
+        mosaicView.isOpaque = false
         mosaicView.frame = mainFrame
         mosaicView.backgroundColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)//map view gray
         mosaicView.tileData = mosaicData
+        //self.view.backgroundColor = .clear
         mosaicView.setNeedsDisplay()
+        //mosaicView.roundCorners(with: width / 6)
+        let mosaicImage = mosaicView.asImage()
         
-        //mosaicView.roundCorners(with: 8)
+        //self.view.backgroundColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)//map view gray
         
-        return mosaicView.asImage()
+        return mosaicImage
     }
     
     /******************************************************/
