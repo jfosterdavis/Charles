@@ -180,7 +180,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             }
             
             guard isPlayerLevelRequirementMet(character: character) else {
-                print ("You must be a certain level to hire this character. \(character.levelEligibleAt)")
+                print ("You must be a certain level to hire this character. \(String(describing: character.levelEligibleAt))")
                 return
             }
             
