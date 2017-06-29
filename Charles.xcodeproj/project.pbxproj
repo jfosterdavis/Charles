@@ -72,6 +72,7 @@
 		F6B1398D1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1398C1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift */; };
 		F6B1398F1F003C5000BC376A /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1398E1F003C5000BC376A /* SectionHeaderCollectionReusableView.swift */; };
 		F6C1D0C91EF2296800A90286 /* InAppPurchases.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */; };
+		F6D4CFD21F05630800EB1756 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D4CFD11F05630800EB1756 /* StoreKit.framework */; };
 		F6E6CBFD1EF2FB6600091CDF /* AppStoreProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */; };
 		F6E6CBFF1EF2FD1300091CDF /* AppStoreProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */; };
 		F6FD50721ED3B62C0087F461 /* CoreDataNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */; };
@@ -170,6 +171,7 @@
 		F6B1398C1EFD6D3900BC376A /* InAppPurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6B1398E1F003C5000BC376A /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		F6C1D0C81EF2296800A90286 /* InAppPurchases.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InAppPurchases.plist; sourceTree = "<group>"; };
+		F6D4CFD11F05630800EB1756 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6E6CBFC1EF2FB6600091CDF /* AppStoreProductDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetail.swift; sourceTree = "<group>"; };
 		F6E6CBFE1EF2FD1300091CDF /* AppStoreProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductDetails.swift; sourceTree = "<group>"; };
 		F6FD50711ED3B62C0087F461 /* CoreDataNSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataNSObject.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F60327AB1EC4143300493DC3 /* AVFoundation.framework in Frameworks */,
+				F6D4CFD21F05630800EB1756 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +370,7 @@
 		F607C8C31EC13C5400651FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6D4CFD11F05630800EB1756 /* StoreKit.framework */,
 				F607C8C41EC13C5400651FAD /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -469,7 +473,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
