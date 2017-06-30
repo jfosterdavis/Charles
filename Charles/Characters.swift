@@ -346,16 +346,11 @@ struct Characters {
                                             Phrase(name: "BlahBlah",
                                                    likelihood: 55,
                                                    subphrases: [Subphrase(words: "Blahlahlalhhdhhlalhlahlha", audioFilePath: Bundle.main.path(forResource: "BlahBlah", ofType: "m4a", inDirectory: "Audio/Laura"))
-                                                ], slots: [Slot(tone: 600, color: .black),
-                                                           Slot(tone: 550, color: .red),
-                                                           Slot(tone: 550, color: .yellow),
-                                                           Slot(tone: 550, color: .green),
-                                                           Slot(tone: 450, color: .black),
-                                                           Slot(tone: 300, color: .cyan),
-                                                           Slot(tone: 400, color: .blue),
-                                                           Slot(tone: 425, color: .magenta),
-                                                           Slot(tone: -250, color: .red),
-                                                           Slot(tone: 575, color: .black)
+                                                ], slots: [Slot(tone: 900, color: UIColor(red: 131/255, green: 29/255, blue: 145/255, alpha: 1)),
+                                                                                                                      Slot(tone: 450, color: .white),
+                                                                                                               Slot(tone: 400, color: UIColor(red: 43/255, green: 145/255, blue: 29/255, alpha: 1)),
+                                                                                                               Slot(tone: 350, color: .white),
+                                                                                                               Slot(tone: 300, color: UIColor(red: 29/255, green: 43/255, blue: 145/255, alpha: 1))
                                                 ]),
                                             Phrase(name: "I'm Not Even Tired Zzzz",
                                                    likelihood: 60,
