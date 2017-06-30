@@ -39,6 +39,8 @@ class BasicClueViewController: UIViewController {
     
     var numNilSections = 0
     
+    var blurEffectView = UIVisualEffectView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,7 +92,7 @@ class BasicClueViewController: UIViewController {
             }
             
             
-            self.view.superview!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6) //dim the background to focus on the modal
+            self.view.superview!.backgroundColor = .clear //UIColor(red: 0, green: 0, blue: 0, alpha: 0.6) //dim the background to focus on the modal
             let screen = self.view.superview!.bounds
             let frame = CGRect(x: 0, y: 0, width: width, height: adjustedHeight)
             let x = (screen.size.width - frame.size.width) * 0.5
@@ -99,8 +101,23 @@ class BasicClueViewController: UIViewController {
             
             self.view.frame = mainFrame
             
+            //add a blur layer to background.
+            //add blur effect
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.view.superview!.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            self.view.superview!.insertSubview(blurEffectView, belowSubview: self.view)
+            
             didLayout = true
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        blurEffectView.removeFromSuperview()
     }
     
     override func viewDidLayoutSubviews() {
