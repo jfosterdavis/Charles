@@ -1128,7 +1128,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="900" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="900" image="WhiteOppositeBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ez7-k0-ovo">
                                         <rect key="frame" x="0.0" y="102" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -1139,7 +1139,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="240" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="240" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="StatusCurve" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Ip-QsM">
                                         <rect key="frame" x="0.0" y="259.5" width="343" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -1151,7 +1151,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="230" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="700" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="230" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="700" image="WhenAbove" translatesAutoresizingMaskIntoConstraints="NO" id="Wiu-SB-dya">
                                         <rect key="frame" x="0.0" y="515.5" width="343" height="86.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
