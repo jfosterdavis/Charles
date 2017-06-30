@@ -405,7 +405,7 @@ struct Perks {
         minutesUnlocked: 20,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: 50, //50
+        levelEligibleAt: Characters.Matthew.levelEligibleAt, //Matthew
         requiredPartyMembers: [Characters.Matthew, Characters.R0berte]
     )
     
