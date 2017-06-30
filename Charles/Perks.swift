@@ -382,7 +382,7 @@ struct Perks {
     )
     
     static let Closeenough2 = Perk(     name: "Just About",
-                                       gameDescription: "Your reputation allow you to get by where others would fail.",
+                                       gameDescription: "Your reputation allows you to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
                                         meta1: -0.025,
