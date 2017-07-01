@@ -339,6 +339,18 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             
             cell.iapClue = aspd
             
+            //determine if this is on sale
+            let expectedPrice = aspd.price
+            let actualPrice = product.price
+            print("Expected Price: \(expectedPrice).  Actual Price: \(actualPrice)")
+            if expectedPrice > Double(actualPrice) {
+                //product is on sale
+                print("\(product.localizedDescription) is on sale")
+                cell.isOnSale = true
+            } else {
+                cell.isOnSale = false
+            }
+            
             //determine if this cell has a pending transaction, and flag appropriately
             var foundApplicableTransaction = false
             for transaction in pendingTransactions {

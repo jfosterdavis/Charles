@@ -795,6 +795,12 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sale" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-A9-KJP">
+                                                    <rect key="frame" x="79" y="40" width="46" height="46.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="JGd-A9-KJP" secondAttribute="height" multiplier="39:40" id="YP6-B9-Cky"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <view hidden="YES" userInteractionEnabled="NO" alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOa-Zi-y2C">
                                                     <rect key="frame" x="-0.5" y="0.0" width="135" height="180"/>
                                                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -871,11 +877,13 @@
                                             <constraint firstItem="ROu-ow-Ssf" firstAttribute="top" secondItem="7xI-2G-6C0" secondAttribute="topMargin" constant="-1" id="8tl-NK-g1t"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="7yk-yL-GDP" secondAttribute="trailing" id="8vr-SU-a6t"/>
                                             <constraint firstItem="1GJ-GH-Ivx" firstAttribute="centerX" secondItem="50f-wQ-E1B" secondAttribute="centerX" id="9Ir-8I-wJK"/>
+                                            <constraint firstItem="JGd-A9-KJP" firstAttribute="top" secondItem="50f-wQ-E1B" secondAttribute="top" id="ASK-7B-Dku"/>
                                             <constraint firstItem="Vx9-Nb-EuB" firstAttribute="centerX" secondItem="XKf-wF-oFA" secondAttribute="centerX" id="D3d-sc-NWI"/>
                                             <constraint firstItem="50f-wQ-E1B" firstAttribute="top" secondItem="ROu-ow-Ssf" secondAttribute="bottom" constant="1" id="Dpy-iz-EzN"/>
                                             <constraint firstItem="Vx9-Nb-EuB" firstAttribute="height" secondItem="XKf-wF-oFA" secondAttribute="height" multiplier="1:2" id="EWb-VZ-oTx"/>
                                             <constraint firstItem="7yk-yL-GDP" firstAttribute="top" secondItem="50f-wQ-E1B" secondAttribute="bottom" constant="-1" id="F0Y-mg-7oK"/>
                                             <constraint firstItem="Ioc-xb-Ihj" firstAttribute="width" secondItem="7xI-2G-6C0" secondAttribute="width" id="H1o-qE-vg2"/>
+                                            <constraint firstItem="JGd-A9-KJP" firstAttribute="width" secondItem="50f-wQ-E1B" secondAttribute="width" multiplier="1:2.5" id="M66-0P-WQR"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="50f-wQ-E1B" secondAttribute="trailing" constant="2" id="N5Z-qm-2Nx"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="6T4-Q5-Btg" secondAttribute="trailing" constant="-8" id="O0V-Wr-qeh"/>
                                             <constraint firstItem="LOa-Zi-y2C" firstAttribute="centerY" secondItem="7xI-2G-6C0" secondAttribute="centerY" id="QUp-Yj-mCe"/>
@@ -902,6 +910,7 @@
                                             <constraint firstItem="ROu-ow-Ssf" firstAttribute="leading" secondItem="7xI-2G-6C0" secondAttribute="leadingMargin" constant="3" id="t0h-pD-N3F"/>
                                             <constraint firstItem="1GJ-GH-Ivx" firstAttribute="width" secondItem="50f-wQ-E1B" secondAttribute="width" id="tQQ-bZ-SaD"/>
                                             <constraint firstItem="7yk-yL-GDP" firstAttribute="leading" secondItem="7xI-2G-6C0" secondAttribute="leadingMargin" id="usm-en-ooy"/>
+                                            <constraint firstItem="JGd-A9-KJP" firstAttribute="trailing" secondItem="50f-wQ-E1B" secondAttribute="trailing" id="wGh-Tz-Tin"/>
                                             <constraint firstItem="7yk-yL-GDP" firstAttribute="top" secondItem="qM8-gc-BLU" secondAttribute="bottom" constant="5" id="xED-Zg-ARy"/>
                                             <constraint firstItem="LOa-Zi-y2C" firstAttribute="width" secondItem="7xI-2G-6C0" secondAttribute="width" id="yDR-Dt-n4D"/>
                                             <constraint firstItem="XKf-wF-oFA" firstAttribute="leading" secondItem="jsD-DS-ZT3" secondAttribute="leading" id="yZB-5I-vcp"/>
@@ -950,6 +959,7 @@
                                             <outlet property="perkIconImageView" destination="50f-wQ-E1B" id="AZn-Tn-KCg"/>
                                             <outlet property="pieLockImageView" destination="Vx9-Nb-EuB" id="Bb3-v3-DNo"/>
                                             <outlet property="priceLabel" destination="7yk-yL-GDP" id="1Ch-SF-fwV"/>
+                                            <outlet property="saleImageView" destination="JGd-A9-KJP" id="BeW-ih-aw0"/>
                                             <outlet property="stackView" destination="qM8-gc-BLU" id="7fg-BK-A8f"/>
                                             <outlet property="statusLabel" destination="Ioc-xb-Ihj" id="e8g-98-ddm"/>
                                             <outlet property="statusShade" destination="LOa-Zi-y2C" id="HkI-G3-SBM"/>
@@ -2246,6 +2256,7 @@
         <image name="musicNote" width="69" height="80"/>
         <image name="pencil" width="69" height="80"/>
         <image name="rewind" width="28" height="28"/>
+        <image name="sale" width="39" height="40"/>
         <image name="share" width="21" height="28"/>
         <image name="share-selected" width="21" height="28"/>
         <image name="shipsWheel" width="28" height="28"/>

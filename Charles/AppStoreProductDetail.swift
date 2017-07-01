@@ -32,6 +32,7 @@ class AppStoreProductDetail: CoreDataNSObject {
     var type: AppStoreProductDetailType
     var minutesLocked: Int //once player buys this, how many minutes will this be locked
     var displayColor: UIColor
+    var price: Double
     var levelEligibleAt: Int? //nil if there is no level requirement
     var requiredPartyMembers: [Character]
     
@@ -44,6 +45,7 @@ class AppStoreProductDetail: CoreDataNSObject {
         type: AppStoreProductDetailType,
         minutesLocked: Int,
         displayColor: UIColor,
+        price: Double,
         levelEligibleAt: Int?,
         requiredPartyMembers: [Character] ) {
         
@@ -55,6 +57,7 @@ class AppStoreProductDetail: CoreDataNSObject {
         self.type = type
         self.minutesLocked = minutesLocked
         self.displayColor = displayColor
+        self.price = price
         self.levelEligibleAt = levelEligibleAt
         self.requiredPartyMembers = requiredPartyMembers
         

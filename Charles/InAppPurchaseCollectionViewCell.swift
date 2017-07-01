@@ -15,9 +15,11 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var saleImageView: UIImageView!
     var transactionPending: Bool = false
     
     var iapClue: AppStoreProductDetail? = nil
+    var isOnSale = false
     
     func loadAppearance(fromAppStoreProduct product: SKProduct, fromASPD aspd: AppStoreProductDetail) {
         
@@ -63,6 +65,13 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
         
         priceLabel.textColor = .white
         characterNameLabel.textColor = .white
+        
+        //set the on sale sticker
+        if isOnSale {
+            saleImageView.isHidden = false
+        } else {
+            saleImageView.isHidden = true
+        }
         
         
         //ensure font is not bold.
