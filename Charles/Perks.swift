@@ -143,7 +143,7 @@ struct Perks {
         meta1: 0.15, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
         meta3: 0.30, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 30, //30
+        minutesUnlocked: 45, //45
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 10, //10
@@ -206,7 +206,7 @@ struct Perks {
                                     meta1: 1,
                                     meta2: nil,
                                     meta3: nil,
-                                    minutesUnlocked: 30, //30
+                                    minutesUnlocked: 60, //60
                                     icon: #imageLiteral(resourceName: "lightbulb"),
                                     displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
                                     levelEligibleAt: 8, //8
@@ -251,7 +251,7 @@ struct Perks {
                                     meta1: 1,
                                     meta2: nil,
                                     meta3: nil,
-                                    minutesUnlocked: 20,
+                                    minutesUnlocked: 30,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: 7,
@@ -265,7 +265,7 @@ struct Perks {
         meta1: 1,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 25,
+        minutesUnlocked: 45,
         icon: #imageLiteral(resourceName: "pencil"),
         displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
         levelEligibleAt: 34, //34
@@ -314,7 +314,7 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 30, //30
+                                        minutesUnlocked: 45, //45
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 5, //5
@@ -328,7 +328,7 @@ struct Perks {
                                         meta1: 2,
                                         meta2: nil,
                                         meta3: nil,
-                                        minutesUnlocked: 25, //30
+                                        minutesUnlocked: 55, //55
                                         icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                         levelEligibleAt: 33, //33
@@ -342,7 +342,7 @@ struct Perks {
         meta1: 2,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 20, //20
+        minutesUnlocked: 75, //75
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 48, //48
@@ -356,7 +356,7 @@ struct Perks {
                                             meta1: 3,
                                             meta2: nil,
                                             meta3: nil,
-                                            minutesUnlocked: 15,
+                                            minutesUnlocked: 90, //90
                                             icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 61,
@@ -412,7 +412,7 @@ struct Perks {
     static let Closeenough4 = Perk(     name: "Out of My Way",
                                          gameDescription: "Some things can only be stopped with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
-        price: 500000,
+        price: 400000,
         meta1: -0.10,
         meta2: nil,
         meta3: nil,
