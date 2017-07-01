@@ -815,7 +815,7 @@ struct Characters {
                                    bottomRadius: 2,
                                    price: 10101010, //10101010
                                    hoursUnlocked: 7200, //300 days, 7200
-                                   levelEligibleAt: 105, //105
+                                   levelEligibleAt: 70, //70 is brain
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off",
                                     likelihood: 10,
                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),

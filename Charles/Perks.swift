@@ -419,7 +419,7 @@ struct Perks {
         minutesUnlocked: 10,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: Characters.John.levelEligibleAt,
+        levelEligibleAt: 128, //128 is level of awakening
         requiredPartyMembers: [Characters.John]
     )
     
