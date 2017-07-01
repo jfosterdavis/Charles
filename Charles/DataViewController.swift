@@ -411,6 +411,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
         let currentLevel = getUserCurrentLevel().level
         mapViewController.initialLevelToScrollTo = currentLevel
+        mapViewController.playerHasFinishedInitialLevelToScrollTo = false
         
         present(mapViewController, animated: true, completion: nil)
         

@@ -20,6 +20,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     var initialScrollDone = false
     var initialIndexPath: IndexPath!
     var initialLevelToScrollTo = 11
+    var playerHasFinishedInitialLevelToScrollTo = true
     
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -431,10 +432,15 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     func getMosaicData() -> [Int:UIColor] {
         
         //go through each level the player has completed
-        let levelUserJustPassed = initialLevelToScrollTo
+        let topLevelToGetDataFor: Int
+        if playerHasFinishedInitialLevelToScrollTo {
+            topLevelToGetDataFor = initialLevelToScrollTo
+        } else {
+            topLevelToGetDataFor = initialLevelToScrollTo - 1
+        }
         
-        let dictionaryOfLevelsToColor = Levels.Game.filter{$0.value.level <= levelUserJustPassed}
-        //let dictionaryOfLevelsToNotColor = Levels.Game.filter{$0.value.level > levelUserJustPassed}
+        
+        let dictionaryOfLevelsToColor = Levels.Game.filter{$0.value.level <= topLevelToGetDataFor}
         
         var mosaicData = [Int:UIColor]()
         for (key, level) in dictionaryOfLevelsToColor {

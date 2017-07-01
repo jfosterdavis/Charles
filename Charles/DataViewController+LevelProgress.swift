@@ -214,6 +214,7 @@ extension DataViewController {
             let topVC = topMostController()
             let mapVC = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
             mapVC.initialLevelToScrollTo = userCurrentLevel - 1 //initial level is the one just passed
+            mapVC.playerHasFinishedInitialLevelToScrollTo = true
             topVC.present(mapVC, animated: true, completion: nil)
         }
     }
