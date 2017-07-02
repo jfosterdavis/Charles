@@ -59,8 +59,6 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        
-        
         if !initialScrollDone {
             self.initialScrollDone = true
             
@@ -250,6 +248,13 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
     }
     
+    
+    /******************************************************/
+    /*******************///MARK: Functions for other objects to call to create the mosaic
+    /******************************************************/
+    
+    
+    
     ///creates an image of the mosaic imageview
     func getSharabaleMosaicImage() -> UIImage {
         let mosaicView = PerformanceMosaicView()
@@ -328,20 +333,20 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         var recordsTally = 0
         for xp in applicableXP {
             //if the consolidatedRecords is nil or zero, count it once.  Otherwise use the number in consolidatedRecords, which is supposed to be the number of records represented by the (consolidated) record
-//            if let numRecords = xp.consolidatedRecords {
-                let numRecords = xp.consolidatedRecords
-                //records is not nil
-                //check if it is zero
-                if numRecords == 0 {
-                    recordsTally += 1 //just count this one record
-                } else {
-                    //this appears to be a consolidated record, so add the consolidatedRecords
-                    recordsTally += Int(numRecords)
-                }
-                
-//            } else {
-//                recordsTally += 1
-//            }
+            //            if let numRecords = xp.consolidatedRecords {
+            let numRecords = xp.consolidatedRecords
+            //records is not nil
+            //check if it is zero
+            if numRecords == 0 {
+                recordsTally += 1 //just count this one record
+            } else {
+                //this appears to be a consolidated record, so add the consolidatedRecords
+                recordsTally += Int(numRecords)
+            }
+            
+            //            } else {
+            //                recordsTally += 1
+            //            }
             
             
         }
@@ -382,10 +387,10 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             }
             
         }
-                
+        
         if applicableXP.count > 0 {
             let avgSuccessScore = successScoreSum / Float(recordsTally)
-        
+            
             return avgSuccessScore
         } else {
             return 0
@@ -460,20 +465,19 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         //now add the tiles to not color
         
-//        for (key, _) in dictionaryOfLevelsToNotColor {
-//            
-//            let tileNumber = key - 1
-//            
-//            //set these to clear
-//            
-//            let tileColor:UIColor = .clear
-//            
-//            //add the tile number and color to the data
-//            mosaicData[tileNumber] = tileColor
-//            
-//        }
+        //        for (key, _) in dictionaryOfLevelsToNotColor {
+        //
+        //            let tileNumber = key - 1
+        //
+        //            //set these to clear
+        //
+        //            let tileColor:UIColor = .clear
+        //
+        //            //add the tile number and color to the data
+        //            mosaicData[tileNumber] = tileColor
+        //
+        //        }
         
         return mosaicData
     }
-    
 }

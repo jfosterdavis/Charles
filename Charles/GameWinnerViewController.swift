@@ -14,9 +14,13 @@ import UIKit
 // Here give the user the chance to go back to level 10 with + 1M in cash
 /******************************************************/
 
-class GameWinnerViewController: UIViewController {
+class GameWinnerViewController: MapCollectionViewController {
 
-    @IBOutlet weak var dismissButton: UIButton!
+    //@IBOutlet weak var dismissButton: UIButton!
+    
+    @IBOutlet weak var performanceMosaicPerformanceView: UIView!
+    //var initialLevelToScrollTo = 11
+    
     
     @IBOutlet weak var graphicImageView: UIImageView!
     var timer = Timer()
@@ -31,6 +35,8 @@ class GameWinnerViewController: UIViewController {
     @IBOutlet weak var option1Button: UIButton!
     @IBOutlet weak var option2Button: UIButton!
     @IBOutlet weak var option3Button: UIButton!
+    
+    //@IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +58,18 @@ class GameWinnerViewController: UIViewController {
         option3Level = Utilities.random(range: 1...(userLevel - 1)) //option 3 is a random level
         //option3Button.setTitle(String(describing: option3Level), for: UIControlState.normal)
         
+        //load the mosaic
+        initialLevelToScrollTo = userLevel
+        playerHasFinishedInitialLevelToScrollTo = true
+        performanceMosaicView.tileData = getMosaicData()
+        performanceMosaicView.setNeedsDisplay()
+        
         
     }
     
     override func viewDidLayoutSubviews() {
         dismissButton.roundCorners()
+        shareButton.roundCorners()
         option1Button.roundCorners()
         option2Button.roundCorners()
         option3Button.roundCorners()
@@ -100,6 +113,11 @@ class GameWinnerViewController: UIViewController {
                            delay: 35,
                            completion: {(finished:Bool) in self.dismissButton.isEnabled = true})
         
+        shareButton.fade(.in,
+                           withDuration: 8,
+                           delay: 38,
+                           completion: {(finished:Bool) in self.shareButton.isEnabled = true})
+        
         
     }
     
@@ -122,6 +140,7 @@ class GameWinnerViewController: UIViewController {
     
     func disableAllButtons() {
         dismissButton.isEnabled = false
+        shareButton.isEnabled = false
         option1Button.isEnabled = false
         option2Button.isEnabled = false
         option3Button.isEnabled = false
@@ -164,11 +183,26 @@ class GameWinnerViewController: UIViewController {
         fadeAwayAndDismiss()
     }
     
-    
-    @IBAction func dismissButtonPressed(_ sender: UIButton) {
+    @IBAction override func dismissButtonPressed(_ sender: Any) {
         disableAllButtons() //the choice is made.
         fadeAwayAndDismiss()
     }
+    
+//    @IBAction func shareButtonPressed(_ sender: Any) {
+//        let imageToShare = getSharabaleMosaicImage()
+//        
+//        let objectsToShare = [imageToShare] as [Any]
+//        
+//        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+//        
+//        //Excluded Activities
+//        activityVC.excludedActivityTypes = [.addToReadingList, .openInIBooks, .postToVimeo, .postToWeibo, .postToTencentWeibo]
+//        
+//        
+//        //activityVC.popoverPresentationController?.sourceView = self as? UIView
+//        self.present(activityVC, animated: true, completion: nil)
+//        
+//    }
     
     func fadeAwayAndDismiss() {
         //slowly fade each button in and enable
@@ -185,6 +219,11 @@ class GameWinnerViewController: UIViewController {
         option3Button.fade(.out,
                            withDuration: 2,
                            delay: 0.5,
+                           completion: nil)
+        
+        shareButton.fade(.out,
+                           withDuration: 2,
+                           delay: 0,
                            completion: nil)
         
         dismissButton.fade(.out,

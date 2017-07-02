@@ -2146,6 +2146,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMO-T9-XMo">
+                                <rect key="frame" x="15.5" y="55.5" width="344" height="556"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.21960784310000001" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mMO-T9-XMo" secondAttribute="height" multiplier="1:1.618" id="WfN-02-jGd"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollarSignLargeWinGame" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-en-HhB">
                                 <rect key="frame" x="96" y="190" width="183" height="287"/>
                                 <constraints>
@@ -2162,6 +2169,18 @@
                                 <state key="normal" image="x"/>
                                 <connections>
                                     <action selector="dismissButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="tXh-BX-QIG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="API-BX-swS">
+                                <rect key="frame" x="162" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.40065817640000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="API-BX-swS" secondAttribute="height" id="Acl-du-ZzV"/>
+                                </constraints>
+                                <state key="normal" image="share"/>
+                                <state key="highlighted" image="share-selected"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="sHy-or-vTn" eventType="touchUpInside" id="9ov-Ny-8Xu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wco-jy-Ctg">
@@ -2203,20 +2222,26 @@
                         </subviews>
                         <color key="backgroundColor" red="0.2200020718" green="0.2200020718" blue="0.2200020718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mMO-T9-XMo" firstAttribute="centerY" secondItem="AHr-Mp-Onn" secondAttribute="centerY" id="0wi-Ld-TKy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wco-jy-Ctg" secondAttribute="trailing" id="5sG-ws-RgS"/>
                             <constraint firstItem="sgA-en-HhB" firstAttribute="centerX" secondItem="AHr-Mp-Onn" secondAttribute="centerX" id="6QX-qh-LIE"/>
                             <constraint firstItem="ibB-8C-oSP" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="height" id="AjY-RO-THz"/>
                             <constraint firstItem="wco-jy-Ctg" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="LBa-OQ-2ta"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ozA-xa-nsv" secondAttribute="trailing" id="OGV-lS-Z2I"/>
                             <constraint firstItem="yV2-eG-meA" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="OOb-RF-AOe"/>
+                            <constraint firstItem="mMO-T9-XMo" firstAttribute="centerX" secondItem="AHr-Mp-Onn" secondAttribute="centerX" id="TyZ-9C-rlq"/>
                             <constraint firstItem="sgA-en-HhB" firstAttribute="centerY" secondItem="AHr-Mp-Onn" secondAttribute="centerY" id="Xc1-J6-zya"/>
                             <constraint firstItem="uSd-R1-8y9" firstAttribute="top" secondItem="ozA-xa-nsv" secondAttribute="bottom" constant="20" id="cJf-ZT-lM4"/>
                             <constraint firstItem="ibB-8C-oSP" firstAttribute="top" secondItem="iF3-Nv-mdd" secondAttribute="bottom" constant="20" id="eoK-rr-8iL"/>
                             <constraint firstItem="wco-jy-Ctg" firstAttribute="top" secondItem="iF3-Nv-mdd" secondAttribute="bottom" constant="20" id="fIu-jz-Gh3"/>
+                            <constraint firstItem="mMO-T9-XMo" firstAttribute="width" secondItem="AHr-Mp-Onn" secondAttribute="width" multiplier="11:12" id="fVb-dr-Fa2"/>
+                            <constraint firstItem="API-BX-swS" firstAttribute="height" secondItem="ibB-8C-oSP" secondAttribute="height" id="hVa-lB-cCZ"/>
                             <constraint firstItem="wco-jy-Ctg" firstAttribute="width" secondItem="wco-jy-Ctg" secondAttribute="height" id="iRL-iN-e16"/>
+                            <constraint firstItem="API-BX-swS" firstAttribute="centerX" secondItem="AHr-Mp-Onn" secondAttribute="centerX" id="iju-SW-Cif"/>
                             <constraint firstItem="uSd-R1-8y9" firstAttribute="top" secondItem="yV2-eG-meA" secondAttribute="bottom" constant="20" id="kmq-kP-Uff"/>
                             <constraint firstItem="yV2-eG-meA" firstAttribute="leading" secondItem="AHr-Mp-Onn" secondAttribute="leadingMargin" id="pag-Yf-P5y"/>
                             <constraint firstItem="ozA-xa-nsv" firstAttribute="width" secondItem="ibB-8C-oSP" secondAttribute="width" id="qK3-ly-Abj"/>
+                            <constraint firstItem="API-BX-swS" firstAttribute="centerY" secondItem="ibB-8C-oSP" secondAttribute="centerY" id="sZK-mS-Crt"/>
                             <constraint firstItem="ibB-8C-oSP" firstAttribute="leading" secondItem="AHr-Mp-Onn" secondAttribute="leadingMargin" id="wxP-aE-6hw"/>
                             <constraint firstItem="yV2-eG-meA" firstAttribute="width" secondItem="yV2-eG-meA" secondAttribute="height" id="xEl-rr-h6S"/>
                         </constraints>
@@ -2228,6 +2253,8 @@
                         <outlet property="option1Button" destination="wco-jy-Ctg" id="F1u-jl-r3E"/>
                         <outlet property="option2Button" destination="ozA-xa-nsv" id="u2G-OC-Sxi"/>
                         <outlet property="option3Button" destination="yV2-eG-meA" id="Nh7-Ad-DDt"/>
+                        <outlet property="performanceMosaicPerformanceView" destination="mMO-T9-XMo" id="VNe-kM-BqE"/>
+                        <outlet property="shareButton" destination="API-BX-swS" id="4u9-Za-JvW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="agD-UG-M7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
