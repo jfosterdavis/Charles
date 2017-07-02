@@ -117,7 +117,7 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 26/255, green: 91/255, blue: 238/255, alpha: 1) //in app blue
                 clueVC.overrideTextColor = .white
                 clueVC.overrideGoldenRatio = true
-                clueVC.overrideStackViewDistribution = .fill
+                clueVC.overrideStackViewDistribution = .fillEqually
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }

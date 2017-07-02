@@ -222,7 +222,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
             //let wordCount = Utilities.wordCount(character.gameDescription)
             
             let part1 = character.gameDescription
-            let part2 = ""
+            
             
             //            if wordCount.count > 30 {
             //                let twoHalves = Utilities.getTwoStringsFromOne(character.gameDescription)
@@ -236,8 +236,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
             let characterClue = Clue(clueTitle: character.name,
                                      part1: nil,
                                      part1Image: characterViewImage,
-                                     part2: part1,
-                                     part3: part2
+                                     part2: part1
             )
             
             if let storyboard = self.storyboard {
@@ -249,7 +248,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
                 clueVC.view.backgroundColor = UIColor(red: 249/255, green: 234/255, blue: 188/255, alpha: 1) //paper color
                 clueVC.overrideTextColor = .black
                 clueVC.overrideGoldenRatio = true
-                clueVC.overrideStackViewDistribution = .fill
+                clueVC.overrideStackViewDistribution = .fillEqually
                 
                 topVC.present(clueVC, animated: true, completion: nil)
             }
