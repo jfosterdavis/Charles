@@ -399,8 +399,8 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     
     ///calculates the color of the cell based on two stats: accuracy and number of puzzles completed
     func getColorFromStats(forLevel levelNum: Int, avgMatchScore: Float, numPuzzlesCompleted: Int) -> UIColor {
-        //match score (accuracy) will be red dimension.  100% red is for <35% match rate, 0% red for >95% match rate
-        let lowestMatchRate:Float = 0.35
+        //match score (accuracy) will be red dimension.  100% red is for <50% match rate, 0% red for >95% match rate
+        let lowestMatchRate:Float = 0.50
         let highestMatchRate:Float = 0.95
         let rateDifference:Float = highestMatchRate - lowestMatchRate
         
@@ -414,9 +414,9 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
             redComponent = CGFloat(255 - Int(255 * (CGFloat((avgMatchScore - lowestMatchRate) / rateDifference))))
         }
         
-        //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 3x number of steps for that level
+        //puzzlesCompleted will be green dimension.  100% green = num steps for the given level.  0% = 5x number of steps for that level
         let levelSteps = Levels.Game[levelNum]!.xPRequired
-        let levelStepsHigh = levelSteps * 3
+        let levelStepsHigh = levelSteps * 5
         let levelStepsDifference = levelStepsHigh - levelSteps
         
         let greenComponent: CGFloat
