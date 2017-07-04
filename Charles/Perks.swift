@@ -51,11 +51,12 @@ struct Perks {
                                     Adaptation3,
                                     Stacks4,
                                     Insight3,
+                                    Study3,
                                     Synesthesia3,
                                     Adaptation4,
                                     Closeenough4,
-                                    Study4,
-                                    Study3]
+                                    Study4
+                                    ]
     
     static let UnlockablePerks:[Perk] = [
                                     Stacks,
@@ -75,11 +76,12 @@ struct Perks {
                                     Adaptation3,
                                     Stacks4,
                                     Insight3,
+                                    Study3,
                                     Synesthesia3,
                                     Adaptation4,
                                     Closeenough4,
-                                    Study4,
-                                    Study3]
+                                    Study4
+                                    ]
     
     /******************************************************/
     /*******************///MARK: Synesthesia

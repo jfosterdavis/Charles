@@ -150,7 +150,7 @@ struct Levels {
     67 : Level(level: 67, name: "survival",                 xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     68 : Level(level: 68, name: "need",                     xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     69 : Level(level: 69, name: "organism",                 xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    70 : Level(level: 70, name: "brain",                    xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //R0berte enters
+    70 : Level(level: 70, name: "brain",                    xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //R0berte enters,  study3
     71 : Level(level: 71, name: "reality",                  xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     72 : Level(level: 72, name: "sensation",                xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     73 : Level(level: 73, name: "memory",                   xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
@@ -185,7 +185,7 @@ struct Levels {
    102 : Level(level: 102, name: "respect",                 xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
    103 : Level(level: 103, name: "production",              xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
    104 : Level(level: 104, name: "wealth",                  xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   105 : Level(level: 105, name: "thrive",                  xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //, study3
+   105 : Level(level: 105, name: "thrive",                  xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //,
    106 : Level(level: 106, name: "flourish",                xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
 
    
