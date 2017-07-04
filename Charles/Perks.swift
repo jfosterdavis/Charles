@@ -183,7 +183,7 @@ struct Perks {
     static let Adaptation4 = Perk(     name: "Evolve",
                                        gameDescription: "Your companions are naturally suited to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
-        price: 620000, //620000
+        price: 300000, //300000
         meta1: 0.35, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
         meta3: 0.50, //likelihood a good move option will prevail over a random
