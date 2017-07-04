@@ -25,7 +25,7 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
-    let lookAheadClue = 10 //How many levels ahead can the player know a clue will be given
+    let lookAheadClue = 25 //How many levels ahead can the player know a clue will be given
     let lookAheadClueRead = 1 //How many levels ahead can the player read the clue
     let lookAheadSuccessFailureCriteria = 1 //How many levels ahead acn the player see the success and failure criteria
     
