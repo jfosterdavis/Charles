@@ -20,12 +20,12 @@ struct Clues {
     static let Lineup: [Int : Clue] = [2 : ClueNatureOfLight,
                                        3 : ClueNatureOfColors,
                                        4 : ClueNatureOfMan,
-                                       6: ClueNatureOfSoul, //5
-                                       9: ClueJourney1, //8
-                                        14: ClueJourney2, //13
-                                       22: Mathematics1, //21
-                                        35: Mathematics2, //34
-                                        56: Mathematics3, //55
+                                       5: ClueNatureOfSoul, //5
+                                       6: ClueJourney1, //8
+                                        7: ClueJourney2, //13
+                                       8: Mathematics1, //21
+                                        9: Mathematics2, //34
+                                        10: Mathematics3, //55
                                         90: Truth //89
     
     
@@ -105,6 +105,11 @@ struct Clues {
                                    part3: nil,
                                    part3Image: nil)
     
+    
+    /******************************************************/
+    /*******************///MARK: Advaced clues
+    /******************************************************/
+
     static let Truth = Clue(clueTitle: "Truth",
                                    part1: "Truth is not negotiable.",
                                    part1Image: nil,
