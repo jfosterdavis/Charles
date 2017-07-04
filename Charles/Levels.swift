@@ -38,7 +38,7 @@ struct Levels {
     static let ReturnToDarknessLevelLast = Game[126]!
     
     static let ReturnToLightLevelFirst = Game[127]!
-    static let ReturnToLightLevelLast = Game[142]!
+    static let ReturnToLightLevelLast = Game[144]!
     
     //for the given level, returns the GamePhase and a Double of the progress within that phase, where 0 = the first level of the phase and 1 is the last level of the phase
     static func getLevelPhaseAndProgress(level: Level) -> (GamePhase, Double) {
