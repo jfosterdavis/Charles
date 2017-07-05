@@ -210,7 +210,12 @@ extension DataViewController {
         let userCurrentLevel = getUserCurrentLevel().level
         let didPlayerProgressToGetHere = didPlayer(magnitudeDirection: .increase, in: .level, byAchieving: userCurrentLevel)
         
-        if didPlayerProgressToGetHere && userCurrentLevel >= 11 {
+        if userCurrentLevel >= Levels.ReturnToDarknessLevelFirst.level && userCurrentLevel <= Levels.ReturnToDarknessLevelLast.level {
+            //player is returning to darkness so do not present the map
+        
+            return
+            
+        } else if didPlayerProgressToGetHere && userCurrentLevel >= 11 {
             let topVC = topMostController()
             let mapVC = self.storyboard!.instantiateViewController(withIdentifier: "MapCollectionViewController") as! MapCollectionViewController
             mapVC.initialLevelToScrollTo = userCurrentLevel - 1 //initial level is the one just passed

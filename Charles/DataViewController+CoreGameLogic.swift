@@ -740,6 +740,16 @@ extension DataViewController {
             self.mapButton.fade(.out,
                                 withDuration: 0.3,
                                 delay: 0.6)
+        } else if userLevel.level >= Levels.ReturnToDarknessLevelFirst.level && userLevel.level <= Levels.ReturnToDarknessLevelLast.level {
+            //user is in the return to darkness phase of the game, so don't show the map because they are losing their way
+            
+            let newAlpha:CGFloat = 0.0
+            
+            self.mapButton.fade(.inOrOut,
+                                resultAlpha: newAlpha,
+                                withDuration: 0.3,
+                                delay: 0.6)
+            
         } else if userLevel.level >= (minimumLevelToUnlockMap + 5) {
             
             let newAlpha:CGFloat = 1.0

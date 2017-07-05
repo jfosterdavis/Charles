@@ -366,7 +366,10 @@ class DataViewController: CoreDataViewController, StoreReactor {
     func appEnteredBackground(notification : NSNotification) {
         let characterLevel = getUserCurrentLevel()
         
-        if characterLevel.level > 10 {
+        if characterLevel.level >= Levels.ReturnToDarknessLevelFirst.level && characterLevel.level <= Levels.ReturnToDarknessLevelLast.level {
+            //user is in returning to darkness level of the game, so should see the store, not the map
+            storeButtonPressed(self)
+        } else if characterLevel.level > 10 {
             mapButtonPressed(self)
         } else {
             storeButtonPressed(self)
