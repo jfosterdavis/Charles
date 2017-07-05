@@ -498,7 +498,7 @@ extension DataViewController {
                     //award points
                     setCurrentScore(newScore: getCurrentScore() + pointsJustScored)
                     
-                    if let scoreMessage = scoreResults.1{
+                    if let scoreMessage = scoreResults.1 {
                         presentJustScoredMessageFeedback(message: scoreMessage)
                     }
                     
@@ -525,7 +525,7 @@ extension DataViewController {
                     }
                     
                     //give them a message so they know how bad they did
-                    if let scoreMessage = scoreResults.1{
+                    if let scoreMessage = scoreResults.1 {
                         presentJustScoredMessageFeedback(message: scoreMessage, isGoodMessage: false)
                     }
                 } else {
@@ -858,14 +858,15 @@ extension DataViewController {
         
         let maxScore = magnitude * 3.0 * multiplier
         var pointMessage: String? = nil
-        let scorePercent = Int(scoreToAward/maxScore*100.0)
+        //TODO: figure out how to make the insight level 3 perk match this string.
+        let scorePercent = Int(scoreToAward/maxScore*100.0)  //String(describing: "\(Int(deviation * 100))")  this is what Insight 3 uses, using the .3 result from this return
         
         switch scorePercent {
         case 100:
             pointMessage = "perfect!"
-        case let x where x > 90:
+        case let x where x >= 90:
             pointMessage = "\(scorePercent)% superb!"
-        case let x where x > 80:
+        case let x where x >= 80:
             pointMessage = "\(scorePercent)% great!"
         default:
             pointMessage = "\(scorePercent)% match"
