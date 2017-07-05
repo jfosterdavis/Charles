@@ -222,6 +222,12 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
             //let wordCount = Utilities.wordCount(character.gameDescription)
             
             let part1 = character.gameDescription
+            var usableDurationString = ""
+            let durationString = Utilities.getEasyDurationString(from: (character.hoursUnlocked * 60))
+            usableDurationString = String(describing: "Employs for \(durationString).")
+            if character.name == "Dan" {
+                usableDurationString = "Dan is forever in your employ."
+            }
             
             
             //            if wordCount.count > 30 {
@@ -236,7 +242,8 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
             let characterClue = Clue(clueTitle: character.name,
                                      part1: nil,
                                      part1Image: characterViewImage,
-                                     part2: part1
+                                     part2: part1,
+                                     part3: usableDurationString
             )
             
             if let storyboard = self.storyboard {
