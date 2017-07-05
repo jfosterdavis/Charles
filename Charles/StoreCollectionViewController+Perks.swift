@@ -259,7 +259,7 @@ extension StoreCollectionViewController {
     
     func isPerkAffordable(perk: Perk) -> Bool {
         
-        let price = perk.price!
+        let price = perk.price
         
         if price > score {
             //print ("You cannot afford this item")

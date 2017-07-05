@@ -25,16 +25,16 @@ enum PerkType {
 
 class Perk: NSObject {
     
-    var name: String!
-    var gameDescription: String!
-    var type: PerkType! //types are strings that the game will look for when determining how to behave
-    var price: Int!
+    var name: String
+    var gameDescription: String
+    var type: PerkType //types are strings that the game will look for when determining how to behave
+    var price: Int
     var meta1: Any?
     var meta2: Any?
     var meta3: Any?
-    var minutesUnlocked: Int!
-    var icon: UIImage!
-    var displayColor: UIColor!
+    var minutesUnlocked: Int
+    var icon: UIImage
+    var displayColor: UIColor
     var levelEligibleAt: Int? //nil if there is no level requirement
     var requiredPartyMembers: [Character]!
     
@@ -53,7 +53,7 @@ class Perk: NSObject {
         levelEligibleAt: Int?,
         requiredPartyMembers: [Character]) {
         
-        super.init()
+        
         
         self.name = name
         self.gameDescription = gameDescription
@@ -67,6 +67,8 @@ class Perk: NSObject {
         self.displayColor = displayColor
         self.levelEligibleAt = levelEligibleAt
         self.requiredPartyMembers = requiredPartyMembers
+        
+        super.init()
     }
     
     

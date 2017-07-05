@@ -47,6 +47,64 @@ struct Utilities {
         
         return (firstHalf, secondHalf)
     }
+    
+    static func getEasyDurationString(from minutes: Int) -> String {
+        
+        guard minutes > 60 else {
+            return String(describing: "\(minutes) minutes")
+        }
+        
+        let hours = Int(minutes / 60)
+        let remainingMinutes = minutes % 60
+        let remainingMinutesString: String
+        if remainingMinutes == 0 {
+            remainingMinutesString = ""
+        } else if remainingMinutes == 1 {
+            remainingMinutesString = String(describing: ", \(remainingMinutes) minute")
+        } else {
+            remainingMinutesString = String(describing: ", \(remainingMinutes) minutes")
+        }
+        
+        guard hours > 24 else {
+            
+            return String(describing: "\(hours) hours\(remainingMinutesString)")
+            
+        }
+        
+        let days = Int(hours / 24)
+        let remainingHours = hours % 24
+        let remainingHoursString: String
+        if remainingHours == 0 {
+            remainingHoursString = ""
+        } else if remainingHours == 1 {
+            remainingHoursString = String(describing: ", \(remainingHours) hour")
+        } else {
+            remainingHoursString = String(describing: ", \(remainingHours) hours")
+        }
+        
+        guard days > 365 else {
+            return String(describing: "\(days) days\(remainingHoursString)\(remainingMinutesString)")
+        }
+        
+        let years = Int(days / 365)
+        let remainingDays = days % 365
+        let remainingDaysString: String
+        if remainingDays == 0 {
+            remainingDaysString = ""
+        } else if remainingDays == 1 {
+            remainingDaysString = String(describing: ", \(remainingDays) day")
+        } else {
+            remainingDaysString = String(describing: ", \(remainingDays) days")
+        }
+        
+        if years == 1 {
+            return String(describing: "\(years) year,\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+        } else {
+            return String(describing: "\(years) years,\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+        }
+        
+        
+    }
 
 }
 

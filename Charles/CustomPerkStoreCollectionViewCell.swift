@@ -163,11 +163,14 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         
         if let perk = self.perkClue, canShowInfo {
             
+            let durationString = Utilities.getEasyDurationString(from: perk.minutesUnlocked)
+            
             //create a clue based on the perk that was pressed
             let perkClue = Clue(clueTitle: perk.name,
                                 part1: nil,
                                 part1Image: perk.icon,
-                                part2: perk.gameDescription
+                                part2: perk.gameDescription,
+                                part3: String(describing: "Unlocks for \(durationString).")
             )
             
             

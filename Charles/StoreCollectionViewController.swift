@@ -222,11 +222,11 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
             
             if newPerk != nil {
                 //deduct the price
-                score = score - perk.price!
+                score = score - perk.price
                 updateScoreLabel()
                 
                 //adjust the core data score
-                reconcileScoreFromPurchase(purchasePrice: perk.price!)
+                reconcileScoreFromPurchase(purchasePrice: perk.price)
                 
                 //collectionView.reloadData()
                 self.collectionView.collectionViewLayout.invalidateLayout()
