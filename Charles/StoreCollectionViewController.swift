@@ -53,7 +53,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     
     var perkCollectionViewData: [Perk]!
     //var inAppPurchasesData: []!
-    var appStoreProductsRequest: SKProductsRequest!
+    var appStoreProductsRequest: SKProductsRequest?
     var appStoreProducts: [SKProduct]!
     
     var pendingTransactions = [SKPaymentTransaction]()
@@ -148,6 +148,14 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
         
         //stop the timer to avoide stacking penalties
         timer.invalidate()
+        
+        //remove the reference to this StoreKit Request delegate since it is disappearing
+        //got this tip from https://stackoverflow.com/questions/24675528/ios-crash-report-skproductsrequest
+        if let aspRequest = self.appStoreProductsRequest {
+            aspRequest.delegate = nil
+            aspRequest.cancel()
+            self.appStoreProductsRequest = nil
+        }
         
         //remove self as notified of payment queue
         SKPaymentQueue.default().remove(self)
