@@ -213,22 +213,24 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                     pendingTransactions.remove(at: transactionIndex)
                 }
                 
+                //reload the characters and the tools (and the in app purchase cell)
+                collectionView.reloadData()
                 
                 //determine the indexPath of this payment
                 //go through the data source array and look for the payment ID
-                var index = 0
-                for product in appStoreProducts {
-                    if product.productIdentifier == transaction.payment.productIdentifier {
-                        
-                        let section = iapsSection //section 2 is IAPs here
-                        let indexPath = IndexPath(item: index, section: section)
-                        
-                        //reload this cell, it will check for this when reloading
-                        collectionView.reloadItems(at: [indexPath])
-                        break
-                    }
-                    index += 1
-                }
+//                var index = 0
+//                for product in appStoreProducts {
+//                    if product.productIdentifier == transaction.payment.productIdentifier {
+//                        
+//                        let section = iapsSection //section 2 is IAPs here
+//                        let indexPath = IndexPath(item: index, section: section)
+//                        
+//                        //reload this cell, it will check for this when reloading
+//                        collectionView.reloadItems(at: [indexPath])
+//                        break
+//                    }
+//                    index += 1
+//                }
                 
                 break
             case .failed:
