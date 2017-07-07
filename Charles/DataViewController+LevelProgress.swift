@@ -64,6 +64,19 @@ extension DataViewController {
                     nextLevelColor = UIColor.darkGray
                 }
                 
+                //if progress is in between the 1/11ths, activate background color
+                switch progress {
+                case let x where x > 0 && x < 0.091:
+                    thisLevelLabel.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 0.5) //dark gray background color
+                    thisLevelLabel.roundCorners(with: 4)
+                case let x where x < 1 && x >= 0.91:
+                    nextLevelLabel.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 0.5) //dark gray background color
+                    nextLevelLabel.roundCorners(with: 4)
+                default:
+                    thisLevelLabel.backgroundColor = .clear
+                    nextLevelLabel.backgroundColor = .clear
+                }
+                
                 /******************************************************/
                 /*******************///MARK: PERK INCREASED XP
                 /******************************************************/
