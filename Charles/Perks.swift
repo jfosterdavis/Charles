@@ -293,11 +293,11 @@ struct Perks {
     static let Study4 = Perk(     name: "Emeritus",
                                       gameDescription: "You learn significantly more at each encounter with the help of a lost friend.",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
-                                    price: 20070000,
+                                    price: 2007000,
                                     meta1: 3,
                                     meta2: nil,
                                     meta3: nil,
-                                    minutesUnlocked: 45,
+                                    minutesUnlocked: 90,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
                                     levelEligibleAt: Characters.John.levelEligibleAt! + 5,
