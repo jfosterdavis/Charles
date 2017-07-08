@@ -22,6 +22,9 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
     var initialLevelToScrollTo = 11
     var playerHasFinishedInitialLevelToScrollTo = true
     
+    var includeDollarSignWhenSharing = false
+    @IBOutlet weak var graphicImageView: UIImageView!
+    
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
@@ -53,6 +56,12 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         
         dismissButton.roundCorners(with: 5)
         shareButton.roundCorners(with: 5)
+        
+        //check if the graphic should show
+        if includeDollarSignWhenSharing {
+            graphicImageView.isHidden = false
+            graphicImageView.alpha = 0.85
+        }
         
     }
     
@@ -278,11 +287,31 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         mosaicView.tileData = mosaicData
         //self.view.backgroundColor = .clear
         mosaicView.setNeedsDisplay()
-        //mosaicView.roundCorners(with: width / 6)
-        let mosaicImage = mosaicView.asImage()
+        
+        
+        let containerView = UIView(frame: mainFrame)
+        //containerView.frame = mainFrame
+        containerView.addSubview(mosaicView)
+        mosaicView.center = CGPoint(x: containerView.bounds.width / 2, y: containerView.bounds.height / 2)
+        
+        //if should share the dollar sign, add that
+        if includeDollarSignWhenSharing {
+            let dollarImage: UIImage = #imageLiteral(resourceName: "DollarSignLargeWinGame")
+            let dollarFrame = CGRect(x: x, y: y, width: frame.size.width * 4 / 5, height: frame.size.height * 4 / 5)
+            let dollarImageView = UIImageView(frame: dollarFrame)
+            dollarImageView.contentMode = .scaleAspectFit
+            dollarImageView.alpha = 0.85
+            dollarImageView.image = dollarImage
+            
+            containerView.addSubview(dollarImageView)
+            dollarImageView.center = CGPoint(x: containerView.bounds.width / 2, y: containerView.bounds.height / 2)
+        }
         
         //self.view.backgroundColor = UIColor(red: 56/255, green: 56/255, blue: 56/255, alpha: 1)//map view gray
         
+        
+        //mosaicView.roundCorners(with: width / 6)
+        let mosaicImage = containerView.asImage()
         return mosaicImage
     }
     

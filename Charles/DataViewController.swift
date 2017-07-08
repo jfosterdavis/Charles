@@ -420,6 +420,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         if isPlayerAtHighestLevelAndProgress() {
             //player is on last level
             mapViewController.playerHasFinishedInitialLevelToScrollTo = true
+            mapViewController.includeDollarSignWhenSharing = true
         } else {
             mapViewController.playerHasFinishedInitialLevelToScrollTo = false
         }

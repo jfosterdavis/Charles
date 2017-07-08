@@ -22,7 +22,7 @@ class GameWinnerViewController: MapCollectionViewController {
     //var initialLevelToScrollTo = 11
     
     
-    @IBOutlet weak var graphicImageView: UIImageView!
+    
     var timer = Timer()
     var userLevel: Int!
     
@@ -47,6 +47,8 @@ class GameWinnerViewController: MapCollectionViewController {
         dismissButton.roundCorners(with: 5)
         shareButton.roundCorners(with: 5)
         
+        includeDollarSignWhenSharing = true
+        graphicImageView.isHidden = false //always show the icon in this screen
         graphicImageView.alpha = 0
         dismissButton.alpha = 0
         option1Button.alpha = 0

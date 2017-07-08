@@ -1855,6 +1855,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DollarSignLargeWinGame" translatesAutoresizingMaskIntoConstraints="NO" id="xkF-hf-cfr">
+                                <rect key="frame" x="96" y="190" width="183" height="287"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xkF-hf-cfr" secondAttribute="height" multiplier="183:287" id="huZ-Rz-Tvs"/>
+                                    <constraint firstAttribute="width" constant="183" id="r6p-db-09s"/>
+                                </constraints>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rll-M8-sk7">
                                 <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2120,6 +2127,7 @@
                             <constraint firstItem="FqQ-sL-dyC" firstAttribute="height" secondItem="IKt-Kb-uWF" secondAttribute="height" id="0eb-PA-QQc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rll-M8-sk7" secondAttribute="trailing" id="7QF-Aa-cXr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FqQ-sL-dyC" secondAttribute="trailing" constant="-10" id="ASL-LP-WyG"/>
+                            <constraint firstItem="xkF-hf-cfr" firstAttribute="centerX" secondItem="5Au-H7-BzN" secondAttribute="centerX" id="AuM-Wu-f92"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" constant="10" id="EYo-d4-ZzN"/>
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" constant="-10" id="IOj-ra-UgY"/>
                             <constraint firstItem="aZJ-2d-AKR" firstAttribute="width" secondItem="5Au-H7-BzN" secondAttribute="width" multiplier="11:12" id="M1h-y3-Sjv"/>
@@ -2129,12 +2137,14 @@
                             <constraint firstItem="IKt-Kb-uWF" firstAttribute="width" secondItem="IKt-Kb-uWF" secondAttribute="height" id="YwF-vv-2f3"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="top" secondItem="9Ru-DV-xTu" secondAttribute="bottom" id="dL6-MM-YgU"/>
                             <constraint firstItem="rll-M8-sk7" firstAttribute="leading" secondItem="5Au-H7-BzN" secondAttribute="leadingMargin" id="lsN-cr-O7Q"/>
+                            <constraint firstItem="xkF-hf-cfr" firstAttribute="centerY" secondItem="5Au-H7-BzN" secondAttribute="centerY" id="qJ5-TD-u3A"/>
                             <constraint firstItem="aZJ-2d-AKR" firstAttribute="centerX" secondItem="5Au-H7-BzN" secondAttribute="centerX" id="uLA-7F-EhQ"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="dismissButton" destination="IKt-Kb-uWF" id="00Q-ql-MOf"/>
+                        <outlet property="graphicImageView" destination="xkF-hf-cfr" id="ZvA-sg-86G"/>
                         <outlet property="mapCollectionView" destination="rll-M8-sk7" id="w8a-W6-IJz"/>
                         <outlet property="performanceMosaicView" destination="aZJ-2d-AKR" id="jKm-bU-N3X"/>
                         <outlet property="shareButton" destination="FqQ-sL-dyC" id="J8p-47-9rB"/>
@@ -2259,7 +2269,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="dismissButton" destination="ibB-8C-oSP" id="qRt-pL-Ofl"/>
-                        <outlet property="graphicImageView" destination="sgA-en-HhB" id="2mq-bN-SwM"/>
+                        <outlet property="graphicImageView" destination="sgA-en-HhB" id="62J-Wg-9Pw"/>
                         <outlet property="option1Button" destination="wco-jy-Ctg" id="F1u-jl-r3E"/>
                         <outlet property="option2Button" destination="ozA-xa-nsv" id="u2G-OC-Sxi"/>
                         <outlet property="option3Button" destination="yV2-eG-meA" id="Nh7-Ad-DDt"/>
