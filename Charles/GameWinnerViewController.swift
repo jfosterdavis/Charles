@@ -18,7 +18,7 @@ class GameWinnerViewController: MapCollectionViewController {
 
     //@IBOutlet weak var dismissButton: UIButton!
     
-    @IBOutlet weak var performanceMosaicPerformanceView: UIView!
+    @IBOutlet weak var performanceMosaicPerformanceView: PerformanceMosaicView!
     //var initialLevelToScrollTo = 11
     
     
@@ -39,9 +39,13 @@ class GameWinnerViewController: MapCollectionViewController {
     //@IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         
+        //setupCoreData FRCs
+        _ = setupFetchedResultsController(frcKey: keyXP, entityName: "XP", sortDescriptors: [],  predicate: nil)
         
+        dismissButton.roundCorners(with: 5)
+        shareButton.roundCorners(with: 5)
         
         graphicImageView.alpha = 0
         dismissButton.alpha = 0
@@ -61,10 +65,8 @@ class GameWinnerViewController: MapCollectionViewController {
         //load the mosaic
         initialLevelToScrollTo = userLevel
         playerHasFinishedInitialLevelToScrollTo = true
-        performanceMosaicView.tileData = getMosaicData()
-        performanceMosaicView.setNeedsDisplay()
-        
-        
+        performanceMosaicPerformanceView.tileData = getMosaicData()
+        performanceMosaicPerformanceView.setNeedsDisplay()
     }
     
     override func viewDidLayoutSubviews() {

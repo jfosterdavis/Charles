@@ -246,8 +246,8 @@ struct Levels {
         while level <= Levels.Game.count {
             let xpRequired = Levels.Game[level]?.xPRequired
             
-            if level >= Levels.HighestLevel.level {
-                return (Levels.HighestLevel, 0)
+            if level > Levels.HighestLevel.level {
+                return (Levels.HighestLevel, Levels.HighestLevel.xPRequired)
             }
             
             if xPRemaining < xpRequired! {
@@ -256,6 +256,12 @@ struct Levels {
             
             xPRemaining = xPRemaining - (Levels.Game[level]?.xPRequired)!
             level = level + 1
+        }
+        
+        
+        if level > Levels.HighestLevel.level {
+            let ghostLevel = Level(level: Levels.HighestLevel.level + 1, name: "GHOST", xPRequired: 15, successThreshold: 0.85, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3)
+            return (ghostLevel , xPRemaining)
         }
         
         //no level found by now, player either has max xp or xp above the standard levels

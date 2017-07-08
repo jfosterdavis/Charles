@@ -67,6 +67,7 @@ extension DataViewController {
                 //if progress is in between the 1/11ths, activate background color
                 switch progress {
                 case let x where x > 0 && x < 0.091:
+                    thisLevelColor = progressViewLightTextColor.textColor
                     thisLevelLabel.backgroundColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 0.5) //dark gray background color
                     thisLevelLabel.roundCorners(with: 4)
                 case let x where x < 1 && x >= 0.91:
@@ -139,9 +140,17 @@ extension DataViewController {
                                 self.thisLevelLabel.textColor = thisLevelColor
                                 //print(" text of this level label: \(self.thisLevelLabel.text)")
                                 
-                                self.nextLevelLabel.alpha = 1
-                                self.nextLevelLabel.text = String(describing: (previousLevel.level + 1))
-                                self.nextLevelLabel.textColor = nextLevelColor
+                                //if player is on the highest level, don't show a level label
+                                if currentLevel != Levels.HighestLevel {
+                                    self.nextLevelLabel.alpha = 1
+                                    self.nextLevelLabel.text = String(describing: (previousLevel.level + 1))
+                                    self.nextLevelLabel.textColor = nextLevelColor
+                                } else {
+                                    //player is on highest level
+                                    self.nextLevelLabel.alpha = 0
+                                    self.nextLevelLabel.text = ""
+                                    self.nextLevelLabel.textColor = nextLevelColor
+                                }
                                 
                                 //level label
                                 self.levelDescriptionLabel.alpha = 1
@@ -174,13 +183,17 @@ extension DataViewController {
                                     self.thisLevelLabel.textColor = thisLevelColor
                                     //print(" text of this level label: \(self.thisLevelLabel.text)")
                                     
-                                    self.nextLevelLabel.alpha = 1
-                                    self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
-                                    self.nextLevelLabel.textColor = nextLevelColor
-                                    
-                                    
-                                    
-                                    
+                                    //if player is on the highest level, don't show a level label
+                                    if currentLevel != Levels.HighestLevel {
+                                        self.nextLevelLabel.alpha = 1
+                                        self.nextLevelLabel.text = String(describing: (currentLevel.level + 1))
+                                        self.nextLevelLabel.textColor = nextLevelColor
+                                    } else {
+                                        //player is on highest level
+                                        self.nextLevelLabel.alpha = 0
+                                        self.nextLevelLabel.text = ""
+                                        self.nextLevelLabel.textColor = nextLevelColor
+                                    }
                                     
                     }, completion: { (finished:Bool) in
                         

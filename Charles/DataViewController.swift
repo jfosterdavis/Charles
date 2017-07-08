@@ -231,6 +231,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //housekeeping
         checkXPAndConsolidateIfNeccessary(consolidateAt: 300)  //with 144 levels, should be plenty to prevent too much of this.
+        
+        //reducePlayerLevel(to: 144)
     }
 
     override func didReceiveMemoryWarning() {
