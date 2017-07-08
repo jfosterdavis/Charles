@@ -52,6 +52,7 @@ class GameWinnerViewController: MapCollectionViewController {
         option1Button.alpha = 0
         option2Button.alpha = 0
         option3Button.alpha = 0
+        shareButton.alpha = 0
         disableAllButtons()
         
         
