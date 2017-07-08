@@ -167,14 +167,14 @@ class GameWinnerViewController: MapCollectionViewController {
         case let x where x == option3Button:
             destinationLevel = option3Level
             //give bonus cash for being adventurous
-            bonusCash = 150000
+            bonusCash = 500000
         default:
             destinationLevel = option1Level
         }
         
         //determine cash to give player
-        //player would get 10M for going to level 1
-        let cashPrize = (10000000 / destinationLevel) + bonusCash
+        //player would get 30M for going to level 1
+        let cashPrize = (30000000 / destinationLevel) + bonusCash
         
         //give player this new cash
         let currentScore = parentVC.getCurrentScore()
