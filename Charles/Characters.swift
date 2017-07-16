@@ -707,6 +707,8 @@ struct Characters {
                                    phrases: [Phrase(name: "1",
                                                     likelihood: 100,
                                                     subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
                                                                  Subphrase(words: "", audioFilePath: nil)
                                                         
                                     ],
@@ -721,6 +723,7 @@ struct Characters {
                                              Phrase(name: "2",
                                                     likelihood: 100,
                                                     subphrases: [Subphrase(words: "", audioFilePath: nil),
+                                                                 Subphrase(words: "", audioFilePath: nil),
                                                                  Subphrase(words: "", audioFilePath: nil),
                                                                  Subphrase(words: "", audioFilePath: nil)
                                                         

@@ -70,7 +70,7 @@ struct AppStoreProductDetails {
     
     static let Coin_10M = AppStoreProductDetail(productID: "coin_10M",
                                                    name: "+ 10,000,000",
-                                                   description: "Instantly grants you 10,000,000 points.  Points are used to hire companions and activate tools.",
+                                                   description: "Instantly grants you 10,000,000 points.",
                                                    icon: #imageLiteral(resourceName: "coin_10MIcon"),
                                                    value: 10000000,
                                                    type: .givesPoints,

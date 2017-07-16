@@ -54,7 +54,7 @@ struct Utilities {
             return String(describing: "\(minutes) minutes")
         }
         
-        let hours = Int(minutes / 60)
+        
         let remainingMinutes = minutes % 60
         let remainingMinutesString: String
         if remainingMinutes == 0 {
@@ -65,42 +65,55 @@ struct Utilities {
             remainingMinutesString = String(describing: ", \(remainingMinutes) minutes")
         }
         
-        guard hours > 24 else {
-            
-            return String(describing: "\(hours) hours\(remainingMinutesString)")
-            
-        }
-        
-        let days = Int(hours / 24)
+        let hours = Int(minutes / 60)
         let remainingHours = hours % 24
-        let remainingHoursString: String
+        var remainingHoursString: String
         if remainingHours == 0 {
             remainingHoursString = ""
         } else if remainingHours == 1 {
-            remainingHoursString = String(describing: ", \(remainingHours) hour")
+            remainingHoursString = String(describing: "\(remainingHours) hour")
         } else {
-            remainingHoursString = String(describing: ", \(remainingHours) hours")
+            remainingHoursString = String(describing: "\(remainingHours) hours")
         }
         
-        guard days > 365 else {
-            return String(describing: "\(days) days\(remainingHoursString)\(remainingMinutesString)")
+        guard hours > 24 else {
+            
+            return String(describing: "\(remainingHoursString)\(remainingMinutesString)")
+            
         }
         
-        let years = Int(days / 365)
+        //add a comma to the hours string since it won't be the first item
+        if remainingHours > 0 {
+            remainingHoursString = ", " + remainingHoursString
+        }
+        
+        let days = Int(hours / 24)
         let remainingDays = days % 365
-        let remainingDaysString: String
+        var remainingDaysString: String
         if remainingDays == 0 {
             remainingDaysString = ""
         } else if remainingDays == 1 {
-            remainingDaysString = String(describing: ", \(remainingDays) day")
+            remainingDaysString = String(describing: "\(remainingDays) day")
         } else {
-            remainingDaysString = String(describing: ", \(remainingDays) days")
+            remainingDaysString = String(describing: "\(remainingDays) days")
         }
         
+        
+        guard days > 365 else {
+            return String(describing: "\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+        }
+        
+        //add a comma to the days string since it won't be the first item
+        if remainingDays > 0 {
+            remainingDaysString = ", " + remainingDaysString
+        }
+        
+        let years = Int(days / 365)
+        
         if years == 1 {
-            return String(describing: "\(years) year,\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+            return String(describing: "\(years) year\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         } else {
-            return String(describing: "\(years) years,\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+            return String(describing: "\(years) years\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         }
         
         

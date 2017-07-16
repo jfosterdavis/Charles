@@ -231,6 +231,8 @@ class DataViewController: CoreDataViewController, StoreReactor {
         
         //housekeeping
         checkXPAndConsolidateIfNeccessary(consolidateAt: 300)  //with 144 levels, should be plenty to prevent too much of this.
+        
+        //reducePlayerLevel(to: 144)
     }
 
     override func didReceiveMemoryWarning() {
@@ -414,10 +416,16 @@ class DataViewController: CoreDataViewController, StoreReactor {
 
         let currentLevel = getUserCurrentLevel().level
         mapViewController.initialLevelToScrollTo = currentLevel
-        mapViewController.playerHasFinishedInitialLevelToScrollTo = false
+        
+        if isPlayerAtHighestLevelAndProgress() {
+            //player is on last level
+            mapViewController.playerHasFinishedInitialLevelToScrollTo = true
+            mapViewController.includeDollarSignWhenSharing = true
+        } else {
+            mapViewController.playerHasFinishedInitialLevelToScrollTo = false
+        }
         
         present(mapViewController, animated: true, completion: nil)
-        
     }
     
 }

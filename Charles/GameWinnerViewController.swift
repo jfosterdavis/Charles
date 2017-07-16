@@ -18,11 +18,11 @@ class GameWinnerViewController: MapCollectionViewController {
 
     //@IBOutlet weak var dismissButton: UIButton!
     
-    @IBOutlet weak var performanceMosaicPerformanceView: UIView!
+    @IBOutlet weak var performanceMosaicPerformanceView: PerformanceMosaicView!
     //var initialLevelToScrollTo = 11
     
     
-    @IBOutlet weak var graphicImageView: UIImageView!
+    
     var timer = Timer()
     var userLevel: Int!
     
@@ -39,15 +39,22 @@ class GameWinnerViewController: MapCollectionViewController {
     //@IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         
+        //setupCoreData FRCs
+        _ = setupFetchedResultsController(frcKey: keyXP, entityName: "XP", sortDescriptors: [],  predicate: nil)
         
+        dismissButton.roundCorners(with: 5)
+        shareButton.roundCorners(with: 5)
         
+        includeDollarSignWhenSharing = true
+        graphicImageView.isHidden = false //always show the icon in this screen
         graphicImageView.alpha = 0
         dismissButton.alpha = 0
         option1Button.alpha = 0
         option2Button.alpha = 0
         option3Button.alpha = 0
+        shareButton.alpha = 0
         disableAllButtons()
         
         
@@ -61,10 +68,8 @@ class GameWinnerViewController: MapCollectionViewController {
         //load the mosaic
         initialLevelToScrollTo = userLevel
         playerHasFinishedInitialLevelToScrollTo = true
-        performanceMosaicView.tileData = getMosaicData()
-        performanceMosaicView.setNeedsDisplay()
-        
-        
+        performanceMosaicPerformanceView.tileData = getMosaicData()
+        performanceMosaicPerformanceView.setNeedsDisplay()
     }
     
     override func viewDidLayoutSubviews() {
@@ -162,14 +167,14 @@ class GameWinnerViewController: MapCollectionViewController {
         case let x where x == option3Button:
             destinationLevel = option3Level
             //give bonus cash for being adventurous
-            bonusCash = 150000
+            bonusCash = 500000
         default:
             destinationLevel = option1Level
         }
         
         //determine cash to give player
-        //player would get 10M for going to level 1
-        let cashPrize = (10000000 / destinationLevel) + bonusCash
+        //player would get 30M for going to level 1
+        let cashPrize = (30000000 / destinationLevel) + bonusCash
         
         //give player this new cash
         let currentScore = parentVC.getCurrentScore()
