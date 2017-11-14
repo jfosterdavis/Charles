@@ -28,7 +28,7 @@ struct AppStoreProductDetails {
                                                  type: .givesPoints,
                                                  minutesLocked: 180, //3 hours 180
                                                    displayColor: .white,
-                                                   price: 0.00,
+                                                   price: NSDecimalNumber.zero,
                                                    levelEligibleAt: 3,
                                                    requiredPartyMembers: [])
     
@@ -40,7 +40,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   price: 0.99,
+                                                   price: NSDecimalNumber(string: "0.99"),
                                                    levelEligibleAt: 6,
                                                    requiredPartyMembers: [])
     
@@ -52,7 +52,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   price: 1.99,
+                                                   price: NSDecimalNumber(string: "1.99"),
                                                    levelEligibleAt: 9,
                                                    requiredPartyMembers: [])
     
@@ -64,7 +64,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   price: 3.99,
+                                                   price: NSDecimalNumber(string: "3.99"),
                                                    levelEligibleAt: 12,
                                                    requiredPartyMembers: [])
     
@@ -76,7 +76,7 @@ struct AppStoreProductDetails {
                                                    type: .givesPoints,
                                                    minutesLocked: 0,
                                                    displayColor: .white,
-                                                   price: 7.99,
+                                                   price: NSDecimalNumber(string: "7.99"),
                                                    levelEligibleAt: 15,
                                                    requiredPartyMembers: [])
     
