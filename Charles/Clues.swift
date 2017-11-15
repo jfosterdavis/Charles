@@ -26,9 +26,14 @@ struct Clues {
                                        8: Mathematics1, //21
                                         9: Mathematics2, //34
                                         10: Mathematics3, //55
-                                        90: Truth //89
-    
-    
+        25: TheFaithful, //25
+        35: YouKnow, //35
+        45: TheKnowing, //45
+        55: Identity, //55
+        75: Trace, //75
+        
+                                        90: Truth, //89
+        120: Voluntary //120
     ]
     
     
@@ -117,5 +122,53 @@ struct Clues {
                                    part2Image: nil,
                                    part3: "You can choose to ignore the truth, but you will always be subject to the truth.",
                                    part3Image: nil)
+    
+    static let Voluntary = Clue(clueTitle: "Only the Voluntary",
+                            part1: "If I do not consent, I am forced.  I am right to defend myself.",
+                            part1Image: nil,
+                            part2: "If you do not consent, you are forced.  You should defend yourself.",
+                            part2Image: nil,
+                            part3: "If we both consent, we must defend ourselves from those who would prevent our cooperation.",
+                            part3Image: nil)
+    
+    static let YouKnow = Clue(clueTitle: "You do know.",
+                                part1: "They would have you believe that \"you don't know\"",
+                                part1Image: nil,
+                                part2: "But, you do know, don't you?  You have eyes, ears, a brain.",
+                                part2Image: nil,
+                                part3: "You do not fear knowledge.  You do not fear imperfect knowledge.",
+                                part3Image: nil)
+    
+    static let TheFaithful = Clue(clueTitle: "Faith",
+                                  part1: "Have faith; believe in that which you cannot observe.",
+                              part1Image: nil,
+                              part2: "And now, fear.",
+                              part2Image: nil,
+                              part3: "Fear, because each lesson you learn threatens to shatter your faith.",
+                              part3Image: nil)
+    
+    static let TheKnowing = Clue(clueTitle: "Observe",
+                                  part1: "Seek truth; believe only that which you can observe.",
+                                  part1Image: nil,
+                                  part2: "And now, be fearless.",
+                                  part2Image: nil,
+                                  part3: "Be fearless, because each lesson you learn refines your understanding of the whole.",
+                                  part3Image: nil)
+    
+    static let Trace = Clue(clueTitle: "Trace",
+                                 part1: "Each lesson builds upon the other, or refutes another.",
+                                 part1Image: nil,
+                                 part2: "Trace each lesson back to fundamental truths.",
+                                 part2Image: nil,
+                                 part3: "If it cannot be traced or cannot hold true, discard.",
+                                 part3Image: nil)
+    
+    static let Identity = Clue(clueTitle: "Identity",
+                            part1: "It is the thing you must face and you cannot avoid.",
+                            part1Image: nil,
+                            part2: "It is not to be feared; not to be ignored. It is only to be embraced.",
+                            part2Image: nil,
+                            part3: "Existence exists.  Facts are facts.  A is A.",
+                            part3Image: nil)
     
 }

@@ -343,7 +343,9 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let expectedPrice = aspd.price
             let actualPrice = product.price
             print("Expected Price: \(expectedPrice).  Actual Price: \(actualPrice)")
-            if expectedPrice > Double(actualPrice) {
+            //compare the prices
+            let comparisonResult = expectedPrice.compare(actualPrice)
+            if comparisonResult.rawValue ==  1 { // 1 descending  means actualPrice is less than expectedPrice
                 //product is on sale
                 print("\(product.localizedDescription) is on sale")
                 cell.isOnSale = true

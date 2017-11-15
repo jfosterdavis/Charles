@@ -160,7 +160,7 @@ struct Perks {
         meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.35, //likelihood a good move option will prevail over a random
-        minutesUnlocked: 1440, //1 day, 1440
+        minutesUnlocked: 1445, //1 day and 5 minutes, 1445
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
         levelEligibleAt: 20, //20
