@@ -88,8 +88,8 @@ extension DataViewController {
         let applicableVisualizeColorValuesPerks = getAllPerks(ofType: .visualizeColorValues, withStatus: .unlocked)
         if !applicableVisualizeColorValuesPerks.isEmpty {
             //calculate the percent of red, green, blue in the objective ring color
-            var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
-            objectiveFeedbackView.calculateColorDeviation(color1: color, color2: objectiveFeedbackView.progressRingColor).getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
+            let colorDeviation = objectiveFeedbackView.calculateColorDeviation(color1: color, color2: objectiveFeedbackView.progressRingColor)
+            let ciColorDeviation = CIColor(color: colorDeviation)
             
             //check the level of the perk
             var highestPerkValue = 1
@@ -102,14 +102,14 @@ extension DataViewController {
             
             switch highestPerkValue {
             case 1:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+                perkStickViewDeviation.drawSticks(redPercent: ciColorDeviation.red, greenPercent: ciColorDeviation.green, bluePercent: ciColorDeviation.blue, showColors: false)
             case 2:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+                perkStickViewDeviation.drawSticks(redPercent: ciColorDeviation.red, greenPercent: ciColorDeviation.green, bluePercent: ciColorDeviation.blue)
             case 3:
                 let deviation = CGFloat(calculateColorMatchPointsEarned().2)
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], deviation: deviation)
+                perkStickViewDeviation.drawSticks(redPercent: ciColorDeviation.red, greenPercent: ciColorDeviation.green, bluePercent: ciColorDeviation.blue, deviation: deviation)
             default:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+                perkStickViewDeviation.drawSticks(redPercent: ciColorDeviation.red, greenPercent: ciColorDeviation.green, bluePercent: ciColorDeviation.blue, showColors: false)
             }
             
             perkStickViewDeviation.fade(.in,

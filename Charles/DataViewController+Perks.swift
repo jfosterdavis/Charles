@@ -279,11 +279,11 @@ extension DataViewController {
         //var onlySubtract = false
         //var composite = false
         
-        var rgb = [CGFloat](repeating: 0.0, count: 4)
-        var alpha = [CGFloat](repeating: 0.0, count: 4)
+//        var rgb = [CGFloat](repeating: 0.0, count: 4)
+//        var alpha = [CGFloat](repeating: 0.0, count: 4)
         
-        objectiveColor.getRed(&rgb[0], green: &rgb[1], blue: &rgb[2], alpha: &alpha[0])
-        
+//        objectiveColor.getRed(&rgb[0], green: &rgb[1], blue: &rgb[2], alpha: &alpha[0])
+        let ciObjectiveColor = CIColor(color: objectiveColor)
         //Additive: only pick numbers smaller than the objective color, and only add
         //Subtractive: go above or below, only pick subtractive compliments
         //Composite: pick one below and add, pick one from above, then one of any course
@@ -319,7 +319,7 @@ extension DataViewController {
         default:
             //put the original color in first to seed the loop and forks
             var returnableColors = [UIColor]()
-            returnableColors.append(UIColor(red: rgb[0], green: rgb[1], blue: rgb[2], alpha: alpha[0]))
+            returnableColors.append(UIColor(red: ciObjectiveColor.red, green: ciObjectiveColor.green, blue: ciObjectiveColor.blue, alpha: ciObjectiveColor.alpha))
             
             var forksRemaining = forks
             
@@ -330,9 +330,11 @@ extension DataViewController {
                 let randomColorToForkIndex = Utilities.random(range: 0...(returnableColors.count - 1))
                 let randomColorToFork = returnableColors[randomColorToForkIndex]
                 
-                var oldRGB = [CGFloat](repeating: 0.0, count: 4)
+//                var oldRGB = [CGFloat](repeating: 0.0, count: 4)
+//
+//                randomColorToFork.getRed(&oldRGB[0], green: &oldRGB[1], blue: &oldRGB[2], alpha: &alpha[0])
                 
-                randomColorToFork.getRed(&oldRGB[0], green: &oldRGB[1], blue: &oldRGB[2], alpha: &alpha[0])
+                let ciRandomColorToFork = CIColor(color: randomColorToFork)
                 
                 let newRed: Int
                 let newGreen: Int
@@ -343,35 +345,35 @@ extension DataViewController {
                 
                 //if only picking lower numbers (which should be case for an additive type of solution)
                 if onlyPickLowerNumber {
-                    newRed = getRandomColorMagnitude(for: Int(oldRGB[0] * 255), above: false)
-                    newGreen = getRandomColorMagnitude(for: Int(oldRGB[1] * 255), above: false)
-                    newBlue = getRandomColorMagnitude(for: Int(oldRGB[2] * 255), above: false)
+                    newRed = getRandomColorMagnitude(for: Int(ciRandomColorToFork.red * 255), above: false)
+                    newGreen = getRandomColorMagnitude(for: Int(ciRandomColorToFork.green * 255), above: false)
+                    newBlue = getRandomColorMagnitude(for: Int(ciRandomColorToFork.blue * 255), above: false)
                     
                     //create a new color from what was just created and add it to the returnableColors
-                    returnableColors.append(UIColor(red: CGFloat(Double(newRed)/255.0), green: CGFloat(newGreen)/255.0, blue: CGFloat(newBlue)/255.0, alpha: alpha[0]))
+                    returnableColors.append(UIColor(red: CGFloat(Double(newRed)/255.0), green: CGFloat(newGreen)/255.0, blue: CGFloat(newBlue)/255.0, alpha: ciObjectiveColor.alpha))
                     
                     //get an additive compliment to the color just created
-                    redCompliment = Int(rgb[0] * 255) - newRed
-                    greenCompliment = Int(rgb[1] * 255) - newGreen
-                    blueCompliment = Int(rgb[2] * 255) - newBlue
+                    redCompliment = Int(ciObjectiveColor.red * 255) - newRed
+                    greenCompliment = Int(ciObjectiveColor.green * 255) - newGreen
+                    blueCompliment = Int(ciObjectiveColor.blue * 255) - newBlue
                     
                     //create the compliment color from what was just created and add it to the returnableColors
-                    returnableColors.append(UIColor(red: CGFloat(Double(redCompliment)/255.0), green: CGFloat(greenCompliment)/255.0, blue: CGFloat(blueCompliment)/255.0, alpha: alpha[0]))
+                    returnableColors.append(UIColor(red: CGFloat(Double(redCompliment)/255.0), green: CGFloat(greenCompliment)/255.0, blue: CGFloat(blueCompliment)/255.0, alpha: ciObjectiveColor.alpha))
                 } else {
-                    newRed = getRandomColorMagnitude(for: Int(oldRGB[0] * 255), above: true)
-                    newGreen = getRandomColorMagnitude(for: Int(oldRGB[1] * 255), above: true)
-                    newBlue = getRandomColorMagnitude(for: Int(oldRGB[2] * 255), above: true)
+                    newRed = getRandomColorMagnitude(for: Int(ciRandomColorToFork.red * 255), above: true)
+                    newGreen = getRandomColorMagnitude(for: Int(ciRandomColorToFork.green * 255), above: true)
+                    newBlue = getRandomColorMagnitude(for: Int(ciRandomColorToFork.blue * 255), above: true)
                     
                     //create a new color from what was just created and add it to the returnableColors
-                    returnableColors.append(UIColor(red: CGFloat(Double(newRed)/255.0), green: CGFloat(newGreen)/255.0, blue: CGFloat(newBlue)/255.0, alpha: alpha[0]))
+                    returnableColors.append(UIColor(red: CGFloat(Double(newRed)/255.0), green: CGFloat(newGreen)/255.0, blue: CGFloat(newBlue)/255.0, alpha: ciObjectiveColor.alpha))
                     
                     //get an additive compliment to the color just created
-                    redCompliment = newRed - Int(rgb[0] * 255)
-                    greenCompliment = newGreen - Int(rgb[1] * 255)
-                    blueCompliment = newBlue - Int(rgb[2] * 255)
+                    redCompliment = newRed - Int(ciObjectiveColor.red * 255)
+                    greenCompliment = newGreen - Int(ciObjectiveColor.green * 255)
+                    blueCompliment = newBlue - Int(ciObjectiveColor.blue * 255)
                     
                     //create the compliment color from what was just created and add it to the returnableColors
-                    returnableColors.append(UIColor(red: CGFloat(Double(redCompliment)/255.0), green: CGFloat(greenCompliment)/255.0, blue: CGFloat(blueCompliment)/255.0, alpha: alpha[0]))
+                    returnableColors.append(UIColor(red: CGFloat(Double(redCompliment)/255.0), green: CGFloat(greenCompliment)/255.0, blue: CGFloat(blueCompliment)/255.0, alpha: ciObjectiveColor.alpha))
                 }
                 
                 //remove the color used to make this fork (on the first go round this will be the original color)

@@ -77,54 +77,65 @@ class ColorMatchFeedbackView:UIView
 //        let newColorR = abs(color1.cgColor.components![0] - color2.cgColor.components![0]) + color1.cgColor.components![0]
 //        let newColorG = abs(color1.cgColor.components![1] - color2.cgColor.components![1]) + color1.cgColor.components![1]
 //        let newColorB = abs(color1.cgColor.components![2] - color2.cgColor.components![2]) + color1.cgColor.components![2]
-        var color1RGBA = [CGFloat](repeating: 0.0, count: 4)
-        var color2RGBA = [CGFloat](repeating: 0.0, count: 4)
+//        var color1RGBA = [CGFloat](repeating: 0.0, count: 4)
+//        var color2RGBA = [CGFloat](repeating: 0.0, count: 4)
+//
+//        color1.getRed(&color1RGBA[0], green: &color1RGBA[1], blue: &color1RGBA[2], alpha: &color1RGBA[3])
+//        color2.getRed(&color2RGBA[0], green: &color2RGBA[1], blue: &color2RGBA[2], alpha: &color2RGBA[3])
         
-        color1.getRed(&color1RGBA[0], green: &color1RGBA[1], blue: &color1RGBA[2], alpha: &color1RGBA[3])
-        color2.getRed(&color2RGBA[0], green: &color2RGBA[1], blue: &color2RGBA[2], alpha: &color2RGBA[3])
+        let ciColor1 = CIColor(color: color1)
+        let ciColor2 = CIColor(color: color2)
+        
+        var newRed1 = ciColor1.red
+        var newGreen1 = ciColor1.green
+        var newBlue1 = ciColor1.blue
+        
+        var newRed2 = ciColor2.red
+        var newGreen2 = ciColor2.green
+        var newBlue2 = ciColor2.blue
         
         //ensure values are between 0 and 1
         //color 1
-        if color1RGBA[0] > 1 {
-            color1RGBA[0] = 1
-        } else if color1RGBA[0] < 0 {
-            color1RGBA[0] = 0
+        if newRed1 > 1 {
+            newRed1 = 1
+        } else if newRed1 < 0 {
+            newRed1 = 0
         }
         
-        if color1RGBA[1] > 1 {
-            color1RGBA[1] = 1
-        } else if color1RGBA[0] < 0 {
-            color1RGBA[1] = 0
+        if newGreen1 > 1 {
+            newGreen1 = 1
+        } else if newGreen1 < 0 {
+            newGreen1 = 0
         }
         
-        if color1RGBA[2] > 1 {
-            color1RGBA[2] = 1
-        } else if color1RGBA[0] < 0 {
-            color1RGBA[2] = 0
+        if newBlue1 > 1 {
+            newBlue1 = 1
+        } else if newBlue1 < 0 {
+            newBlue1 = 0
         }
         
         //color 2
-        if color2RGBA[0] > 1 {
-            color2RGBA[0] = 1
-        } else if color1RGBA[0] < 0 {
-            color2RGBA[0] = 0
+        if newRed2 > 1 {
+            newRed2 = 1
+        } else if newRed2 < 0 {
+            newRed2 = 0
         }
         
-        if color2RGBA[1] > 1 {
-            color2RGBA[1] = 1
-        } else if color1RGBA[0] < 0 {
-            color2RGBA[1] = 0
+        if newGreen2 > 1 {
+            newGreen2 = 1
+        } else if newGreen2 < 0 {
+            newGreen2 = 0
         }
         
-        if color2RGBA[2] > 1 {
-            color2RGBA[2] = 1
-        } else if color1RGBA[0] < 0 {
-            color2RGBA[2] = 0
+        if newBlue2 > 1 {
+            newBlue2 = 1
+        } else if newBlue2 < 0 {
+            newBlue2 = 0
         }
         
-        let newColorR = abs(color1RGBA[0] - color2RGBA[0])
-        let newColorG = abs(color1RGBA[1] - color2RGBA[1])
-        let newColorB = abs(color1RGBA[2] - color2RGBA[2])
+        let newColorR = abs(newRed1 - newRed2)
+        let newColorG = abs(newGreen1 - newGreen2)
+        let newColorB = abs(newBlue1 - newBlue2)
         
         let newColor = UIColor(red: newColorR, green: newColorG, blue:newColorB, alpha: 1.0)
         
