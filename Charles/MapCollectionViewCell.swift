@@ -257,7 +257,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     }
     
     ///pulses the shader to draw attention to itself
-    func pulse() {
+    @objc func pulse() {
         
         if pulseToggle {
             

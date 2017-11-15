@@ -155,9 +155,11 @@ func topMostController() -> UIViewController {
 func + (left: UIColor, right: UIColor) -> UIColor {
     var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
     var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+
+    var leftRGBA0: CGFloat = 0.0000
     
-    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
-    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    left.getRed(leftRGBA0, green: leftRGBA[1], blue: leftRGBA[2], alpha: leftRGBA[3])
+    right.getRed(rightRGBA[0], green: rightRGBA[1], blue: rightRGBA[2], alpha: rightRGBA[3])
     
     var newRed = (leftRGBA[0] + rightRGBA[0])
     if newRed > 1.0 {
@@ -485,7 +487,7 @@ extension Formatter {
     }()
 }
 
-extension Integer {
+extension BinaryInteger {
     var formattedWithSeparator: String {
         if let int = self as? Int {
             switch int {

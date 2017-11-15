@@ -968,7 +968,7 @@ extension DataViewController {
     /*******************///MARK: Timer
     /******************************************************/
     
-    func updateTimer() {
+    @objc func updateTimer() {
         //reduce the score
         reduceScoreByPeriodicValue()
     }

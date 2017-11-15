@@ -131,7 +131,7 @@ class GameWinnerViewController: MapCollectionViewController {
         timer.invalidate()
     }
     
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         
@@ -237,7 +237,7 @@ class GameWinnerViewController: MapCollectionViewController {
                            completion: nil)
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         pulse(view: graphicImageView)
     }
     

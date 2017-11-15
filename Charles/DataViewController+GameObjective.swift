@@ -143,7 +143,7 @@ extension DataViewController {
         self.objectiveFeedbackView.addGestureRecognizer(gesture)
     }
     
-    func colorFeedbackTouched(_ sender:UITapGestureRecognizer) {
+    @objc func colorFeedbackTouched(_ sender:UITapGestureRecognizer) {
         self.objectiveFeedbackView.toggleOrientationAndAnimate()
     }
     

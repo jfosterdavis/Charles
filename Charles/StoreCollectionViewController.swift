@@ -277,7 +277,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /*******************///MARK: Timer
     /******************************************************/
 
-    func updateTimer() {
+    @objc func updateTimer() {
         //check that none of them have expired since this view has been open:
         lockAllExpiredCharacters()
         
@@ -436,7 +436,7 @@ class StoreCollectionViewController: CoreDataCollectionViewController, UICollect
     /******************************************************/
 
     
-    func handleLongPress(gesture : UILongPressGestureRecognizer!) {
+    @objc func handleLongPress(gesture : UILongPressGestureRecognizer!) {
         print("Recieved a long press")
         
         if gesture.state != .began {
