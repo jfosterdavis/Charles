@@ -26,8 +26,8 @@ struct Clues {
                                        8: Mathematics1, //21
                                         9: Mathematics2, //34
                                         10: Mathematics3, //55
-        25: TheFaithful, //25
-        35: YouKnow, //35
+        25: YouKnow, //25
+        35: TheFaithful, //35
         45: TheKnowing, //45
         55: Identity, //55
         75: Trace, //75
