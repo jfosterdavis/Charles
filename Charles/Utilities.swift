@@ -76,7 +76,7 @@ struct Utilities {
             remainingHoursString = String(describing: "\(remainingHours) hours")
         }
         
-        guard hours > 24 else {
+        guard hours >= 24 else {
             
             return String(describing: "\(remainingHoursString)\(remainingMinutesString)")
             
@@ -99,7 +99,7 @@ struct Utilities {
         }
         
         
-        guard days > 365 else {
+        guard days >= 365 else {
             return String(describing: "\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         }
         
