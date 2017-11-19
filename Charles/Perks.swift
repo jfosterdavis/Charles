@@ -143,9 +143,9 @@ struct Perks {
                                        gameDescription: "Your companions adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
-        meta1: 0.15, //portion of slots to adjust
+        meta1: 0.20, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.30, //likelihood a good move option will prevail over a random
+        meta3: 0.45, //likelihood a good move option will prevail over a random
         minutesUnlocked: 45, //45
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -159,7 +159,7 @@ struct Perks {
         price: 15000, //15000
         meta1: 0.20, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.35, //likelihood a good move option will prevail over a random
+        meta3: 0.65, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1445, //1 day and 5 minutes, 1445
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -172,9 +172,9 @@ struct Perks {
                                         gameDescription: "Your companions are a good match for the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 90000,//90000
-        meta1: 0.20, //portion of slots to adjust
+        meta1: 0.25, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.40, //likelihood a good move option will prevail over a random
+        meta3: 0.75, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -189,7 +189,7 @@ struct Perks {
         price: 300000, //300000
         meta1: 0.35, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
-        meta3: 0.50, //likelihood a good move option will prevail over a random
+        meta3: 0.90, //likelihood a good move option will prevail over a random
         minutesUnlocked: 20160, //14 days, 20160
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -374,7 +374,7 @@ struct Perks {
                                         gameDescription: "Your good manners enable you to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
-                                        meta1: -0.015,
+                                        meta1: -0.03,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 4320, //3 days, 4320
@@ -388,7 +388,7 @@ struct Perks {
                                        gameDescription: "Your reputation allows you to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
-                                        meta1: -0.025,
+                                        meta1: -0.045,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 300, //5 hours 300
@@ -402,7 +402,7 @@ struct Perks {
                                      gameDescription: "People like you.  When you are almost there, you are.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
-        meta1: -0.04,
+        meta1: -0.06,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 20,
@@ -416,7 +416,7 @@ struct Perks {
                                          gameDescription: "Some things can only be stopped with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 400000,
-        meta1: -0.10,
+        meta1: -0.12,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 10,
