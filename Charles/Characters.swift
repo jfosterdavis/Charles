@@ -1222,7 +1222,7 @@ struct Characters {
     // MARK: Dawson
     static let Bessie = Character(name: "Bessie",
                                   gameDescription: "Arguably the smartest one of the bunch.",
-                                  topRadius: 62,
+                                  topRadius: 58,
                                   bottomRadius: 1,
                                   price: 1, //6500
                                   hoursUnlocked: 168, //1 week
