@@ -217,22 +217,22 @@ func - (left: UIColor, right: UIColor) -> UIColor {
     let ciRight = CIColor(color: right)
     
     var newRed = (ciLeft.red - ciRight.red)
-    if newRed < 1.0 {
+    if newRed < 0.0 {
         newRed = 0.0
     }
     
     var newGreen = (ciLeft.green - ciRight.green)
-    if newGreen < 1.0 {
+    if newGreen < 0.0 {
         newGreen = 0.0
     }
     
     var newBlue = (ciLeft.blue - ciRight.blue)
-    if newBlue < 1.0 {
+    if newBlue < 0.0 {
         newBlue = 0.0
     }
     
     var newAlpha = (ciLeft.alpha - ciRight.alpha)
-    if newAlpha < 1.0 {
+    if newAlpha < 0.0 {
         newAlpha = 0.0
     }
    
