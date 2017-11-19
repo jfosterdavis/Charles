@@ -284,6 +284,18 @@ struct Characters {
 //                                                           Slot(tone: 550, color: .white),
 //                                                           Slot(tone: 500, color: UIColor(red: 29/255, green: 101/255, blue: 145/255, alpha: 1))
 //                                    ]),
+                                    Phrase(name: "Hellow Sweetheart",
+                                           likelihood: 55,
+                                           subphrases: [Subphrase(words: "Hello", audioFilePath: Bundle.main.path(forResource: "Hello", ofType: "m4a", inDirectory: "Audio/Laura")),
+                                                        Subphrase(words: "Sweetheart", audioFilePath: Bundle.main.path(forResource: "Sweetheart", ofType: "m4a", inDirectory: "Audio/Laura"))
+                                        ], slots: [Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                   Slot(tone: 450, color: .white),
+                                                   Slot(tone: 700, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                   Slot(tone: 200, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                   Slot(tone: 250, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
+                                                   Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
+                                        ]),
+                                    
                                             Phrase(name: "Rookie Down 1",
                                                    likelihood: 60,
                                                    subphrases: [Subphrase(words: "Rookie", audioFilePath: Bundle.main.path(forResource: "Rookie2", ofType: "m4a", inDirectory: "Audio/Laura")),
@@ -333,17 +345,7 @@ struct Characters {
 //                                                           Slot(tone: 300, color: UIColor(red: 29/255, green: 43/255, blue: 145/255, alpha: 1))
 //                                                    
 //                                                ]),
-                                            Phrase(name: "Hellow Sweetheart",
-                                                   likelihood: 55,
-                                                   subphrases: [Subphrase(words: "Hello", audioFilePath: Bundle.main.path(forResource: "Hello", ofType: "m4a", inDirectory: "Audio/Laura")),
-                                                                Subphrase(words: "Sweetheart", audioFilePath: Bundle.main.path(forResource: "Sweetheart", ofType: "m4a", inDirectory: "Audio/Laura"))
-                                                ], slots: [Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: 450, color: .white),
-                                                           Slot(tone: 700, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: 200, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: 250, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1)),
-                                                           Slot(tone: 300, color: UIColor(red: 23/255, green: 29/255, blue: 74/255, alpha: 1))
-                                                ]),
+                                    
 //                                            Phrase(name: "BlahBlah",
 //                                                   likelihood: 55,
 //                                                   subphrases: [Subphrase(words: "Blahlahlalhhdhhlalhlahlha", audioFilePath: Bundle.main.path(forResource: "BlahBlah", ofType: "m4a", inDirectory: "Audio/Laura"))
@@ -1137,9 +1139,9 @@ struct Characters {
                                    gameDescription: "An inquisitive man obsessed with your performance.",
                                    topRadius: 12,
                                    bottomRadius: 8,
-                                   price: 702007,
+                                   price: 702007, //702007
                                    hoursUnlocked: 07,
-                                   levelEligibleAt: 65,
+                                   levelEligibleAt: 65, //65
                                    phrases: [Phrase(name: "Hey Snake whatd you get on that test",
                                                     likelihood: 30,
                                                     subphrases: [Subphrase(words: "Hey", audioFilePath: Bundle.main.path(forResource: "Hey1", ofType: "m4a", inDirectory: "Audio/Dawson")),
@@ -1371,7 +1373,7 @@ struct Characters {
                                   bottomRadius: 15,
                                   price: 175000, //175000
         hoursUnlocked: 960, //40 Days
-        levelEligibleAt: 106,
+        levelEligibleAt: 106, //106
         phrases: [Phrase(name: "Keep up the good work",
                          likelihood: 20,
                          subphrases: [Subphrase(words: "Keep", audioFilePath: Bundle.main.path(forResource: "Keep1", ofType: "m4a", inDirectory: "Audio/Sparkle")),
@@ -1518,8 +1520,8 @@ struct Characters {
                                    topRadius: 25,
                                    bottomRadius: 15,
                                    price: 75000, //75000
-        hoursUnlocked: 960, //40 Days
-        levelEligibleAt: 50,
+        hoursUnlocked: 960, //40 Days, 960
+        levelEligibleAt: 50, //50
         phrases: [Phrase(name: "I knew you could do it",
                          likelihood: 70,
                          subphrases: [Subphrase(words: "I", audioFilePath: Bundle.main.path(forResource: "I1", ofType: "m4a", inDirectory: "Audio/Earl")),
@@ -1531,28 +1533,28 @@ struct Characters {
                             
             ],
                          slots: [
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
-                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -100, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
                             
             ]),
                   
-                  Phrase(name: "That Was Really good",
+                  Phrase(name: "Really good",
                          likelihood: 70,
-                         subphrases: [Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That3", ofType: "m4a", inDirectory: "Audio/Earl")),
-                                      Subphrase(words: "Was", audioFilePath: Bundle.main.path(forResource: "Was3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                         subphrases: [//Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      //Subphrase(words: "Was", audioFilePath: Bundle.main.path(forResource: "Was3", ofType: "m4a", inDirectory: "Audio/Earl")),
                                       Subphrase(words: "Really", audioFilePath: Bundle.main.path(forResource: "Really2", ofType: "m4a", inDirectory: "Audio/Earl")),
                                       Subphrase(words: "Good", audioFilePath: Bundle.main.path(forResource: "Good2", ofType: "m4a", inDirectory: "Audio/Earl"))
                             
                     ],
                          slots: [
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
-                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
-                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -100, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
+                            Slot(tone: -100, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
                             
                     ]),
                   
@@ -1564,12 +1566,12 @@ struct Characters {
                             
                     ],
                          slots: [
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
-                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -100, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
                             
                     ]),
                   
@@ -1581,12 +1583,12 @@ struct Characters {
                             
                     ],
                          slots: [
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
-                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -25, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -50, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -75, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
                             
                     ]),
                   
