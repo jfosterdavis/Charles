@@ -192,9 +192,9 @@ extension DataViewController {
                     //if this is the second to last subphrase and if this is level 2 or higher, make pitch very low to give user a hint
                     if (currentSubphraseIndex + 2) >= currentPhrase.subphrases!.count  {
                         if highestPerkLevel > 2 {
-                            newTone -= 1400
+                            newTone -= 2100
                         } else { //player is only level 2 perk so make this distinction very subtle
-                            newTone -= 300
+                            newTone -= 1000
                         }
                         
                     }
