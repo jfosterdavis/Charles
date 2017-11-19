@@ -140,12 +140,12 @@ struct Perks {
     
     
     static let Adaptation = Perk(     name: "Adjust",
-                                       gameDescription: "Your companions adapt to the challenge at hand.",
+                                       gameDescription: "Allows your companions to modestly adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
         meta1: 0.20, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.45, //likelihood a good move option will prevail over a random
+        meta3: 0.40, //likelihood a good move option will prevail over a random
         minutesUnlocked: 45, //45
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -154,12 +154,12 @@ struct Perks {
     )
     
     static let Adaptation2 = Perk(     name: "Compensate",
-                                        gameDescription: "Your companions adapt better to the challenge at hand.",
+                                        gameDescription: "Another, more potent, source of adaptation for your companions to help them face the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 15000, //15000
-        meta1: 0.20, //portion of slots to adjust
+        meta1: 0.25, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.65, //likelihood a good move option will prevail over a random
+        meta3: 0.50, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1445, //1 day and 5 minutes, 1445
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -169,10 +169,10 @@ struct Perks {
     
     //Adaptation 3 also considers the color of the player's initial progress color
     static let Adaptation3 = Perk(     name: "Adapt",
-                                        gameDescription: "Your companions are a good match for the challenge at hand.",
+                                        gameDescription: "Another powerful source of adaptaion, allowing your companions to meet the challenge at hand.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 90000,//90000
-        meta1: 0.25, //portion of slots to adjust
+        meta1: 0.30, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
         meta3: 0.75, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
@@ -184,7 +184,7 @@ struct Perks {
     
     //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
     static let Adaptation4 = Perk(     name: "Evolve",
-                                       gameDescription: "Your companions are naturally suited to the challenge at hand.",
+                                       gameDescription: "The most powerful in the system of four adaptation tools.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 300000, //300000
         meta1: 0.35, //portion of slots to adjust
