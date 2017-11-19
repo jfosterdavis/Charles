@@ -240,7 +240,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    @objc override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.characterNameLabel!.text = dataObject.name
         
@@ -365,7 +365,7 @@ class DataViewController: CoreDataViewController, StoreReactor {
     
     
     ///to be called by the entered background observer.  presses the store button.
-    func appEnteredBackground(notification : NSNotification) {
+    @objc func appEnteredBackground(notification : NSNotification) {
         let characterLevel = getUserCurrentLevel()
         
         if characterLevel.level >= Levels.ReturnToDarknessLevelFirst.level && characterLevel.level <= Levels.ReturnToDarknessLevelLast.level {

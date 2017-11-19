@@ -76,7 +76,7 @@ struct Utilities {
             remainingHoursString = String(describing: "\(remainingHours) hours")
         }
         
-        guard hours > 24 else {
+        guard hours >= 24 else {
             
             return String(describing: "\(remainingHoursString)\(remainingMinutesString)")
             
@@ -99,7 +99,7 @@ struct Utilities {
         }
         
         
-        guard days > 365 else {
+        guard days >= 365 else {
             return String(describing: "\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         }
         
@@ -153,28 +153,46 @@ func topMostController() -> UIViewController {
 
 
 func + (left: UIColor, right: UIColor) -> UIColor {
-    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
-    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+//    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
+//    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+
+//    var leftRGBA0: UnsafeMutablePointer<CGFloat>?
+//    var leftRGBA1: UnsafeMutablePointer<CGFloat>?
+//    var leftRGBA2: UnsafeMutablePointer<CGFloat>?
+//    var leftRGBA3: UnsafeMutablePointer<CGFloat>?
+//
+//    var rightRGBA0: UnsafeMutablePointer<CGFloat>?
+//    var rightRGBA1: UnsafeMutablePointer<CGFloat>?
+//    var rightRGBA2: UnsafeMutablePointer<CGFloat>?
+//    var rightRGBA3: UnsafeMutablePointer<CGFloat>?
     
-    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
-    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    let ciLeft = CIColor(color: left)
+    let ciRight = CIColor(color: right)
     
-    var newRed = (leftRGBA[0] + rightRGBA[0])
+//    left.getRed(leftRGBA0, green: leftRGBA1, blue: leftRGBA2, alpha: leftRGBA3)
+//    right.getRed(rightRGBA0, green: rightRGBA1, blue: rightRGBA2, alpha: rightRGBA3)
+    
+    
+//    var newRed = (leftRGBA[0] + rightRGBA[0])
+    var newRed = (ciLeft.red + ciRight.red)
     if newRed > 1.0 {
         newRed = 1.0
     }
     
-    var newGreen = (leftRGBA[1] + rightRGBA[1])
+//    var newGreen = (leftRGBA[1] + rightRGBA[1])
+    var newGreen = (ciLeft.green + ciRight.green)
     if newGreen > 1.0 {
         newGreen = 1.0
     }
     
-    var newBlue = (leftRGBA[2] + rightRGBA[2])
+//    var newBlue = (leftRGBA[2] + rightRGBA[2])
+    var newBlue = (ciLeft.blue + ciRight.blue)
     if newBlue > 1.0 {
         newBlue = 1.0
     }
     
-    var newAlpha = (leftRGBA[3] + rightRGBA[3])
+//    var newAlpha = (leftRGBA[3] + rightRGBA[3])
+    var newAlpha = (ciLeft.alpha + ciRight.alpha)
     if newAlpha > 1.0 {
         newAlpha = 1.0
     }
@@ -195,38 +213,29 @@ func + (left: UIColor, right: UIColor) -> UIColor {
 }
 
 func - (left: UIColor, right: UIColor) -> UIColor {
-    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
-    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
+    let ciLeft = CIColor(color: left)
+    let ciRight = CIColor(color: right)
     
-    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
-    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
-    
-    var newRed = (leftRGBA[0] - rightRGBA[0])
-    if newRed < 0 {
+    var newRed = (ciLeft.red - ciRight.red)
+    if newRed < 1.0 {
         newRed = 0.0
     }
     
-    var newGreen = (leftRGBA[1] - rightRGBA[1])
-    if newGreen < 0 {
+    var newGreen = (ciLeft.green - ciRight.green)
+    if newGreen < 1.0 {
         newGreen = 0.0
     }
     
-    var newBlue = (leftRGBA[2] - rightRGBA[2])
-    if newBlue < 0 {
+    var newBlue = (ciLeft.blue - ciRight.blue)
+    if newBlue < 1.0 {
         newBlue = 0.0
     }
     
-    var newAlpha = (leftRGBA[3] - rightRGBA[3])
-    if newAlpha < 0 {
+    var newAlpha = (ciLeft.alpha - ciRight.alpha)
+    if newAlpha < 1.0 {
         newAlpha = 0.0
     }
-    
-//    return UIColor(
-//        red: abs(leftRGBA[0] - rightRGBA[0]),
-//        green: abs(leftRGBA[1] - rightRGBA[1]),
-//        blue: abs(leftRGBA[2] - rightRGBA[2]),
-//        alpha: newAlpha
-//    )
+   
     
     return UIColor(
         red: newRed,
@@ -485,7 +494,7 @@ extension Formatter {
     }()
 }
 
-extension Integer {
+extension BinaryInteger {
     var formattedWithSeparator: String {
         if let int = self as? Int {
             switch int {

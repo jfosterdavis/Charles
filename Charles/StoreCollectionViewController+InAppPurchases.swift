@@ -99,7 +99,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
                 let product = validProducts[i]
                 productsArray.append(product)
             }
-            productsArray.sort{(Double($0.price) < Double($1.price))}
+            productsArray.sort{(Double(truncating: $0.price) < Double(truncating: $1.price))}
             self.appStoreProducts = productsArray
             
             for invalidIdentifier in response.invalidProductIdentifiers {

@@ -362,7 +362,7 @@ extension DataViewController {
         let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
         newXP.value = Int64(xpToAward)
         newXP.successScore = successScore
-        newXP.earnedDatetime = earnedDatetime as NSDate
+        newXP.earnedDatetime = earnedDatetime
         newXP.level = Int64(level)
         newXP.score = Int64(score)
         newXP.time = Int64(time)
@@ -443,7 +443,7 @@ extension DataViewController {
                     //create a new score object
                     let newXP = XP(entity: NSEntityDescription.entity(forEntityName: "XP", in: stack.context)!, insertInto: fc.managedObjectContext)
                     newXP.value = Int64(resultantValue)
-                    newXP.earnedDatetime = Date() as NSDate
+                    newXP.earnedDatetime = Date()
                     newXP.level = Int64(levelKey)
                     newXP.score = Int64(resultantScore)
                     

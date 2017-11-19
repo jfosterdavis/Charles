@@ -266,8 +266,11 @@ extension DataViewController {
         
         if !applicableVisualizeColroValuesPerks.isEmpty {
             //calculate the percent of red, green, blue in the objective ring color
-            var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
-            objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor).getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
+//            var colorRGBA = [CGFloat](repeating: 0.0, count: 4)
+            
+            let deviationColor =  objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor)
+            let ciDeviationColor = CIColor(color: deviationColor)
+            //.getRed(&colorRGBA[0], green: &colorRGBA[1], blue: &colorRGBA[2], alpha: &colorRGBA[3])
         
             //check the level of the perk
             var highestPerkValue = 1
@@ -280,14 +283,14 @@ extension DataViewController {
             
             switch highestPerkValue {
             case 1:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+                perkStickViewDeviation.drawSticks(redPercent: ciDeviationColor.red, greenPercent: ciDeviationColor.green, bluePercent: ciDeviationColor.blue, showColors: false)
             case 2:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2])
+                perkStickViewDeviation.drawSticks(redPercent: ciDeviationColor.red, greenPercent: ciDeviationColor.green, bluePercent: ciDeviationColor.blue)
             case 3:
                 let deviation = CGFloat(calculateColorMatchPointsEarned().2)
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], deviation: deviation)
+                perkStickViewDeviation.drawSticks(redPercent: ciDeviationColor.red, greenPercent: ciDeviationColor.green, bluePercent: ciDeviationColor.blue, deviation: deviation)
             default:
-                perkStickViewDeviation.drawSticks(redPercent: colorRGBA[0], greenPercent: colorRGBA[1], bluePercent: colorRGBA[2], showColors: false)
+                perkStickViewDeviation.drawSticks(redPercent: ciDeviationColor.red, greenPercent: ciDeviationColor.green, bluePercent: ciDeviationColor.blue, showColors: false)
             }
         }
         
@@ -845,12 +848,14 @@ extension DataViewController {
         //really this is just the main color, but just in case that changes this way is more solid
         let deviationColor = objectiveFeedbackView.calculateColorDeviation(color1: objectiveFeedbackView.objectiveRingColor, color2: objectiveFeedbackView.progressRingColor)
         let magnitude: CGFloat = 22.0
-        var deviationRGBA = [CGFloat](repeating: 0.0, count: 4)
+//        var deviationRGBA = [CGFloat](repeating: 0.0, count: 4)
+//
+//        deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
+        let ciDeviationColor = CIColor(color: deviationColor)
         
-        deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
-        let redRaw = Int(magnitude - (deviationRGBA[0] * magnitude))
-        let greenRaw = Int(magnitude - (deviationRGBA[1] * magnitude))
-        let blueRaw = Int(magnitude - (deviationRGBA[2] * magnitude))
+        let redRaw = Int(magnitude - (ciDeviationColor.red * magnitude))
+        let greenRaw = Int(magnitude - (ciDeviationColor.green * magnitude))
+        let blueRaw = Int(magnitude - (ciDeviationColor.blue * magnitude))
         
         let unadjustedScore =  redRaw + greenRaw + blueRaw
         let multiplier: CGFloat = 4.0
@@ -860,9 +865,7 @@ extension DataViewController {
         if scoreToAward < 0 {
             scoreToAward = 0
         }
-        
-        
-        
+    
         print("Awarding \(scoreToAward) points for matching")
         
         
@@ -968,7 +971,7 @@ extension DataViewController {
     /*******************///MARK: Timer
     /******************************************************/
     
-    func updateTimer() {
+    @objc func updateTimer() {
         //reduce the score
         reduceScoreByPeriodicValue()
     }
