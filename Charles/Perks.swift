@@ -54,6 +54,7 @@ struct Perks {
                                     Study3,
                                     Synesthesia3,
                                     Adaptation4,
+                                    Stacks5,
                                     Study4,
                                     Closeenough4
                                     ]
@@ -79,7 +80,7 @@ struct Perks {
                                     Study3,
                                     Synesthesia3,
                                     Adaptation4,
-                                    
+                                    Stacks5,
                                     Study4,
                                     Closeenough4
                                     ]
@@ -272,7 +273,7 @@ struct Perks {
         icon: #imageLiteral(resourceName: "pencil"),
         displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
         levelEligibleAt: 34, //34
-        requiredPartyMembers: [Characters.Fred, Characters.R0berte]
+        requiredPartyMembers: [Characters.Fred, Characters.Dawson, Characters.R0berte]
     )
     
     static let Study3 = Perk(     name: "Number Crunch",
@@ -349,7 +350,21 @@ struct Perks {
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 48, //48
-        requiredPartyMembers: [Characters.Fred, Characters.R0berte]
+        requiredPartyMembers: [Characters.Fred, Characters.Bessie, Characters.R0berte]
+    )
+    
+    static let Stacks5 = Perk(     name: "Cash Cow",
+                                   gameDescription: "Cash from the cow.",
+                                   type: .increasedScore, //types are strings that the game will look for when determining how to behave
+        price: 250000,
+        meta1: 4,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 480, //8 hours
+        icon: #imageLiteral(resourceName: "hex-DollarSign"),
+        displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
+        levelEligibleAt: 100, //100
+        requiredPartyMembers: [Characters.Bessie]
     )
     
     static let Stacks4 = Perk(     name: "Invent",

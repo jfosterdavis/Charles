@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley, Dawson, Matthew, R0berte, John]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley, Dawson, Matthew, R0berte, John]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Charles, Fred, StanleyJr, Stanley,  Dawson, Matthew, R0berte, John]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley,  Dawson, Matthew, R0berte, John]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -1216,6 +1216,151 @@ struct Characters {
                                                         Slot(tone: -400, color: UIColor(red: 52/255, green: 29/255, blue: 145/255, alpha: 1)) //Navy Blue
                                                 ])
                                             
+                                    
+        ])
+    
+    // MARK: Dawson
+    static let Bessie = Character(name: "Bessie",
+                                  gameDescription: "Arguably the smartest one of the bunch.",
+                                  topRadius: 60,
+                                  bottomRadius: 1,
+                                  price: 1, //6500
+                                  hoursUnlocked: 168, //1 week
+                                  levelEligibleAt: 9,
+                                  phrases: [Phrase(name: "Moo",
+                                                   likelihood: 60,
+                                                   subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo1", ofType: "m4a", inDirectory: "Audio/Cow"))
+                                                    
+                                    ],
+                                                   slots: [//Slot(tone: -500, color: UIColor(red: 99/255, green: 109/255, blue: 247/255, alpha: 1)), //blue sky
+                                                            Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                            Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .black),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .black),
+                                                           Slot(tone: -500, color: .black),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: 700, color: .black), //crotch
+                                                           Slot(tone: -500, color: .white),
+                                                           Slot(tone: -500, color: .brown), //feet
+                                                           Slot(tone: -500, color: UIColor(red: 21/255, green: 140/255, blue: 5/255, alpha: 1)) //green grass
+                                    ]),
+                                            
+                                            Phrase(name: "Moo",
+                                                   likelihood: 60,
+                                                   subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo4", ofType: "m4a", inDirectory: "Audio/Cow"))
+                                                    
+                                                ],
+                                                   slots: [//Slot(tone: -500, color: UIColor(red: 99/255, green: 109/255, blue: 247/255, alpha: 1)), //blue sky
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .black),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .black),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .black),
+                                                    Slot(tone: -500, color: .black),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: 700, color: .black), //crotch
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown), //feet
+                                                    Slot(tone: -500, color: UIColor(red: 21/255, green: 140/255, blue: 5/255, alpha: 1)) //green grass
+                                                ]),
+                                            
+                                            Phrase(name: "Moo",
+                                                   likelihood: 50,
+                                                   subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo2", ofType: "m4a", inDirectory: "Audio/Cow"))
+                                                    
+                                                ],
+                                                   slots: [//Slot(tone: -500, color: UIColor(red: 99/255, green: 109/255, blue: 247/255, alpha: 1)), //blue sky
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: 700, color: .brown), //crotch
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .black), //feet
+                                                    Slot(tone: -500, color: UIColor(red: 21/255, green: 140/255, blue: 5/255, alpha: 1)) //green grass
+                                                ]),
+                                            Phrase(name: "Moo",
+                                                   likelihood: 5,
+                                                   subphrases: [Subphrase(words: "Moo!", audioFilePath: Bundle.main.path(forResource: "MooRough3", ofType: "m4a", inDirectory: "Audio/Cow"))
+                                                    
+                                                ],
+                                                   slots: [//Slot(tone: -500, color: UIColor(red: 99/255, green: 109/255, blue: 247/255, alpha: 1)), //blue sky
+                                                    Slot(tone: -800, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -800, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -300, color: .red),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .black),
+                                                    Slot(tone: -300, color: .black),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .black),
+                                                    Slot(tone: -300, color: .black),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: 700, color: .black), //crotch
+                                                    Slot(tone: -300, color: .white),
+                                                    Slot(tone: -300, color: .brown), //feet
+                                                    Slot(tone: -500, color: UIColor(red: 21/255, green: 140/255, blue: 5/255, alpha: 1)) //green grass
+                                                ]),
+                                            
+                                            Phrase(name: "Moo",
+                                                   likelihood: 30,
+                                                   subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "TheLongMoo5", ofType: "m4a", inDirectory: "Audio/Cow"))
+                                                    
+                                                ],
+                                                   slots: [//Slot(tone: -500, color: UIColor(red: 99/255, green: 109/255, blue: 247/255, alpha: 1)), //blue sky
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -1000, color: UIColor(red: 227/255, green: 223/255, blue: 211/255, alpha: 1)), //face/horns
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: 700, color: .white), //crotch
+                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .black), //feet
+                                                    Slot(tone: -500, color: UIColor(red: 21/255, green: 140/255, blue: 5/255, alpha: 1)) //green grass
+                                                ]),
+                                    
                                     
         ])
     
