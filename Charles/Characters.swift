@@ -266,7 +266,7 @@ struct Characters {
         ])
     
     static let Laura = Character(name: "Laura",
-                                 gameDescription: "Her beauty can make the most unbearable sounds melt away into a serene hypersensational alternative - if using the proper implement.",
+                                 gameDescription: "Her beauty can make unbearable sounds melt away into a serene hypersensational alternative.",
                                   topRadius: 50,
                                   bottomRadius: 25,
                                   price: 5000,
