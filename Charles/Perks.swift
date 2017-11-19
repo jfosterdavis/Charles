@@ -216,7 +216,7 @@ struct Perks {
                                     requiredPartyMembers: []
     )
     static let Insight2 = Perk(     name: "Perception",
-                                    gameDescription: "You see things others might not with the help of a friend.",
+                                    gameDescription: "You see more things others might not, with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 25000, //25000
         meta1: 2,
@@ -230,7 +230,7 @@ struct Perks {
     )
     
     static let Insight3 = Perk(     name: "Epiphany",
-                                    gameDescription: "You see many things others might not with the help of a friend.",
+                                    gameDescription: "You see many things others might not, with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 250000, //250,000
         meta1: 3,
@@ -262,7 +262,7 @@ struct Perks {
     )
     
     static let Study2 = Perk(     name: "Study Buddy",
-                                  gameDescription: "You learn more at each encounter with the help of a friend.",
+                                  gameDescription: "Another source of advanced learning, with the help of a friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 85000,
         meta1: 1,
@@ -276,7 +276,7 @@ struct Perks {
     )
     
     static let Study3 = Perk(     name: "Number Crunch",
-                                  gameDescription: "You learn more at each encounter with the help of a mechanical friend.",
+                                  gameDescription: "Another source of learning, available with the help of a mechanical friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 101010,
         meta1: 1,
@@ -291,7 +291,7 @@ struct Perks {
     
     
     static let Study4 = Perk(     name: "Emeritus",
-                                      gameDescription: "You learn significantly more at each encounter with the help of a lost friend.",
+                                      gameDescription: "The most potent in the system of learning tools.  Available with the help of a lost friend.",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 2007000,
                                     meta1: 3,
@@ -325,7 +325,7 @@ struct Perks {
     )
     
     static let Stacks2 = Perk(     name: "Create",
-                                      gameDescription: "You find a way to earn more from each encounter with the help of a friend.",
+                                      gameDescription: "You create an additional way to earn more from each encounter, with the help of a friend.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
                                         meta1: 2,
@@ -339,13 +339,13 @@ struct Perks {
     )
     
     static let Stacks3 = Perk(     name: "Produce",
-                                   gameDescription: "Your hard work allows you to earn much more from each encounter with the help of a friend.",
+                                   gameDescription: "Your hard work produces an additional tool - earning much more from each encounter with the help of a friend.",
                                    type: .increasedScore, //types are strings that the game will look for when determining how to behave
-        price: 60000,
-        meta1: 2,
+        price: 85000,
+        meta1: 3,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 75, //75
+        minutesUnlocked: 600, //10 hours
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 48, //48
@@ -355,11 +355,11 @@ struct Perks {
     static let Stacks4 = Perk(     name: "Invent",
                                         gameDescription: "Your creations culminate and produce much, much more from each encounter.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
-                                            price: 100000,
-                                            meta1: 3,
+                                            price: 220000,
+                                            meta1: 4,
                                             meta2: nil,
                                             meta3: nil,
-                                            minutesUnlocked: 90, //90
+                                            minutesUnlocked: 7200, //5 Days, 7200
                                             icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 61,
