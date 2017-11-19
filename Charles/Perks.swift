@@ -413,7 +413,7 @@ struct Perks {
     )
     
     static let Closeenough4 = Perk(     name: "Out of My Way",
-                                         gameDescription: "Some things can only be stopped with the right person.",
+                                         gameDescription: "Some challenges can only be overcome with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 400000,
         meta1: -0.12,
