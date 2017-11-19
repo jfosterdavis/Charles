@@ -224,6 +224,20 @@ extension StoreCollectionViewController {
                     applicablePerks.append(perk)
                 }
             }
+            
+            //find any perks that are unlocked and store them in array to ensure will display
+            let unlockedPerkObjects = getAllUnlockedPerks()
+            for unlockedPerkObject in unlockedPerkObjects {
+                //get the perk object from the list of valid perks and put it into the array of those to make sure will display
+                for perk in Perks.ValidPerks {
+                    //only add the perk if it is unlocked and the perk is not already in the applicable perks
+                    if perk.name == unlockedPerkObject.name && !applicablePerks.contains(perk) {
+                        applicablePerks.append(perk)
+                    }
+                    
+                }
+            }
+            
             return applicablePerks
         } else {
             return Perks.ValidPerks
