@@ -374,7 +374,7 @@ struct Perks {
                                         gameDescription: "Your good manners enable you to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
-                                        meta1: -0.03,
+                                        meta1: -0.02,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 4320, //3 days, 4320
@@ -388,7 +388,7 @@ struct Perks {
                                        gameDescription: "Your reputation allows you to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
-                                        meta1: -0.045,
+                                        meta1: -0.035,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 300, //5 hours 300
@@ -402,7 +402,7 @@ struct Perks {
                                      gameDescription: "People like you.  When you are almost there, you are.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
-        meta1: -0.06,
+        meta1: -0.05,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 20,
@@ -416,7 +416,7 @@ struct Perks {
                                          gameDescription: "Some challenges can only be overcome with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 400000,
-        meta1: -0.12,
+        meta1: -0.10,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 10,
