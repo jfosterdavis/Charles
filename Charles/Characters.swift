@@ -21,10 +21,10 @@ struct Characters {
     /******************************************************/
     /*******************///MARK: Groups of Characters
     /******************************************************/
-    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley, Dawson, Matthew, R0berte, Sparkle, John]
+    static let ValidCharacters: [Character] = [Dan, Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley, Earl, Dawson, Matthew, R0berte, Sparkle, John]
     static let NewPlayerCharacterSet: [Character] = [Dan]
     static let AlwaysUnlockedSet: [Character] = NewPlayerCharacterSet
-    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley,  Dawson, Matthew, R0berte, Sparkle, John]
+    static let UnlockableCharacters: [Character] = [Benton, LittleJimmy,  Laura, Bessie, Charles, Fred, StanleyJr, Stanley,  Earl, Dawson, Matthew, R0berte, Sparkle, John]
     
     /******************************************************/
     /*******************///MARK: Characters
@@ -708,7 +708,7 @@ struct Characters {
                                    bottomRadius: 15,
                                    price: 5, //5
                                    hoursUnlocked: 12, //12
-                                   levelEligibleAt: 88, //88
+                                   levelEligibleAt: 120, //120
                                    phrases: [Phrase(name: "1",
                                                     likelihood: 100,
                                                     subphrases: [Subphrase(words: "", audioFilePath: nil),
@@ -1434,7 +1434,7 @@ struct Characters {
                             Slot(tone: 800, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
                             Slot(tone: 800, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
                             Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
-                            Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
+                            Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)) //bright yellow
                     ]),
     
                   Phrase(name: "You are very talented",
@@ -1451,7 +1451,7 @@ struct Characters {
                             Slot(tone: 800, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
                             Slot(tone: 800, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
                             Slot(tone: 800, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
-                            Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
+                            Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)) //bright yellow
                     ]),
     
                   Phrase(name: "You make me want to shine",
@@ -1470,7 +1470,7 @@ struct Characters {
                             Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
                             Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
                             Slot(tone: 700, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
-                            Slot(tone: 600, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
+                            Slot(tone: 600, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)) //pink
                            
                     ]),
     
@@ -1491,7 +1491,7 @@ struct Characters {
                             Slot(tone: 500, color: UIColor(red: 177/255, green: 249/255, blue: 10/255, alpha: 1)), //yellow greenish
                             Slot(tone: 400, color: UIColor(red: 245/255, green: 237/255, blue: 17/255, alpha: 1)), //bright yellow
                             Slot(tone: 300, color: UIColor(red: 31/255, green: 114/255, blue: 247/255, alpha: 1)), //bright blue
-                            Slot(tone: 200, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
+                            Slot(tone: 200, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)) //pink
                             
                     ]),
     
@@ -1507,9 +1507,89 @@ struct Characters {
                             Slot(tone: 600, color: UIColor(red: 177/255, green: 249/255, blue: 10/255, alpha: 1)), //yellow greenish
                             Slot(tone: 500, color: UIColor(red: 31/255, green: 114/255, blue: 247/255, alpha: 1)), //bright blue
                             Slot(tone: 400, color: UIColor(red: 230/255, green: 58/255, blue: 242/255, alpha: 1)), //bright green
-                            Slot(tone: 300, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)), //pink
+                            Slot(tone: 300, color: UIColor(red: 82/255, green: 252/255, blue: 3/255, alpha: 1)) //pink
                             
                     ])
     ])
+    
+    // MARK: Earl
+    static let Earl = Character(name: "Earl",
+                                gameDescription: "Calm confirmation; manly motivation.  Certified to lower your blood pressure.",
+                                   topRadius: 25,
+                                   bottomRadius: 15,
+                                   price: 75000, //75000
+        hoursUnlocked: 960, //40 Days
+        levelEligibleAt: 50,
+        phrases: [Phrase(name: "I knew you could do it",
+                         likelihood: 70,
+                         subphrases: [Subphrase(words: "I", audioFilePath: Bundle.main.path(forResource: "I1", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Knew", audioFilePath: Bundle.main.path(forResource: "Knew1", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "You", audioFilePath: Bundle.main.path(forResource: "You1", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Could", audioFilePath: Bundle.main.path(forResource: "Could1", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Do", audioFilePath: Bundle.main.path(forResource: "Do1", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "It", audioFilePath: Bundle.main.path(forResource: "It1", ofType: "m4a", inDirectory: "Audio/Earl"))
+                            
+            ],
+                         slots: [
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
+                            
+            ]),
+                  
+                  Phrase(name: "That Was Really good",
+                         likelihood: 70,
+                         subphrases: [Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Was", audioFilePath: Bundle.main.path(forResource: "Was3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Really", audioFilePath: Bundle.main.path(forResource: "Really2", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Good", audioFilePath: Bundle.main.path(forResource: "Good2", ofType: "m4a", inDirectory: "Audio/Earl"))
+                            
+                    ],
+                         slots: [
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
+                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)) //calm light blue
+                            
+                    ]),
+                  
+                  Phrase(name: "That Was amazing",
+                         likelihood: 70,
+                         subphrases: [Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Was", audioFilePath: Bundle.main.path(forResource: "Was3", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Amazing", audioFilePath: Bundle.main.path(forResource: "Amazing3", ofType: "m4a", inDirectory: "Audio/Earl"))
+                            
+                    ],
+                         slots: [
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -500, color: UIColor(red: 54/255, green: 147/255, blue: 194/255, alpha: 1)), //calm light blue
+                            
+                    ]),
+                  
+                  Phrase(name: "That Was excellent",
+                         likelihood: 1,
+                         subphrases: [Subphrase(words: "That", audioFilePath: Bundle.main.path(forResource: "That4", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Was", audioFilePath: Bundle.main.path(forResource: "Was4", ofType: "m4a", inDirectory: "Audio/Earl")),
+                                      Subphrase(words: "Amazing", audioFilePath: Bundle.main.path(forResource: "Excellent4", ofType: "m4a", inDirectory: "Audio/Earl"))
+                            
+                    ],
+                         slots: [
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -200, color: UIColor(red: 66/255, green: 54/255, blue: 194/255, alpha: 1)), //calm dark blue
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -300, color: UIColor(red: 209/255, green: 99/255, blue: 44/255, alpha: 1)), //calm red orange
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            Slot(tone: -400, color: UIColor(red: 194/255, green: 125/255, blue: 41/255, alpha: 1)), //calm orange brown
+                            
+                    ]),
+                  
+        ])
     
 }
