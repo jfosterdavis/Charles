@@ -1222,13 +1222,13 @@ struct Characters {
     // MARK: Dawson
     static let Bessie = Character(name: "Bessie",
                                   gameDescription: "Arguably the smartest one of the bunch.",
-                                  topRadius: 60,
+                                  topRadius: 62,
                                   bottomRadius: 1,
                                   price: 1, //6500
                                   hoursUnlocked: 168, //1 week
                                   levelEligibleAt: 9,
                                   phrases: [Phrase(name: "Moo",
-                                                   likelihood: 60,
+                                                   likelihood: 10,
                                                    subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo1", ofType: "m4a", inDirectory: "Audio/Cow"))
                                                     
                                     ],
@@ -1255,7 +1255,7 @@ struct Characters {
                                     ]),
                                             
                                             Phrase(name: "Moo",
-                                                   likelihood: 60,
+                                                   likelihood: 10,
                                                    subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo4", ofType: "m4a", inDirectory: "Audio/Cow"))
                                                     
                                                 ],
@@ -1282,7 +1282,7 @@ struct Characters {
                                                 ]),
                                             
                                             Phrase(name: "Moo",
-                                                   likelihood: 50,
+                                                   likelihood: 10,
                                                    subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "Moo2", ofType: "m4a", inDirectory: "Audio/Cow"))
                                                     
                                                 ],
@@ -1295,9 +1295,9 @@ struct Characters {
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .white),
-                                                    Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .brown),
-                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
+                                                    Slot(tone: -500, color: .brown),
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .brown),
                                                     Slot(tone: -500, color: .white),
@@ -1335,7 +1335,7 @@ struct Characters {
                                                 ]),
                                             
                                             Phrase(name: "Moo",
-                                                   likelihood: 30,
+                                                   likelihood: 9,
                                                    subphrases: [Subphrase(words: "Moo", audioFilePath: Bundle.main.path(forResource: "TheLongMoo5", ofType: "m4a", inDirectory: "Audio/Cow"))
                                                     
                                                 ],
@@ -1346,7 +1346,7 @@ struct Characters {
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .brown),
-                                                    Slot(tone: -500, color: .white),
+                                                    Slot(tone: -500, color: .brown),
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .white),
                                                     Slot(tone: -500, color: .white),
