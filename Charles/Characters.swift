@@ -1226,7 +1226,7 @@ struct Characters {
                                   gameDescription: "Arguably the smartest one of the bunch.",
                                   topRadius: 58,
                                   bottomRadius: 1,
-                                  price: 1, //6500
+                                  price: 8500, //8500
                                   hoursUnlocked: 168, //1 week
                                   levelEligibleAt: 9,
                                   phrases: [Phrase(name: "Moo",
