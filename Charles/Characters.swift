@@ -642,9 +642,9 @@ struct Characters {
                                    gameDescription: "His priorities are encounters with those of the opposite gender, cars, and the benefits gained from natural substances.",
                                    topRadius: 10,
                                    bottomRadius: 10,
-                                   price: 75000,
+                                   price: 85000, //8500
                                    hoursUnlocked: 72,
-                                   levelEligibleAt: 64, //64
+                                   levelEligibleAt: 59, //59 chemical
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off", //he will have his shirt off in the store!
                                                     likelihood: 45,
                                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: Bundle.main.path(forResource: "Maybe", ofType: "m4a", inDirectory: "Audio/Matthew")),
@@ -709,8 +709,8 @@ struct Characters {
                                    topRadius: 15,
                                    bottomRadius: 15,
                                    price: 5, //5
-                                   hoursUnlocked: 12, //12
-                                   levelEligibleAt: 120, //120
+                                   hoursUnlocked: 1, //1 he comes and goes quickly
+                                   levelEligibleAt: 122, //122 the public good
                                    phrases: [Phrase(name: "1",
                                                     likelihood: 100,
                                                     subphrases: [Subphrase(words: "", audioFilePath: nil),
@@ -825,7 +825,7 @@ struct Characters {
                                    bottomRadius: 2,
                                    price: 10101010, //10101010
                                    hoursUnlocked: 7200, //300 days, 7200
-                                   levelEligibleAt: 70, //70 is brain
+                                   levelEligibleAt: 83, //83 is control
                                    phrases: [Phrase(name: "Maybe I should just take my shirt off",
                                     likelihood: 10,
                                     subphrases: [Subphrase(words: "Maybe", audioFilePath: nil),
@@ -1139,9 +1139,9 @@ struct Characters {
                                    gameDescription: "An inquisitive man obsessed with your performance.",
                                    topRadius: 12,
                                    bottomRadius: 8,
-                                   price: 702007, //702007
+                                   price: 2007, //2007
                                    hoursUnlocked: 07,
-                                   levelEligibleAt: 65, //65
+                                   levelEligibleAt: 67, //67 survival
                                    phrases: [Phrase(name: "Hey Snake whatd you get on that test",
                                                     likelihood: 30,
                                                     subphrases: [Subphrase(words: "Hey", audioFilePath: Bundle.main.path(forResource: "Hey1", ofType: "m4a", inDirectory: "Audio/Dawson")),
