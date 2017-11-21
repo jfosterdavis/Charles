@@ -286,7 +286,7 @@
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-q0-6eO" customClass="InsightColorStickView" customModule="Charles" customModuleProvider="target">
                                 <rect key="frame" x="131" y="401.33333333333331" width="114" height="113.99999999999994"/>
                                 <subviews>
-                                    <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightbulb" translatesAutoresizingMaskIntoConstraints="NO" id="1mT-GO-gPj">
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightbulb" translatesAutoresizingMaskIntoConstraints="NO" id="1mT-GO-gPj">
                                         <rect key="frame" x="45" y="43" width="23" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1mT-GO-gPj" secondAttribute="height" multiplier="69:80" id="F2h-mS-R3d"/>
@@ -2029,7 +2029,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qed-IA-jw5">
                                                     <rect key="frame" x="204.66666666666666" y="123" width="33" height="33"/>
-                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qed-IA-jw5" secondAttribute="height" id="dPJ-bM-CtE"/>
                                                     </constraints>
