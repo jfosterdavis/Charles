@@ -853,9 +853,15 @@ extension DataViewController {
 //        deviationColor.getRed(&deviationRGBA[0], green: &deviationRGBA[1], blue: &deviationRGBA[2], alpha: &deviationRGBA[3])
         let ciDeviationColor = CIColor(color: deviationColor)
         
-        let redRaw = Int(magnitude - (ciDeviationColor.red * magnitude))
-        let greenRaw = Int(magnitude - (ciDeviationColor.green * magnitude))
-        let blueRaw = Int(magnitude - (ciDeviationColor.blue * magnitude))
+        //for each component of the ciDeviationColor, round to the nearest 0.00.  This because there has been a lot of ugly math and conversions that whack the numbers out such that a perfect match
+        
+        let roundedCiRed = ciDeviationColor.red.rounded(toNearest: 0.01)
+        let roundedCiGreen = ciDeviationColor.green.rounded(toNearest: 0.01)
+        let roundedCiBlue = ciDeviationColor.blue.rounded(toNearest: 0.01)
+        
+        let redRaw = Int(magnitude - (roundedCiRed * magnitude))
+        let greenRaw = Int(magnitude - (roundedCiGreen * magnitude))
+        let blueRaw = Int(magnitude - (roundedCiBlue * magnitude))
         
         let unadjustedScore =  redRaw + greenRaw + blueRaw
         let multiplier: CGFloat = 4.0

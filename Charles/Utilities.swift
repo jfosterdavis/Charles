@@ -148,6 +148,20 @@ func topMostController() -> UIViewController {
 //}
 
 /******************************************************/
+/*******************///MARK: Round CGFloats
+/******************************************************/
+
+extension CGFloat {
+    /**
+     Rounds a CGFloat to the nearest double.
+     */
+    func rounded(toNearest: Double = 1.0) -> CGFloat {
+        let doubledSelf = Double(self)
+        return CGFloat(Darwin.round(doubledSelf / toNearest) * toNearest)
+    }
+}
+
+/******************************************************/
 /*******************///MARK: UIColor Overloading Operators
 /******************************************************/
 
