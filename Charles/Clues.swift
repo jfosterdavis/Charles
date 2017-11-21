@@ -26,14 +26,14 @@ struct Clues {
                                        8: Mathematics1, //21
                                         9: Mathematics2, //34
                                         10: Mathematics3, //55
-        25: YouKnow, //25
-        35: TheFaithful, //35
-        45: TheKnowing, //45
-        55: Identity, //55
-        75: Trace, //75
+        88: YouKnow, //88
+        119: TheFaithful, //119
+        74: TheKnowing, //74
+        80: Identity, //80
+        65: Trace, //65
         
-                                        90: Truth, //89
-        120: Voluntary //120
+                                        127: Truth, //127
+        135: Voluntary //135 is self-defense
     ]
     
     
