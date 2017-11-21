@@ -162,31 +162,31 @@ struct Levels {
     79 : Level(level: 79, name: "reason",                   xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.62, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     80 : Level(level: 80, name: "identity",                 xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.62, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
     81 : Level(level: 81, name: "delusion",                 xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    82 : Level(level: 82, name: "the mind",                 xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //Adaptation 4
-    83 : Level(level: 83, name: "control",                  xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    84 : Level(level: 84, name: "skill",                    xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    85 : Level(level: 85, name: "Ego",                      xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    86 : Level(level: 86, name: "forethought",              xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    87 : Level(level: 87, name: "free will",                xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    88 : Level(level: 88, name: "thinking",                 xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //John enters
-    89 : Level(level: 89, name: "intent",                   xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    90 : Level(level: 90, name: "planning",                 xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //last 10 levels exception to the pattern
-    91 : Level(level: 91, name: "self-interest",            xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    92 : Level(level: 92, name: "philosophy",               xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    93 : Level(level: 93, name: "society",                  xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    94 : Level(level: 94, name: "persuade",                 xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.67, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    95 : Level(level: 95, name: "delegate",                 xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    96 : Level(level: 96, name: "compel",                   xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    97 : Level(level: 97, name: "good",                     xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //study 4 (John + 5)
-    98 : Level(level: 98, name: "evil",                     xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-    99 : Level(level: 99, name: "ethics",                   xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.62, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   100 : Level(level:100, name: "values",                   xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.61, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   101 : Level(level: 101, name: "morality",                xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   102 : Level(level: 102, name: "respect",                 xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   103 : Level(level: 103, name: "production",              xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   104 : Level(level: 104, name: "wealth",                  xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
-   105 : Level(level: 105, name: "thrive",                  xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //,
-   106 : Level(level: 106, name: "flourish",                xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    82 : Level(level: 82, name: "the mind",                 xPRequired: 11, successThreshold: 0.78, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //Adaptation 4
+    83 : Level(level: 83, name: "control",                  xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    84 : Level(level: 84, name: "skill",                    xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    85 : Level(level: 85, name: "Ego",                      xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    86 : Level(level: 86, name: "forethought",              xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    87 : Level(level: 87, name: "free will",                xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    88 : Level(level: 88, name: "thinking",                 xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //John enters
+    89 : Level(level: 89, name: "intent",                   xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    90 : Level(level: 90, name: "planning",                 xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),  //last 10 levels exception to the pattern
+    91 : Level(level: 91, name: "self-interest",            xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    92 : Level(level: 92, name: "philosophy",               xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    93 : Level(level: 93, name: "society",                  xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    94 : Level(level: 94, name: "persuade",                 xPRequired: 11, successThreshold: 0.84, punishThreshold: 0.67, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    95 : Level(level: 95, name: "delegate",                 xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    96 : Level(level: 96, name: "compel",                   xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    97 : Level(level: 97, name: "good",                     xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.64, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //study 4 (John + 5)
+    98 : Level(level: 98, name: "evil",                     xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+    99 : Level(level: 99, name: "ethics",                   xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.62, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   100 : Level(level:100, name: "values",                   xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.61, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   101 : Level(level: 101, name: "morality",                xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   102 : Level(level: 102, name: "respect",                 xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   103 : Level(level: 103, name: "production",              xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   104 : Level(level: 104, name: "wealth",                  xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.53, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
+   105 : Level(level: 105, name: "thrive",                  xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2), //,
+   106 : Level(level: 106, name: "flourish",                xPRequired: 11, successThreshold: 0.90, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 2),
 
    
    //return to darkness
@@ -203,37 +203,37 @@ struct Levels {
    115 : Level(level: 115, name: "moocher",                 xPRequired: 11, successThreshold: 0.73, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    116 : Level(level: 116, name: "looter",                  xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
    117 : Level(level: 117, name: "criminal",                xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   118 : Level(level: 118, name: "unearned greatness",      xPRequired: 50, successThreshold: 0.20, punishThreshold: 0.00, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
+   118 : Level(level: 118, name: "unearned greatness",      xPRequired: 60, successThreshold: 0.20, punishThreshold: 0.00, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
    119 : Level(level: 119, name: "self-deception",          xPRequired: 35, successThreshold: 0.40, punishThreshold: 0.00, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   120 : Level(level: 120, name: "prestige",                xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   121 : Level(level: 121, name: "power-lust",              xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   122 : Level(level: 122, name: "\"the public good\"",     xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
-   123 : Level(level: 123,name: "\"the public, c’est moi\"",xPRequired: 11, successThreshold: 0.83, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   120 : Level(level: 120, name: "prestige",                xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
+   121 : Level(level: 121, name: "power-lust",              xPRequired: 11, successThreshold: 0.86, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
+   122 : Level(level: 122, name: "\"the public good\"",     xPRequired: 11, successThreshold: 0.87, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Medium], eligibleRandomColorPrecision: 3),
+   123 : Level(level: 123,name: "\"the public, c’est moi\"",xPRequired: 11, successThreshold: 0.88, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
    124 : Level(level: 124, name: "abetment",                xPRequired: 5,  successThreshold: 0.84, punishThreshold: 0.68, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   125 : Level(level: 125, name: "collectivism",            xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.71, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   126 : Level(level: 126, name: "totalitarianism",         xPRequired: 11, successThreshold: 0.85, punishThreshold: 0.72, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   125 : Level(level: 125, name: "collectivism",            xPRequired: 11, successThreshold: 0.90, punishThreshold: 0.76, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   126 : Level(level: 126, name: "totalitarianism",         xPRequired: 11, successThreshold: 0.90, punishThreshold: 0.77, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
 
    //return to light
         //although the difficulty does increase, its the punishment threshold that decrases.  Clear the way has highest success threshold in game.  It can be the hardest thing to get done.
    
-   127 : Level(level: 127, name: "awakening",               xPRequired: 70, successThreshold: 0.60, punishThreshold: 0.45, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
-   128 : Level(level: 128, name: "love",                    xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3), //closeEnough 4
-   129 : Level(level: 129, name: "love of self",            xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   130 : Level(level: 130, name: "love of life",            xPRequired: 11, successThreshold: 0.74, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   131 : Level(level: 131, name: "egoism",                  xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   132 : Level(level: 132, name: "withdrawal of consent",   xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   133 : Level(level: 133, name: "withdrawal of support",   xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.60, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   134 : Level(level: 134, name: "reciprocity",             xPRequired: 11, successThreshold: 0.75, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   135 : Level(level: 135, name: "self-defense",            xPRequired: 25, successThreshold: 0.76, punishThreshold: 0.61, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   136 : Level(level: 136, name: "individualism",           xPRequired: 11, successThreshold: 0.76, punishThreshold: 0.58, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   137 : Level(level: 137, name: "objectivism",             xPRequired: 11, successThreshold: 0.77, punishThreshold: 0.56, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   138 : Level(level: 138, name: "clear the way",           xPRequired: 11, successThreshold: 0.92, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   139 : Level(level: 139, name: "remember",                xPRequired: 15, successThreshold: 0.79, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   140 : Level(level: 140, name: "production",              xPRequired: 15, successThreshold: 0.81, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   141 : Level(level: 141, name: "wealth",                  xPRequired: 15, successThreshold: 0.82, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   142 : Level(level: 142, name: "thrive",                  xPRequired: 15, successThreshold: 0.82, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   143 : Level(level: 143, name: "flourish",                xPRequired: 15, successThreshold: 0.83, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
-   144 : Level(level: 144, name: "forget?",                 xPRequired: 15, successThreshold: 0.85, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3)
+   127 : Level(level: 127, name: "awakening",               xPRequired: 80, successThreshold: 0.65, punishThreshold: 0.45, canBeLost: true, eligiblePredefinedObjectives: [ColorLibrary.Easy, ColorLibrary.Medium], eligibleRandomColorPrecision: nil),
+   128 : Level(level: 128, name: "love",                    xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3), //closeEnough 4
+   129 : Level(level: 129, name: "love of self",            xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   130 : Level(level: 130, name: "love of life",            xPRequired: 11, successThreshold: 0.79, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   131 : Level(level: 131, name: "egoism",                  xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   132 : Level(level: 132, name: "withdrawal of consent",   xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   133 : Level(level: 133, name: "withdrawal of support",   xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   134 : Level(level: 134, name: "reciprocity",             xPRequired: 11, successThreshold: 0.80, punishThreshold: 0.65, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   135 : Level(level: 135, name: "self-defense",            xPRequired: 35, successThreshold: 0.81, punishThreshold: 0.66, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   136 : Level(level: 136, name: "individualism",           xPRequired: 11, successThreshold: 0.81, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   137 : Level(level: 137, name: "objectivism",             xPRequired: 11, successThreshold: 0.82, punishThreshold: 0.63, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   138 : Level(level: 138, name: "clear the way",           xPRequired: 40, successThreshold: 0.98, punishThreshold: 0.57, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   139 : Level(level: 139, name: "remember",                xPRequired: 15, successThreshold: 0.85, punishThreshold: 0.56, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   140 : Level(level: 140, name: "production",              xPRequired: 15, successThreshold: 0.87, punishThreshold: 0.55, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   141 : Level(level: 141, name: "wealth",                  xPRequired: 15, successThreshold: 0.88, punishThreshold: 0.53, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   142 : Level(level: 142, name: "thrive",                  xPRequired: 15, successThreshold: 0.88, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   143 : Level(level: 143, name: "flourish",                xPRequired: 15, successThreshold: 0.89, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3),
+   144 : Level(level: 144, name: "forget?",                 xPRequired: 15, successThreshold: 0.91, punishThreshold: 0.50, canBeLost: true, eligiblePredefinedObjectives: nil, eligibleRandomColorPrecision: 3)
     ]
     
     //given an amount of XP the player has, return the level the player is on. (currentLevel, xp towards this level) Returns nil if the player's level is off the charts
