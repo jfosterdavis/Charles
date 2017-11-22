@@ -32,7 +32,7 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
-                                   gameDescription: "A charismatic and particularly productive do-gooder operating under a smooth-talking facade.  Twin to Fred.",
+                                   gameDescription: "A charismatic and productive do-gooder under a smooth-talking facade.  Twin to Fred.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -136,7 +136,7 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
-                                gameDescription: "A dramatic yet estudious hard-working producer.  He is child and adult simultaneously. Twin to Charles.",
+                                gameDescription: "A dramatic yet estudious hard-working producer resembling man and boy.  Twin to Charles.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
