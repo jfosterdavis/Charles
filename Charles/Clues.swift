@@ -131,8 +131,8 @@ struct Clues {
                             part3: "If we both consent, we must defend ourselves from those who would prevent our cooperation.",
                             part3Image: nil)
     
-    static let YouKnow = Clue(clueTitle: "You do know.",
-                                part1: "They would have you believe that \"you don't know\"",
+    static let YouKnow = Clue(clueTitle: "You do know",
+                                part1: "They would have you believe that \"you don't know\".",
                                 part1Image: nil,
                                 part2: "But, you do know, don't you?  You have eyes, ears, a brain.",
                                 part2Image: nil,
