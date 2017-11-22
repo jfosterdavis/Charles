@@ -32,7 +32,7 @@ struct Characters {
 
     // MARK: Charles
     static let Charles = Character(name: "Charles",
-                                   gameDescription: "A charismatic, fashionable, and particularly productive do-gooder with a flare for the expensive - operating under a smooth-talking facade.  Twin to Fred.",
+                                   gameDescription: "A charismatic and particularly productive do-gooder operating under a smooth-talking facade.  Twin to Fred.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -136,7 +136,7 @@ struct Characters {
     // MARK: Unlockable Characters
     /// MARK: Fred
     static let Fred = Character(name: "Fred",
-                                gameDescription: "A dramatic yet estudious and hard working producer.  He is both child and adult simultaneously. Twin to Charles.",
+                                gameDescription: "A dramatic yet estudious hard-working producer.  He is child and adult simultaneously. Twin to Charles.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
@@ -204,7 +204,7 @@ struct Characters {
         ])
     
     static let Benton = Character(name: "Benton",
-                                  gameDescription: "He's the nicest guy you will ever meet.  He has a big heart and is always quick with a compliment.",
+                                  gameDescription: "The nicest guy you'll ever meet.  He has a big heart and is always quick with a compliment.",
                                   topRadius: 20,
                                   bottomRadius: 30,
                                   price: 0,
@@ -461,7 +461,7 @@ struct Characters {
         ])
     
     static let StanleyJr = Character(name: "Stanley Jr.",
-                                     gameDescription: "Son of Stanley, but able to reap greater returns.  He wears his father's clothes but isn't as charismatic or insightful.",
+                                     gameDescription: "Son of Stanley, but able to reap greater returns.  Wears his father's clothes but isn't as charismatic or insightful.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
@@ -550,7 +550,7 @@ struct Characters {
         ])
     
     static let Stanley = Character(name: "Stanley",
-                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his usefullness and insight in most any situation.",
+                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his insight in most any situation.",
                                    topRadius: 80,
                                    bottomRadius: 50,
                                    price: 19000,
@@ -639,7 +639,7 @@ struct Characters {
         ])
     
     static let Matthew = Character(name: "Matthew",
-                                   gameDescription: "His priorities are encounters with those of the opposite gender, cars, and the benefits gained from natural substances.",
+                                   gameDescription: "His priorities: encounters with the opposite gender, cars, and the benefits of natural substances.",
                                    topRadius: 10,
                                    bottomRadius: 10,
                                    price: 85000, //8500
