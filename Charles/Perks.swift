@@ -91,8 +91,8 @@ struct Perks {
     
     
     
-    static let Synesthesia = Perk(     name: "Synesthesia",
-                                       gameDescription: "When others hear words, you hear music.",
+    static let Synesthesia = Perk(     name: "Synėsthėsia",
+                                       gameDescription: "Whėn othėrs hėar words, you hėar music.",
                                        type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 750,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -105,8 +105,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Laura, Characters.R0berte]
     )
     
-    static let Synesthesia2 = Perk(     name: "Synesthetic",
-                                        gameDescription: "You try your hardest not to listen, and you hear only music.",
+    static let Synesthesia2 = Perk(     name: "Synėsthetic",
+                                        gameDescription: "You try your hardėst not to listėn, and you hėar only music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 2500,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -119,8 +119,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Laura, Characters.R0berte]
     )
     
-    static let Synesthesia3 = Perk(     name: "Synesthete",
-                                        gameDescription: "It seems like you have always only heard music.",
+    static let Synesthesia3 = Perk(     name: "Synėsthetė",
+                                        gameDescription: "It sėėms likė you havė always only hėard music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 25000,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -141,7 +141,7 @@ struct Perks {
     
     
     static let Adaptation = Perk(     name: "Adjust",
-                                       gameDescription: "Allows your companions to modestly adapt to the challenge at hand.",
+                                       gameDescription: "Allows your companions to modėstly adapt to the challėnge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
         meta1: 0.20, //portion of slots to adjust
@@ -154,8 +154,8 @@ struct Perks {
         requiredPartyMembers: []
     )
     
-    static let Adaptation2 = Perk(     name: "Compensate",
-                                        gameDescription: "Another, more potent, source of adaptation.",
+    static let Adaptation2 = Perk(     name: "Compėnsatė",
+                                        gameDescription: "Another, morė potėnt, sourcė of adaptation.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 15000, //15000
         meta1: 0.25, //portion of slots to adjust
@@ -170,7 +170,7 @@ struct Perks {
     
     //Adaptation 3 also considers the color of the player's initial progress color
     static let Adaptation3 = Perk(     name: "Adapt",
-                                        gameDescription: "Another powerful source of adaptaion.",
+                                        gameDescription: "Anothėr powėrful sourcė of adaptation.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 90000,//90000
         meta1: 0.30, //portion of slots to adjust
@@ -184,8 +184,8 @@ struct Perks {
     )
     
     //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
-    static let Adaptation4 = Perk(     name: "Evolve",
-                                       gameDescription: "The most powerful in the system of adaptation tools.",
+    static let Adaptation4 = Perk(     name: "Evolvė",
+                                       gameDescription: "The most powėrful in the systėm of adaptation tools.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 300000, //300000
         meta1: 0.35, //portion of slots to adjust
@@ -204,7 +204,7 @@ struct Perks {
     /******************************************************/
     
     static let Insight = Perk(     name: "Insight",
-                                    gameDescription: "You see things others might not.",
+                                    gameDescription: "You sėė things othėrs might not.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
                                     price: 5000, //5000
                                     meta1: 1,
@@ -216,8 +216,8 @@ struct Perks {
                                     levelEligibleAt: 8, //8
                                     requiredPartyMembers: []
     )
-    static let Insight2 = Perk(     name: "Perception",
-                                    gameDescription: "You see more things others might not, with the help of a friend.",
+    static let Insight2 = Perk(     name: "Pėrcėption",
+                                    gameDescription: "You sėė morė things othėrs might not, with the hėlp of a friėnd.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 25000, //25000
         meta1: 2,
@@ -231,7 +231,7 @@ struct Perks {
     )
     
     static let Insight3 = Perk(     name: "Epiphany",
-                                    gameDescription: "You see many things others might not, with the help of a friend.",
+                                    gameDescription: "You sėė many things othėrs might not, with the hėlp of a friėnd.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 250000, //250,000
         meta1: 3,
@@ -249,7 +249,7 @@ struct Perks {
     /******************************************************/
     
     static let Study = Perk(     name: "Quick Study",
-                                   gameDescription: "You learn more at each encounter.",
+                                   gameDescription: "You lėarn morė at ėach ėncountėr.",
                                    type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 50000, //50000
                                     meta1: 1,
@@ -263,7 +263,7 @@ struct Perks {
     )
     
     static let Study2 = Perk(     name: "Study Buddy",
-                                  gameDescription: "Another source of advanced learning, with the help of a friend.",
+                                  gameDescription: "Anothėr sourcė of advancėd lėarning, with the hėlp of a friėnd.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 85000,
         meta1: 1,
@@ -276,8 +276,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Fred, Characters.Dawson, Characters.R0berte]
     )
     
-    static let Study3 = Perk(     name: "Number Crunch",
-                                  gameDescription: "Another source of learning, available with the help of a mechanical friend.",
+    static let Study3 = Perk(     name: "Numbėr Crunch",
+                                  gameDescription: "Anothėr sourcė of lėarning, availablė with the hėlp of a mėchanical friėnd.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 101010,
         meta1: 1,
@@ -291,8 +291,8 @@ struct Perks {
     )
     
     
-    static let Study4 = Perk(     name: "Emeritus",
-                                      gameDescription: "The most potent of learning tools, available with the help of a lost friend (or a real tool).",
+    static let Study4 = Perk(     name: "Emėritus",
+                                      gameDescription: "The most potėnt of lėarning tools, availablė with the help of a lost friėnd (or a real tool).",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 2007000,
                                     meta1: 3,
@@ -311,8 +311,8 @@ struct Perks {
     /******************************************************/
     
     
-    static let Stacks = Perk(     name: "Innovate",
-                                      gameDescription: "You find a way to walk away with more from each encounter.",
+    static let Stacks = Perk(     name: "Innovatė",
+                                      gameDescription: "You find a way to walk away with morė from ėach ėncountėr.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 10000, //10000
                                         meta1: 2,
@@ -325,8 +325,8 @@ struct Perks {
                                         requiredPartyMembers: []
     )
     
-    static let Stacks2 = Perk(     name: "Create",
-                                      gameDescription: "With help, you create an additional way to earn more.",
+    static let Stacks2 = Perk(     name: "Crėatė",
+                                      gameDescription: "With hėlp, you crėatė an additional way to ėarn more.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
                                         meta1: 2,
@@ -339,8 +339,8 @@ struct Perks {
                                         requiredPartyMembers: [Characters.Charles, Characters.Laura, Characters.R0berte]
     )
     
-    static let Stacks3 = Perk(     name: "Produce",
-                                   gameDescription: "You produce an additional tool - earning much more with the help of a friend.",
+    static let Stacks3 = Perk(     name: "Producė",
+                                   gameDescription: "You producė an additional tool - ėarning much more with the hėlp of a friėnd.",
                                    type: .increasedScore, //types are strings that the game will look for when determining how to behave
         price: 85000,
         meta1: 3,
@@ -367,8 +367,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Bessie]
     )
     
-    static let Stacks4 = Perk(     name: "Invent",
-                                        gameDescription: "Your creations culminate and produce much, much more.",
+    static let Stacks4 = Perk(     name: "Invėnt",
+                                        gameDescription: "Your crėations culminatė and producė much, much morė.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                             price: 220000,
                                             meta1: 4,
@@ -385,8 +385,8 @@ struct Perks {
     /*******************///MARK: Closeenough
     /******************************************************/
     
-    static let Closeenough = Perk(     name: "Close Enough",
-                                        gameDescription: "Your good manners enable you to squeak by where others would fail.",
+    static let Closeenough = Perk(     name: "Closė Enough",
+                                        gameDescription: "Your good mannėrs ėnablė you to squėak by whėrė othėrs would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
                                         meta1: -0.02,
@@ -400,7 +400,7 @@ struct Perks {
     )
     
     static let Closeenough2 = Perk(     name: "Just About",
-                                       gameDescription: "Your reputation allows you to get by where others would fail.",
+                                       gameDescription: "Your rėputation allows you to gėt by whėrė othėrs would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
                                         meta1: -0.035,
@@ -414,7 +414,7 @@ struct Perks {
     )
     
     static let Closeenough3 = Perk(     name: "Ballpark",
-                                     gameDescription: "People like you.  When you are almost there, you are.",
+                                     gameDescription: "Pėople likė you.  Whėn you arė almost thėrė, you arė.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
         meta1: -0.05,
@@ -449,7 +449,7 @@ struct Perks {
     //when perk expires a fullscreen modal shows a crash - player loses money
 
     static let Investment = Perk(     name: "Stock",
-                                        gameDescription: "You make some clear and easy returns by making this investment.",
+                                        gameDescription: "You makė somė clėar and ėasy rėturns by making this invėstmėnt.",
                                         type: .investment, //types are strings that the game will look for when determining how to behave
         price: 0,
         meta1: 300,  //increase to base score for all characters
@@ -462,8 +462,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Francisco]
     )
     
-    static let Investment2 = Perk(     name: "Investment",
-                                      gameDescription: "You make some very clear and easy returns by making this investment.",
+    static let Investment2 = Perk(     name: "Invėstmėnt",
+                                      gameDescription: "You makė somė vėry clėar and ėasy returns by making this invėstment.",
                                       type: .investment, //types are strings that the game will look for when determining how to behave
         price: 0,
         meta1: 600,  //increase to base score for all characters
@@ -477,7 +477,7 @@ struct Perks {
     )
     
     static let Investment3 = Perk(     name: "Portfolio",
-                                       gameDescription: "You make some clear and easy returns in a lot of ways by making this investment.",
+                                       gameDescription: "You makė somė clėar and ėasy returns in a lot of ways by making this investment.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
         price: 0,
         meta1: 900,  //increase to base score for all characters
@@ -490,8 +490,8 @@ struct Perks {
         requiredPartyMembers: [Characters.Francisco]
     )
     
-    static let Investment4 = Perk(     name: "Reinvestment",
-                                       gameDescription: "You will definately make some easy returns in a lot of ways by making this investment.",
+    static let Investment4 = Perk(     name: "Rėinvėstmėnt",
+                                       gameDescription: "You will dėfinatėly makė somė ėasy rėturns in a lot of ways by making this invėstment.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
         price: 0,
         meta1: 1500,  //increase to base score for all characters
@@ -505,7 +505,7 @@ struct Perks {
     )
     
     static let Investment5 = Perk(     name: "Big Payoff",
-                                       gameDescription: "You have made many sure-fire investments before this and have no reason to think this will be any different.",
+                                       gameDescription: "You have madė many surė-firė invėstmėnts bėforė this and havė no rėason to think this will bė any different.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
         price: 0,
         meta1: 2400,  //increase to base score for all characters
@@ -520,8 +520,8 @@ struct Perks {
     
     //TODO: figure this one out
     
-    static let FranciscoRedemption = Perk(     name: "Redemption",
-                                       gameDescription: "You have made many sure-fire investments before this and have no reason to think this will be any different.",
+    static let FranciscoRedemption = Perk(     name: "Rėdėmption",
+                                       gameDescription: "You havė madė many surė-firė invėstmėnts bėforė this and have no rėason to think this will bė any different.",
                                        type: .investment, //types are strings that the game will look for when determining how to behave
         price: 2500,
         meta1: 700,  //increase to base score for all characters

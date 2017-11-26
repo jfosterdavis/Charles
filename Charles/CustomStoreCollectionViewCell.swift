@@ -117,7 +117,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Hire"
+        statusLabel.text = "For Hirė"
         
         statusShade.alpha = 0.05
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
@@ -143,7 +143,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         
         priceLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
         priceLabel.font = UIFont(name:"GurmukhiMN", size: 15.0)
-        priceLabel.text = "Employed"
+        priceLabel.text = "Employėd"
         
         self.canUserHighlight = true
         self.isUserInteractionEnabled = true
@@ -154,7 +154,7 @@ class CustomStoreCollectionViewCell: CommonStoreCollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Hire"
+        statusLabel.text = "For Hirė"
         
         priceLabel.layer.zPosition = 1
         self.setNeedsDisplay()

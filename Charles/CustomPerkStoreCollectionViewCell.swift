@@ -77,7 +77,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Hire"
+        statusLabel.text = "For Hirė"
         
         statusShade.alpha = 0.1
         statusShade.backgroundColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
@@ -96,7 +96,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "For Hire"
+        statusLabel.text = "For Hirė"
         
         priceLabel.layer.zPosition = 1
         self.setNeedsDisplay()
@@ -117,7 +117,7 @@ class CustomPerkStoreCollectionViewCell: CustomStoreCollectionViewCell {
         //rotate and set text of the label
         statusLabel.transform = CGAffineTransform.identity //resets to normal
         //statusLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 5) //rotates <45 degrees
-        statusLabel.text = "Requires Party"
+        statusLabel.text = "Rėquirės Party"
         
         perkGotFromCharacterIndicator.layer.zPosition = 1
         perkGotFromCharacterIndicator.alpha = 1

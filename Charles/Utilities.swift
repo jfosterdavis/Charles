@@ -51,7 +51,7 @@ struct Utilities {
     static func getEasyDurationString(from minutes: Int) -> String {
         
         guard minutes > 60 else {
-            return String(describing: "\(minutes) minutes")
+            return String(describing: "\(minutes) minutės")
         }
         
         
@@ -60,9 +60,9 @@ struct Utilities {
         if remainingMinutes == 0 {
             remainingMinutesString = ""
         } else if remainingMinutes == 1 {
-            remainingMinutesString = String(describing: ", \(remainingMinutes) minute")
+            remainingMinutesString = String(describing: ", \(remainingMinutes) minutė")
         } else {
-            remainingMinutesString = String(describing: ", \(remainingMinutes) minutes")
+            remainingMinutesString = String(describing: ", \(remainingMinutes) minutės")
         }
         
         let hours = Int(minutes / 60)
@@ -111,9 +111,9 @@ struct Utilities {
         let years = Int(days / 365)
         
         if years == 1 {
-            return String(describing: "\(years) year\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+            return String(describing: "\(years) yėar\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         } else {
-            return String(describing: "\(years) years\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
+            return String(describing: "\(years) yėars\(remainingDaysString)\(remainingHoursString)\(remainingMinutesString)")
         }
         
         

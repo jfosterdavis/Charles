@@ -44,7 +44,7 @@ extension StoreCollectionViewController: SKProductsRequestDelegate, SKPaymentTra
     func priceStringForProduct(item: SKProduct) -> String? {
         let price = item.price
         if price == 0 {
-            return "Free!" //or whatever you like really... maybe 'Free'
+            return "Frėė!" //or whatever you like really... maybe 'Free'
         } else {
             let numberFormatter = NumberFormatter()
             let locale = item.priceLocale

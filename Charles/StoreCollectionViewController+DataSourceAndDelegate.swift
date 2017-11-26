@@ -34,7 +34,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             case toolsSection:
                 headerView.headerTitleLabel.text = "Tools"
             case iapsSection:
-                headerView.headerTitleLabel.text = "In-App Purchases"
+                headerView.headerTitleLabel.text = "In-App Purchasės"
             default:
                 headerView.headerTitleLabel.text = "Unknown Section"
             }
@@ -146,7 +146,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let price = character.price
             var priceLabelText = ""
             if price <= 0 {
-                priceLabelText = "Free!"
+                priceLabelText = "Frėė!"
             } else {
                 priceLabelText = String(describing: price.formattedWithSeparator)
             }
@@ -233,7 +233,7 @@ extension StoreCollectionViewController: UICollectionViewDelegateFlowLayout {
             let price = perk.price
             var priceLabelText = ""
             if price <= 0 {
-                priceLabelText = "Free!"
+                priceLabelText = "Frėė!"
             } else {
                 priceLabelText = String(describing: price.formattedWithSeparator)
             }

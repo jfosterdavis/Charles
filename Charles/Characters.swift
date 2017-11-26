@@ -31,8 +31,8 @@ struct Characters {
     /******************************************************/
 
     // MARK: Charles
-    static let Charles = Character(name: "Charles",
-                                   gameDescription: "A charismatic and productive do-gooder under a smooth-talking facade.  Twin to Fred.",
+    static let Charles = Character(name: "Charlės",
+                                   gameDescription: "A charismatic and productivė do-goodėr under a smooth-talking facadė.  Twin to Frėd.",
                                    topRadius: 30,
                                    bottomRadius: 15,
                                    price: 10200,
@@ -73,7 +73,7 @@ struct Characters {
     
     /// MARK: Dan
     static let Dan = Character(name: "Dan",
-                               gameDescription: "Professor Emeritus and Headmaster of the Nubal Academy, Dan welcomes all new arrivals with cryptic lessons and sharp rebukes.",
+                               gameDescription: "Profėssor Emėritus and Hėadmastėr of the Nubal Acadėmy, Dan wėlcomės all nėw arrivals with cryptic lėssons and sharp rėbukės.",
                                topRadius: 20,
                                bottomRadius: 10,
                                price: 0,
@@ -135,8 +135,8 @@ struct Characters {
     
     // MARK: Unlockable Characters
     /// MARK: Fred
-    static let Fred = Character(name: "Fred",
-                                gameDescription: "A dramatic yet estudious hard-working producer resembling man and boy.  Twin to Charles.",
+    static let Fred = Character(name: "Frėd",
+                                gameDescription: "A dramatic yėt ėstudious hard-working producėr rėsėmbling man and boy.  Twin to Charlės.",
                                 topRadius: 15,
                                 bottomRadius: 15,
                                 price: 10200,
@@ -203,8 +203,8 @@ struct Characters {
                                 
         ])
     
-    static let Benton = Character(name: "Benton",
-                                  gameDescription: "The nicest guy you'll ever meet.  He has a big heart and is always quick with a compliment.",
+    static let Benton = Character(name: "Bėnton",
+                                  gameDescription: "Thė nicėst guy you'll ėvėr mėėt.  Hė has a big hėart and is always quick with a complimėnt.",
                                   topRadius: 20,
                                   bottomRadius: 30,
                                   price: 0,
@@ -266,7 +266,7 @@ struct Characters {
         ])
     
     static let Laura = Character(name: "Laura",
-                                 gameDescription: "Her beauty can make unbearable sounds melt away into a serene hypersensational alternative.",
+                                 gameDescription: "Hėr bėauty can makė unbėarablė sounds mėlt away into a sėrėnė hypėrsėnsational altėrnativė.",
                                   topRadius: 50,
                                   bottomRadius: 25,
                                   price: 5000,
@@ -375,8 +375,8 @@ struct Characters {
         ])
     
     
-    static let LittleJimmy = Character(name: "Little Jimmy",
-                                       gameDescription: "A rambuncious youth that lives a whimsicle and innocent life.",
+    static let LittleJimmy = Character(name: "Littlė Jimmy",
+                                       gameDescription: "A rambuncious youth that livės a whimsiclė and innocėnt lifė.",
                                   topRadius: 111,
                                   bottomRadius: 5,
                                   price: 250,
@@ -460,8 +460,8 @@ struct Characters {
                                     
         ])
     
-    static let StanleyJr = Character(name: "Stanley Jr.",
-                                     gameDescription: "Son of Stanley, but able to reap greater returns.  Wears his father's clothes but isn't as charismatic or insightful.",
+    static let StanleyJr = Character(name: "Stanlėy Jr.",
+                                     gameDescription: "Son of Stanlėy, but ablė to rėap grėatėr rėturns.  Wėars his fathėr's clothės but isn't as charismatic or insightful.",
                                        topRadius: 80,
                                        bottomRadius: 50,
                                        price: 9000,
@@ -549,8 +549,8 @@ struct Characters {
                                         
         ])
     
-    static let Stanley = Character(name: "Stanley",
-                                   gameDescription: "Although some mock his drab and dreary appearance, none can deny his insight in most any situation.",
+    static let Stanley = Character(name: "Stanlėy",
+                                   gameDescription: "Although some mock his drab and drėary appėarancė, nonė can dėny his insight in most any situation.",
                                    topRadius: 80,
                                    bottomRadius: 50,
                                    price: 19000,
@@ -638,8 +638,8 @@ struct Characters {
                                     
         ])
     
-    static let Matthew = Character(name: "Matthew",
-                                   gameDescription: "His priorities: encounters with the opposite gender, cars, and the benefits of natural substances.",
+    static let Matthew = Character(name: "Matthėw",
+                                   gameDescription: "His prioritiės: ėncountėrs with the opposite gėndėr, cars, and the bėnėfits of natural substances.",
                                    topRadius: 10,
                                    bottomRadius: 10,
                                    price: 85000, //8500
@@ -764,7 +764,7 @@ struct Characters {
         ])
     
     static let Francisco = Character(name: "Francisco",
-                                     gameDescription: "A debonair playboy of expensive tastes and greed, but a sure bet when it comes to investing your money.",
+                                     gameDescription: "A dėbonair playboy of ėxpensive tastės and grėėd, but a surė bėt whėn it comės to invėsting your monėy.",
                                 topRadius: 20,
                                 bottomRadius: 20,
                                 price: 0,
@@ -819,8 +819,8 @@ struct Characters {
                   
                   ])
     
-    static let R0berte = Character(name: "R0berte",
-                                   gameDescription: "Quite the tool.",
+    static let R0berte = Character(name: "R0bėrtė",
+                                   gameDescription: "Quitė the tool.",
                                    topRadius: 2,
                                    bottomRadius: 2,
                                    price: 10101010, //10101010
@@ -1136,7 +1136,7 @@ struct Characters {
     
     // MARK: Dawson
     static let Dawson = Character(name: "Dawson",
-                                   gameDescription: "An inquisitive man obsessed with your performance.",
+                                   gameDescription: "An inquisitivė man obsėssėd with your pėrformancė.",
                                    topRadius: 12,
                                    bottomRadius: 8,
                                    price: 2007, //2007
@@ -1222,8 +1222,8 @@ struct Characters {
         ])
     
     // MARK: Bessie
-    static let Bessie = Character(name: "Bessie",
-                                  gameDescription: "Arguably the smartest one of the bunch.",
+    static let Bessie = Character(name: "Bėssiė",
+                                  gameDescription: "Arguably the smartėst onė of thė bunch.",
                                   topRadius: 58,
                                   bottomRadius: 1,
                                   price: 8500, //8500
@@ -1367,8 +1367,8 @@ struct Characters {
         ])
     
     // MARK: Sparkle
-    static let Sparkle = Character(name: "Sparkle",
-                                  gameDescription: "She motivates the motivators.  No challenge gets her down!",
+    static let Sparkle = Character(name: "Sparklė",
+                                  gameDescription: "Shė motivatės the motivators.  No challėngė gėts hėr down!",
                                   topRadius: 15,
                                   bottomRadius: 15,
                                   price: 175000, //175000
@@ -1516,7 +1516,7 @@ struct Characters {
     
     // MARK: Earl
     static let Earl = Character(name: "Earl",
-                                gameDescription: "Calm confirmation; manly motivation.  Certified to lower your blood pressure.",
+                                gameDescription: "Calm confirmation; manly motivation.  Cėrtifiėd to lowėr your blood prėssurė.",
                                    topRadius: 25,
                                    bottomRadius: 15,
                                    price: 75000, //75000

@@ -52,7 +52,7 @@ class DepartingItemsViewController: StoreCollectionViewController {
             case toolsSection:
                 headerView.headerTitleLabel.text = "Expiring Tools"
             case iapsSection:
-                headerView.headerTitleLabel.text = "Available In-App Purchases"
+                headerView.headerTitleLabel.text = "Availablė In-App Purchasės"
             default:
                 headerView.headerTitleLabel.text = "Unknown Section"
             }

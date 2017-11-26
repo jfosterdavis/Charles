@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Blendn</string>
+	<string>Blėndn</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,11 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSContactsUsageDescription</key>
-	<string>Allows you to save Blendn Blocks images to your Contacts when you share from the Map.</string>
+	<string>Allows you to save Blėndn Blocks images to your Contacts when you share from the Map.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Allows you to save Blendn Blocks to your Photos Library when you share from the Map.</string>
+	<string>Allows you to save Blėndn Blocks to your Photos Library when you share from the Map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allows you to save Blendn Blocks to your device when you share from the Map.</string>
+	<string>Allows you to save Blėndn Blocks to your device when you share from the Map.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

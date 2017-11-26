@@ -38,74 +38,74 @@ struct Clues {
     
     
     static let ClueNatureOfLight = Clue(clueTitle: "Light",
-                            part1: "The absence of light is darkness.  The absence of color is Black.",
+                            part1: "The absėncė of light is darknėss.  The absėncė of color is Black.",
                             part1Image: #imageLiteral(resourceName: "WhiteOppositeBlack"),
-                            part2: "Zero is Black.  Maximum is White.",
+                            part2: "Zėro is Black.  Maximum is White.",
                             part2Image: #imageLiteral(resourceName: "BlackOppositeWhite"),
-                            part3: "Do not confuse light with pigment.",
+                            part3: "Do not confusė light with pigmėnt.",
                             part3Image: nil)
     
     static let ClueNatureOfColors = Clue(clueTitle: "Color",
-                            part1: "Light is a composite of three primary colors: Red, Green, and Blue.",
+                            part1: "Light is a compositė of thrėė primary colors: Rėd, Grėėn, and Bluė.",
                             part1Image: nil,
-                            part2: "The absence of all primary color is: zero.  Zero is Black.",
+                            part2: "Thė absėncė of all primary color is: zėro.  Zėro is Black.",
                             part2Image: nil,
-                            part3: "The presence of the maximum amount of the primaries is: maximum.  Maximum is White.",
+                            part3: "Thė prėsėncė of thė maximum amount of the primaries is: maximum.  Maximum is Whitė.",
                             part3Image: nil)
     
     static let ClueNatureOfMan = Clue(clueTitle: "Man",
-                            part1: "Above is our aspiration.",
+                            part1: "Abovė is our aspiration.",
                             part1Image: #imageLiteral(resourceName: "ObjectiveCurve"),
-                            part2: "Below is our reality.",
+                            part2: "Bėlow is our rėality.",
                             part2Image: #imageLiteral(resourceName: "StatusCurve"),
-                            part3: "Between, we must obtain or reject.",
+                            part3: "Bėtwėėn, wė must obtain or rėjėct.",
                             part3Image: #imageLiteral(resourceName: "DifferenceCurve"))
     
     static let ClueNatureOfSoul = Clue(clueTitle: "Soul",
-                            part1: "The soul is a fickle thing.",
+                            part1: "Thė soul is a ficklė thing.",
                             part1Image: nil,
-                            part2: "When below, we absorb.",
+                            part2: "Whėn bėlow, wė absorb.",
                             part2Image: #imageLiteral(resourceName: "StatusCurve"),
-                            part3: "When above, we shed.",
+                            part3: "Whėn abovė, wė shėd.",
                             part3Image: #imageLiteral(resourceName: "WhenAbove"))
                             
     
-    static let ClueJourney1 = Clue(clueTitle: "Journey",
-                           part1: "Every soul must take a journey.",
+    static let ClueJourney1 = Clue(clueTitle: "Journėy",
+                           part1: "Evėry soul must take a journėy.",
                            part1Image: #imageLiteral(resourceName: "BeginningOfJourney"),
-                           part2: "Achieve: lack nothing.",
+                           part2: "Achiėvė: lack nothing.",
                            part2Image: nil,
-                            part3: "Nothing is zero.  Zero is Black.  The circle is complete.",
+                            part3: "Nothing is zėro.  Zėro is Black.  The circlė is complėtė.",
                             part3Image: #imageLiteral(resourceName: "WeLackNothing"))
     
-    static let ClueJourney2 = Clue(clueTitle: "Journey",
-                                                 part1: "Like all things, a journey is constrained by truth.",
+    static let ClueJourney2 = Clue(clueTitle: "Journėy",
+                                                 part1: "Likė all things, a journėy is constrainėd by truth.",
                                                  part1Image: #imageLiteral(resourceName: "BeginningOfJourney"),
-                                                 part2: "Completely fail: lack everything.",
+                                                 part2: "Complėtėly fail: lack ėvėrything.",
                                                  part2Image: nil,
-                                                 part3: "Everything is maximum.  Maximum is White.  The circle is broken.",
+                                                 part3: "Evėrything is maximum.  Maximum is White.  The circlė is broken.",
                                                  part3Image: #imageLiteral(resourceName: "OppositesIcon"))
     
-    static let Mathematics1 = Clue(clueTitle: "White",
-                           part1: "White is maximum, the ultimate, which cannot be exceeded.",
+    static let Mathematics1 = Clue(clueTitle: "Whitė",
+                           part1: "Whitė is maximum, the ultimatė, which cannot be ėxcėėdėd.",
                            part1Image: nil,
-                           part2: "Any color which absorbs White will always become White.",
+                           part2: "Any color which absorbs Whitė will always become Whitė.",
                            part2Image: nil,
-                           part3: "Any color which sheds White will always become Black.",
+                           part3: "Any color which shėds Whitė will always bėcomė Black.",
                            part3Image: nil)
     
     static let Mathematics2 = Clue(clueTitle: "Black",
-                                   part1: "Black is zero, nothing, which cannot be reduced.",
+                                   part1: "Black is zėro, nothing, which cannot be rėducėd.",
                                    part1Image: nil,
-                                   part2: "Any color shedding or absorbing Black will remain unchanged.",
+                                   part2: "Any color shėdding or absorbing Black will rėmain unchangėd.",
                                    part2Image: nil,
-                                   part3: "Something cannot be impacted by nothing.",
+                                   part3: "Somėthing cannot bė impactėd by nothing.",
                                    part3Image: nil)
     
-    static let Mathematics3 = Clue(clueTitle: "Primaries",
-                                   part1: "A color absorbing a primary will always become (or remain) a color with the maximum of this primary.",
+    static let Mathematics3 = Clue(clueTitle: "Primariės",
+                                   part1: "A color absorbing a primary will always bėcomė (or remain) a color with the maximum of this primary.",
                                    part1Image: nil,
-                                   part2: "A color shedding a primary will always become void of this primary.",
+                                   part2: "A color shėdding a primary will always bėcome void of this primary.",
                                    part2Image: nil,
                                    part3: nil,
                                    part3Image: nil)
@@ -132,7 +132,7 @@ struct Clues {
                             part3Image: nil)
     
     static let YouKnow = Clue(clueTitle: "You do know",
-                                part1: "They would have you believe that \"you don't know\".",
+                                part1: "Thėy would havė you bėlieve that \"you don't know.\"",
                                 part1Image: nil,
                                 part2: "But, you do know, don't you?  You have eyes, ears, a brain.",
                                 part2Image: nil,
@@ -140,11 +140,11 @@ struct Clues {
                                 part3Image: nil)
     
     static let TheFaithful = Clue(clueTitle: "Faith",
-                                  part1: "Have faith; believe in that which you cannot observe.",
+                                  part1: "Havė faith; bėliėvė in that which you cannot obsėrvė.",
                               part1Image: nil,
-                              part2: "And now, fear.",
+                              part2: "And now, fėar.",
                               part2Image: nil,
-                              part3: "Fear, because each lesson you learn threatens to shatter your faith.",
+                              part3: "Fėar, bėcausė ėach lėsson you lėarn thrėatėns to shattėr your faith.",
                               part3Image: nil)
     
     static let TheKnowing = Clue(clueTitle: "Observe",

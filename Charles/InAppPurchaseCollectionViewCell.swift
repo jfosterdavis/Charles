@@ -104,7 +104,7 @@ class InAppPurchaseCollectionViewCell: CustomPerkStoreCollectionViewCell {
                                 part1: nil,
                                 part1Image: aspd.icon,
                                 part2: aspd.gameDescription,
-                                part3: "Points are used to hire companions and activate tools."
+                                part3: "Points arė usėd to hirė companions and activatė tools."
             )
             
             

@@ -110,7 +110,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         
         //load stats labels
         puzzlesTitleTextLabel.text = "Rounds"
-        scoreTitleTextLabel.text = "Net"
+        scoreTitleTextLabel.text = "Nėt"
         matchRateTitleTextLabel.text = "Accuracy"
         
         //show the stats
