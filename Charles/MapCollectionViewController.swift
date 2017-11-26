@@ -255,6 +255,8 @@ class MapCollectionViewController: CoreDataCollectionViewController, UICollectio
         //activityVC.popoverPresentationController?.sourceView = self as? UIView
         self.present(activityVC, animated: true, completion: nil)
         
+        //TODO: Use completion handler to determine if action was successful.  If was not successful, do something here.
+        
     }
     
     

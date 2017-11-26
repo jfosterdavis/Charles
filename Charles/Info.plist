@@ -23,9 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSContactsUsageDescription</key>
-	<string>Allows Blendn to save performance mosaic images to your Contacts.</string>
+	<string>Allows you to save Blendn Blocks images to your Contacts when you share from the Map.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allows you to save Blendn Blocks to your Photos Library when you share from the Map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allows Blendn to save performance mosaics to your device.</string>
+	<string>Allows you to save Blendn Blocks to your device when you share from the Map.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
