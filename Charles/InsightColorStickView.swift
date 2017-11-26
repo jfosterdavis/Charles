@@ -236,7 +236,7 @@ class InsightColorStickView:UIView
         //show or don't the deviation
         if showDeviation {
             deviationLabel.isHidden = !showDeviation
-            deviationLabel.text = String(describing: "\(Int(deviation * 100))")
+            deviationLabel.text = String(describing: "\(Int(deviation.rounded(toNearest: 0.01) * 100))")
         } else {
             deviationLabel.isHidden = !showDeviation
         }

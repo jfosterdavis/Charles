@@ -54,6 +54,7 @@ struct Perks {
                                     Study3,
                                     Synesthesia3,
                                     Adaptation4,
+                                    Stacks5,
                                     Study4,
                                     Closeenough4
                                     ]
@@ -79,7 +80,7 @@ struct Perks {
                                     Study3,
                                     Synesthesia3,
                                     Adaptation4,
-                                    
+                                    Stacks5,
                                     Study4,
                                     Closeenough4
                                     ]
@@ -105,7 +106,7 @@ struct Perks {
     )
     
     static let Synesthesia2 = Perk(     name: "Synesthetic",
-                                        gameDescription: "It appears you try your hardest not to listen, and you hear only music.",
+                                        gameDescription: "You try your hardest not to listen, and you hear only music.",
                                         type: .musicalVoices, //types are strings that the game will look for when determining how to behave
         price: 2500,
         meta1: Bundle.main.path(forResource: "1c", ofType: "m4a", inDirectory: "Audio/PerkSynesthesia"),
@@ -140,12 +141,12 @@ struct Perks {
     
     
     static let Adaptation = Perk(     name: "Adjust",
-                                       gameDescription: "Your companions adapt to the challenge at hand.",
+                                       gameDescription: "Allows your companions to modestly adapt to the challenge at hand.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 1000, //1000
-        meta1: 0.15, //portion of slots to adjust
+        meta1: 0.20, //portion of slots to adjust
         meta2: 3, //number of forks for a good move
-        meta3: 0.30, //likelihood a good move option will prevail over a random
+        meta3: 0.40, //likelihood a good move option will prevail over a random
         minutesUnlocked: 45, //45
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -154,12 +155,12 @@ struct Perks {
     )
     
     static let Adaptation2 = Perk(     name: "Compensate",
-                                        gameDescription: "Your companions adapt better to the challenge at hand.",
+                                        gameDescription: "Another, more potent, source of adaptation.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 15000, //15000
-        meta1: 0.20, //portion of slots to adjust
+        meta1: 0.25, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.35, //likelihood a good move option will prevail over a random
+        meta3: 0.50, //likelihood a good move option will prevail over a random
         minutesUnlocked: 1445, //1 day and 5 minutes, 1445
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -169,12 +170,12 @@ struct Perks {
     
     //Adaptation 3 also considers the color of the player's initial progress color
     static let Adaptation3 = Perk(     name: "Adapt",
-                                        gameDescription: "Your companions are a good match for the challenge at hand.",
+                                        gameDescription: "Another powerful source of adaptaion.",
                                         type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 90000,//90000
-        meta1: 0.20, //portion of slots to adjust
+        meta1: 0.30, //portion of slots to adjust
         meta2: 2, //number of forks for a good move
-        meta3: 0.40, //likelihood a good move option will prevail over a random
+        meta3: 0.75, //likelihood a good move option will prevail over a random
         minutesUnlocked: 2880, //2 days, 2880
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -184,12 +185,12 @@ struct Perks {
     
     //Adaptation 4 also considers the color of the player's initial progress color - or rather, it resets the player's color to black.
     static let Adaptation4 = Perk(     name: "Evolve",
-                                       gameDescription: "Your companions are naturally suited to the challenge at hand.",
+                                       gameDescription: "The most powerful in the system of adaptation tools.",
                                        type: .adaptClothing, //types are strings that the game will look for when determining how to behave
         price: 300000, //300000
         meta1: 0.35, //portion of slots to adjust
         meta2: 1, //number of forks for a good move
-        meta3: 0.50, //likelihood a good move option will prevail over a random
+        meta3: 0.90, //likelihood a good move option will prevail over a random
         minutesUnlocked: 20160, //14 days, 20160
         icon: #imageLiteral(resourceName: "hex-key"),
         displayColor: UIColor(red: 255/255.0, green: 126/255.0, blue: 55/255.0, alpha: 1), //orange
@@ -216,7 +217,7 @@ struct Perks {
                                     requiredPartyMembers: []
     )
     static let Insight2 = Perk(     name: "Perception",
-                                    gameDescription: "You see things others might not with the help of a friend.",
+                                    gameDescription: "You see more things others might not, with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 25000, //25000
         meta1: 2,
@@ -230,13 +231,13 @@ struct Perks {
     )
     
     static let Insight3 = Perk(     name: "Epiphany",
-                                    gameDescription: "You see many things others might not with the help of a friend.",
+                                    gameDescription: "You see many things others might not, with the help of a friend.",
                                     type: .visualizeColorValues, //types are strings that the game will look for when determining how to behave
         price: 250000, //250,000
         meta1: 3,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 10080, //1 week 10080
+        minutesUnlocked: 20160, //2 weeks 20160
         icon: #imageLiteral(resourceName: "lightbulb"),
         displayColor: UIColor(red: 0/255.0, green: 134/255.0, blue: 237/255.0, alpha: 1),
         levelEligibleAt: 63,
@@ -262,7 +263,7 @@ struct Perks {
     )
     
     static let Study2 = Perk(     name: "Study Buddy",
-                                  gameDescription: "You learn more at each encounter with the help of a friend.",
+                                  gameDescription: "Another source of advanced learning, with the help of a friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 85000,
         meta1: 1,
@@ -272,11 +273,11 @@ struct Perks {
         icon: #imageLiteral(resourceName: "pencil"),
         displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
         levelEligibleAt: 34, //34
-        requiredPartyMembers: [Characters.Fred, Characters.R0berte]
+        requiredPartyMembers: [Characters.Fred, Characters.Dawson, Characters.R0berte]
     )
     
     static let Study3 = Perk(     name: "Number Crunch",
-                                  gameDescription: "You learn more at each encounter with the help of a mechanical friend.",
+                                  gameDescription: "Another source of learning, available with the help of a mechanical friend.",
                                   type: .increasedXP, //types are strings that the game will look for when determining how to behave
         price: 101010,
         meta1: 1,
@@ -291,7 +292,7 @@ struct Perks {
     
     
     static let Study4 = Perk(     name: "Emeritus",
-                                      gameDescription: "You learn significantly more at each encounter with the help of a lost friend.",
+                                      gameDescription: "The most potent of learning tools, available with the help of a lost friend (or a real tool).",
                                       type: .increasedXP, //types are strings that the game will look for when determining how to behave
                                     price: 2007000,
                                     meta1: 3,
@@ -300,7 +301,7 @@ struct Perks {
                                     minutesUnlocked: 90,
                                     icon: #imageLiteral(resourceName: "pencil"),
                                     displayColor: UIColor(red: 114/255.0, green: 42/255.0, blue: 183/255.0, alpha: 1),
-                                    levelEligibleAt: Characters.John.levelEligibleAt! + 5,
+                                    levelEligibleAt: Characters.John.levelEligibleAt! + 0,
                                     requiredPartyMembers: [Characters.John, Characters.R0berte]
     )
     
@@ -325,7 +326,7 @@ struct Perks {
     )
     
     static let Stacks2 = Perk(     name: "Create",
-                                      gameDescription: "You find a way to earn more from each encounter with the help of a friend.",
+                                      gameDescription: "With help, you create an additional way to earn more.",
                                       type: .increasedScore, //types are strings that the game will look for when determining how to behave
                                         price: 30000,
                                         meta1: 2,
@@ -339,27 +340,41 @@ struct Perks {
     )
     
     static let Stacks3 = Perk(     name: "Produce",
-                                   gameDescription: "Your hard work allows you to earn much more from each encounter with the help of a friend.",
+                                   gameDescription: "You produce an additional tool - earning much more with the help of a friend.",
                                    type: .increasedScore, //types are strings that the game will look for when determining how to behave
-        price: 60000,
-        meta1: 2,
+        price: 85000,
+        meta1: 3,
         meta2: nil,
         meta3: nil,
-        minutesUnlocked: 75, //75
+        minutesUnlocked: 600, //10 hours
         icon: #imageLiteral(resourceName: "hex-DollarSign"),
         displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
         levelEligibleAt: 48, //48
-        requiredPartyMembers: [Characters.Fred, Characters.R0berte]
+        requiredPartyMembers: [Characters.Fred, Characters.Bessie, Characters.R0berte]
+    )
+    
+    static let Stacks5 = Perk(     name: "Cash Cow",
+                                   gameDescription: "Cash from the cow.",
+                                   type: .increasedScore, //types are strings that the game will look for when determining how to behave
+        price: 250000,
+        meta1: 4,
+        meta2: nil,
+        meta3: nil,
+        minutesUnlocked: 480, //8 hours
+        icon: #imageLiteral(resourceName: "hex-DollarSign"),
+        displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
+        levelEligibleAt: 100, //100
+        requiredPartyMembers: [Characters.Bessie]
     )
     
     static let Stacks4 = Perk(     name: "Invent",
-                                        gameDescription: "Your creations culminate and produce much, much more from each encounter.",
+                                        gameDescription: "Your creations culminate and produce much, much more.",
                                         type: .increasedScore, //types are strings that the game will look for when determining how to behave
-                                            price: 100000,
-                                            meta1: 3,
+                                            price: 220000,
+                                            meta1: 4,
                                             meta2: nil,
                                             meta3: nil,
-                                            minutesUnlocked: 90, //90
+                                            minutesUnlocked: 7200, //5 Days, 7200
                                             icon: #imageLiteral(resourceName: "hex-DollarSign"),
                                             displayColor: UIColor(red: 249/255.0, green: 219/255.0, blue: 0/255.0, alpha: 1),
                                             levelEligibleAt: 61,
@@ -374,7 +389,7 @@ struct Perks {
                                         gameDescription: "Your good manners enable you to squeak by where others would fail.",
                                         type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 10000,
-                                        meta1: -0.015,
+                                        meta1: -0.02,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 4320, //3 days, 4320
@@ -388,32 +403,32 @@ struct Perks {
                                        gameDescription: "Your reputation allows you to get by where others would fail.",
                                        type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
                                         price: 50000,
-                                        meta1: -0.025,
+                                        meta1: -0.035,
                                         meta2: nil,
                                         meta3: nil,
                                         minutesUnlocked: 300, //5 hours 300
                                         icon: #imageLiteral(resourceName: "bullseye"),
                                         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
                                         levelEligibleAt: 30,
-                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.R0berte]
+                                        requiredPartyMembers: [Characters.Matthew, Characters.Stanley, Characters.Charles, Characters.Sparkle, Characters.R0berte]
     )
     
     static let Closeenough3 = Perk(     name: "Ballpark",
                                      gameDescription: "People like you.  When you are almost there, you are.",
                                      type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 200000,
-        meta1: -0.04,
+        meta1: -0.05,
         meta2: nil,
         meta3: nil,
         minutesUnlocked: 20,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
         levelEligibleAt: Characters.Matthew.levelEligibleAt, //Matthew
-        requiredPartyMembers: [Characters.Matthew, Characters.R0berte]
+        requiredPartyMembers: [Characters.Matthew, Characters.Sparkle, Characters.R0berte]
     )
     
     static let Closeenough4 = Perk(     name: "Out of My Way",
-                                         gameDescription: "Some things can only be stopped with the right person.",
+                                         gameDescription: "Some challenges can only be overcome with the right person.",
                                          type: .precisionAdjustment, //types are strings that the game will look for when determining how to behave
         price: 400000,
         meta1: -0.10,
@@ -422,7 +437,7 @@ struct Perks {
         minutesUnlocked: 10,
         icon: #imageLiteral(resourceName: "bullseye"),
         displayColor: UIColor(red: 25/255.0, green: 25/255.0, blue: 25/255.0, alpha: 1),
-        levelEligibleAt: 128, //128 is level of awakening
+        levelEligibleAt: 130, //130 is love of life
         requiredPartyMembers: [Characters.John]
     )
     

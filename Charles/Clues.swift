@@ -26,14 +26,14 @@ struct Clues {
                                        8: Mathematics1, //21
                                         9: Mathematics2, //34
                                         10: Mathematics3, //55
-        25: YouKnow, //25
-        35: TheFaithful, //35
-        45: TheKnowing, //45
-        55: Identity, //55
-        75: Trace, //75
+        88: YouKnow, //88
+        119: TheFaithful, //119
+        74: TheKnowing, //74
+        80: Identity, //80
+        65: Trace, //65
         
-                                        90: Truth, //89
-        120: Voluntary //120
+                                        127: Truth, //127
+        135: Voluntary //135 is self-defense
     ]
     
     
@@ -131,8 +131,8 @@ struct Clues {
                             part3: "If we both consent, we must defend ourselves from those who would prevent our cooperation.",
                             part3Image: nil)
     
-    static let YouKnow = Clue(clueTitle: "You do know.",
-                                part1: "They would have you believe that \"you don't know\"",
+    static let YouKnow = Clue(clueTitle: "You do know",
+                                part1: "They would have you believe that \"you don't know\".",
                                 part1Image: nil,
                                 part2: "But, you do know, don't you?  You have eyes, ears, a brain.",
                                 part2Image: nil,

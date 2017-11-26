@@ -210,8 +210,11 @@ extension StoreCollectionViewController {
             
             let userLevel = parentVC.getUserCurrentLevel()
             
+            
+            
             for character in Characters.ValidCharacters {
                 //only characters with a level to be enforced are non-optional
+                //also show characters that are unlocked (for when user beats game some things may still be unlocked like R0berte)
                 if let characterLevel = character.levelEligibleAt {
                     if characterLevel <= userLevel.level {
                         applicableCharacters.append(character)
@@ -220,6 +223,21 @@ extension StoreCollectionViewController {
                     applicableCharacters.append(character)
                 }
             }
+            
+            //find any characters that are unlocked and store them in array to ensure will display
+            let unlockedCharacterObjects = getAllUnlockedCharacters()
+            //get the Character object for these UnlockedCharacter objects
+            for unlockedCharacterObject in unlockedCharacterObjects {
+                //get the character object from the list of valid characters and put it into the array of those to make sure will display
+                for character in Characters.ValidCharacters {
+                    //only add the character if it is unlocked and the character is not already in the applicable characters
+                    if character.name == unlockedCharacterObject.name && !applicableCharacters.contains(character) {
+                        applicableCharacters.append(character)
+                    }
+                    
+                }
+            }
+            
             return applicableCharacters
         } else {
             return Characters.ValidCharacters
