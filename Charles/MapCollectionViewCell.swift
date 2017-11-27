@@ -225,8 +225,8 @@ class MapCollectionViewCell: UICollectionViewCell {
         //load stats labels
         let greaterThanOrEqualTo = "\u{2265}"
         let lessThanOrEqualTo = "\u{2264}"
-        puzzlesTitleTextLabel.text = "Success \(greaterThanOrEqualTo)"
-        scoreTitleTextLabel.text = "Failure \(lessThanOrEqualTo)"
+        puzzlesTitleTextLabel.text = "Succėss \(greaterThanOrEqualTo)"
+        scoreTitleTextLabel.text = "Failurė \(lessThanOrEqualTo)"
         
         //title label
         //levelDescriptionTextLabel.isHidden = false
@@ -246,7 +246,7 @@ class MapCollectionViewCell: UICollectionViewCell {
         scoreValueTextLabel.textColor = .red
         
         //show info label
-        showInfoLabel(withMessage: "Up Next:")
+        showInfoLabel(withMessage: "Up Nėxt:")
         
     }
         
